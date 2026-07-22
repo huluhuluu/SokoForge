@@ -1,0 +1,13 @@
+node_modules/
+target/
+web/dist/
+web/test-results/
+web/playwright-report/
+.vercel/
+*.log
+*.tsbuildinfo
+pack.json
+crates/sokoforge-wasm/web/
+task_plan.md
+findings.md
+progress.md

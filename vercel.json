@@ -1,0 +1,7 @@
+{
+  "buildCommand": "npm --workspace web run build",
+  "outputDirectory": "web/dist",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

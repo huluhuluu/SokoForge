@@ -1,0 +1,16 @@
+{
+  "name": "sokoforge-wasm",
+  "type": "module",
+  "version": "0.1.0",
+  "license": "MIT",
+  "files": [
+    "sokoforge_wasm_bg.wasm",
+    "sokoforge_wasm.js",
+    "sokoforge_wasm.d.ts"
+  ],
+  "main": "sokoforge_wasm.js",
+  "types": "sokoforge_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
