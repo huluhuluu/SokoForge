@@ -3,7 +3,7 @@ import {
   ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Box, BrainCircuit, Check,
   ChevronLeft, ChevronRight, Download, Eraser, FileDown, FileUp, Gamepad2,
   CircleHelp, FolderOpen, FolderSync, Grid3X3, Languages, Pause, Pencil, Play, Redo2, RotateCcw, Save, Sparkles,
-  Square, Target, Undo2, UserRound, WandSparkles,
+  PanelLeftClose, PanelLeftOpen, Square, Target, Undo2, UserRound, WandSparkles,
 } from 'lucide-react'
 import { copy, getInitialLanguage } from './i18n'
 import { loadRememberedDirectory, rememberDirectory, requestDirectory, scanDirectory, supportsLevelDirectory, writePack, type LevelDirectoryHandle } from './levelDirectory'
@@ -41,6 +41,7 @@ export default function App() {
   const [future, setFuture] = useState<ParsedLevel[]>([])
   const [tool, setTool] = useState<Tool>('wall')
   const [activeTab, setActiveTab] = useState<'solve' | 'forge' | 'library'>('solve')
+  const [isLevelSidebarCollapsed, setIsLevelSidebarCollapsed] = useState(false)
   const [solveMode, setSolveMode] = useState<SolveMode>('quick')
   const [solveResult, setSolveResult] = useState<SolveResult | null>(null)
   const [isSolving, setIsSolving] = useState(false)
@@ -481,9 +482,9 @@ export default function App() {
       </div>
     </header>
 
-    <section className="workspace">
-      <aside className={`context-sidebar ${workMode}`}>
-        {workMode === 'play' ? <PlaySidebar published={published} publishedItems={publishedItems} currentLevelId={currentLevelId} language={language} t={t} onLoad={load} onImport={() => fileInput.current?.click()} /> : <EditSidebar level={level} tool={tool} history={history} future={future} t={t} onTool={setTool} onResize={resize} onUndo={undo} onRedo={redo} onReset={() => commit(parseLevel(SAMPLE))} />}
+    <section className={`workspace ${workMode === 'play' && isLevelSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
+      <aside className={`context-sidebar ${workMode} ${workMode === 'play' && isLevelSidebarCollapsed ? 'collapsed' : ''}`}>
+        {workMode === 'play' ? <PlaySidebar published={published} publishedItems={publishedItems} currentLevelId={currentLevelId} language={language} t={t} collapsed={isLevelSidebarCollapsed} onToggleCollapsed={() => setIsLevelSidebarCollapsed((value) => !value)} onLoad={load} onImport={() => fileInput.current?.click()} /> : <EditSidebar level={level} tool={tool} history={history} future={future} t={t} onTool={setTool} onResize={resize} onUndo={undo} onRedo={redo} onReset={() => commit(parseLevel(SAMPLE))} />}
       </aside>
 
       <section className="board-area">
@@ -521,8 +522,23 @@ export default function App() {
 
 type Translations = typeof copy.en | typeof copy.zh
 
-function PlaySidebar({ published, publishedItems, currentLevelId, language, t, onLoad, onImport }: { published: PublishedLevel[]; publishedItems: PackLevel[]; currentLevelId: string | null; language: Language; t: Translations; onLoad: (entry: PackLevel) => void; onImport: () => void }) {
-  return <><div className="sidebar-heading"><span>{t.published}</span><b>{published.length}</b></div><div className="level-list">{published.map((item, index) => <button key={item.id} className={currentLevelId === item.id ? 'active' : ''} onClick={() => onLoad(publishedItems[index])}><span className="level-number">{String(index + 1).padStart(2, '0')}</span><span className="level-copy"><b>{item.title[language]}</b><small>{t[item.difficulty]} · {item.optimalPushes} {t.pushes}</small></span>{currentLevelId === item.id && <Check size={15} />}</button>)}</div><button className="sidebar-import" onClick={onImport}><FileUp size={16} />{t.import}</button></>
+function PlaySidebar({ published, publishedItems, currentLevelId, language, t, collapsed, onToggleCollapsed, onLoad, onImport }: { published: PublishedLevel[]; publishedItems: PackLevel[]; currentLevelId: string | null; language: Language; t: Translations; collapsed: boolean; onToggleCollapsed: () => void; onLoad: (entry: PackLevel) => void; onImport: () => void }) {
+  const currentIndex = published.findIndex((item) => item.id === currentLevelId)
+  const [jumpValue, setJumpValue] = useState(currentIndex >= 0 ? String(currentIndex + 1) : '1')
+
+  useEffect(() => {
+    if (currentIndex >= 0) setJumpValue(String(currentIndex + 1))
+  }, [currentIndex])
+
+  function jumpToLevel(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const requested = Number(jumpValue)
+    if (!Number.isInteger(requested) || requested < 1 || requested > publishedItems.length) return
+    onLoad(publishedItems[requested - 1])
+  }
+
+  if (collapsed) return <button className="sidebar-collapse-toggle" title={t.expandLevels} aria-label={t.expandLevels} onClick={onToggleCollapsed}><PanelLeftOpen size={18} /></button>
+  return <><div className="sidebar-heading"><span>{t.published}</span><div className="sidebar-heading-actions"><b>{published.length}</b><button className="sidebar-collapse-toggle" title={t.collapseLevels} aria-label={t.collapseLevels} onClick={onToggleCollapsed}><PanelLeftClose size={16} /></button></div></div><form className="level-jump" onSubmit={jumpToLevel}><label>{t.levelNumber}<input aria-label={t.levelNumber} type="number" min="1" max={Math.max(1, publishedItems.length)} value={jumpValue} disabled={!publishedItems.length} onChange={(event) => setJumpValue(event.target.value)} /></label><button type="submit" title={t.goToLevel} aria-label={t.goToLevel} disabled={!publishedItems.length}><ArrowRight size={16} /></button></form><div className="level-list">{published.map((item, index) => <button key={item.id} className={currentLevelId === item.id ? 'active' : ''} onClick={() => onLoad(publishedItems[index])}><span className="level-number">{String(index + 1).padStart(2, '0')}</span><span className="level-copy"><b>{item.title[language]}</b><small>{t[item.difficulty]} · {item.optimalPushes} {t.pushes}</small></span>{currentLevelId === item.id && <Check size={15} />}</button>)}</div><button className="sidebar-import" onClick={onImport}><FileUp size={16} />{t.import}</button></>
 }
 
 function EditSidebar({ level, tool, history, future, t, onTool, onResize, onUndo, onRedo, onReset }: { level: ParsedLevel; tool: Tool; history: ParsedLevel[]; future: ParsedLevel[]; t: Translations; onTool: (tool: Tool) => void; onResize: (axis: 'width' | 'height', value: number) => void; onUndo: () => void; onRedo: () => void; onReset: () => void }) {
@@ -534,18 +550,11 @@ function BoardCell({ index, cell, level, workMode, onPaint }: { index: number; c
   const hasBox = level.boxes.includes(index)
   const hasPlayer = level.player === index
   const classes = ['cell', cell === '#' ? 'wall' : 'floor', goal ? 'goal' : '', hasBox ? 'box' : '', hasPlayer ? 'player' : '', workMode].filter(Boolean).join(' ')
-  return <button tabIndex={workMode === 'edit' ? 0 : -1} aria-label={`cell ${index}`} className={classes} onPointerDown={() => { if (workMode === 'edit') onPaint(index) }} onPointerEnter={(event) => { if (workMode === 'edit' && event.buttons === 1) onPaint(index) }}>{goal && <span className="goal-mark" />}{hasBox && <span className="crate" />}{hasPlayer && <span className="keeper" />}</button>
+  return <button tabIndex={workMode === 'edit' ? 0 : -1} aria-label={`cell ${index}`} className={classes} onPointerDown={() => { if (workMode === 'edit') onPaint(index) }} onPointerEnter={(event) => { if (workMode === 'edit' && event.buttons === 1) onPaint(index) }}>{goal && <span className="goal-mark" />}{hasBox && <span className="crate" />}{hasPlayer && <span className="keeper"><span className="keeper-head"><i className="keeper-eye left" /><i className="keeper-eye right" /></span><span className="keeper-body" /></span>}</button>
 }
 
 function GameControls({ t, onMove, onUndo, onRestart, moveDisabled, undoDisabled }: { t: Translations; onMove: (direction: string) => void; onUndo: () => void; onRestart: () => void; moveDisabled: boolean; undoDisabled: boolean }) {
-  return <div className="game-controls">
-    <button className="control-undo" title={t.undoMove} aria-label={t.undoMove} disabled={undoDisabled} onClick={onUndo}><Undo2 size={16} /></button>
-    <button className="control-up" title={t.moveUp} aria-label={t.moveUp} disabled={moveDisabled} onClick={() => onMove('U')}><ArrowUp size={18} /></button>
-    <button className="control-restart" title={t.restartLevel} aria-label={t.restartLevel} onClick={onRestart}><RotateCcw size={16} /></button>
-    <button className="control-left" title={t.moveLeft} aria-label={t.moveLeft} disabled={moveDisabled} onClick={() => onMove('L')}><ArrowLeft size={18} /></button>
-    <button className="control-down" title={t.moveDown} aria-label={t.moveDown} disabled={moveDisabled} onClick={() => onMove('D')}><ArrowDown size={18} /></button>
-    <button className="control-right" title={t.moveRight} aria-label={t.moveRight} disabled={moveDisabled} onClick={() => onMove('R')}><ArrowRight size={18} /></button>
-  </div>
+  return <div className="game-controls"><div className="utility-controls"><button title={t.undoMove} aria-label={t.undoMove} disabled={undoDisabled} onClick={onUndo}><Undo2 size={16} /></button><button title={t.restartLevel} aria-label={t.restartLevel} onClick={onRestart}><RotateCcw size={16} /></button></div><span className="control-divider" /><div className="direction-pad"><button className="control-up" title={t.moveUp} aria-label={t.moveUp} disabled={moveDisabled} onClick={() => onMove('U')}><ArrowUp size={18} /></button><button className="control-left" title={t.moveLeft} aria-label={t.moveLeft} disabled={moveDisabled} onClick={() => onMove('L')}><ArrowLeft size={18} /></button><button className="control-down" title={t.moveDown} aria-label={t.moveDown} disabled={moveDisabled} onClick={() => onMove('D')}><ArrowDown size={18} /></button><button className="control-right" title={t.moveRight} aria-label={t.moveRight} disabled={moveDisabled} onClick={() => onMove('R')}><ArrowRight size={18} /></button></div></div>
 }
 
 function SolvePanel({ t, state, mode, result, isSolving, isPlaying, playbackIndex, playbackSpeed, onMode, onSolve, onTogglePlayback, onStep, onSpeed, onSave }: { t: Translations; state: string; mode: SolveMode; result: SolveResult | null; isSolving: boolean; isPlaying: boolean; playbackIndex: number; playbackSpeed: number; onMode: (mode: SolveMode) => void; onSolve: () => void; onTogglePlayback: () => void; onStep: (delta: number) => void; onSpeed: (speed: number) => void; onSave: () => void }) {
