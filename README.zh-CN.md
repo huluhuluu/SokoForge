@@ -50,6 +50,18 @@ cargo run -p sokoforge-cli -- generate \
 cargo run -p sokoforge-cli -- solve level.xsb --time-limit-ms 30000
 ```
 
+## 发布静态关卡
+
+官方发布关卡不需要数据库。将 XSB 文件添加到 `web/public/levels/`，再向 `web/public/levels/index.json` 增加一条元数据，填写稳定 ID、中英文标题、文件 URL、难度、箱子数和已验证的最少推动数。网页启动时读取该索引，并从同一静态站点加载地图。
+
+提交 Pull Request 前应先验证关卡：
+
+```bash
+cargo run -p sokoforge-cli -- solve web/public/levels/my-level.xsb --time-limit-ms 30000
+```
+
+这种方式可以直接使用 GitHub 审核和 Vercel 静态缓存，不需要账号或数据库。玩家私人关卡仍保存在浏览器中，也可以导出为 XSB 或 JSON 关卡包。
+
 ## 求解与生成思路
 
 求解器以“推动一次箱子”为搜索边，而不是逐格枚举玩家走路。每个状态保存箱子位置和玩家可达区域；通过 flood fill 找到所有可推动位置后，A* 直接扩展推动动作。最优模式使用箱子到目标的最小匹配下界，完成时能证明最少推动数。

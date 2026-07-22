@@ -40,3 +40,13 @@ export interface LevelPack {
   levels: PackLevel[]
 }
 
+export interface PublishedLevelMeta {
+  id: string
+  title: Record<Language, string>
+  file: string
+  difficulty: 'starter' | 'easy' | 'medium' | 'hard'
+  boxes: number
+  optimalPushes: number
+}
+
+export interface PublishedLevel extends PublishedLevelMeta { xsb: string }

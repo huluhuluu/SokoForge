@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "levels": [
+    { "id": "first-push", "title": { "en": "First Push", "zh": "第一次推动" }, "file": "/levels/first-push.xsb", "difficulty": "starter", "boxes": 1, "optimalPushes": 1 },
+    { "id": "two-crates", "title": { "en": "Two Crates", "zh": "双箱入门" }, "file": "/levels/two-crates.xsb", "difficulty": "starter", "boxes": 2, "optimalPushes": 2 },
+    { "id": "open-corner", "title": { "en": "Open Corner", "zh": "开放角落" }, "file": "/levels/open-corner.xsb", "difficulty": "easy", "boxes": 2, "optimalPushes": 7 },
+    { "id": "narrow-turn", "title": { "en": "Narrow Turn", "zh": "狭窄转角" }, "file": "/levels/narrow-turn.xsb", "difficulty": "easy", "boxes": 2, "optimalPushes": 8 },
+    { "id": "split-route", "title": { "en": "Split Route", "zh": "分岔路线" }, "file": "/levels/split-route.xsb", "difficulty": "medium", "boxes": 2, "optimalPushes": 9 },
+    { "id": "parking-space", "title": { "en": "Parking Space", "zh": "临时停车位" }, "file": "/levels/parking-space.xsb", "difficulty": "medium", "boxes": 2, "optimalPushes": 9 },
+    { "id": "warehouse-lanes", "title": { "en": "Warehouse Lanes", "zh": "仓库通道" }, "file": "/levels/warehouse-lanes.xsb", "difficulty": "hard", "boxes": 2, "optimalPushes": 11 },
+    { "id": "blocked-center", "title": { "en": "Blocked Center", "zh": "中心障碍" }, "file": "/levels/blocked-center.xsb", "difficulty": "hard", "boxes": 2, "optimalPushes": 11 }
+  ]
+}

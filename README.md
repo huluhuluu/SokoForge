@@ -51,6 +51,18 @@ To solve an XSB file from the command line:
 cargo run -p sokoforge-cli -- solve level.xsb --time-limit-ms 30000
 ```
 
+## Publishing Static Levels
+
+Published levels are intentionally serverless. Add an XSB file under `web/public/levels/`, then add one metadata entry to `web/public/levels/index.json` with its stable ID, bilingual title, file URL, difficulty, box count, and verified optimal push count. The browser loads this index at startup and fetches each map on demand from the same static deployment.
+
+Before opening a pull request, verify the level:
+
+```bash
+cargo run -p sokoforge-cli -- solve web/public/levels/my-level.xsb --time-limit-ms 30000
+```
+
+This model works with GitHub review and Vercel caching without accounts or a database. User-created private levels remain in browser storage or can be exported as XSB/JSON packs.
+
 ## Solver and Generator
 
 The solver searches **push states**, not ordinary walking states. Each state stores box positions and the player's reachable region. A flood fill finds every legal pushing position, then A* expands pushes directly. The optimal mode uses an admissible box-goal assignment lower bound, so a completed result proves the smallest number of pushes within its search limits.

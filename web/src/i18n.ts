@@ -4,6 +4,7 @@ export const copy = {
   en: {
     brand: 'SokoForge', subtitle: 'Push-box level workbench',
     editor: 'Editor', solve: 'Solve', forge: 'Forge', library: 'Library',
+    playMode: 'Play', editMode: 'Edit', published: 'Published levels', myLevels: 'My levels', restartLevel: 'Restart level', completed: 'Level complete',
     newLevel: 'New level', import: 'Import', export: 'Export', reset: 'Reset',
     board: 'Board', tools: 'Tools', stats: 'Stats', solution: 'Solution',
     quick: 'Quick solve', optimal: 'Prove optimal', play: 'Play solution', stop: 'Stop',
@@ -23,6 +24,7 @@ export const copy = {
   zh: {
     brand: '推箱工坊', subtitle: '推箱子关卡工作台',
     editor: '编辑', solve: '求解', forge: '生成', library: '关卡库',
+    playMode: '游玩', editMode: '编辑', published: '发布关卡', myLevels: '我的关卡', restartLevel: '重开关卡', completed: '关卡完成',
     newLevel: '新关卡', import: '导入', export: '导出', reset: '重置',
     board: '地图', tools: '工具', stats: '统计', solution: '解法',
     quick: '快速求解', optimal: '证明最优', play: '播放解法', stop: '停止',
@@ -47,4 +49,3 @@ export function getInitialLanguage(): Language {
   if (saved === 'en' || saved === 'zh') return saved
   return navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en'
 }
-
