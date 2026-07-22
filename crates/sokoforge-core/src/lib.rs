@@ -610,24 +610,28 @@ pub fn score_result(
             current = next;
         }
     }
+    let walkable = board
+        .tiles
+        .iter()
+        .filter(|tile| **tile != Tile::Wall)
+        .count()
+        .max(1);
     let dependency =
-        (box_switches as f64 * 2.0 + away_pushes as f64 * 3.0 + pushed as f64).min(100.0);
-    let length = (result.pushes as f64 / (board.tiles.len() as f64).sqrt() * 20.0).min(100.0);
-    let trap = (result.explored_nodes as f64).log10().max(0.0) * 12.0;
+        (box_switches as f64 * 4.0 + away_pushes as f64 * 5.0 + pushed as f64 * 0.8).min(100.0);
+    let length = (result.pushes as f64 / (walkable as f64).sqrt() * 25.0).min(100.0);
+    let trap = ((result.explored_nodes.max(1) as f64).log10() * 15.0).min(100.0);
     let score = match mode {
         DifficultyMode::LongSolution => length,
         DifficultyMode::Dependency => dependency,
-        DifficultyMode::DeepTrap => trap.min(100.0),
-        DifficultyMode::Composite => {
-            (length * 0.4 + dependency * 0.3 + trap.min(100.0) * 0.3).min(100.0)
-        }
+        DifficultyMode::DeepTrap => trap,
+        DifficultyMode::Composite => (length * 0.45 + dependency * 0.35 + trap * 0.2).min(100.0),
     };
     DifficultyMetrics {
         score,
         pushes: result.pushes,
         moves: result.moves.len(),
         dependency,
-        trap: trap.min(100.0),
+        trap,
         away_pushes,
         box_switches,
         unique_optimal: None,
@@ -644,21 +648,37 @@ pub fn generate_candidate<R: Rng>(
         return None;
     }
     let mut tiles = vec![Tile::Wall; width * height];
-    for y in 1..height - 1 {
-        for x in 1..width - 1 {
-            if rng.random_bool(0.72) {
-                tiles[y * width + x] = Tile::Floor;
-            }
+    let internal = (width - 2) * (height - 2);
+    let target_floor = rng
+        .random_range(
+            (internal * 58 / 100).max(boxes * 5 + 4)..=(internal * 78 / 100).max(boxes * 5 + 4),
+        )
+        .min(internal);
+    let start = (height / 2) * width + width / 2;
+    tiles[start] = Tile::Floor;
+    let mut carved = vec![start];
+    while carved.len() < target_floor {
+        let from = *carved.choose(rng)?;
+        let direction = *Direction::ALL.choose(rng)?;
+        let (x, y) = ((from % width) as isize, (from / width) as isize);
+        let (dx, dy) = direction.delta();
+        let (nx, ny) = (x + dx, y + dy);
+        if nx <= 0 || ny <= 0 || nx >= width as isize - 1 || ny >= height as isize - 1 {
+            continue;
+        }
+        let next = ny as usize * width + nx as usize;
+        if tiles[next] == Tile::Wall {
+            tiles[next] = Tile::Floor;
+            carved.push(next);
         }
     }
-    for x in 1..width - 1 {
-        tiles[width + x] = Tile::Floor;
-        tiles[(height - 2) * width + x] = Tile::Floor;
-    }
-    for y in 1..height - 1 {
-        tiles[y * width + 1] = Tile::Floor;
-        tiles[y * width + width - 2] = Tile::Floor;
-    }
+    let geometry = Board {
+        width,
+        height,
+        tiles: tiles.clone(),
+        boxes: Vec::new(),
+        player: start,
+    };
     let floor: Vec<usize> = tiles
         .iter()
         .enumerate()
@@ -667,12 +687,29 @@ pub fn generate_candidate<R: Rng>(
     if floor.len() < boxes * 3 + 1 {
         return None;
     }
-    let mut picks = floor
-        .choose_multiple(rng, boxes + 1)
+    let goal_candidates: Vec<usize> = floor
+        .iter()
+        .copied()
+        .filter(|position| {
+            Direction::ALL.iter().any(|direction| {
+                geometry
+                    .step(*position, direction.opposite())
+                    .and_then(|stand| geometry.step(stand, direction.opposite()))
+                    .is_some_and(|destination| geometry.is_free_floor(destination))
+            })
+        })
+        .collect();
+    if goal_candidates.len() < boxes {
+        return None;
+    }
+    let goals = goal_candidates
+        .choose_multiple(rng, boxes)
         .copied()
         .collect::<Vec<_>>();
-    let player = picks.pop()?;
-    let goals = picks;
+    let player = *floor
+        .iter()
+        .filter(|position| !goals.contains(position))
+        .choose(rng)?;
     for g in &goals {
         tiles[*g] = Tile::Goal;
     }
@@ -683,8 +720,11 @@ pub fn generate_candidate<R: Rng>(
         boxes: goals,
         player,
     };
-    let pulls = rng.random_range(boxes * 8..=boxes * 22);
+    let pulls = rng.random_range(boxes * 20..=boxes * 60);
     let mut completed = 0;
+    let mut visited = HashSet::new();
+    visited.insert(board.boxes.clone());
+    let mut last_moved_position = None;
     for _ in 0..pulls {
         let reachable_cells = reachable_paths(&board);
         let mut actions = Vec::new();
@@ -697,20 +737,116 @@ pub fn generate_candidate<R: Rng>(
                     && board.is_free_floor(destination)
                     && !board.boxes.contains(&destination)
                 {
-                    actions.push((box_position, stand, destination));
+                    let mut next_boxes = board.boxes.clone();
+                    let box_i = next_boxes
+                        .iter()
+                        .position(|position| *position == box_position)?;
+                    next_boxes[box_i] = stand;
+                    next_boxes.sort_unstable();
+                    if visited.contains(&next_boxes) {
+                        continue;
+                    }
+                    let before_distance = board
+                        .goals()
+                        .iter()
+                        .map(|goal| {
+                            let (bx, by) = board.xy(box_position);
+                            let (gx, gy) = board.xy(*goal);
+                            (bx - gx).unsigned_abs() + (by - gy).unsigned_abs()
+                        })
+                        .min()
+                        .unwrap_or(0);
+                    let after_distance = board
+                        .goals()
+                        .iter()
+                        .map(|goal| {
+                            let (bx, by) = board.xy(stand);
+                            let (gx, gy) = board.xy(*goal);
+                            (bx - gx).unsigned_abs() + (by - gy).unsigned_abs()
+                        })
+                        .min()
+                        .unwrap_or(0);
+                    let open_neighbors = Direction::ALL
+                        .iter()
+                        .filter(|direction| {
+                            board
+                                .step(stand, **direction)
+                                .is_some_and(|next| board.is_free_floor(next))
+                        })
+                        .count();
+                    let weight = 1
+                        + usize::from(after_distance > before_distance) * 6
+                        + usize::from(last_moved_position != Some(box_position)) * 3
+                        + usize::from(open_neighbors <= 2) * 2;
+                    actions.push((box_position, stand, destination, next_boxes, weight));
                 }
             }
         }
-        let Some((box_position, stand, destination)) = actions.choose(rng).copied() else {
+        let total_weight: usize = actions.iter().map(|action| action.4).sum();
+        if total_weight == 0 {
             break;
-        };
-        let box_i = board.boxes.iter().position(|b| *b == box_position)?;
-        board.boxes[box_i] = stand;
-        board.boxes.sort_unstable();
+        }
+        let mut roll = rng.random_range(0..total_weight);
+        let selected = actions.into_iter().find(|action| {
+            if roll < action.4 {
+                true
+            } else {
+                roll -= action.4;
+                false
+            }
+        })?;
+        let (_box_position, stand, destination, next_boxes, _) = selected;
+        board.boxes = next_boxes.clone();
         board.player = destination;
+        visited.insert(next_boxes.clone());
+        last_moved_position = Some(stand);
         completed += 1;
     }
-    (completed >= boxes * 3 && !board.is_solved()).then_some(board)
+    (completed >= boxes * 6 && !board.is_solved()).then_some(board)
+}
+
+pub fn mutate_geometry<R: Rng>(board: &Board, rng: &mut R) -> Option<Board> {
+    let protected: HashSet<usize> = board
+        .boxes
+        .iter()
+        .copied()
+        .chain(board.goals())
+        .chain(std::iter::once(board.player))
+        .collect();
+    let candidates: Vec<usize> = (1..board.height - 1)
+        .flat_map(|y| (1..board.width - 1).map(move |x| y * board.width + x))
+        .filter(|position| !protected.contains(position))
+        .collect();
+    let position = *candidates.choose(rng)?;
+    let mut mutated = board.clone();
+    mutated.tiles[position] = if mutated.tiles[position] == Tile::Wall {
+        Tile::Floor
+    } else {
+        Tile::Wall
+    };
+
+    let first_floor = mutated.tiles.iter().position(|tile| *tile != Tile::Wall)?;
+    let mut seen = HashSet::new();
+    let mut queue = VecDeque::from([first_floor]);
+    while let Some(current) = queue.pop_front() {
+        if !seen.insert(current) {
+            continue;
+        }
+        for direction in Direction::ALL {
+            if let Some(next) = mutated.step(current, direction)
+                && mutated.is_free_floor(next)
+                && !seen.contains(&next)
+            {
+                queue.push_back(next);
+            }
+        }
+    }
+    let floor_count = mutated
+        .tiles
+        .iter()
+        .filter(|tile| **tile != Tile::Wall)
+        .count();
+    (seen.len() == floor_count).then_some(mutated)
 }
 
 #[cfg(test)]
@@ -759,5 +895,14 @@ mod tests {
             },
         );
         assert_eq!(result.status, SolveStatus::Solved);
+    }
+    #[test]
+    fn geometry_mutation_preserves_connected_floor() {
+        let board = Board::parse_xsb(TINY).unwrap();
+        let mut rng = rand::rngs::StdRng::seed_from_u64(11);
+        if let Some(mutated) = mutate_geometry(&board, &mut rng) {
+            assert_eq!(mutated.boxes, board.boxes);
+            assert_eq!(mutated.goals(), board.goals());
+        }
     }
 }

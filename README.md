@@ -40,7 +40,8 @@ Use the native CLI when a browser batch would be too expensive:
 ```bash
 cargo run -p sokoforge-cli -- generate \
   --count 5000 --width 10 --height 10 --boxes 4 \
-  --mode composite --seed 42 --top 50 --output pack.json
+  --mode composite --seed 42 --top 50 --evolution-rounds 100 \
+  --finalist-time-limit-ms 60000 --output pack.json
 ```
 
 Import `pack.json` from the Library tab. The pack uses a versioned `sokoforge-level-pack` JSON format containing XSB, score metrics, generator metadata, and an optional solution replay.
@@ -69,12 +70,12 @@ The solver searches **push states**, not ordinary walking states. Each state sto
 
 Sokoban search grows exponentially. A timeout means the tool either found no result yet or found a feasible result without proving optimality; it never labels that result as optimal.
 
-Generation starts from a solved board and makes legal **reverse pulls**. Reversing those pulls produces a valid forward solution. The native generator evaluates candidates, scores them, and retains only the top results. Current scoring exposes four selectable views:
+Generation carves a connected warehouse, starts with every box on a goal, and makes legal **reverse pulls**. Reversing those pulls produces a valid forward solution. The native generator ranks a broad candidate pool, optionally evolves the finalists by adding or removing non-critical walls, then keeps only levels whose minimum push count is proven by the optimal solver. Current scoring exposes four selectable views:
 
-- **Long solution**: high push count relative to board area.
+- **Long solution**: high push count relative to walkable area.
 - **Deep trap**: high solver search effort as a first approximation of deceptive choices.
 - **Box dependency**: box switching and temporary movement away from goals.
-- **Composite**: 40% long solution, 30% dependency, 30% trap.
+- **Composite**: 45% long solution, 35% dependency, 20% trap.
 
 These are algorithmic signals, not a claim that every player will perceive identical difficulty. Player telemetry can calibrate them in a future hosted edition.
 

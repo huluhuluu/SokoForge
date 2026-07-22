@@ -7,7 +7,15 @@
     { "id": "narrow-turn", "title": { "en": "Narrow Turn", "zh": "狭窄转角" }, "file": "/levels/narrow-turn.xsb", "difficulty": "easy", "boxes": 2, "optimalPushes": 8 },
     { "id": "split-route", "title": { "en": "Split Route", "zh": "分岔路线" }, "file": "/levels/split-route.xsb", "difficulty": "medium", "boxes": 2, "optimalPushes": 9 },
     { "id": "parking-space", "title": { "en": "Parking Space", "zh": "临时停车位" }, "file": "/levels/parking-space.xsb", "difficulty": "medium", "boxes": 2, "optimalPushes": 9 },
-    { "id": "warehouse-lanes", "title": { "en": "Warehouse Lanes", "zh": "仓库通道" }, "file": "/levels/warehouse-lanes.xsb", "difficulty": "hard", "boxes": 2, "optimalPushes": 11 },
-    { "id": "blocked-center", "title": { "en": "Blocked Center", "zh": "中心障碍" }, "file": "/levels/blocked-center.xsb", "difficulty": "hard", "boxes": 2, "optimalPushes": 11 }
+    { "id": "warehouse-lanes", "title": { "en": "Warehouse Lanes", "zh": "仓库通道" }, "file": "/levels/warehouse-lanes.xsb", "difficulty": "medium", "boxes": 2, "optimalPushes": 11 },
+    { "id": "blocked-center", "title": { "en": "Blocked Center", "zh": "中心障碍" }, "file": "/levels/blocked-center.xsb", "difficulty": "medium", "boxes": 2, "optimalPushes": 11 },
+    { "id": "forced-exchange", "title": { "en": "Forced Exchange", "zh": "强制换箱" }, "file": "/levels/forced-exchange.xsb", "difficulty": "expert", "boxes": 4, "optimalPushes": 24 },
+    { "id": "false-parking", "title": { "en": "False Parking", "zh": "假停车位" }, "file": "/levels/false-parking.xsb", "difficulty": "expert", "boxes": 4, "optimalPushes": 25 },
+    { "id": "goal-detour", "title": { "en": "Goal Detour", "zh": "目标绕行" }, "file": "/levels/goal-detour.xsb", "difficulty": "expert", "boxes": 4, "optimalPushes": 23 },
+    { "id": "cross-lock", "title": { "en": "Cross Lock", "zh": "交叉封锁" }, "file": "/levels/cross-lock.xsb", "difficulty": "expert", "boxes": 4, "optimalPushes": 24 },
+    { "id": "narrow-relay", "title": { "en": "Narrow Relay", "zh": "狭道接力" }, "file": "/levels/narrow-relay.xsb", "difficulty": "expert", "boxes": 5, "optimalPushes": 25 },
+    { "id": "hidden-order", "title": { "en": "Hidden Order", "zh": "隐藏顺序" }, "file": "/levels/hidden-order.xsb", "difficulty": "expert", "boxes": 5, "optimalPushes": 26 },
+    { "id": "reverse-logic", "title": { "en": "Reverse Logic", "zh": "逆向逻辑" }, "file": "/levels/reverse-logic.xsb", "difficulty": "expert", "boxes": 5, "optimalPushes": 27 },
+    { "id": "five-crate-knot", "title": { "en": "Five-crate Knot", "zh": "五箱死结" }, "file": "/levels/five-crate-knot.xsb", "difficulty": "expert", "boxes": 5, "optimalPushes": 24 }
   ]
 }

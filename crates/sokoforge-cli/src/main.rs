@@ -4,7 +4,8 @@ use rand::SeedableRng;
 use rayon::prelude::*;
 use serde::Serialize;
 use sokoforge_core::{
-    Board, DifficultyMode, SolveMode, SolveOptions, generate_candidate, score_result,
+    Board, DifficultyMode, SolveMode, SolveOptions, generate_candidate, mutate_geometry,
+    score_result,
 };
 use std::fs;
 
@@ -43,6 +44,12 @@ enum Command {
         mode: ModeArg,
         #[arg(long, default_value = "pack.json")]
         output: String,
+        #[arg(long, default_value_t = 15_000)]
+        finalist_time_limit_ms: u64,
+        #[arg(long, default_value_t = 4_000_000)]
+        finalist_node_limit: usize,
+        #[arg(long, default_value_t = 0)]
+        evolution_rounds: usize,
     },
 }
 
@@ -109,6 +116,9 @@ fn main() -> Result<()> {
             seed,
             mode,
             output,
+            finalist_time_limit_ms,
+            finalist_node_limit,
+            evolution_rounds,
         } => {
             let mode_core: DifficultyMode = mode.into();
             let candidates: Vec<Level> = (0..count)
@@ -120,8 +130,8 @@ fn main() -> Result<()> {
                         &board,
                         &SolveOptions {
                             mode: SolveMode::Quick,
-                            time_limit_ms: 500,
-                            node_limit: 250_000,
+                            time_limit_ms: 1_000,
+                            node_limit: 500_000,
                         },
                     );
                     if result.status != sokoforge_core::SolveStatus::Solved {
@@ -138,6 +148,66 @@ fn main() -> Result<()> {
                 })
                 .collect();
             let mut sorted = candidates;
+            sorted.sort_by(|a, b| b.difficulty.score.total_cmp(&a.difficulty.score));
+            sorted.truncate(top.saturating_mul(6).max(top));
+            let mut sorted: Vec<Level> = sorted
+                .into_par_iter()
+                .enumerate()
+                .filter_map(|(finalist_index, candidate)| {
+                    let mut board = Board::parse_xsb(&candidate.xsb).ok()?;
+                    let initial_result = sokoforge_core::solve(
+                        &board,
+                        &SolveOptions {
+                            mode: SolveMode::Quick,
+                            time_limit_ms: 1_000,
+                            node_limit: 500_000,
+                        },
+                    );
+                    let mut best_score = score_result(&initial_result, &board, mode_core).score;
+                    let mut rng = rand::rngs::StdRng::seed_from_u64(
+                        seed.wrapping_add(1_000_000 + finalist_index as u64),
+                    );
+                    for _ in 0..evolution_rounds {
+                        let Some(mutated) = mutate_geometry(&board, &mut rng) else {
+                            continue;
+                        };
+                        let result = sokoforge_core::solve(
+                            &mutated,
+                            &SolveOptions {
+                                mode: SolveMode::Quick,
+                                time_limit_ms: 750,
+                                node_limit: 500_000,
+                            },
+                        );
+                        if result.status != sokoforge_core::SolveStatus::Solved {
+                            continue;
+                        }
+                        let score = score_result(&result, &mutated, mode_core).score;
+                        if score > best_score {
+                            board = mutated;
+                            best_score = score;
+                        }
+                    }
+                    let result = sokoforge_core::solve(
+                        &board,
+                        &SolveOptions {
+                            mode: SolveMode::Optimal,
+                            time_limit_ms: finalist_time_limit_ms,
+                            node_limit: finalist_node_limit,
+                        },
+                    );
+                    if result.status != sokoforge_core::SolveStatus::Solved || !result.optimal {
+                        return None;
+                    }
+                    Some(Level {
+                        id: candidate.id,
+                        name: candidate.name,
+                        xsb: board.to_xsb(),
+                        difficulty: score_result(&result, &board, mode_core),
+                        solution: result.moves,
+                    })
+                })
+                .collect();
             sorted.sort_by(|a, b| b.difficulty.score.total_cmp(&a.difficulty.score));
             sorted.truncate(top);
             let pack = Pack {

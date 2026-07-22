@@ -24,5 +24,5 @@ test('loads published levels from the static index', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: /Library|关卡库/ }).click()
   await expect(page.getByRole('heading', { name: /First Push|第一次推动/ })).toBeVisible()
-  await expect(page.locator('.result-list').first().locator('.result-row')).toHaveCount(8)
+  await expect(page.locator('.result-list').first().locator('.result-row')).toHaveCount(16)
 })

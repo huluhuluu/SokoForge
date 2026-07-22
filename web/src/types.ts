@@ -44,7 +44,7 @@ export interface PublishedLevelMeta {
   id: string
   title: Record<Language, string>
   file: string
-  difficulty: 'starter' | 'easy' | 'medium' | 'hard'
+  difficulty: 'starter' | 'easy' | 'medium' | 'hard' | 'expert'
   boxes: number
   optimalPushes: number
 }
