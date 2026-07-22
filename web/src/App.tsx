@@ -112,9 +112,9 @@ export default function App() {
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
       if (workMode !== 'play' || event.metaKey || event.ctrlKey) return
-      if ((event.key === 'z' || event.key === 'Z' || event.key === 'Backspace') && playHistory.length && !isPlaying) {
+      if ((event.key === 'z' || event.key === 'Z' || event.key === 'Backspace') && (playHistory.length || playbackIndex > 0) && !isPlaying) {
         event.preventDefault()
-        undoPlayMove()
+        undoCurrentMove()
         return
       }
       const direction = directionByKey[event.key]
@@ -126,7 +126,7 @@ export default function App() {
     }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
-  }, [isPlaying, level, playHistory, workMode])
+  }, [isPlaying, level, playbackIndex, playHistory, solveResult, workMode])
 
   useEffect(() => {
     if (!isPlaying || !solveResult?.moves || !solutionStart) return
@@ -170,9 +170,13 @@ export default function App() {
   async function onSolve() {
     setIsSolving(true)
     setIsPlaying(false)
-    const start = level
+    const start = initialLevel
+    setLevel(start)
+    setPlayStats({ moves: 0, pushes: 0 })
+    setPlayHistory([])
     setSolutionStart(start)
     setPlaybackIndex(0)
+    setSolveResult(null)
     setSolveResult(await solve(toXsb(start)))
     setIsSolving(false)
   }
@@ -223,9 +227,14 @@ export default function App() {
     setPlaybackIndex(0)
   }
 
-  function undoPlayMove() {
+  function undoCurrentMove() {
+    if (isPlaying) return
+    if (playbackIndex > 0 && solveResult?.moves) {
+      stepSolution(-1)
+      return
+    }
     const previous = playHistory.at(-1)
-    if (!previous || isPlaying) return
+    if (!previous) return
     setLevel(previous.level)
     setPlayStats(previous.stats)
     setPlayHistory((items) => items.slice(0, -1))
@@ -447,7 +456,7 @@ export default function App() {
 
         <footer className="game-dock">
           {workMode === 'play' ? <>
-            <div className="play-summary"><div className="play-stats"><span><b>{playStats.moves}</b>{t.playedMoves}</span><span><b>{playStats.pushes}</b>{t.playedPushes}</span></div><div className="play-actions"><button title={t.undoMove} aria-label={t.undoMove} disabled={!playHistory.length || isPlaying} onClick={undoPlayMove}><Undo2 size={15} /></button><button title={t.restartLevel} aria-label={t.restartLevel} onClick={restartLevel}><RotateCcw size={15} /></button></div></div>
+            <div className="play-summary"><div className="play-stats"><span><b>{playStats.moves}</b>{t.playedMoves}</span><span><b>{playStats.pushes}</b>{t.playedPushes}</span></div><div className="play-actions"><button title={t.undoMove} aria-label={t.undoMove} disabled={(!playHistory.length && playbackIndex === 0) || isPlaying} onClick={undoCurrentMove}><Undo2 size={14} /><span>{t.undoMove}</span></button><button title={t.restartLevel} aria-label={t.restartLevel} onClick={restartLevel}><RotateCcw size={14} /><span>{t.restartLevel}</span></button></div></div>
             <Dpad onMove={playMove} disabled={isPlaying} />
             <span className={`board-status ${state}`}>{state === 'solved' ? t.completed : t.ready}</span>
           </> : <div className="edit-status"><Pencil size={15} />{level.width} × {level.height}</div>}

@@ -4,7 +4,7 @@ export const copy = {
   en: {
     brand: 'SokoForge', subtitle: 'Push-box level workbench',
     editor: 'Editor', solve: 'Solve', forge: 'Forge', library: 'Library',
-    playMode: 'Play', editMode: 'Edit', published: 'Published levels', myLevels: 'My levels', restartLevel: 'Restart level', completed: 'Level complete',
+    playMode: 'Play', editMode: 'Edit', published: 'Published levels', myLevels: 'My levels', restartLevel: 'Restart', completed: 'Level complete',
     level: 'Level', untitled: 'Untitled level', starter: 'Starter', easy: 'Easy', medium: 'Medium', hard: 'Hard', expert: 'Expert', optimalPushes: 'Optimal pushes', playedMoves: 'Moves', playedPushes: 'Pushes', previousLevel: 'Previous level', nextLevel: 'Next level', ready: 'Ready', solverStatus: 'Solver status',
     newLevel: 'New level', import: 'Import', export: 'Export', reset: 'Reset',
     board: 'Board', tools: 'Tools', stats: 'Stats', solution: 'Solution',
@@ -28,7 +28,7 @@ export const copy = {
   zh: {
     brand: '推箱工坊', subtitle: '推箱子关卡工作台',
     editor: '编辑', solve: '求解', forge: '生成', library: '关卡库',
-    playMode: '游玩', editMode: '编辑', published: '发布关卡', myLevels: '我的关卡', restartLevel: '重开关卡', completed: '关卡完成',
+    playMode: '游玩', editMode: '编辑', published: '发布关卡', myLevels: '我的关卡', restartLevel: '重新开始', completed: '关卡完成',
     level: '关卡', untitled: '未命名关卡', starter: '入门', easy: '简单', medium: '中等', hard: '困难', expert: '专家', optimalPushes: '最少推动', playedMoves: '移动', playedPushes: '推动', previousLevel: '上一关', nextLevel: '下一关', ready: '就绪', solverStatus: '求解状态',
     newLevel: '新关卡', import: '导入', export: '导出', reset: '重置',
     board: '地图', tools: '工具', stats: '统计', solution: '解法',
