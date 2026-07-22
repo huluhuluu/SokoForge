@@ -356,11 +356,29 @@ fn reachable_paths(board: &Board) -> HashMap<usize, String> {
     seen
 }
 
+fn reachable_cells(board: &Board) -> HashSet<usize> {
+    let mut seen = HashSet::from([board.player]);
+    let mut queue = VecDeque::from([board.player]);
+    let boxes: HashSet<usize> = board.boxes.iter().copied().collect();
+    while let Some(position) = queue.pop_front() {
+        for direction in Direction::ALL {
+            if let Some(next) = board.step(position, direction)
+                && board.is_free_floor(next)
+                && !boxes.contains(&next)
+                && seen.insert(next)
+            {
+                queue.push_back(next);
+            }
+        }
+    }
+    seen
+}
+
 fn canonical_key(board: &Board) -> StateKey {
     let mut boxes = board.boxes.clone();
     boxes.sort_unstable();
-    let region = reachable_paths(board)
-        .into_keys()
+    let region = reachable_cells(board)
+        .into_iter()
         .min()
         .unwrap_or(board.player);
     StateKey { boxes, region }
@@ -549,7 +567,7 @@ pub fn score_result(
     board: &Board,
     mode: DifficultyMode,
 ) -> DifficultyMetrics {
-    if result.status == SolveStatus::Invalid || result.status == SolveStatus::Unsolved {
+    if result.status != SolveStatus::Solved {
         return DifficultyMetrics::default();
     }
     let mut box_switches = 0;
@@ -557,6 +575,7 @@ pub fn score_result(
     let mut last_box = None;
     let mut pushed = 0;
     let mut current = board.clone();
+    let goals = board.goals();
     let mut identities: HashMap<usize, usize> = current
         .boxes
         .iter()
@@ -576,15 +595,14 @@ pub fn score_result(
                     .find(|b| !current.boxes.contains(b))
                     .copied();
                 let identity = identities.remove(&old_position);
-                if identity != last_box {
+                if last_box.is_some() && identity != last_box {
                     box_switches += 1;
                 }
                 last_box = identity;
                 if let (Some(id), Some(after_position)) = (identity, moved) {
                     identities.insert(after_position, id);
                     let before = board.xy(old_position);
-                    let nearest_before = board
-                        .goals()
+                    let nearest_before = goals
                         .iter()
                         .map(|g| {
                             let p = board.xy(*g);
@@ -593,8 +611,7 @@ pub fn score_result(
                         .min()
                         .unwrap_or(0);
                     let after = next.xy(after_position);
-                    let nearest_after = board
-                        .goals()
+                    let nearest_after = goals
                         .iter()
                         .map(|g| {
                             let p = board.xy(*g);
@@ -720,20 +737,21 @@ pub fn generate_candidate<R: Rng>(
         boxes: goals,
         player,
     };
+    let goal_positions = board.goals();
     let pulls = rng.random_range(boxes * 20..=boxes * 60);
     let mut completed = 0;
     let mut visited = HashSet::new();
     visited.insert(board.boxes.clone());
     let mut last_moved_position = None;
     for _ in 0..pulls {
-        let reachable_cells = reachable_paths(&board);
+        let reachable = reachable_cells(&board);
         let mut actions = Vec::new();
         for &box_position in &board.boxes {
             for direction in Direction::ALL {
                 let stand = board.step(box_position, direction.opposite());
                 let destination = stand.and_then(|p| board.step(p, direction.opposite()));
                 if let (Some(stand), Some(destination)) = (stand, destination)
-                    && reachable_cells.contains_key(&stand)
+                    && reachable.contains(&stand)
                     && board.is_free_floor(destination)
                     && !board.boxes.contains(&destination)
                 {
@@ -746,8 +764,7 @@ pub fn generate_candidate<R: Rng>(
                     if visited.contains(&next_boxes) {
                         continue;
                     }
-                    let before_distance = board
-                        .goals()
+                    let before_distance = goal_positions
                         .iter()
                         .map(|goal| {
                             let (bx, by) = board.xy(box_position);
@@ -756,8 +773,7 @@ pub fn generate_candidate<R: Rng>(
                         })
                         .min()
                         .unwrap_or(0);
-                    let after_distance = board
-                        .goals()
+                    let after_distance = goal_positions
                         .iter()
                         .map(|goal| {
                             let (bx, by) = board.xy(stand);
@@ -904,5 +920,36 @@ mod tests {
             assert_eq!(mutated.boxes, board.boxes);
             assert_eq!(mutated.goals(), board.goals());
         }
+    }
+    #[test]
+    fn first_box_run_is_not_counted_as_a_switch() {
+        let board = Board::parse_xsb(TINY).unwrap();
+        let result = solve(
+            &board,
+            &SolveOptions {
+                mode: SolveMode::Optimal,
+                time_limit_ms: 1_000,
+                node_limit: 100_000,
+            },
+        );
+        let metrics = score_result(&result, &board, DifficultyMode::Dependency);
+        assert_eq!(metrics.box_switches, 0);
+    }
+    #[test]
+    fn timeout_result_has_no_difficulty_score() {
+        let board = Board::parse_xsb(TINY).unwrap();
+        let result = SolveResult {
+            status: SolveStatus::Timeout,
+            moves: "D".into(),
+            pushes: 1,
+            explored_nodes: 100,
+            elapsed_ms: 10,
+            optimal: false,
+            message: String::new(),
+        };
+        let metrics = score_result(&result, &board, DifficultyMode::Composite);
+        assert_eq!(metrics.score, 0.0);
+        assert_eq!(metrics.pushes, 0);
+        assert_eq!(metrics.box_switches, 0);
     }
 }

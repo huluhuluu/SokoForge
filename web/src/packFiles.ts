@@ -27,7 +27,7 @@ function validateXsb(xsb: string) {
   }
 }
 
-function isPackLevel(value: unknown): value is PackLevel {
+export function isPackLevel(value: unknown): value is PackLevel {
   if (!value || typeof value !== 'object') return false
   const level = value as Partial<PackLevel>
   return typeof level.id === 'string'
