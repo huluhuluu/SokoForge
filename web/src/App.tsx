@@ -2,12 +2,14 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Box, BrainCircuit, Check,
   ChevronLeft, ChevronRight, Download, Eraser, FileDown, FileUp, Gamepad2,
-  Grid3X3, Languages, Pencil, Play, Redo2, RotateCcw, Save, Sparkles,
+  FolderOpen, FolderSync, Grid3X3, Languages, Pencil, Play, Redo2, RotateCcw, Save, Sparkles,
   Square, Target, Undo2, UserRound, WandSparkles,
 } from 'lucide-react'
 import { copy, getInitialLanguage } from './i18n'
+import { loadRememberedDirectory, rememberDirectory, requestDirectory, scanDirectory, supportsLevelDirectory, writePack, type LevelDirectoryHandle } from './levelDirectory'
 import { applyTool, boardStatus, move, parseLevel, resizeLevel, SAMPLE, toXsb, type ParsedLevel } from './level'
-import type { DifficultyMode, Language, LevelPack, PackLevel, PublishedLevel, PublishedLevelMeta, SolveMode, SolveResult, Tool } from './types'
+import { createLevelPack, downloadLevelPack, mergeLevelLists, packFileName, parseImportedFile } from './packFiles'
+import type { DifficultyMode, Language, PackLevel, PublishedLevel, PublishedLevelBundle, PublishedLevelIndex, SolveMode, SolveResult, Tool } from './types'
 
 const toolIcons = { wall: Square, floor: Grid3X3, goal: Target, box: Box, player: UserRound, eraser: Eraser }
 const directionByKey: Record<string, string> = {
@@ -38,6 +40,8 @@ export default function App() {
   const [generationProgress, setGenerationProgress] = useState(0)
   const [library, setLibrary] = useState<PackLevel[]>(() => JSON.parse(localStorage.getItem('sokoforge-library') ?? '[]'))
   const [published, setPublished] = useState<PublishedLevel[]>([])
+  const [directory, setDirectory] = useState<LevelDirectoryHandle | null>(null)
+  const [directoryBusy, setDirectoryBusy] = useState(false)
   const worker = useRef<Worker | null>(null)
   const requestId = useRef(0)
   const pending = useRef(new Map<number, (reply: { result?: SolveResult; xsb?: string }) => void>())
@@ -63,12 +67,17 @@ export default function App() {
   useEffect(() => { localStorage.setItem('sokoforge-library', JSON.stringify(library)) }, [library])
 
   useEffect(() => {
-    fetch('/levels/index.json').then((response) => response.json()).then(async (index: { schemaVersion: number; levels: PublishedLevelMeta[] }) => {
+    fetch('/levels/index.json').then((response) => response.json()).then(async (index: PublishedLevelIndex) => {
       if (index.schemaVersion !== 1) return
-      const loaded = await Promise.all(index.levels.map(async (meta) => ({
+      const direct = await Promise.all(index.levels.filter((meta) => meta.file).map(async (meta) => ({
         ...meta,
-        xsb: await fetch(meta.file).then((response) => response.text()),
+        xsb: await fetch(meta.file!).then((response) => response.text()),
       })))
+      const bundles = await Promise.all((index.packs ?? []).map(async (path) => {
+        const bundle = await fetch(path).then((response) => response.json()) as PublishedLevelBundle
+        return bundle.schemaVersion === 1 && bundle.kind === 'sokoforge-published-pack' ? bundle.levels : []
+      }))
+      const loaded = [...direct, ...bundles.flat()]
       setPublished(loaded)
       if (loaded[0]) {
         const first = parseLevel(loaded[0].xsb)
@@ -77,6 +86,14 @@ export default function App() {
         setCurrentLevelId(loaded[0].id)
       }
     }).catch(() => setPublished([]))
+  }, [])
+
+  useEffect(() => {
+    loadRememberedDirectory().then(async (handle) => {
+      if (!handle) return
+      setDirectory(handle)
+      if (await handle.queryPermission({ mode: 'read' }) === 'granted') await importDirectory(handle, false)
+    }).catch(() => undefined)
   }, [])
 
   useEffect(() => {
@@ -196,6 +213,76 @@ export default function App() {
     URL.revokeObjectURL(url)
   }
 
+  function addToLibrary(levels: PackLevel[], activate = true) {
+    if (!levels.length) return
+    setLibrary((items) => mergeLevelLists(levels, items))
+    if (activate) setActiveTab('library')
+  }
+
+  async function importFiles(files: File[]) {
+    const imported: PackLevel[] = []
+    let invalid = 0
+    for (const file of files) {
+      try { imported.push(...parseImportedFile(file.name, await file.text())) } catch { invalid += 1 }
+    }
+    if (imported.length) {
+      setResults(imported)
+      addToLibrary(imported)
+    }
+    if (invalid) window.alert(t.invalidFiles.replace('{count}', String(invalid)))
+  }
+
+  async function importDirectory(handle: LevelDirectoryHandle, activate = true) {
+    setDirectoryBusy(true)
+    try { addToLibrary(await scanDirectory(handle), activate) } finally { setDirectoryBusy(false) }
+  }
+
+  async function chooseLevelDirectory() {
+    if (!supportsLevelDirectory() || !window.showDirectoryPicker) {
+      fileInput.current?.click()
+      return
+    }
+    try {
+      const handle = await window.showDirectoryPicker({ id: 'sokoforge-levels', mode: 'readwrite' })
+      await rememberDirectory(handle)
+      setDirectory(handle)
+      await importDirectory(handle)
+    } catch (error) {
+      if ((error as DOMException).name !== 'AbortError') window.alert(t.folderUnavailable)
+    }
+  }
+
+  async function refreshDirectory() {
+    if (!directory) return chooseLevelDirectory()
+    if (await requestDirectory(directory, 'read')) await importDirectory(directory)
+  }
+
+  function exportGeneratedPack() {
+    if (results.length) downloadLevelPack(createLevelPack(results))
+  }
+
+  async function saveGeneratedPackToDirectory() {
+    if (!results.length) return
+    let handle = directory
+    if (!handle && supportsLevelDirectory() && window.showDirectoryPicker) {
+      try {
+        handle = await window.showDirectoryPicker({ id: 'sokoforge-levels', mode: 'readwrite' })
+        await rememberDirectory(handle)
+        setDirectory(handle)
+      } catch (error) {
+        if ((error as DOMException).name !== 'AbortError') window.alert(t.folderUnavailable)
+        return
+      }
+    }
+    if (!handle) {
+      exportGeneratedPack()
+      return
+    }
+    if (!await requestDirectory(handle, 'readwrite')) return
+    await writePack(handle, packFileName(), createLevelPack(results))
+    window.alert(t.packSaved)
+  }
+
   function saveLevel() {
     const metrics = solveResult
       ? { score: solveResult.pushes, pushes: solveResult.pushes, moves: solveResult.moves.length, dependency: 0, trap: 0, away_pushes: 0, box_switches: 0 }
@@ -225,20 +312,6 @@ export default function App() {
         setGenerationProgress(Math.round(((i + 1) / total) * 100))
       }
     }
-  }
-
-  function importJson(file: File) {
-    const reader = new FileReader()
-    reader.onload = () => {
-      try {
-        const pack = JSON.parse(String(reader.result)) as LevelPack
-        if (pack.kind !== 'sokoforge-level-pack' || pack.schemaVersion !== 1 || !Array.isArray(pack.levels)) throw new Error('Unsupported pack')
-        setResults(pack.levels)
-        setLibrary((items) => [...pack.levels, ...items])
-        setActiveTab('library')
-      } catch { window.alert('Invalid SokoForge level pack') }
-    }
-    reader.readAsText(file)
   }
 
   function load(entry: PackLevel) {
@@ -272,7 +345,7 @@ export default function App() {
         <button className="icon-button" title={t.import} onClick={() => fileInput.current?.click()}><FileUp size={18} /></button>
         <button className="icon-button" title={t.export} onClick={exportLevel}><Download size={18} /></button>
         <button className="language-button" title={t.language} onClick={() => setLanguage(language === 'en' ? 'zh' : 'en')}><Languages size={16} /><span>{language === 'en' ? '中文' : 'EN'}</span></button>
-        <input ref={fileInput} hidden type="file" accept="application/json,.json" onChange={(event) => event.target.files?.[0] && importJson(event.target.files[0])} />
+        <input ref={fileInput} hidden multiple type="file" accept="application/json,text/plain,.json,.xsb" onChange={(event) => { if (event.target.files) void importFiles([...event.target.files]); event.target.value = '' }} />
       </div>
     </header>
 
@@ -307,8 +380,8 @@ export default function App() {
       <aside className="control-panel">
         <nav className="tabs"><button className={activeTab === 'solve' ? 'active' : ''} onClick={() => setActiveTab('solve')}><BrainCircuit size={16} />{t.solve}</button><button className={activeTab === 'forge' ? 'active' : ''} onClick={() => setActiveTab('forge')}><WandSparkles size={16} />{t.forge}</button><button className={activeTab === 'library' ? 'active' : ''} onClick={() => setActiveTab('library')}><FileDown size={16} />{t.library}</button></nav>
         {activeTab === 'solve' && <SolvePanel t={t} state={state} mode={solveMode} result={solveResult} isSolving={isSolving} isPlaying={isPlaying} onMode={setSolveMode} onSolve={onSolve} onPlay={playSolution} onSave={saveLevel} />}
-        {activeTab === 'forge' && <div className="panel-body"><div className="panel-title"><span>{t.forge}</span><b>{generationProgress}%</b></div><div className="form-grid"><label>{t.candidateCount}<input type="number" min="10" max="1000" step="10" value={batchCount} onChange={(event) => setBatchCount(Number(event.target.value))} /></label><label>{t.boxes}<input type="number" min="1" max="8" value={boxCount} onChange={(event) => setBoxCount(Number(event.target.value))} /></label></div><label>{t.difficulty}<select value={difficultyMode} onChange={(event) => setDifficultyMode(event.target.value as DifficultyMode)}>{(['composite','long_solution','deep_trap','dependency'] as DifficultyMode[]).map((mode) => <option key={mode} value={mode}>{t[mode]}</option>)}</select></label><button className="primary-action" onClick={generate}><WandSparkles size={18} />{t.generate}</button><div className="progress"><span style={{ width: `${generationProgress}%` }} /></div><ResultList title={t.topResults} items={results} empty={t.noResults} onLoad={load} pushLabel={t.pushes} /></div>}
-        {activeTab === 'library' && <div className="panel-body"><div className="panel-title"><span>{t.library}</span><b>{publishedItems.length + library.length}</b></div><ResultList title={t.published} items={publishedItems} empty={t.noResults} onLoad={load} pushLabel={t.pushes} /><button className="import-row" onClick={() => fileInput.current?.click()}><FileUp size={17} />{t.importPack}</button><ResultList title={t.myLevels} items={library} empty={t.emptyLibrary} onLoad={load} pushLabel={t.pushes} /></div>}
+        {activeTab === 'forge' && <div className="panel-body"><div className="panel-title"><span>{t.forge}</span><b>{generationProgress}%</b></div><div className="form-grid"><label>{t.candidateCount}<input type="number" min="10" max="1000" step="10" value={batchCount} onChange={(event) => setBatchCount(Number(event.target.value))} /></label><label>{t.boxes}<input type="number" min="1" max="8" value={boxCount} onChange={(event) => setBoxCount(Number(event.target.value))} /></label></div><label>{t.difficulty}<select value={difficultyMode} onChange={(event) => setDifficultyMode(event.target.value as DifficultyMode)}>{(['composite','long_solution','deep_trap','dependency'] as DifficultyMode[]).map((mode) => <option key={mode} value={mode}>{t[mode]}</option>)}</select></label><button className="primary-action" onClick={generate}><WandSparkles size={18} />{t.generate}</button><div className="pack-actions"><button className="secondary-action" disabled={!results.length} onClick={exportGeneratedPack}><Download size={16} />{t.exportPack}</button><button className="secondary-action" disabled={!results.length} onClick={saveGeneratedPackToDirectory}><FolderOpen size={16} />{t.saveToFolder}</button></div><div className="progress"><span style={{ width: `${generationProgress}%` }} /></div><ResultList title={t.topResults} items={results} empty={t.noResults} onLoad={load} pushLabel={t.pushes} /></div>}
+        {activeTab === 'library' && <div className="panel-body"><div className="panel-title"><span>{t.library}</span><b>{publishedItems.length + library.length}</b></div><button className="import-row" onClick={() => fileInput.current?.click()}><FileUp size={17} />{t.importPack}</button><button className="import-row" disabled={directoryBusy} onClick={chooseLevelDirectory}><FolderOpen size={17} />{t.chooseFolder}</button>{directory && <button className="directory-row" disabled={directoryBusy} onClick={refreshDirectory}><FolderSync size={16} /><span>{directory.name}</span></button>}<ResultList title={t.myLevels} items={library} empty={t.emptyLibrary} onLoad={load} pushLabel={t.pushes} /><ResultList title={t.published} items={publishedItems} empty={t.noResults} onLoad={load} pushLabel={t.pushes} /></div>}
       </aside>
     </section>
   </main>
@@ -342,5 +415,5 @@ function SolvePanel({ t, state, mode, result, isSolving, isPlaying, onMode, onSo
 }
 
 function ResultList({ title, items, empty, onLoad, pushLabel }: { title: string; items: PackLevel[]; empty: string; onLoad: (entry: PackLevel) => void; pushLabel: string }) {
-  return <section className="result-list"><div className="list-header"><h3>{title}</h3><span>{items.length}</span></div>{items.length === 0 ? <p className="empty-state">{empty}</p> : items.slice(0, 50).map((item, index) => <button key={item.id} className="result-row" onClick={() => onLoad(item)}><span className="rank">{String(index + 1).padStart(2, '0')}</span><span className="mini-map"><b>{item.name}</b><small>{item.xsb.split('\n').map((row) => row.replace(/ /g, '·')).join(' / ')}</small></span><span className="result-score"><b>{item.difficulty.score.toFixed(1)}</b><small>{item.difficulty.pushes} {pushLabel}</small></span></button>)}</section>
+  return <section className="result-list"><div className="list-header"><h3>{title}</h3><span>{items.length}</span></div>{items.length === 0 ? <p className="empty-state">{empty}</p> : items.map((item, index) => <button key={item.id} className="result-row" onClick={() => onLoad(item)}><span className="rank">{String(index + 1).padStart(2, '0')}</span><span className="mini-map"><b>{item.name}</b><small>{item.xsb.split('\n').map((row) => row.replace(/ /g, '·')).join(' / ')}</small></span><span className="result-score"><b>{item.difficulty.score.toFixed(1)}</b><small>{item.difficulty.pushes} {pushLabel}</small></span></button>)}</section>
 }

@@ -43,10 +43,22 @@ export interface LevelPack {
 export interface PublishedLevelMeta {
   id: string
   title: Record<Language, string>
-  file: string
+  file?: string
   difficulty: 'starter' | 'easy' | 'medium' | 'hard' | 'expert'
   boxes: number
   optimalPushes: number
 }
 
 export interface PublishedLevel extends PublishedLevelMeta { xsb: string }
+
+export interface PublishedLevelBundle {
+  schemaVersion: 1
+  kind: 'sokoforge-published-pack'
+  levels: PublishedLevel[]
+}
+
+export interface PublishedLevelIndex {
+  schemaVersion: 1
+  levels: PublishedLevelMeta[]
+  packs?: string[]
+}

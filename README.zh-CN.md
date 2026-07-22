@@ -15,6 +15,8 @@ SokoForge 使用 React 构建静态网页界面，使用 Rust 实现规则、求
 - 快速求解与最少推动数证明模式。
 - 长解、深层陷阱、箱子依赖、综合难度四种筛选方式。
 - 浏览器小批量探索；原生 Rust CLI 高效处理 `1000–5000+` 候选。
+- 可下载完整生成包、批量导入 JSON/XSB，并在 Chromium 中记住本地关卡目录。
+- 除入门关卡外，内置 200 个紧凑且已证明最少推动数的专家关卡。
 - 纯静态部署，无账号、数据库或 API Key。
 
 ## 本地运行
@@ -39,10 +41,17 @@ npm run build
 ```bash
 cargo run -p sokoforge-cli -- generate \
   --count 5000 --width 10 --height 10 --boxes 4 \
-  --mode composite --seed 42 --top 50 --output pack.json
+  --mode composite --seed 42 --top 50 --evolution-rounds 100 \
+  --finalist-time-limit-ms 60000 --output pack.json
 ```
 
 在网页“关卡库”中导入 `pack.json`。它是版本化的 `sokoforge-level-pack` JSON，包含 XSB 地图、难度指标、随机种子和可选解法。
+
+## 保存与重新识别关卡包
+
+浏览器批量生成结束后，点击“下载关卡包”会把当前排名结果保存为一个 JSON 文件。关卡库支持一次选择多个 `.json` 关卡包和独立 `.xsb` 地图。
+
+Chromium 浏览器还可以使用“选择关卡目录”。由于浏览器安全限制，第一次必须由用户主动选择；SokoForge 会把目录句柄保存在 IndexedDB 中，后续访问在权限仍有效时自动扫描。生成页的“保存到目录”会直接写入该目录。Firefox 和 Safari 暂不提供相同的目录 API，因此使用普通下载与多文件导入作为回退。
 
 求解单个 XSB 文件：
 
@@ -52,7 +61,7 @@ cargo run -p sokoforge-cli -- solve level.xsb --time-limit-ms 30000
 
 ## 发布静态关卡
 
-官方发布关卡不需要数据库。将 XSB 文件添加到 `web/public/levels/`，再向 `web/public/levels/index.json` 增加一条元数据，填写稳定 ID、中英文标题、文件 URL、难度、箱子数和已验证的最少推动数。网页启动时读取该索引，并从同一静态站点加载地图。
+官方发布关卡不需要数据库。少量关卡可以将 XSB 文件添加到 `web/public/levels/`，再向 `web/public/levels/index.json` 增加元数据。大型关卡集使用 `sokoforge-published-pack` JSON，并在索引的 `packs` 数组中引用，避免启动时产生数百个请求。两种形式都包含稳定 ID、中英文标题、难度、箱子数和已验证的最少推动数。
 
 提交 Pull Request 前应先验证关卡：
 
@@ -68,12 +77,12 @@ cargo run -p sokoforge-cli -- solve web/public/levels/my-level.xsb --time-limit-
 
 推箱子的搜索空间会指数增长。超时不等于无解：它可能是尚未找到解，也可能找到可行解但未证明最优。网页会明确标记状态，不会将可行解伪称为最优解。
 
-生成器从“所有箱子都在目标上”的完成状态出发，执行合法的反向拉箱，再反转该过程得到保证存在一条正向解的候选地图。CLI 会对候选求解、评分并保留前 N 名。
+生成器先雕刻连通仓库，再从“所有箱子都在目标上”的完成状态出发，执行合法的反向拉箱。CLI 会筛选候选，对决赛地图增删非关键墙体进行几何进化，并只保留已由最优求解器证明最少推动数的结果。
 
-- **长解**：按地图面积归一化的最少推动数。
+- **长解**：按可行走面积归一化的最少推动数。
 - **深层陷阱**：以求解器搜索量近似评估具有迷惑性的分支。
 - **箱子依赖**：箱子切换、暂时远离目标和相互让路。
-- **综合难度**：长解 40%、依赖 30%、陷阱 30%。
+- **综合难度**：长解 45%、依赖 35%、陷阱 20%。
 
 这些是机器难度指标，不等同于所有玩家的体感难度。后续可通过真实玩家完成率、撤销次数和提示使用位置校准模型。
 

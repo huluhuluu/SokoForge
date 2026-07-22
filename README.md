@@ -14,6 +14,8 @@ SokoForge is a static React workbench backed by a Rust solver compiled to WebAss
 - Quick weighted search and push-optimal A* search with transparent timeout status.
 - Four ranking modes: long solution, deep trap, box dependency, and composite.
 - Browser batch exploration plus a native parallel Rust CLI for 1,000–5,000+ candidates.
+- Generated-pack download, JSON/XSB multi-file import, and remembered local level folders on Chromium.
+- 200 bundled compact expert levels in addition to the introductory published set.
 - Static Vite output suitable for Vercel. No account, database, or API key is required.
 
 ## Quick Start
@@ -46,6 +48,12 @@ cargo run -p sokoforge-cli -- generate \
 
 Import `pack.json` from the Library tab. The pack uses a versioned `sokoforge-level-pack` JSON format containing XSB, score metrics, generator metadata, and an optional solution replay.
 
+## Saving And Reopening Packs
+
+After a browser batch finishes, use **Download pack** to save every ranked result in one JSON file. The Library accepts multiple `.json` packs and standalone `.xsb` files at once.
+
+Chromium browsers also expose **Choose level folder**. The first selection is always a user action required by the browser security model. SokoForge stores that directory handle in IndexedDB and scans it automatically on later visits while permission remains granted. **Save to folder** writes generated packs there. Firefox and Safari fall back to normal downloads and multi-file import because they do not currently expose the same directory API.
+
 To solve an XSB file from the command line:
 
 ```bash
@@ -54,7 +62,7 @@ cargo run -p sokoforge-cli -- solve level.xsb --time-limit-ms 30000
 
 ## Publishing Static Levels
 
-Published levels are intentionally serverless. Add an XSB file under `web/public/levels/`, then add one metadata entry to `web/public/levels/index.json` with its stable ID, bilingual title, file URL, difficulty, box count, and verified optimal push count. The browser loads this index at startup and fetches each map on demand from the same static deployment.
+Published levels are intentionally serverless. Small additions can use an XSB file under `web/public/levels/` plus one metadata entry in `web/public/levels/index.json`. Large collections use a `sokoforge-published-pack` JSON file referenced by the index's `packs` array, avoiding hundreds of startup requests. Both forms include stable IDs, bilingual titles, difficulty, box count, and verified optimal push counts.
 
 Before opening a pull request, verify the level:
 

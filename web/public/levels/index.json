@@ -1,5 +1,6 @@
 {
   "schemaVersion": 1,
+  "packs": ["/levels/expert-pack.json"],
   "levels": [
     { "id": "first-push", "title": { "en": "First Push", "zh": "第一次推动" }, "file": "/levels/first-push.xsb", "difficulty": "starter", "boxes": 1, "optimalPushes": 1 },
     { "id": "two-crates", "title": { "en": "Two Crates", "zh": "双箱入门" }, "file": "/levels/two-crates.xsb", "difficulty": "starter", "boxes": 2, "optimalPushes": 2 },

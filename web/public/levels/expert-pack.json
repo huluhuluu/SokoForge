@@ -1,0 +1,2206 @@
+{
+  "schemaVersion": 1,
+  "kind": "sokoforge-published-pack",
+  "levels": [
+    {
+      "id": "expert-001",
+      "title": {
+        "en": "Expert Forge 001",
+        "zh": "专家熔炉 001"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 30,
+      "xsb": "##########\n#####..###\n#####  . #\n####   # #\n####  $  #\n#@$      #\n# $  ## ##\n# $    . #\n####  ####\n##########"
+    },
+    {
+      "id": "expert-002",
+      "title": {
+        "en": "Expert Forge 002",
+        "zh": "专家熔炉 002"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 24,
+      "xsb": "##########\n##..  ####\n##     $ #\n## $$#   #\n## $@$.###\n#####.  ##\n####    ##\n### .   ##\n###### ###\n##########"
+    },
+    {
+      "id": "expert-003",
+      "title": {
+        "en": "Expert Forge 003",
+        "zh": "专家熔炉 003"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 26,
+      "xsb": "##########\n##########\n########+#\n##    ##$#\n#  .   $ #\n#.   ##$ #\n# .#$ $  #\n#  #  #  #\n#   #  . #\n##########"
+    },
+    {
+      "id": "expert-004",
+      "title": {
+        "en": "Expert Forge 004",
+        "zh": "专家熔炉 004"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 24,
+      "xsb": "#########\n#####.  #\n##.     #\n##  ## ##\n#..   $@#\n# $ # ###\n## $ $  #\n##    ###\n#########"
+    },
+    {
+      "id": "expert-005",
+      "title": {
+        "en": "Expert Forge 005",
+        "zh": "专家熔炉 005"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 29,
+      "xsb": "#########\n##    ###\n#@$  $###\n# $#. ###\n##     ##\n# $  #  #\n##  .   #\n## #.  .#\n#########"
+    },
+    {
+      "id": "expert-006",
+      "title": {
+        "en": "Expert Forge 006",
+        "zh": "专家熔炉 006"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "#########\n#   . ###\n##$.  .##\n#     .##\n#    $ ##\n##$$# ###\n## @#####\n#########\n#########"
+    },
+    {
+      "id": "expert-007",
+      "title": {
+        "en": "Expert Forge 007",
+        "zh": "专家熔炉 007"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 26,
+      "xsb": "#########\n###@  ###\n###$$$ ##\n#     ###\n## #    #\n##  #$  #\n###    .#\n## . ..##\n#########"
+    },
+    {
+      "id": "expert-008",
+      "title": {
+        "en": "Expert Forge 008",
+        "zh": "专家熔炉 008"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 24,
+      "xsb": "##########\n#  ##   ##\n# # ## . #\n#.      ##\n# . * #$##\n#        #\n#.#  $$  #\n#   ##@$ #\n#######  #\n##########"
+    },
+    {
+      "id": "expert-009",
+      "title": {
+        "en": "Expert Forge 009",
+        "zh": "专家熔炉 009"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "##########\n###   ####\n### $ ####\n##.     .#\n#.   ## ##\n##.#     #\n### $$#$ #\n#### @#  #\n####### ##\n##########"
+    },
+    {
+      "id": "expert-010",
+      "title": {
+        "en": "Expert Forge 010",
+        "zh": "专家熔炉 010"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 23,
+      "xsb": "##########\n######## #\n#### .   #\n###  #  .#\n#### .   #\n##    $ .#\n# $  $@ ##\n#  ## $###\n#   #   ##\n##########"
+    },
+    {
+      "id": "expert-011",
+      "title": {
+        "en": "Expert Forge 011",
+        "zh": "专家熔炉 011"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 27,
+      "xsb": "##########\n#..#######\n#     $@##\n# .    $##\n#    $   #\n#    # $ #\n## #  #  #\n##   .####\n##########\n##########"
+    },
+    {
+      "id": "expert-012",
+      "title": {
+        "en": "Expert Forge 012",
+        "zh": "专家熔炉 012"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 27,
+      "xsb": "##########\n#### ## ##\n###. .  ##\n##     .##\n#   #   .#\n# $   $  #\n#### # # #\n###@$  $ #\n####    ##\n##########"
+    },
+    {
+      "id": "expert-013",
+      "title": {
+        "en": "Expert Forge 013",
+        "zh": "专家熔炉 013"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "#########\n#   #   #\n# $ #$# #\n#.  $   #\n#       #\n###  ####\n### .$+##\n### .####\n#########"
+    },
+    {
+      "id": "expert-014",
+      "title": {
+        "en": "Expert Forge 014",
+        "zh": "专家熔炉 014"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 24,
+      "xsb": "##########\n### @ ####\n## $$$$ ##\n###     ##\n#   . .  #\n## $ .#  #\n## #     #\n##    .#.#\n###   ####\n##########"
+    },
+    {
+      "id": "expert-015",
+      "title": {
+        "en": "Expert Forge 015",
+        "zh": "专家熔炉 015"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "#########\n#########\n## # . .#\n#+$. #  #\n# #  $  #\n##  #   #\n# $  $ ##\n#     ###\n#########"
+    },
+    {
+      "id": "expert-016",
+      "title": {
+        "en": "Expert Forge 016",
+        "zh": "专家熔炉 016"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 25,
+      "xsb": "##########\n###  #####\n###.$.#.##\n#    . .##\n#   #   ##\n#     $ ##\n# $$  ####\n##@$   # #\n####     #\n##########"
+    },
+    {
+      "id": "expert-017",
+      "title": {
+        "en": "Expert Forge 017",
+        "zh": "专家熔炉 017"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "#########\n##   ####\n##.# ####\n#    .  #\n##$#*   #\n##@$  # #\n### #$ .#\n##  #  ##\n#########"
+    },
+    {
+      "id": "expert-018",
+      "title": {
+        "en": "Expert Forge 018",
+        "zh": "专家熔炉 018"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 22,
+      "xsb": "##########\n##########\n#     ####\n##  #$@###\n# .   $.##\n## ##   .#\n#    $   #\n#.. #$ $ #\n###    ###\n##########"
+    },
+    {
+      "id": "expert-019",
+      "title": {
+        "en": "Expert Forge 019",
+        "zh": "专家熔炉 019"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 25,
+      "xsb": "##########\n##### ####\n####.  # #\n####  ## #\n#  # #.  #\n#  $   #.#\n# $@$    #\n## $ $   #\n##    . .#\n##########"
+    },
+    {
+      "id": "expert-020",
+      "title": {
+        "en": "Expert Forge 020",
+        "zh": "专家熔炉 020"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "#########\n###   ###\n## $$  ##\n#     .##\n#  $ #  #\n#.$ # . #\n##@##.  #\n###### ##\n#########"
+    },
+    {
+      "id": "expert-021",
+      "title": {
+        "en": "Expert Forge 021",
+        "zh": "专家熔炉 021"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 25,
+      "xsb": "##########\n####### ##\n######  ##\n#@$     ##\n##$$ ## .#\n##  #.#. #\n## #     #\n#   .$   #\n#        #\n##########"
+    },
+    {
+      "id": "expert-022",
+      "title": {
+        "en": "Expert Forge 022",
+        "zh": "专家熔炉 022"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 23,
+      "xsb": "##########\n#### # ###\n####     #\n###@$# ###\n## $   ###\n##  #..*##\n#  $     #\n## ## $###\n#. .    ##\n##########"
+    },
+    {
+      "id": "expert-023",
+      "title": {
+        "en": "Expert Forge 023",
+        "zh": "专家熔炉 023"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 23,
+      "xsb": "##########\n##. ######\n#   ######\n#       ##\n##  #$@ .#\n# ## .$  #\n# $ $ #  #\n#  #   ###\n#     .###\n##########"
+    },
+    {
+      "id": "expert-024",
+      "title": {
+        "en": "Expert Forge 024",
+        "zh": "专家熔炉 024"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "#########\n### #####\n##  #####\n# #  .  #\n#@$   $ #\n## ##$  #\n#  .  $ #\n# . .## #\n#########"
+    },
+    {
+      "id": "expert-025",
+      "title": {
+        "en": "Expert Forge 025",
+        "zh": "专家熔炉 025"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "#########\n####@   #\n####$$$ #\n##..    #\n#  # #$ #\n#      ##\n##.     #\n## ##. ##\n#########"
+    },
+    {
+      "id": "expert-026",
+      "title": {
+        "en": "Expert Forge 026",
+        "zh": "专家熔炉 026"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "##########\n## . . .##\n###   $  #\n#        #\n## # #  .#\n###    $ #\n####$  ###\n####@$   #\n#####   ##\n##########"
+    },
+    {
+      "id": "expert-027",
+      "title": {
+        "en": "Expert Forge 027",
+        "zh": "专家熔炉 027"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 23,
+      "xsb": "##########\n##### # ##\n## #    .#\n# $  #   #\n#@$  #   #\n###   $  #\n#### #   #\n####.$   #\n#### . .##\n##########"
+    },
+    {
+      "id": "expert-028",
+      "title": {
+        "en": "Expert Forge 028",
+        "zh": "专家熔炉 028"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "#########\n##     ##\n#.$# $  #\n# @$  # #\n# $ #.# #\n# #  . .#\n#### # ##\n#########\n#########"
+    },
+    {
+      "id": "expert-029",
+      "title": {
+        "en": "Expert Forge 029",
+        "zh": "专家熔炉 029"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n#########\n##    ###\n#.  $..##\n#@$ ## ##\n# #. $ ##\n# $  ####\n###   ###\n#########"
+    },
+    {
+      "id": "expert-030",
+      "title": {
+        "en": "Expert Forge 030",
+        "zh": "专家熔炉 030"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "#########\n### @####\n# $$$  ##\n#     ###\n#  $ ####\n# #   ###\n#..  .###\n#   #.###\n#########"
+    },
+    {
+      "id": "expert-031",
+      "title": {
+        "en": "Expert Forge 031",
+        "zh": "专家熔炉 031"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 26,
+      "xsb": "##########\n#####   ##\n##  .  . #\n#. .     #\n#  #     #\n##  ##   #\n#    $ $ #\n## $  $@##\n###   ####\n##########"
+    },
+    {
+      "id": "expert-032",
+      "title": {
+        "en": "Expert Forge 032",
+        "zh": "专家熔炉 032"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "#########\n###### ##\n###    ##\n###.# $@#\n#     $ #\n##$ . ###\n## . $###\n##.    ##\n#########"
+    },
+    {
+      "id": "expert-033",
+      "title": {
+        "en": "Expert Forge 033",
+        "zh": "专家熔炉 033"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 22,
+      "xsb": "##########\n###### ###\n## ###..##\n#      .##\n#     $  #\n# .  $#. #\n#        #\n# $$ #$ ##\n###@     #\n##########"
+    },
+    {
+      "id": "expert-034",
+      "title": {
+        "en": "Expert Forge 034",
+        "zh": "专家熔炉 034"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 22,
+      "xsb": "##########\n##########\n###  ..  #\n##  #  ###\n##.   $@##\n##  . #$ #\n###    $ #\n## $ .$  #\n##   #   #\n##########"
+    },
+    {
+      "id": "expert-035",
+      "title": {
+        "en": "Expert Forge 035",
+        "zh": "专家熔炉 035"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 22,
+      "xsb": "##########\n##..######\n#   ######\n#.$     ##\n#  #  .  #\n#      # #\n#   $$$ ##\n###$   ###\n## +######\n##########"
+    },
+    {
+      "id": "expert-036",
+      "title": {
+        "en": "Expert Forge 036",
+        "zh": "专家熔炉 036"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "##########\n##########\n##### ####\n## # .  ##\n##    #$##\n# $ #$. ##\n#@$ #    #\n###   .. #\n###     ##\n##########"
+    },
+    {
+      "id": "expert-037",
+      "title": {
+        "en": "Expert Forge 037",
+        "zh": "专家熔炉 037"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 25,
+      "xsb": "##########\n##########\n### @ # ##\n####$$ $ #\n# #      #\n# .#  #$##\n#    #  ##\n## .   .##\n## .  ####\n##########"
+    },
+    {
+      "id": "expert-038",
+      "title": {
+        "en": "Expert Forge 038",
+        "zh": "专家熔炉 038"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n##.  #   #\n#  .$@#$ #\n# $  $ $ #\n#.       #\n# ## # ###\n# #  .  ##\n##### . ##\n##########\n##########"
+    },
+    {
+      "id": "expert-039",
+      "title": {
+        "en": "Expert Forge 039",
+        "zh": "专家熔炉 039"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "##########\n###  #  .#\n### .#$# #\n###$   . #\n## $  #  #\n##@$     #\n##### .  #\n#####   ##\n##########\n##########"
+    },
+    {
+      "id": "expert-040",
+      "title": {
+        "en": "Expert Forge 040",
+        "zh": "专家熔炉 040"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n# # ##   #\n# # #    #\n#   *  .##\n##. $#$ ##\n#     $  #\n###.    ##\n### .  $ #\n#######@##\n##########"
+    },
+    {
+      "id": "expert-041",
+      "title": {
+        "en": "Expert Forge 041",
+        "zh": "专家熔炉 041"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 22,
+      "xsb": "##########\n##########\n#    @####\n## $$$  ##\n##       #\n###    * #\n## $  #  #\n### ..   #\n### ..## #\n##########"
+    },
+    {
+      "id": "expert-042",
+      "title": {
+        "en": "Expert Forge 042",
+        "zh": "专家熔炉 042"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "#########\n### . $ #\n###. #$ #\n###     #\n##.    ##\n#  #$.  #\n####  $##\n######@##\n#########"
+    },
+    {
+      "id": "expert-043",
+      "title": {
+        "en": "Expert Forge 043",
+        "zh": "专家熔炉 043"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n####.##@##\n###  ##* #\n####    .#\n### $ $  #\n## $.# # #\n#    #$# #\n#   #   .#\n# #  #  ##\n##########"
+    },
+    {
+      "id": "expert-044",
+      "title": {
+        "en": "Expert Forge 044",
+        "zh": "专家熔炉 044"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 23,
+      "xsb": "##########\n####  ####\n## $  .###\n##   $   #\n##$      #\n# $    . #\n#@$   .  #\n# #   .###\n# ##.# ###\n##########"
+    },
+    {
+      "id": "expert-045",
+      "title": {
+        "en": "Expert Forge 045",
+        "zh": "专家熔炉 045"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n###### #.#\n#### # . #\n####@$   #\n### $   ##\n####  . ##\n### $.   #\n###  $ ###\n####   ###\n##########"
+    },
+    {
+      "id": "expert-046",
+      "title": {
+        "en": "Expert Forge 046",
+        "zh": "专家熔炉 046"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n##### .# #\n#####  # #\n##### .# #\n###@$  $.#\n#. $#   ##\n#    $  ##\n## $  #  #\n#  ##  .##\n##########"
+    },
+    {
+      "id": "expert-047",
+      "title": {
+        "en": "Expert Forge 047",
+        "zh": "专家熔炉 047"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 23,
+      "xsb": "##########\n##   #####\n### . ####\n###    $@#\n###    $ #\n#      $ #\n##. . #$ #\n## .   $ #\n#    .  ##\n##########"
+    },
+    {
+      "id": "expert-048",
+      "title": {
+        "en": "Expert Forge 048",
+        "zh": "专家熔炉 048"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "##########\n#######@##\n#######$##\n######  ##\n#### $$ ##\n###. $  ##\n#  .#    #\n# #    . #\n# #.     #\n##########"
+    },
+    {
+      "id": "expert-049",
+      "title": {
+        "en": "Expert Forge 049",
+        "zh": "专家熔炉 049"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n##########\n#######@##\n####   $ #\n### $   ##\n# .  #   #\n##. $    #\n#   $ #$ #\n# .#..   #\n##########"
+    },
+    {
+      "id": "expert-050",
+      "title": {
+        "en": "Expert Forge 050",
+        "zh": "专家熔炉 050"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 22,
+      "xsb": "##########\n###     .#\n##@$ $$  #\n###   $  #\n####  ## #\n#     . .#\n###   $  #\n###.  #  #\n###  #.  #\n##########"
+    },
+    {
+      "id": "expert-051",
+      "title": {
+        "en": "Expert Forge 051",
+        "zh": "专家熔炉 051"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 23,
+      "xsb": "##########\n###  #   #\n##.     ##\n##.   $###\n#  #$ $ ##\n# $     ##\n####.    #\n##@*    ##\n####.#  ##\n##########"
+    },
+    {
+      "id": "expert-052",
+      "title": {
+        "en": "Expert Forge 052",
+        "zh": "专家熔炉 052"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n######   #\n##@$     #\n###  # $ #\n###  $   #\n### ..  ##\n####$    #\n#### $  ##\n###.. .###\n##########"
+    },
+    {
+      "id": "expert-053",
+      "title": {
+        "en": "Expert Forge 053",
+        "zh": "专家熔炉 053"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n######@###\n######*###\n#  ##  ###\n# .  $ # #\n#  #   $ #\n#        #\n#  .#$ . #\n##       #\n##########"
+    },
+    {
+      "id": "expert-054",
+      "title": {
+        "en": "Expert Forge 054",
+        "zh": "专家熔炉 054"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "##########\n# ########\n#  .######\n# $ # ####\n## .  $@##\n# ## $#$ #\n#        #\n# .   ## #\n#.  ######\n##########"
+    },
+    {
+      "id": "expert-055",
+      "title": {
+        "en": "Expert Forge 055",
+        "zh": "专家熔炉 055"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "##########\n####### ##\n#####  .##\n### #$#  #\n# $     .#\n#   . $  #\n### $  . #\n####+$# ##\n#####    #\n##########"
+    },
+    {
+      "id": "expert-056",
+      "title": {
+        "en": "Expert Forge 056",
+        "zh": "专家熔炉 056"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n##    .###\n###.$  . #\n####    ##\n####  $  #\n##@*  # ##\n##### $  #\n#### $   #\n###    .##\n##########"
+    },
+    {
+      "id": "expert-057",
+      "title": {
+        "en": "Expert Forge 057",
+        "zh": "专家熔炉 057"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 23,
+      "xsb": "##########\n###   ..##\n##    #  #\n###    ###\n####$  $@#\n##    #$ #\n##*#   $ #\n#.   . ###\n###    ###\n##########"
+    },
+    {
+      "id": "expert-058",
+      "title": {
+        "en": "Expert Forge 058",
+        "zh": "专家熔炉 058"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n###   .  #\n## $#    #\n## $  $ .#\n## #$#  .#\n#@$ .    #\n#### # . #\n######## #\n##########\n##########"
+    },
+    {
+      "id": "expert-059",
+      "title": {
+        "en": "Expert Forge 059",
+        "zh": "专家熔炉 059"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "##########\n##########\n### . #@##\n#  .  #$##\n#    $   #\n# # $    #\n#  ##  $ #\n#.   ##  #\n#   ###. #\n##########"
+    },
+    {
+      "id": "expert-060",
+      "title": {
+        "en": "Expert Forge 060",
+        "zh": "专家熔炉 060"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n# #  ####\n#   #####\n##.$   .#\n#    $  #\n#   # ..#\n## $$  ##\n###@ ####\n#########"
+    },
+    {
+      "id": "expert-061",
+      "title": {
+        "en": "Expert Forge 061",
+        "zh": "专家熔炉 061"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "##########\n###.##  ##\n###      #\n###  #$  #\n####.   ##\n##.#   $##\n##@$ .  ##\n## $#  ###\n#   #  ###\n##########"
+    },
+    {
+      "id": "expert-062",
+      "title": {
+        "en": "Expert Forge 062",
+        "zh": "专家熔炉 062"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 22,
+      "xsb": "##########\n##########\n####   ..#\n#    $  ##\n# .#@$  ##\n##.  $# ##\n##  # $ ##\n###.  $ ##\n#### #  ##\n##########"
+    },
+    {
+      "id": "expert-063",
+      "title": {
+        "en": "Expert Forge 063",
+        "zh": "专家熔炉 063"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 22,
+      "xsb": "##########\n#######  #\n###   #  #\n##@$  #  #\n### $   .#\n##  $$  .#\n###  # # #\n# . $#.  #\n###  . ###\n##########"
+    },
+    {
+      "id": "expert-064",
+      "title": {
+        "en": "Expert Forge 064",
+        "zh": "专家熔炉 064"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n##   # ###\n#  #   ###\n#. $ #$@##\n#     $ ##\n##  * ####\n##. $ ####\n## #  ####\n##.##. ###\n##########"
+    },
+    {
+      "id": "expert-065",
+      "title": {
+        "en": "Expert Forge 065",
+        "zh": "专家熔炉 065"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "#########\n#####.###\n#####   #\n####@$  #\n##  $   #\n#  $$#  #\n#    .#.#\n#. #   ##\n#########"
+    },
+    {
+      "id": "expert-066",
+      "title": {
+        "en": "Expert Forge 066",
+        "zh": "专家熔炉 066"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "##########\n## #   ###\n#    $ ###\n# # # $@##\n#   $  ###\n#  #   ###\n##.  # ###\n#  $ .. ##\n### .## ##\n##########"
+    },
+    {
+      "id": "expert-067",
+      "title": {
+        "en": "Expert Forge 067",
+        "zh": "专家熔炉 067"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "##########\n##########\n#####   ##\n###@$.   #\n## $$    #\n# #   #. #\n#       .#\n# $ #  .##\n#  #    ##\n##########"
+    },
+    {
+      "id": "expert-068",
+      "title": {
+        "en": "Expert Forge 068",
+        "zh": "专家熔炉 068"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "##########\n### ..#  #\n##       #\n##.. #   #\n##  $   ##\n### @ $  #\n## $   $ #\n##      ##\n##   #####\n##########"
+    },
+    {
+      "id": "expert-069",
+      "title": {
+        "en": "Expert Forge 069",
+        "zh": "专家熔炉 069"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n#  #### ##\n#   # @ ##\n#  .#$$###\n#. #   .##\n## $  $  #\n#  $  . .#\n# #     ##\n#####  ###\n##########"
+    },
+    {
+      "id": "expert-070",
+      "title": {
+        "en": "Expert Forge 070",
+        "zh": "专家熔炉 070"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n#    # ##\n# $  $  #\n#  #  . #\n# $    ##\n###. ..##\n### #$ ##\n#####@###\n#########"
+    },
+    {
+      "id": "expert-071",
+      "title": {
+        "en": "Expert Forge 071",
+        "zh": "专家熔炉 071"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n######  ##\n### $  .##\n## . #   #\n## $     #\n### # #..#\n## $$    #\n#+$      #\n###### ###\n##########"
+    },
+    {
+      "id": "expert-072",
+      "title": {
+        "en": "Expert Forge 072",
+        "zh": "专家熔炉 072"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "##########\n### .   ##\n###     ##\n#  # .$ ##\n#  . # .##\n##      ##\n## *$  ###\n## # $$###\n#####@ ###\n##########"
+    },
+    {
+      "id": "expert-073",
+      "title": {
+        "en": "Expert Forge 073",
+        "zh": "专家熔炉 073"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "##########\n####     #\n## .. .  #\n#####   ##\n##   $ $ #\n##   $#  #\n### # .  #\n###$  ## #\n###@##   #\n##########"
+    },
+    {
+      "id": "expert-074",
+      "title": {
+        "en": "Expert Forge 074",
+        "zh": "专家熔炉 074"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "##########\n##########\n#######.##\n###+### ##\n#. $  .  #\n#    $ . #\n# $ $ $ ##\n# #   # ##\n####    ##\n##########"
+    },
+    {
+      "id": "expert-075",
+      "title": {
+        "en": "Expert Forge 075",
+        "zh": "专家熔炉 075"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n######@###\n######$# #\n######   #\n##      .#\n####$    #\n## $  #$.#\n# .  $  .#\n# #    . #\n##########"
+    },
+    {
+      "id": "expert-076",
+      "title": {
+        "en": "Expert Forge 076",
+        "zh": "专家熔炉 076"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n#        #\n##   . .##\n## $$  $ #\n## $   # #\n##     . #\n####. # .#\n#### $   #\n#####@####\n##########"
+    },
+    {
+      "id": "expert-077",
+      "title": {
+        "en": "Expert Forge 077",
+        "zh": "专家熔炉 077"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "#########\n##   #  #\n# $ $   #\n#    $ .#\n### # ###\n###     #\n##  ..$ #\n######+##\n#########"
+    },
+    {
+      "id": "expert-078",
+      "title": {
+        "en": "Expert Forge 078",
+        "zh": "专家熔炉 078"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n###   ####\n###   $ ##\n### # *.##\n##  # ..##\n##     ###\n###$   ###\n###@$  # #\n#####    #\n##########"
+    },
+    {
+      "id": "expert-079",
+      "title": {
+        "en": "Expert Forge 079",
+        "zh": "专家熔炉 079"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n###   .###\n###$ $ ###\n#  .# $@##\n#    . ###\n#  #  ####\n##$. $ ###\n#     ####\n#  .# ####\n##########"
+    },
+    {
+      "id": "expert-080",
+      "title": {
+        "en": "Expert Forge 080",
+        "zh": "专家熔炉 080"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "##########\n#####   .#\n#####    #\n###  #$  #\n###..    #\n## .     #\n##   $   #\n### ##$$ #\n######@ ##\n##########"
+    },
+    {
+      "id": "expert-081",
+      "title": {
+        "en": "Expert Forge 081",
+        "zh": "专家熔炉 081"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n## # # ###\n#  $@ .###\n# $$ #####\n#     #.##\n#.$     ##\n#  $#.  ##\n##      ##\n##.  #####\n##########"
+    },
+    {
+      "id": "expert-082",
+      "title": {
+        "en": "Expert Forge 082",
+        "zh": "专家熔炉 082"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n#. ######\n#$ #  ###\n# .    ##\n# ## . ##\n#      ##\n##$$$#.##\n#  @ ####\n#########"
+    },
+    {
+      "id": "expert-083",
+      "title": {
+        "en": "Expert Forge 083",
+        "zh": "专家熔炉 083"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n#.  #####\n## $#####\n##  #####\n## $    #\n## @$   #\n### $ .##\n###  .. #\n#########"
+    },
+    {
+      "id": "expert-084",
+      "title": {
+        "en": "Expert Forge 084",
+        "zh": "专家熔炉 084"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "##########\n#####   ##\n####@$ ..#\n#   $ ####\n# $     ##\n###  #$  #\n##       #\n## # ##  #\n#### . . #\n##########"
+    },
+    {
+      "id": "expert-085",
+      "title": {
+        "en": "Expert Forge 085",
+        "zh": "专家熔炉 085"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n##  # ..##\n##$  #  ##\n#   $   ##\n#     $ ##\n###   .$ #\n#####  $@#\n#####. ###\n######. ##\n##########"
+    },
+    {
+      "id": "expert-086",
+      "title": {
+        "en": "Expert Forge 086",
+        "zh": "专家熔炉 086"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n###  #####\n##+$  #*##\n###  $   #\n### . ## #\n#  . $####\n#        #\n# $   # ##\n###   . ##\n##########"
+    },
+    {
+      "id": "expert-087",
+      "title": {
+        "en": "Expert Forge 087",
+        "zh": "专家熔炉 087"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "##########\n###.#  # #\n#   #  $ #\n# $ $ $  #\n# #     .#\n###  .   #\n####.  . #\n#####  $@#\n#######  #\n##########"
+    },
+    {
+      "id": "expert-088",
+      "title": {
+        "en": "Expert Forge 088",
+        "zh": "专家熔炉 088"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n##########\n### @  ###\n###$$  $ #\n#     $  #\n#..  .#  #\n#.       #\n##### $  #\n#####.   #\n##########"
+    },
+    {
+      "id": "expert-089",
+      "title": {
+        "en": "Expert Forge 089",
+        "zh": "专家熔炉 089"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "##########\n##########\n#.#@######\n#  $   ###\n#. .   ###\n#  #  #  #\n# # $  . #\n### #$ $ #\n###    ###\n##########"
+    },
+    {
+      "id": "expert-090",
+      "title": {
+        "en": "Expert Forge 090",
+        "zh": "专家熔炉 090"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n#  ..####\n#  ######\n#   $+###\n##  $ ###\n## #$ ###\n#.  $ ###\n#  ######\n#########"
+    },
+    {
+      "id": "expert-091",
+      "title": {
+        "en": "Expert Forge 091",
+        "zh": "专家熔炉 091"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "##########\n##########\n###   ####\n#   .  #.#\n#      #.#\n#.    $  #\n###$ ##  #\n###@$ $  #\n#####   ##\n##########"
+    },
+    {
+      "id": "expert-092",
+      "title": {
+        "en": "Expert Forge 092",
+        "zh": "专家熔炉 092"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n###### . #\n######$ ##\n##@$     #\n###$#.   #\n###  $ $ #\n##.    #.#\n####     #\n#####   .#\n##########"
+    },
+    {
+      "id": "expert-093",
+      "title": {
+        "en": "Expert Forge 093",
+        "zh": "专家熔炉 093"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n### .####\n#..$  ###\n# $   ###\n# #     #\n#.$ #  ##\n##   $###\n## ##@###\n#########"
+    },
+    {
+      "id": "expert-094",
+      "title": {
+        "en": "Expert Forge 094",
+        "zh": "专家熔炉 094"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n### # #.#\n#       #\n#    $$ #\n##  # . #\n### $ .##\n##   #$##\n######+##\n#########"
+    },
+    {
+      "id": "expert-095",
+      "title": {
+        "en": "Expert Forge 095",
+        "zh": "专家熔炉 095"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 16,
+      "xsb": "##########\n##   #####\n#   . ####\n# * .# ###\n##@$    ##\n### #$$ ##\n## $ .  ##\n##  .  ###\n####  ####\n##########"
+    },
+    {
+      "id": "expert-096",
+      "title": {
+        "en": "Expert Forge 096",
+        "zh": "专家熔炉 096"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n######. ##\n###  # ###\n###     ##\n##  #$  .#\n## #     #\n####.  #.#\n#### $$$ #\n#####@  ##\n##########"
+    },
+    {
+      "id": "expert-097",
+      "title": {
+        "en": "Expert Forge 097",
+        "zh": "专家熔炉 097"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "#########\n#####@###\n## .#$###\n# .   $ #\n# $     #\n## #  $ #\n### .   #\n###.  ###\n#########"
+    },
+    {
+      "id": "expert-098",
+      "title": {
+        "en": "Expert Forge 098",
+        "zh": "专家熔炉 098"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "#########\n#      ##\n##     ##\n##.#$ $ #\n# .. $$ #\n#.  #@  #\n##   ####\n#### ####\n#########"
+    },
+    {
+      "id": "expert-099",
+      "title": {
+        "en": "Expert Forge 099",
+        "zh": "专家熔炉 099"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 22,
+      "xsb": "##########\n####   .##\n####   ###\n#@  #$####\n#$$$  $ ##\n# #      #\n#.    ####\n#..  . ###\n#   ## ###\n##########"
+    },
+    {
+      "id": "expert-100",
+      "title": {
+        "en": "Expert Forge 100",
+        "zh": "专家熔炉 100"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "##########\n######.###\n#### . ###\n###.    .#\n####$ $$##\n####     #\n## #   $ #\n##.   $###\n## ###@###\n##########"
+    },
+    {
+      "id": "expert-101",
+      "title": {
+        "en": "Expert Forge 101",
+        "zh": "专家熔炉 101"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n###   ####\n#     ####\n# $ $ . ##\n## . # ###\n#@$  $ ###\n#### # ..#\n#####   ##\n###     ##\n##########"
+    },
+    {
+      "id": "expert-102",
+      "title": {
+        "en": "Expert Forge 102",
+        "zh": "专家熔炉 102"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n##########\n##  .#####\n##. $#####\n#  ..   ##\n#   $@$  #\n#        #\n#  # #$$ #\n##.     ##\n##########"
+    },
+    {
+      "id": "expert-103",
+      "title": {
+        "en": "Expert Forge 103",
+        "zh": "专家熔炉 103"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "#########\n###  ####\n#@$   ###\n# $  $  #\n# # .. ##\n###$  .##\n##  .####\n###  ####\n#########"
+    },
+    {
+      "id": "expert-104",
+      "title": {
+        "en": "Expert Forge 104",
+        "zh": "专家熔炉 104"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n##########\n####@#####\n#. #$  .##\n#    #   #\n# $   .. #\n#  . $# ##\n#  $  $  #\n#####    #\n##########"
+    },
+    {
+      "id": "expert-105",
+      "title": {
+        "en": "Expert Forge 105",
+        "zh": "专家熔炉 105"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n#########\n#   #.###\n##$..$###\n#  #   ##\n#.     ##\n# $  $ ##\n# @# # ##\n#########"
+    },
+    {
+      "id": "expert-106",
+      "title": {
+        "en": "Expert Forge 106",
+        "zh": "专家熔炉 106"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "#########\n#### @###\n### $$###\n#  .   ##\n# $  #.##\n##   # ##\n#   $ .##\n# #.   ##\n#########"
+    },
+    {
+      "id": "expert-107",
+      "title": {
+        "en": "Expert Forge 107",
+        "zh": "专家熔炉 107"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 17,
+      "xsb": "##########\n##########\n##### # ##\n###  . $.#\n#   $. $@#\n##     $ #\n##.  # $ #\n#   .  ###\n####  ####\n##########"
+    },
+    {
+      "id": "expert-108",
+      "title": {
+        "en": "Expert Forge 108",
+        "zh": "专家熔炉 108"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "##########\n##      ##\n##    . .#\n#  .    .#\n# $ . $ ##\n##   ##$##\n####$ $@##\n###    ###\n##########\n##########"
+    },
+    {
+      "id": "expert-109",
+      "title": {
+        "en": "Expert Forge 109",
+        "zh": "专家熔炉 109"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n####.# ###\n### .  # #\n### $. # #\n## #  #  #\n## .     #\n##       #\n#####$$$##\n#####@  ##\n##########"
+    },
+    {
+      "id": "expert-110",
+      "title": {
+        "en": "Expert Forge 110",
+        "zh": "专家熔炉 110"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "##########\n##### ..##\n# .#  $# #\n# .    $@#\n## #   ###\n#    $ ###\n#  #  ####\n##  #$  ##\n###   ####\n##########"
+    },
+    {
+      "id": "expert-111",
+      "title": {
+        "en": "Expert Forge 111",
+        "zh": "专家熔炉 111"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "##########\n##########\n###   ####\n###$   $@#\n##    #$##\n##    #  #\n## ##.  .#\n#  # .$# #\n##  #.  ##\n##########"
+    },
+    {
+      "id": "expert-112",
+      "title": {
+        "en": "Expert Forge 112",
+        "zh": "专家熔炉 112"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 17,
+      "xsb": "##########\n###. #####\n###    ###\n### $    #\n###. #$. #\n###  $@$ #\n###.  $ ##\n### #  ###\n###  .   #\n##########"
+    },
+    {
+      "id": "expert-113",
+      "title": {
+        "en": "Expert Forge 113",
+        "zh": "专家熔炉 113"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n##### .##\n#. #  .##\n#   $ $@#\n#  $#  ##\n##$   ###\n##    ###\n#####.###\n#########"
+    },
+    {
+      "id": "expert-114",
+      "title": {
+        "en": "Expert Forge 114",
+        "zh": "专家熔炉 114"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n######@###\n######$###\n#       ##\n#  $ $ ###\n# $      #\n#  $ #. ##\n# . . #  #\n##.    .##\n##########"
+    },
+    {
+      "id": "expert-115",
+      "title": {
+        "en": "Expert Forge 115",
+        "zh": "专家熔炉 115"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n####   ###\n#### # .##\n###@$  .##\n###$    ##\n#   #    #\n#  .  #  #\n# #$ $  ##\n#  .# # ##\n##########"
+    },
+    {
+      "id": "expert-116",
+      "title": {
+        "en": "Expert Forge 116",
+        "zh": "专家熔炉 116"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n####     #\n####  . ##\n## $    ##\n##  . .  #\n## $     #\n#+$ #$.  #\n## $    ##\n### #   ##\n##########"
+    },
+    {
+      "id": "expert-117",
+      "title": {
+        "en": "Expert Forge 117",
+        "zh": "专家熔炉 117"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n###..   #\n### #.  #\n###   $ #\n####.   #\n#### $$ #\n### $ ###\n####@####\n#########"
+    },
+    {
+      "id": "expert-118",
+      "title": {
+        "en": "Expert Forge 118",
+        "zh": "专家熔炉 118"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n###. .####\n##  $ ####\n#     ####\n##    ####\n# . $.   #\n#.  @# $ #\n# $#  $  #\n#     ## #\n##########"
+    },
+    {
+      "id": "expert-119",
+      "title": {
+        "en": "Expert Forge 119",
+        "zh": "专家熔炉 119"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "##########\n##.   ####\n####..####\n## #$   ##\n##       #\n#@$    $ #\n#### # $ #\n####. #  #\n#####  # #\n##########"
+    },
+    {
+      "id": "expert-120",
+      "title": {
+        "en": "Expert Forge 120",
+        "zh": "专家熔炉 120"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n#########\n# .     #\n##  $  ##\n##$# ..##\n##@$ #  #\n####$ .##\n####   ##\n#########"
+    },
+    {
+      "id": "expert-121",
+      "title": {
+        "en": "Expert Forge 121",
+        "zh": "专家熔炉 121"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "##########\n## ## .  #\n##  . .$ #\n#      ###\n#  $  .###\n###### ###\n###     ##\n#@$   $###\n####   ###\n##########"
+    },
+    {
+      "id": "expert-122",
+      "title": {
+        "en": "Expert Forge 122",
+        "zh": "专家熔炉 122"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "##########\n##  . ####\n##. # ####\n##  #  ###\n#      ###\n#. $ $  ##\n# $@$ $ .#\n#  ##  . #\n####  ####\n##########"
+    },
+    {
+      "id": "expert-123",
+      "title": {
+        "en": "Expert Forge 123",
+        "zh": "专家熔炉 123"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "##########\n###      #\n##     $ #\n##.. $#  #\n##. $@$  #\n##.   $ ##\n##     ###\n##### . ##\n#####  ###\n##########"
+    },
+    {
+      "id": "expert-124",
+      "title": {
+        "en": "Expert Forge 124",
+        "zh": "专家熔炉 124"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n#####@####\n#####$####\n###.   ###\n#     #.##\n# $#$   ##\n## . #$ ##\n# #     .#\n#    ### #\n##########"
+    },
+    {
+      "id": "expert-125",
+      "title": {
+        "en": "Expert Forge 125",
+        "zh": "专家熔炉 125"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "##########\n##########\n#   ## ###\n##.      #\n###$$ #. #\n###@$$  ##\n###   #  #\n####     #\n## .  # .#\n##########"
+    },
+    {
+      "id": "expert-126",
+      "title": {
+        "en": "Expert Forge 126",
+        "zh": "专家熔炉 126"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n##########\n## #######\n#      . #\n## $ $  .#\n#####  $##\n###  $ $@#\n###     ##\n## ... ###\n##########"
+    },
+    {
+      "id": "expert-127",
+      "title": {
+        "en": "Expert Forge 127",
+        "zh": "专家熔炉 127"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 16,
+      "xsb": "#########\n##### ###\n#### . .#\n###  .  #\n## $  $ #\n#@$  ## #\n# *  ####\n# #     #\n#########"
+    },
+    {
+      "id": "expert-128",
+      "title": {
+        "en": "Expert Forge 128",
+        "zh": "专家熔炉 128"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 17,
+      "xsb": "##########\n##  ######\n#@$   ####\n##   $  ##\n# .     ##\n###.# $. #\n###  *## #\n##  $  ###\n## . # ###\n##########"
+    },
+    {
+      "id": "expert-129",
+      "title": {
+        "en": "Expert Forge 129",
+        "zh": "专家熔炉 129"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "##########\n##########\n####@## ##\n### $#  ##\n##.$   $ #\n## #   # #\n##   .   #\n#. .$*  ##\n# #  # ###\n##########"
+    },
+    {
+      "id": "expert-130",
+      "title": {
+        "en": "Expert Forge 130",
+        "zh": "专家熔炉 130"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n###.  ####\n##  # ####\n### # ####\n## $   $@#\n##    #.*#\n###      #\n###$  .  #\n#        #\n##########"
+    },
+    {
+      "id": "expert-131",
+      "title": {
+        "en": "Expert Forge 131",
+        "zh": "专家熔炉 131"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "#########\n### #.###\n###   .##\n#@$    ##\n# $# #  #\n##   $.##\n###  $.##\n###  ####\n#########"
+    },
+    {
+      "id": "expert-132",
+      "title": {
+        "en": "Expert Forge 132",
+        "zh": "专家熔炉 132"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n##########\n####   # #\n##  #$ $.#\n##     . #\n##.    # #\n##.#   # #\n## $    $#\n###  ###@#\n##########"
+    },
+    {
+      "id": "expert-133",
+      "title": {
+        "en": "Expert Forge 133",
+        "zh": "专家熔炉 133"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "##########\n#### @   #\n#   $$$ ##\n# ##   ###\n#    # ###\n#  #  ####\n# # .. ###\n# .  $ .##\n# # #  ###\n##########"
+    },
+    {
+      "id": "expert-134",
+      "title": {
+        "en": "Expert Forge 134",
+        "zh": "专家熔炉 134"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n## ##    #\n##@$ $ $ #\n##      .#\n###  $  .#\n###  # # #\n## ..    #\n### . $  #\n#### ## ##\n##########"
+    },
+    {
+      "id": "expert-135",
+      "title": {
+        "en": "Expert Forge 135",
+        "zh": "专家熔炉 135"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n# .#######\n##  ######\n##  ###+##\n# $ $  $ #\n#   $##  #\n#.#$ ..  #\n##      ##\n#####  ###\n##########"
+    },
+    {
+      "id": "expert-136",
+      "title": {
+        "en": "Expert Forge 136",
+        "zh": "专家熔炉 136"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "##########\n###   # ##\n####   . #\n####  .. #\n##   #   #\n##    $ .#\n###$$$ # #\n### @#   #\n###### ###\n##########"
+    },
+    {
+      "id": "expert-137",
+      "title": {
+        "en": "Expert Forge 137",
+        "zh": "专家熔炉 137"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 17,
+      "xsb": "##########\n#####  ###\n##### @###\n###  .$  #\n### #$ $##\n### $    #\n#### #.* #\n##.  .   #\n######   #\n##########"
+    },
+    {
+      "id": "expert-138",
+      "title": {
+        "en": "Expert Forge 138",
+        "zh": "专家熔炉 138"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n####   .##\n#@$ .#  ##\n###    ###\n##  $  ###\n# $    ###\n#.     ###\n#.  # $ ##\n#   #   ##\n##########"
+    },
+    {
+      "id": "expert-139",
+      "title": {
+        "en": "Expert Forge 139",
+        "zh": "专家熔炉 139"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n##########\n###..#####\n### .  ###\n##@$   . #\n### $ .# #\n### $    #\n###  $ $ #\n### #    #\n##########"
+    },
+    {
+      "id": "expert-140",
+      "title": {
+        "en": "Expert Forge 140",
+        "zh": "专家熔炉 140"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 17,
+      "xsb": "##########\n### #  ###\n### ..$###\n### #  # #\n##       #\n### # $  #\n##   $@$##\n##  .#$ ##\n###   ..##\n##########"
+    },
+    {
+      "id": "expert-141",
+      "title": {
+        "en": "Expert Forge 141",
+        "zh": "专家熔炉 141"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n##### ####\n####  ####\n####  .###\n# $  #  ##\n#      $@#\n# $#$#  ##\n#..#  . ##\n#.$    ###\n##########"
+    },
+    {
+      "id": "expert-142",
+      "title": {
+        "en": "Expert Forge 142",
+        "zh": "专家熔炉 142"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n##########\n##    ####\n## ##$   #\n#.       #\n# ..#   .#\n###    $ #\n###  $$@##\n####   ###\n##########"
+    },
+    {
+      "id": "expert-143",
+      "title": {
+        "en": "Expert Forge 143",
+        "zh": "专家熔炉 143"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n## #######\n##  ###. #\n#   ##   #\n# $      #\n#.   $#. #\n####     #\n### $$   #\n#### @# .#\n##########"
+    },
+    {
+      "id": "expert-144",
+      "title": {
+        "en": "Expert Forge 144",
+        "zh": "专家熔炉 144"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "#########\n###     #\n#### # ##\n##@$    #\n##$##$..#\n#   .. ##\n# $   ###\n# #  ####\n#########"
+    },
+    {
+      "id": "expert-145",
+      "title": {
+        "en": "Expert Forge 145",
+        "zh": "专家熔炉 145"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n#     . ##\n##.#$ # ##\n# .     ##\n## #$$ # #\n## $@$   #\n## ##.   #\n#  ##.#  #\n##########\n##########"
+    },
+    {
+      "id": "expert-146",
+      "title": {
+        "en": "Expert Forge 146",
+        "zh": "专家熔炉 146"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "##########\n#### #####\n####    ##\n####  @ ##\n# ## .*###\n#. # $   #\n# $  # #.#\n# $ $    #\n#  ## .  #\n##########"
+    },
+    {
+      "id": "expert-147",
+      "title": {
+        "en": "Expert Forge 147",
+        "zh": "专家熔炉 147"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n####. ####\n###   $@##\n####   $##\n####  $ ##\n### $   ##\n##      ##\n#  # $  .#\n#  .   ..#\n##########"
+    },
+    {
+      "id": "expert-148",
+      "title": {
+        "en": "Expert Forge 148",
+        "zh": "专家熔炉 148"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 17,
+      "xsb": "##########\n###   ## #\n#    .#  #\n#   #    #\n## #.  $ #\n##$   . ##\n#   #$$  #\n## ##@* ##\n######.###\n##########"
+    },
+    {
+      "id": "expert-149",
+      "title": {
+        "en": "Expert Forge 149",
+        "zh": "专家熔炉 149"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "##########\n##########\n####  ####\n# ##$   .#\n#  $@$   #\n#   $  .##\n#       ##\n#####.# ##\n###### . #\n##########"
+    },
+    {
+      "id": "expert-150",
+      "title": {
+        "en": "Expert Forge 150",
+        "zh": "专家熔炉 150"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "##########\n####  ####\n####$. ###\n##.   .###\n##  $ ####\n##     ###\n#    #$  #\n# . $    #\n# ##@#####\n##########"
+    },
+    {
+      "id": "expert-151",
+      "title": {
+        "en": "Expert Forge 151",
+        "zh": "专家熔炉 151"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n####   ###\n###  #.###\n### # .###\n### # $+##\n## .   ###\n##  $    #\n## ##$$ ##\n###     ##\n##########"
+    },
+    {
+      "id": "expert-152",
+      "title": {
+        "en": "Expert Forge 152",
+        "zh": "专家熔炉 152"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n##  #   ##\n### $   ##\n### $ ## #\n###  $@  #\n###   .  #\n## . # $ #\n##  .  # #\n###    . #\n##########"
+    },
+    {
+      "id": "expert-153",
+      "title": {
+        "en": "Expert Forge 153",
+        "zh": "专家熔炉 153"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n###+######\n#  $######\n# $   ####\n## #$    #\n#. #  $# #\n#  .$    #\n#  . .   #\n#   ###  #\n##########"
+    },
+    {
+      "id": "expert-154",
+      "title": {
+        "en": "Expert Forge 154",
+        "zh": "专家熔炉 154"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n#### #   #\n###. # $ #\n###.## ###\n#@*    # #\n##  $. $ #\n## $#    #\n##   .# ##\n##   #####\n##########"
+    },
+    {
+      "id": "expert-155",
+      "title": {
+        "en": "Expert Forge 155",
+        "zh": "专家熔炉 155"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n##########\n####. .  #\n####  . ##\n##### $ ##\n####@$   #\n##  $  # #\n## $  $  #\n##  . # .#\n##########"
+    },
+    {
+      "id": "expert-156",
+      "title": {
+        "en": "Expert Forge 156",
+        "zh": "专家熔炉 156"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n## .##  ##\n#      $##\n# $ .$   #\n#. #     #\n# #  # ###\n#### # $@#\n#####  .##\n#####   ##\n##########"
+    },
+    {
+      "id": "expert-157",
+      "title": {
+        "en": "Expert Forge 157",
+        "zh": "专家熔炉 157"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n##########\n######.###\n##     ###\n# $.$ $ ##\n#@$   # ##\n# $  #   #\n## ..    #\n#     #. #\n##########"
+    },
+    {
+      "id": "expert-158",
+      "title": {
+        "en": "Expert Forge 158",
+        "zh": "专家熔炉 158"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 17,
+      "xsb": "##########\n#  #  .###\n## $ # ###\n##   ..  #\n##   #$  #\n###  $@$##\n### .#$ ##\n###  .  ##\n### ## ###\n##########"
+    },
+    {
+      "id": "expert-159",
+      "title": {
+        "en": "Expert Forge 159",
+        "zh": "专家熔炉 159"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "#########\n##.#@####\n##.#$####\n#  #  ###\n##$  #.##\n#  $    #\n##   *  #\n##    ###\n#########"
+    },
+    {
+      "id": "expert-160",
+      "title": {
+        "en": "Expert Forge 160",
+        "zh": "专家熔炉 160"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n#######  #\n#######  #\n###    . #\n##@.   . #\n##$ # $$ #\n##       #\n# $   #  #\n#   ##  .#\n##########"
+    },
+    {
+      "id": "expert-161",
+      "title": {
+        "en": "Expert Forge 161",
+        "zh": "专家熔炉 161"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "#########\n####  ###\n###.  ###\n##  #$  #\n##  $@$##\n##   $  #\n#  #   .#\n# ..    #\n#########"
+    },
+    {
+      "id": "expert-162",
+      "title": {
+        "en": "Expert Forge 162",
+        "zh": "专家熔炉 162"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 17,
+      "xsb": "##########\n##########\n#####@####\n###..$   #\n#        #\n#   $ .  #\n##  #$#$##\n# $ .    #\n##    .# #\n##########"
+    },
+    {
+      "id": "expert-163",
+      "title": {
+        "en": "Expert Forge 163",
+        "zh": "专家熔炉 163"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "##########\n#####  .##\n#####.   #\n# #    $ #\n#    ##$ #\n#    #  .#\n###$    .#\n###@$    #\n####   ###\n##########"
+    },
+    {
+      "id": "expert-164",
+      "title": {
+        "en": "Expert Forge 164",
+        "zh": "专家熔炉 164"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "##########\n###### ###\n###+##.  #\n###$.    #\n###   #  #\n# .  $ $##\n##   $$  #\n#####    #\n###   #. #\n##########"
+    },
+    {
+      "id": "expert-165",
+      "title": {
+        "en": "Expert Forge 165",
+        "zh": "专家熔炉 165"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n##### ####\n##      ##\n#     . ##\n#.#$    ##\n#  $$    #\n#.     $ #\n#     $@##\n##. #. ###\n##########"
+    },
+    {
+      "id": "expert-166",
+      "title": {
+        "en": "Expert Forge 166",
+        "zh": "专家熔炉 166"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 16,
+      "xsb": "#########\n###    ##\n###. $ ##\n### .  ##\n##  #$$##\n#.### .##\n#  $@   #\n#   #####\n#########"
+    },
+    {
+      "id": "expert-167",
+      "title": {
+        "en": "Expert Forge 167",
+        "zh": "专家熔炉 167"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n######  ##\n##   #$ ##\n##.     .#\n##. # $  #\n##       #\n# $      #\n##@$ .#$##\n###   . ##\n##########"
+    },
+    {
+      "id": "expert-168",
+      "title": {
+        "en": "Expert Forge 168",
+        "zh": "专家熔炉 168"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n#####  ###\n######   #\n###@#    #\n##.$  #$ #\n#    $  ##\n# #. ##  #\n####$ .  #\n###  .   #\n##########"
+    },
+    {
+      "id": "expert-169",
+      "title": {
+        "en": "Expert Forge 169",
+        "zh": "专家熔炉 169"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "##########\n##########\n#    #  ##\n#  $ $$ ##\n####   . #\n#### #  .#\n###..   ##\n## #  $$##\n##  . #@##\n##########"
+    },
+    {
+      "id": "expert-170",
+      "title": {
+        "en": "Expert Forge 170",
+        "zh": "专家熔炉 170"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n###..  ###\n##      ##\n#    $#$##\n# $#.   ##\n##@$     #\n#### # . #\n#### #   #\n##########\n##########"
+    },
+    {
+      "id": "expert-171",
+      "title": {
+        "en": "Expert Forge 171",
+        "zh": "专家熔炉 171"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n####@#####\n##  $#####\n## #  $ ##\n##   #   #\n#  # . ###\n#..   .* #\n# $ $    #\n#      # #\n##########"
+    },
+    {
+      "id": "expert-172",
+      "title": {
+        "en": "Expert Forge 172",
+        "zh": "专家熔炉 172"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "#########\n###  # ##\n##  $@$ #\n##   $ .#\n####  .##\n##. $   #\n##     .#\n## ###  #\n#########"
+    },
+    {
+      "id": "expert-173",
+      "title": {
+        "en": "Expert Forge 173",
+        "zh": "专家熔炉 173"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "##########\n##########\n##   #####\n# $  #####\n#@$ # .  #\n# $ .    #\n### #.#  #\n##.$     #\n##  #  ###\n##########"
+    },
+    {
+      "id": "expert-174",
+      "title": {
+        "en": "Expert Forge 174",
+        "zh": "专家熔炉 174"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n###@  ####\n###$$$####\n### #  ###\n#.     ###\n##   . ###\n#.     ###\n##. #$ ###\n###   ####\n##########"
+    },
+    {
+      "id": "expert-175",
+      "title": {
+        "en": "Expert Forge 175",
+        "zh": "专家熔炉 175"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n##### ####\n#     .###\n# $ $  $@#\n# $    ###\n# #  .  ##\n####. # ##\n###    ###\n###.  ####\n##########"
+    },
+    {
+      "id": "expert-176",
+      "title": {
+        "en": "Expert Forge 176",
+        "zh": "专家熔炉 176"
+      },
+      "difficulty": "expert",
+      "boxes": 5,
+      "optimalPushes": 17,
+      "xsb": "##########\n##########\n##  # .# #\n##  #  $ #\n## . $   #\n##  . #.##\n## #$ $  #\n###  $@###\n### . ####\n##########"
+    },
+    {
+      "id": "expert-177",
+      "title": {
+        "en": "Expert Forge 177",
+        "zh": "专家熔炉 177"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n##@##   ##\n#.$ #$$ ##\n##    #  #\n#  .   # #\n#   #.   #\n# #$     #\n#.#  # ###\n##########\n##########"
+    },
+    {
+      "id": "expert-178",
+      "title": {
+        "en": "Expert Forge 178",
+        "zh": "专家熔炉 178"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "##########\n######## #\n#     #  #\n#@$ $    #\n#  $    ##\n#    $ . #\n###.  ## #\n###    .##\n####  .###\n##########"
+    },
+    {
+      "id": "expert-179",
+      "title": {
+        "en": "Expert Forge 179",
+        "zh": "专家熔炉 179"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "##########\n#### .@###\n## ##$$###\n#   #  ###\n# .    ###\n#    $  ##\n#   $## ##\n# #.   . #\n#  #######\n##########"
+    },
+    {
+      "id": "expert-180",
+      "title": {
+        "en": "Expert Forge 180",
+        "zh": "专家熔炉 180"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "#########\n#    # ##\n#     $ #\n##$$# # #\n#   ..  #\n# #. ####\n### $####\n####+####\n#########"
+    },
+    {
+      "id": "expert-181",
+      "title": {
+        "en": "Expert Forge 181",
+        "zh": "专家熔炉 181"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "#########\n## # #.##\n# $     #\n# . $  .#\n##. # $ #\n###    ##\n###   $##\n#### #@##\n#########"
+    },
+    {
+      "id": "expert-182",
+      "title": {
+        "en": "Expert Forge 182",
+        "zh": "专家熔炉 182"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "#########\n###    .#\n###$### #\n# $  .. #\n#.      #\n#   $$  #\n####@ ###\n#########\n#########"
+    },
+    {
+      "id": "expert-183",
+      "title": {
+        "en": "Expert Forge 183",
+        "zh": "专家熔炉 183"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n#####  ###\n###.# . ##\n###  #   #\n###   .  #\n### $#  ##\n### $@$  #\n### $ # ##\n####  #.##\n##########"
+    },
+    {
+      "id": "expert-184",
+      "title": {
+        "en": "Expert Forge 184",
+        "zh": "专家熔炉 184"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "##########\n##########\n######@###\n##### $ ##\n###.    ##\n# # # $ ##\n#. .  .$##\n# $#     #\n#  #     #\n##########"
+    },
+    {
+      "id": "expert-185",
+      "title": {
+        "en": "Expert Forge 185",
+        "zh": "专家熔炉 185"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "#########\n### .   #\n###     #\n###  #. #\n####$  .#\n####@$  #\n####$ $##\n#### .  #\n#########"
+    },
+    {
+      "id": "expert-186",
+      "title": {
+        "en": "Expert Forge 186",
+        "zh": "专家熔炉 186"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n##  @####\n##$$$## #\n#    # .#\n#. $    #\n#.  # . #\n# ##    #\n#########\n#########"
+    },
+    {
+      "id": "expert-187",
+      "title": {
+        "en": "Expert Forge 187",
+        "zh": "专家熔炉 187"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n######  ##\n#### ## ##\n##@$   . #\n##$$  #. #\n#   # $ ##\n# # #.   #\n#       .#\n# ####  ##\n##########"
+    },
+    {
+      "id": "expert-188",
+      "title": {
+        "en": "Expert Forge 188",
+        "zh": "专家熔炉 188"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n###@######\n## $  ####\n##    ####\n#.#  $  ##\n# # #   ##\n#  $  .  #\n#   $    #\n# .# # .##\n##########"
+    },
+    {
+      "id": "expert-189",
+      "title": {
+        "en": "Expert Forge 189",
+        "zh": "专家熔炉 189"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "#########\n#########\n##..    #\n# .# $  #\n#   $@$##\n#    $  #\n##.#  ###\n##    ###\n#########"
+    },
+    {
+      "id": "expert-190",
+      "title": {
+        "en": "Expert Forge 190",
+        "zh": "专家熔炉 190"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n####    ##\n###  $ $@#\n##     ###\n#### # ###\n##.. #   #\n###$.   .#\n#  $    ##\n##     ###\n##########"
+    },
+    {
+      "id": "expert-191",
+      "title": {
+        "en": "Expert Forge 191",
+        "zh": "专家熔炉 191"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 16,
+      "xsb": "#########\n### .####\n## .  ###\n#    $@##\n## #  $ #\n### $ $ #\n### .## #\n###  ##.#\n#########"
+    },
+    {
+      "id": "expert-192",
+      "title": {
+        "en": "Expert Forge 192",
+        "zh": "专家熔炉 192"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n##########\n####+#####\n##  $## ##\n##$#  . ##\n# $   .###\n#      . #\n#### $ ###\n###     ##\n##########"
+    },
+    {
+      "id": "expert-193",
+      "title": {
+        "en": "Expert Forge 193",
+        "zh": "专家熔炉 193"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n#### ... #\n####  #  #\n####     #\n## .     #\n# @$  $$ #\n#  #  $  #\n###    ###\n##### ####\n##########"
+    },
+    {
+      "id": "expert-194",
+      "title": {
+        "en": "Expert Forge 194",
+        "zh": "专家熔炉 194"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "##########\n####   ###\n####   ###\n###@$  $ #\n####  #  #\n####  $  #\n###.. # ##\n##   $   #\n##### .. #\n##########"
+    },
+    {
+      "id": "expert-195",
+      "title": {
+        "en": "Expert Forge 195",
+        "zh": "专家熔炉 195"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 16,
+      "xsb": "##########\n###   ####\n##    . ##\n###.# #  #\n# ## $ $ #\n#   # $  #\n## $     #\n## + . # #\n## # #####\n##########"
+    },
+    {
+      "id": "expert-196",
+      "title": {
+        "en": "Expert Forge 196",
+        "zh": "专家熔炉 196"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "#########\n##   ####\n## $ ##.#\n##   #  #\n# $  .. #\n#@$  #  #\n# $  .  #\n# ##  ###\n#########"
+    },
+    {
+      "id": "expert-197",
+      "title": {
+        "en": "Expert Forge 197",
+        "zh": "专家熔炉 197"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "##########\n#####  #.#\n####   # #\n##   $   #\n#@$    $ #\n## #     #\n###    $ #\n### # .  #\n####  . .#\n##########"
+    },
+    {
+      "id": "expert-198",
+      "title": {
+        "en": "Expert Forge 198",
+        "zh": "专家熔炉 198"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "#########\n####   .#\n#### $ .#\n##   # ##\n##$ $   #\n#.      #\n# $ ## .#\n##@######\n#########"
+    },
+    {
+      "id": "expert-199",
+      "title": {
+        "en": "Expert Forge 199",
+        "zh": "专家熔炉 199"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "##########\n#### #####\n##     . #\n###  $   #\n###. # . #\n##@$   $ #\n###.   # #\n###   $###\n###    ###\n##########"
+    },
+    {
+      "id": "expert-200",
+      "title": {
+        "en": "Expert Forge 200",
+        "zh": "专家熔炉 200"
+      },
+      "difficulty": "expert",
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n#####  ###\n###    ###\n###.#  $@#\n###    $ #\n#     $ ##\n#   $   ##\n##.   . ##\n#  . ## ##\n##########"
+    }
+  ]
+}
