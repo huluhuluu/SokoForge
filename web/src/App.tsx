@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Box, BrainCircuit, Check,
   ChevronLeft, ChevronRight, Download, Eraser, FileDown, FileUp, Gamepad2,
-  FolderOpen, FolderSync, Grid3X3, Languages, Pencil, Play, Redo2, RotateCcw, Save, Sparkles,
+  CircleHelp, FolderOpen, FolderSync, Grid3X3, Languages, Pause, Pencil, Play, Redo2, RotateCcw, Save, Sparkles,
   Square, Target, Undo2, UserRound, WandSparkles,
 } from 'lucide-react'
 import { copy, getInitialLanguage } from './i18n'
@@ -16,6 +16,8 @@ const directionByKey: Record<string, string> = {
   ArrowUp: 'U', w: 'U', W: 'U', ArrowRight: 'R', d: 'R', D: 'R',
   ArrowDown: 'D', s: 'D', S: 'D', ArrowLeft: 'L', a: 'L', A: 'L',
 }
+type PlayStats = { moves: number; pushes: number }
+type PlaySnapshot = { level: ParsedLevel; stats: PlayStats }
 
 export default function App() {
   const [language, setLanguage] = useState<Language>(getInitialLanguage)
@@ -25,6 +27,7 @@ export default function App() {
   const [workMode, setWorkMode] = useState<'play' | 'edit'>('play')
   const [currentLevelId, setCurrentLevelId] = useState<string | null>(null)
   const [playStats, setPlayStats] = useState({ moves: 0, pushes: 0 })
+  const [playHistory, setPlayHistory] = useState<PlaySnapshot[]>([])
   const [history, setHistory] = useState<ParsedLevel[]>([])
   const [future, setFuture] = useState<ParsedLevel[]>([])
   const [tool, setTool] = useState<Tool>('wall')
@@ -33,6 +36,9 @@ export default function App() {
   const [solveResult, setSolveResult] = useState<SolveResult | null>(null)
   const [isSolving, setIsSolving] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
+  const [solutionStart, setSolutionStart] = useState<ParsedLevel | null>(() => parseLevel(SAMPLE))
+  const [playbackIndex, setPlaybackIndex] = useState(0)
+  const [playbackSpeed, setPlaybackSpeed] = useState(1)
   const [batchCount, setBatchCount] = useState(100)
   const [boxCount, setBoxCount] = useState(3)
   const [difficultyMode, setDifficultyMode] = useState<DifficultyMode>('composite')
@@ -83,6 +89,7 @@ export default function App() {
         const first = parseLevel(loaded[0].xsb)
         setLevel(first)
         setInitialLevel(first)
+        setSolutionStart(first)
         setCurrentLevelId(loaded[0].id)
       }
     }).catch(() => setPublished([]))
@@ -104,8 +111,14 @@ export default function App() {
 
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
+      if (workMode !== 'play' || event.metaKey || event.ctrlKey) return
+      if ((event.key === 'z' || event.key === 'Z' || event.key === 'Backspace') && playHistory.length && !isPlaying) {
+        event.preventDefault()
+        undoPlayMove()
+        return
+      }
       const direction = directionByKey[event.key]
-      if (!direction || event.metaKey || event.ctrlKey || workMode !== 'play') return
+      if (!direction || isPlaying) return
       if (move(level, direction)) {
         event.preventDefault()
         playMove(direction)
@@ -113,7 +126,17 @@ export default function App() {
     }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
-  }, [level, workMode])
+  }, [isPlaying, level, playHistory, workMode])
+
+  useEffect(() => {
+    if (!isPlaying || !solveResult?.moves || !solutionStart) return
+    if (playbackIndex >= solveResult.moves.length) {
+      setIsPlaying(false)
+      return
+    }
+    const timeout = window.setTimeout(() => replaySolutionTo(playbackIndex + 1), 420 / playbackSpeed)
+    return () => window.clearTimeout(timeout)
+  }, [isPlaying, playbackIndex, playbackSpeed, solutionStart, solveResult])
 
   function commit(next: ParsedLevel) {
     setHistory((items) => [...items.slice(-99), level])
@@ -121,6 +144,8 @@ export default function App() {
     setLevel(next)
     setSolveResult(null)
     setIsPlaying(false)
+    setSolutionStart(null)
+    setPlaybackIndex(0)
   }
 
   function solve(targetXsb = xsb, mode = solveMode): Promise<SolveResult> {
@@ -144,34 +169,79 @@ export default function App() {
 
   async function onSolve() {
     setIsSolving(true)
-    setSolveResult(await solve())
+    setIsPlaying(false)
+    const start = level
+    setSolutionStart(start)
+    setPlaybackIndex(0)
+    setSolveResult(await solve(toXsb(start)))
     setIsSolving(false)
   }
 
-  async function playSolution() {
-    if (!solveResult?.moves || isPlaying) return
-    setIsPlaying(true)
-    for (const step of solveResult.moves) {
-      await new Promise((resolve) => window.setTimeout(resolve, 90))
-      setLevel((current) => move(current, step) ?? current)
+  function replaySolutionTo(index: number) {
+    if (!solveResult?.moves || !solutionStart) return
+    const safeIndex = Math.max(0, Math.min(solveResult.moves.length, index))
+    let replayed = solutionStart
+    let stats: PlayStats = { moves: 0, pushes: 0 }
+    for (const direction of solveResult.moves.slice(0, safeIndex)) {
+      const next = move(replayed, direction)
+      if (!next) break
+      const pushed = next.boxes.some((box, boxIndex) => box !== replayed.boxes[boxIndex])
+      replayed = next
+      stats = { moves: stats.moves + 1, pushes: stats.pushes + Number(pushed) }
     }
+    setLevel(replayed)
+    setPlayStats(stats)
+    setPlaybackIndex(safeIndex)
+    setPlayHistory([])
+  }
+
+  function toggleSolutionPlayback() {
+    if (!solveResult?.moves || !solutionStart) return
+    if (isPlaying) {
+      setIsPlaying(false)
+      return
+    }
+    replaySolutionTo(playbackIndex >= solveResult.moves.length ? 0 : playbackIndex)
+    setIsPlaying(true)
+  }
+
+  function stepSolution(delta: number) {
     setIsPlaying(false)
+    replaySolutionTo(playbackIndex + delta)
   }
 
   function paint(index: number) { commit(applyTool(level, index, tool)) }
 
   function playMove(direction: string) {
+    if (isPlaying) return
     const next = move(level, direction)
     if (!next) return
     const pushed = next.boxes.some((box, index) => box !== level.boxes[index])
+    setPlayHistory((items) => [...items.slice(-199), { level, stats: playStats }])
     setLevel(next)
     setPlayStats((stats) => ({ moves: stats.moves + 1, pushes: stats.pushes + Number(pushed) }))
+    setPlaybackIndex(0)
+  }
+
+  function undoPlayMove() {
+    const previous = playHistory.at(-1)
+    if (!previous || isPlaying) return
+    setLevel(previous.level)
+    setPlayStats(previous.stats)
+    setPlayHistory((items) => items.slice(0, -1))
+    setPlaybackIndex(0)
   }
 
   function restartLevel() {
+    setIsPlaying(false)
     setLevel(initialLevel)
     setPlayStats({ moves: 0, pushes: 0 })
-    setSolveResult(null)
+    setPlayHistory([])
+    setPlaybackIndex(0)
+    if (!solutionStart || toXsb(solutionStart) !== toXsb(initialLevel)) {
+      setSolveResult(null)
+      setSolutionStart(initialLevel)
+    }
   }
 
   function switchWorkMode(mode: 'play' | 'edit') {
@@ -180,6 +250,9 @@ export default function App() {
     setWorkMode(mode)
     setSolveResult(null)
     setPlayStats({ moves: 0, pushes: 0 })
+    setPlayHistory([])
+    setIsPlaying(false)
+    setPlaybackIndex(0)
   }
 
   function resize(axis: 'width' | 'height', value: number) {
@@ -318,8 +391,12 @@ export default function App() {
     const loaded = parseLevel(entry.xsb)
     setLevel(loaded)
     setInitialLevel(loaded)
+    setSolutionStart(loaded)
     setCurrentLevelId(published.some((item) => item.id === entry.id) ? entry.id : null)
     setPlayStats({ moves: 0, pushes: 0 })
+    setPlayHistory([])
+    setPlaybackIndex(0)
+    setIsPlaying(false)
     setHistory([])
     setFuture([])
     setWorkMode('play')
@@ -341,7 +418,7 @@ export default function App() {
         <button className={workMode === 'edit' ? 'active' : ''} onClick={() => switchWorkMode('edit')}><Pencil size={16} />{t.editMode}</button>
       </nav>
       <div className="top-actions">
-        <button className="icon-button" title={t.newLevel} onClick={() => { const fresh = parseLevel(SAMPLE); setLevel(fresh); setInitialLevel(fresh); setCurrentLevelId(null); setPlayStats({ moves: 0, pushes: 0 }); setHistory([]); setWorkMode('edit') }}><Sparkles size={18} /></button>
+        <button className="icon-button" title={t.newLevel} onClick={() => { const fresh = parseLevel(SAMPLE); setLevel(fresh); setInitialLevel(fresh); setSolutionStart(null); setCurrentLevelId(null); setPlayStats({ moves: 0, pushes: 0 }); setPlayHistory([]); setPlaybackIndex(0); setIsPlaying(false); setSolveResult(null); setHistory([]); setWorkMode('edit') }}><Sparkles size={18} /></button>
         <button className="icon-button" title={t.import} onClick={() => fileInput.current?.click()}><FileUp size={18} /></button>
         <button className="icon-button" title={t.export} onClick={exportLevel}><Download size={18} /></button>
         <button className="language-button" title={t.language} onClick={() => setLanguage(language === 'en' ? 'zh' : 'en')}><Languages size={16} /><span>{language === 'en' ? '中文' : 'EN'}</span></button>
@@ -370,8 +447,8 @@ export default function App() {
 
         <footer className="game-dock">
           {workMode === 'play' ? <>
-            <div className="play-stats"><span><b>{playStats.moves}</b>{t.playedMoves}</span><span><b>{playStats.pushes}</b>{t.playedPushes}</span></div>
-            <Dpad onMove={playMove} />
+            <div className="play-summary"><div className="play-stats"><span><b>{playStats.moves}</b>{t.playedMoves}</span><span><b>{playStats.pushes}</b>{t.playedPushes}</span></div><div className="play-actions"><button title={t.undoMove} aria-label={t.undoMove} disabled={!playHistory.length || isPlaying} onClick={undoPlayMove}><Undo2 size={15} /></button><button title={t.restartLevel} aria-label={t.restartLevel} onClick={restartLevel}><RotateCcw size={15} /></button></div></div>
+            <Dpad onMove={playMove} disabled={isPlaying} />
             <span className={`board-status ${state}`}>{state === 'solved' ? t.completed : t.ready}</span>
           </> : <div className="edit-status"><Pencil size={15} />{level.width} × {level.height}</div>}
         </footer>
@@ -379,7 +456,7 @@ export default function App() {
 
       <aside className="control-panel">
         <nav className="tabs"><button className={activeTab === 'solve' ? 'active' : ''} onClick={() => setActiveTab('solve')}><BrainCircuit size={16} />{t.solve}</button><button className={activeTab === 'forge' ? 'active' : ''} onClick={() => setActiveTab('forge')}><WandSparkles size={16} />{t.forge}</button><button className={activeTab === 'library' ? 'active' : ''} onClick={() => setActiveTab('library')}><FileDown size={16} />{t.library}</button></nav>
-        {activeTab === 'solve' && <SolvePanel t={t} state={state} mode={solveMode} result={solveResult} isSolving={isSolving} isPlaying={isPlaying} onMode={setSolveMode} onSolve={onSolve} onPlay={playSolution} onSave={saveLevel} />}
+        {activeTab === 'solve' && <SolvePanel t={t} state={state} mode={solveMode} result={solveResult} isSolving={isSolving} isPlaying={isPlaying} playbackIndex={playbackIndex} playbackSpeed={playbackSpeed} onMode={setSolveMode} onSolve={onSolve} onTogglePlayback={toggleSolutionPlayback} onStep={stepSolution} onSpeed={setPlaybackSpeed} onSave={saveLevel} />}
         {activeTab === 'forge' && <div className="panel-body"><div className="panel-title"><span>{t.forge}</span><b>{generationProgress}%</b></div><div className="form-grid"><label>{t.candidateCount}<input type="number" min="10" max="1000" step="10" value={batchCount} onChange={(event) => setBatchCount(Number(event.target.value))} /></label><label>{t.boxes}<input type="number" min="1" max="8" value={boxCount} onChange={(event) => setBoxCount(Number(event.target.value))} /></label></div><label>{t.difficulty}<select value={difficultyMode} onChange={(event) => setDifficultyMode(event.target.value as DifficultyMode)}>{(['composite','long_solution','deep_trap','dependency'] as DifficultyMode[]).map((mode) => <option key={mode} value={mode}>{t[mode]}</option>)}</select></label><button className="primary-action" onClick={generate}><WandSparkles size={18} />{t.generate}</button><div className="pack-actions"><button className="secondary-action" disabled={!results.length} onClick={exportGeneratedPack}><Download size={16} />{t.exportPack}</button><button className="secondary-action" disabled={!results.length} onClick={saveGeneratedPackToDirectory}><FolderOpen size={16} />{t.saveToFolder}</button></div><div className="progress"><span style={{ width: `${generationProgress}%` }} /></div><ResultList title={t.topResults} items={results} empty={t.noResults} onLoad={load} pushLabel={t.pushes} /></div>}
         {activeTab === 'library' && <div className="panel-body"><div className="panel-title"><span>{t.library}</span><b>{publishedItems.length + library.length}</b></div><button className="import-row" onClick={() => fileInput.current?.click()}><FileUp size={17} />{t.importPack}</button><button className="import-row" disabled={directoryBusy} onClick={chooseLevelDirectory}><FolderOpen size={17} />{t.chooseFolder}</button>{directory && <button className="directory-row" disabled={directoryBusy} onClick={refreshDirectory}><FolderSync size={16} /><span>{directory.name}</span></button>}<ResultList title={t.myLevels} items={library} empty={t.emptyLibrary} onLoad={load} pushLabel={t.pushes} /><ResultList title={t.published} items={publishedItems} empty={t.noResults} onLoad={load} pushLabel={t.pushes} /></div>}
       </aside>
@@ -405,13 +482,26 @@ function BoardCell({ index, cell, level, workMode, onPaint }: { index: number; c
   return <button tabIndex={workMode === 'edit' ? 0 : -1} aria-label={`cell ${index}`} className={classes} onPointerDown={() => { if (workMode === 'edit') onPaint(index) }} onPointerEnter={(event) => { if (workMode === 'edit' && event.buttons === 1) onPaint(index) }}>{goal && <span className="goal-mark" />}{hasBox && <span className="crate" />}{hasPlayer && <span className="keeper" />}</button>
 }
 
-function Dpad({ onMove }: { onMove: (direction: string) => void }) {
-  return <div className="dpad"><button title="Up" onClick={() => onMove('U')}><ArrowUp size={18} /></button><button title="Left" onClick={() => onMove('L')}><ArrowLeft size={18} /></button><button title="Down" onClick={() => onMove('D')}><ArrowDown size={18} /></button><button title="Right" onClick={() => onMove('R')}><ArrowRight size={18} /></button></div>
+function Dpad({ onMove, disabled = false }: { onMove: (direction: string) => void; disabled?: boolean }) {
+  return <div className="dpad"><button title="Up" disabled={disabled} onClick={() => onMove('U')}><ArrowUp size={18} /></button><button title="Left" disabled={disabled} onClick={() => onMove('L')}><ArrowLeft size={18} /></button><button title="Down" disabled={disabled} onClick={() => onMove('D')}><ArrowDown size={18} /></button><button title="Right" disabled={disabled} onClick={() => onMove('R')}><ArrowRight size={18} /></button></div>
 }
 
-function SolvePanel({ t, state, mode, result, isSolving, isPlaying, onMode, onSolve, onPlay, onSave }: { t: Translations; state: string; mode: SolveMode; result: SolveResult | null; isSolving: boolean; isPlaying: boolean; onMode: (mode: SolveMode) => void; onSolve: () => void; onPlay: () => void; onSave: () => void }) {
+function SolvePanel({ t, state, mode, result, isSolving, isPlaying, playbackIndex, playbackSpeed, onMode, onSolve, onTogglePlayback, onStep, onSpeed, onSave }: { t: Translations; state: string; mode: SolveMode; result: SolveResult | null; isSolving: boolean; isPlaying: boolean; playbackIndex: number; playbackSpeed: number; onMode: (mode: SolveMode) => void; onSolve: () => void; onTogglePlayback: () => void; onStep: (delta: number) => void; onSpeed: (speed: number) => void; onSave: () => void }) {
   const status = result ? (result.status === 'solved' ? (result.optimal ? t.optimalProven : t.feasibleOnly) : result.status === 'timeout' ? t.timedOut : t.invalid) : t.ready
-  return <div className="panel-body solve-panel"><div className="panel-title"><span>{t.solverStatus}</span><b className={result?.status ?? 'ready'}>{status}</b></div><div className="segmented"><button className={mode === 'quick' ? 'active' : ''} onClick={() => onMode('quick')}>{t.quick}</button><button className={mode === 'optimal' ? 'active' : ''} onClick={() => onMode('optimal')}>{t.optimal}</button></div><button className="primary-action" disabled={isSolving || state === 'invalid'} onClick={onSolve}><BrainCircuit size={18} />{isSolving ? '...' : mode === 'optimal' ? t.optimal : t.quick}</button>{result ? <div className="solution-result"><div className="metrics"><span><b>{result.pushes}</b>{t.pushes}</span><span><b>{result.moves.length}</b>{t.moves}</span><span><b>{result.explored_nodes.toLocaleString()}</b>{t.nodes}</span></div>{result.moves && <button className="secondary-action" onClick={onPlay} disabled={isPlaying}><Play size={16} />{isPlaying ? t.stop : t.play}</button>}</div> : <div className="solver-idle"><BrainCircuit size={30} strokeWidth={1.4} /><span>{t.ready}</span></div>}<div className="panel-foot"><button className="secondary-action" onClick={onSave}><Save size={16} />{t.save}</button></div></div>
+  const totalSteps = result?.moves.length ?? 0
+  const progress = totalSteps ? (playbackIndex / totalSteps) * 100 : 0
+  return <div className="panel-body solve-panel">
+    <div className="panel-title"><span>{t.solverStatus}</span><b className={result?.status ?? 'ready'}>{status}</b></div>
+    <div className="movement-guide"><span className="key-cluster"><kbd>↑↓←→</kbd><kbd>WASD</kbd></span><span>{t.movePlayer}</span></div>
+    <div className="segmented"><button className={mode === 'quick' ? 'active' : ''} onClick={() => onMode('quick')}>{t.quick}</button><button className={mode === 'optimal' ? 'active' : ''} onClick={() => onMode('optimal')}>{t.optimal}</button></div>
+    <button className="primary-action" disabled={isSolving || state === 'invalid'} onClick={onSolve}><BrainCircuit size={18} />{isSolving ? '...' : mode === 'optimal' ? t.optimal : t.quick}</button>
+    {result ? <div className="solution-result">
+      <div className="metrics"><span><b>{result.pushes}</b>{t.pushes}</span><span><b>{result.moves.length}</b>{t.moves}</span><span><b>{result.explored_nodes.toLocaleString()}</b>{t.nodes}</span></div>
+      {result.moves && <div className="playback"><div className="playback-heading"><span>{t.solutionStep}</span><b>{playbackIndex} / {totalSteps}</b></div><div className="solution-progress"><span style={{ width: `${progress}%` }} /></div><div className="playback-controls"><button title={t.previousStep} aria-label={t.previousStep} disabled={playbackIndex === 0} onClick={() => onStep(-1)}><ChevronLeft size={18} /></button><button className="playback-toggle" title={isPlaying ? t.pause : t.play} aria-label={isPlaying ? t.pause : t.play} onClick={onTogglePlayback}>{isPlaying ? <Pause size={18} /> : <Play size={18} />}</button><button title={t.nextStep} aria-label={t.nextStep} disabled={playbackIndex >= totalSteps} onClick={() => onStep(1)}><ChevronRight size={18} /></button><label>{t.speed}<select aria-label={t.speed} value={playbackSpeed} onChange={(event) => onSpeed(Number(event.target.value))}>{[0.5, 1, 2, 4].map((speed) => <option key={speed} value={speed}>{speed}×</option>)}</select></label></div></div>}
+    </div> : <div className="solver-idle"><BrainCircuit size={30} strokeWidth={1.4} /><span>{t.ready}</span></div>}
+    <details className="game-help"><summary><CircleHelp size={16} />{t.howToPlay}</summary><div><p>{t.movementHelp}</p><p>{t.goalHelp}</p><p>{t.recoveryHelp}</p><p>{t.replayHelp}</p></div></details>
+    <div className="panel-foot"><button className="secondary-action" onClick={onSave}><Save size={16} />{t.save}</button></div>
+  </div>
 }
 
 function ResultList({ title, items, empty, onLoad, pushLabel }: { title: string; items: PackLevel[]; empty: string; onLoad: (entry: PackLevel) => void; pushLabel: string }) {

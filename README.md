@@ -10,8 +10,9 @@ SokoForge is a static React workbench backed by a Rust solver compiled to WebAss
 
 - English and Chinese UI with browser-language detection and manual switching.
 - Visual editor for walls, floor, goals, boxes, and player positions.
-- Standard XSB import/export, local level library, undo/redo, keyboard play, and solution playback.
-- Quick weighted search and push-optimal A* search with transparent timeout status.
+- Standard XSB import/export, local level library, manual-move undo, restart, and keyboard/touch play.
+- Steppable solution replay with pause and 0.5x-4x playback speed.
+- Fast solution search and a slower shortest-push mode with transparent timeout status.
 - Four ranking modes: long solution, deep trap, box dependency, and composite.
 - Browser batch exploration plus a native parallel Rust CLI for 1,000–5,000+ candidates.
 - Generated-pack download, JSON/XSB multi-file import, and remembered local level folders on Chromium.
