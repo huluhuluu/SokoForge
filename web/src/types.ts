@@ -2,6 +2,7 @@ export type Language = 'en' | 'zh'
 export type Tool = 'wall' | 'floor' | 'goal' | 'box' | 'player' | 'eraser'
 export type SolveMode = 'quick' | 'optimal'
 export type DifficultyMode = 'long_solution' | 'deep_trap' | 'dependency' | 'composite'
+export type GenerationTier = 'simple' | 'medium' | 'hard'
 
 export interface SolveResult {
   status: 'solved' | 'unsolved' | 'timeout' | 'invalid'
@@ -22,6 +23,15 @@ export interface DifficultyMetrics {
   away_pushes: number
   box_switches: number
   unique_optimal?: boolean | null
+  pdb?: number
+  delayed_lures?: number
+  reopened_goals?: number
+  tunnel_commitments?: number
+  role_swaps?: number
+  box_revisits?: number
+  false_goal_lures?: number
+  deadlock_lures?: number
+  novelty?: number
 }
 
 export interface PackLevel {
@@ -49,7 +59,7 @@ export interface PublishedLevelMeta {
   optimalPushes: number
 }
 
-export interface PublishedLevel extends PublishedLevelMeta { xsb: string }
+export interface PublishedLevel extends PublishedLevelMeta { xsb: string; metrics?: DifficultyMetrics }
 
 export interface PublishedLevelBundle {
   schemaVersion: 1

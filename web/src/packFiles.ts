@@ -60,11 +60,11 @@ export function parseImportedFile(name: string, text: string): PackLevel[] {
   }]
 }
 
-export function createLevelPack(levels: PackLevel[]): LevelPack {
+export function createLevelPack(levels: PackLevel[], mode: string = 'composite'): LevelPack {
   return {
     schemaVersion: 1,
     kind: 'sokoforge-level-pack',
-    mode: 'composite',
+    mode,
     levels,
   }
 }

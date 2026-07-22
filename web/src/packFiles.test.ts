@@ -11,7 +11,8 @@ const level = {
 
 describe('level pack files', () => {
   it('round trips a generated pack', () => {
-    const pack = createLevelPack([level])
+    const pack = createLevelPack([level], 'hard')
+    expect(pack.mode).toBe('hard')
     expect(parseLevelPack(JSON.stringify(pack)).levels[0].xsb).toBe(SAMPLE)
   })
 

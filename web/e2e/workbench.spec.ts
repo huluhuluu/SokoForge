@@ -52,6 +52,30 @@ test('imports and downloads a generated level pack', async ({ page }) => {
   expect((await download).suggestedFilename()).toMatch(/^sokoforge-pack-.*\.json$/)
 })
 
+test('offers simple, medium, and hard generation tiers', async ({ page }, testInfo) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: /^(Forge|生成)$/ }).click()
+  await expect(page.getByLabel(/Boxes|箱子/)).toHaveValue('4')
+  await expect(page.getByLabel(/Width|宽/)).toHaveValue('10')
+  await expect(page.getByLabel(/Height|高/)).toHaveValue('10')
+  const tier = page.getByRole('combobox', { name: /Difficulty mode|难度模式/ })
+  await expect(tier.locator('option')).toHaveCount(3)
+  await tier.selectOption('simple')
+  await expect(tier).toHaveValue('simple')
+  await tier.selectOption('medium')
+  await expect(tier).toHaveValue('medium')
+  await tier.selectOption('hard')
+  await expect(tier).toHaveValue('hard')
+  await page.screenshot({ path: testInfo.outputPath('generation-tiers.png'), fullPage: true })
+})
+
+test('generates hard candidates with the default forge geometry', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: /^(Forge|生成)$/ }).click()
+  await page.locator('.primary-action').click()
+  await expect.poll(() => page.locator('.result-row').count(), { timeout: 30_000 }).toBeGreaterThan(0)
+})
+
 test('undoes a manual move and restarts the level', async ({ page }) => {
   await page.goto('/')
   await expect.poll(() => page.locator('.level-list button').count()).toBe(216)

@@ -10,8 +10,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 30,
-      "xsb": "##########\n#####..###\n#####  . #\n####   # #\n####  $  #\n#@$      #\n# $  ## ##\n# $    . #\n####  ####\n##########"
+      "optimalPushes": 28,
+      "xsb": "##########\n#####@  ##\n#### $$$##\n##### #  #\n###.  #  #\n###  $   #\n##   # # #\n# . . . ##\n### ##  ##\n##########",
+      "metrics": {
+        "score": 94.375,
+        "pushes": 28,
+        "moves": 88,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 15,
+        "delayed_lures": 24,
+        "reopened_goals": 1,
+        "tunnel_commitments": 3,
+        "role_swaps": 5,
+        "box_revisits": 9,
+        "false_goal_lures": 0,
+        "deadlock_lures": 6,
+        "novelty": 100
+      }
     },
     {
       "id": "expert-002",
@@ -20,9 +39,28 @@
         "zh": "专家熔炉 002"
       },
       "difficulty": "expert",
-      "boxes": 5,
+      "boxes": 4,
       "optimalPushes": 24,
-      "xsb": "##########\n##..  ####\n##     $ #\n## $$#   #\n## $@$.###\n#####.  ##\n####    ##\n### .   ##\n###### ###\n##########"
+      "xsb": "##########\n##########\n##########\n####   ###\n#  $  $  #\n# $ ## $ #\n# .    @ #\n# .  # # #\n####.  . #\n##########",
+      "metrics": {
+        "score": 93.75,
+        "pushes": 24,
+        "moves": 80,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 3,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 14,
+        "delayed_lures": 12,
+        "reopened_goals": 0,
+        "tunnel_commitments": 3,
+        "role_swaps": 2,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 23.572629969418966
+      }
     },
     {
       "id": "expert-003",
@@ -31,9 +69,28 @@
         "zh": "专家熔炉 003"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 26,
-      "xsb": "##########\n##########\n########+#\n##    ##$#\n#  .   $ #\n#.   ##$ #\n# .#$ $  #\n#  #  #  #\n#   #  . #\n##########"
+      "boxes": 4,
+      "optimalPushes": 31,
+      "xsb": "##########\n######  ##\n####@$   #\n######   #\n##    #$##\n### #   ##\n##  * $  #\n#   . #  #\n# ##. . ##\n##########",
+      "metrics": {
+        "score": 93.52292578337294,
+        "pushes": 31,
+        "moves": 112,
+        "dependency": 100,
+        "trap": 95.15856206210873,
+        "away_pushes": 7,
+        "box_switches": 14,
+        "unique_optimal": null,
+        "pdb": 16,
+        "delayed_lures": 8,
+        "reopened_goals": 3,
+        "tunnel_commitments": 2,
+        "role_swaps": 0,
+        "box_revisits": 11,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 22.015099388379205
+      }
     },
     {
       "id": "expert-004",
@@ -42,9 +99,28 @@
         "zh": "专家熔炉 004"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 24,
-      "xsb": "#########\n#####.  #\n##.     #\n##  ## ##\n#..   $@#\n# $ # ###\n## $ $  #\n##    ###\n#########"
+      "boxes": 5,
+      "optimalPushes": 26,
+      "xsb": "##########\n###.     #\n##. @$.# #\n####$#.  #\n###      #\n### #$#. #\n##  $    #\n##  $  ###\n####  ####\n##########",
+      "metrics": {
+        "score": 93.300978857942,
+        "pushes": 26,
+        "moves": 111,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 1,
+        "box_switches": 13,
+        "unique_optimal": null,
+        "pdb": 14,
+        "delayed_lures": 16,
+        "reopened_goals": 0,
+        "tunnel_commitments": 2,
+        "role_swaps": 2,
+        "box_revisits": 9,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 22.183868501529055
+      }
     },
     {
       "id": "expert-005",
@@ -54,8 +130,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 29,
-      "xsb": "#########\n##    ###\n#@$  $###\n# $#. ###\n##     ##\n# $  #  #\n##  .   #\n## #.  .#\n#########"
+      "optimalPushes": 28,
+      "xsb": "##########\n####  # ##\n### $  $ #\n##+$ #.#.#\n###      #\n#   $    #\n#  ##   ##\n# ##### ##\n###### .##\n##########",
+      "metrics": {
+        "score": 93.01445063113617,
+        "pushes": 28,
+        "moves": 55,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 9,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 13,
+        "delayed_lures": 20,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 9,
+        "false_goal_lures": 0,
+        "deadlock_lures": 5,
+        "novelty": 22.405963302752298
+      }
     },
     {
       "id": "expert-006",
@@ -64,9 +159,28 @@
         "zh": "专家熔炉 006"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 21,
-      "xsb": "#########\n#   . ###\n##$.  .##\n#     .##\n#    $ ##\n##$$# ###\n## @#####\n#########\n#########"
+      "boxes": 5,
+      "optimalPushes": 25,
+      "xsb": "##########\n####  ####\n#####    #\n##     ..#\n###.*    #\n####*##  #\n####    ##\n#####$$$##\n#####  @##\n##########",
+      "metrics": {
+        "score": 92.95495128834865,
+        "pushes": 25,
+        "moves": 82,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 12,
+        "delayed_lures": 16,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 8,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 19.72343272171254
+      }
     },
     {
       "id": "expert-007",
@@ -75,9 +189,28 @@
         "zh": "专家熔炉 007"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 26,
-      "xsb": "#########\n###@  ###\n###$$$ ##\n#     ###\n## #    #\n##  #$  #\n###    .#\n## . ..##\n#########"
+      "boxes": 5,
+      "optimalPushes": 33,
+      "xsb": "##########\n####   ###\n###    $@#\n## $$ # ##\n##  ## . #\n##  $ .  #\n###  #*  #\n###  # # #\n##  . .  #\n##########",
+      "metrics": {
+        "score": 92.79368738602568,
+        "pushes": 33,
+        "moves": 150,
+        "dependency": 100,
+        "trap": 91.82739530376932,
+        "away_pushes": 9,
+        "box_switches": 17,
+        "unique_optimal": null,
+        "pdb": 17,
+        "delayed_lures": 4,
+        "reopened_goals": 4,
+        "tunnel_commitments": 7,
+        "role_swaps": 5,
+        "box_revisits": 13,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 32.43597094801224
+      }
     },
     {
       "id": "expert-008",
@@ -86,9 +219,28 @@
         "zh": "专家熔炉 008"
       },
       "difficulty": "expert",
-      "boxes": 5,
+      "boxes": 4,
       "optimalPushes": 24,
-      "xsb": "##########\n#  ##   ##\n# # ## . #\n#.      ##\n# . * #$##\n#        #\n#.#  $$  #\n#   ##@$ #\n#######  #\n##########"
+      "xsb": "##########\n#### .#  #\n#####  $.#\n##### ##.#\n####  ## #\n#### ##* #\n###@$  # #\n## $     #\n#        #\n##########",
+      "metrics": {
+        "score": 92.675,
+        "pushes": 24,
+        "moves": 101,
+        "dependency": 86,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 5,
+        "unique_optimal": null,
+        "pdb": 19,
+        "delayed_lures": 26,
+        "reopened_goals": 0,
+        "tunnel_commitments": 5,
+        "role_swaps": 3,
+        "box_revisits": 3,
+        "false_goal_lures": 3,
+        "deadlock_lures": 4,
+        "novelty": 22.183868501529055
+      }
     },
     {
       "id": "expert-009",
@@ -97,9 +249,28 @@
         "zh": "专家熔炉 009"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 22,
-      "xsb": "##########\n###   ####\n### $ ####\n##.     .#\n#.   ## ##\n##.#     #\n### $$#$ #\n#### @#  #\n####### ##\n##########"
+      "boxes": 5,
+      "optimalPushes": 28,
+      "xsb": "##########\n#####  @##\n#### $$$##\n###  #   #\n##   $   #\n### ###  #\n## . # *.#\n##.    # #\n## .## ###\n##########",
+      "metrics": {
+        "score": 92.39795442874107,
+        "pushes": 28,
+        "moves": 62,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 12,
+        "delayed_lures": 16,
+        "reopened_goals": 2,
+        "tunnel_commitments": 5,
+        "role_swaps": 4,
+        "box_revisits": 3,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 18.98509174311927
+      }
     },
     {
       "id": "expert-010",
@@ -109,8 +280,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 23,
-      "xsb": "##########\n######## #\n#### .   #\n###  #  .#\n#### .   #\n##    $ .#\n# $  $@ ##\n#  ## $###\n#   #   ##\n##########"
+      "optimalPushes": 27,
+      "xsb": "##########\n####@ ####\n####$$####\n####    ##\n## # ##  #\n##       #\n##$ .  . #\n#  $ #..##\n#   #    #\n##########",
+      "metrics": {
+        "score": 92.20576692122891,
+        "pushes": 27,
+        "moves": 83,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 12,
+        "delayed_lures": 16,
+        "reopened_goals": 3,
+        "tunnel_commitments": 2,
+        "role_swaps": 4,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 21.232607033639148
+      }
     },
     {
       "id": "expert-011",
@@ -120,8 +310,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 27,
-      "xsb": "##########\n#..#######\n#     $@##\n# .    $##\n#    $   #\n#    # $ #\n## #  #  #\n##   .####\n##########\n##########"
+      "optimalPushes": 24,
+      "xsb": "##########\n#####   ##\n###  $ $ #\n### # #  #\n###  #   #\n### # $$ #\n##  .#+ ##\n###.     #\n###   #.##\n##########",
+      "metrics": {
+        "score": 92.10815008366194,
+        "pushes": 24,
+        "moves": 79,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 13,
+        "delayed_lures": 20,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 1,
+        "box_revisits": 9,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 16.619266055045873
+      }
     },
     {
       "id": "expert-012",
@@ -130,9 +339,28 @@
         "zh": "专家熔炉 012"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 27,
-      "xsb": "##########\n#### ## ##\n###. .  ##\n##     .##\n#   #   .#\n# $   $  #\n#### # # #\n###@$  $ #\n####    ##\n##########"
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "#########\n#########\n###   ###\n#@$   ###\n# $## .##\n##  $.. #\n### $   #\n#  .. $ #\n#########",
+      "metrics": {
+        "score": 91.85246115527836,
+        "pushes": 21,
+        "moves": 57,
+        "dependency": 100,
+        "trap": 99.52475409471865,
+        "away_pushes": 2,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 12,
+        "delayed_lures": 12,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 19.49110486891386
+      }
     },
     {
       "id": "expert-013",
@@ -141,9 +369,28 @@
         "zh": "专家熔炉 013"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 22,
-      "xsb": "#########\n#   #   #\n# $ #$# #\n#.  $   #\n#       #\n###  ####\n### .$+##\n### .####\n#########"
+      "boxes": 5,
+      "optimalPushes": 23,
+      "xsb": "#########\n#   #####\n##.   ###\n# *#. ###\n# .$ $@##\n# #  #$ #\n#.# $   #\n###   ###\n#########",
+      "metrics": {
+        "score": 91.73519882600407,
+        "pushes": 23,
+        "moves": 64,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 12,
+        "reopened_goals": 2,
+        "tunnel_commitments": 1,
+        "role_swaps": 4,
+        "box_revisits": 5,
+        "false_goal_lures": 2,
+        "deadlock_lures": 3,
+        "novelty": 49.18864678899083
+      }
     },
     {
       "id": "expert-014",
@@ -152,9 +399,28 @@
         "zh": "专家熔炉 014"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 24,
-      "xsb": "##########\n### @ ####\n## $$$$ ##\n###     ##\n#   . .  #\n## $ .#  #\n## #     #\n##    .#.#\n###   ####\n##########"
+      "boxes": 4,
+      "optimalPushes": 27,
+      "xsb": "##########\n######@###\n######$ ##\n### #    #\n#  .  $  #\n# $#  ## #\n#  #  #  #\n#  #$ . ##\n## #  ..##\n##########",
+      "metrics": {
+        "score": 91.69163362164396,
+        "pushes": 27,
+        "moves": 98,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 6,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 16,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 19.359709480122326
+      }
     },
     {
       "id": "expert-015",
@@ -164,8 +430,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 21,
-      "xsb": "#########\n#########\n## # . .#\n#+$. #  #\n# #  $  #\n##  #   #\n# $  $ ##\n#     ###\n#########"
+      "optimalPushes": 25,
+      "xsb": "##########\n######  ##\n####..  ##\n######   #\n###.#    #\n#@$ #    #\n# $ # .$ #\n# $    ###\n# ##   ###\n##########",
+      "metrics": {
+        "score": 91.69163362164396,
+        "pushes": 25,
+        "moves": 62,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 16,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 18.05428134556575
+      }
     },
     {
       "id": "expert-016",
@@ -174,9 +459,28 @@
         "zh": "专家熔炉 016"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 25,
-      "xsb": "##########\n###  #####\n###.$.#.##\n#    . .##\n#   #   ##\n#     $ ##\n# $$  ####\n##@$   # #\n####     #\n##########"
+      "boxes": 4,
+      "optimalPushes": 24,
+      "xsb": "##########\n####    ##\n###@$ ## #\n### $    #\n#### $  ##\n##    $ ##\n### ## . #\n#  .. .  #\n######   #\n##########",
+      "metrics": {
+        "score": 91.62931518291369,
+        "pushes": 24,
+        "moves": 65,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 13,
+        "delayed_lures": 12,
+        "reopened_goals": 2,
+        "tunnel_commitments": 2,
+        "role_swaps": 5,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 17.72801987767584
+      }
     },
     {
       "id": "expert-017",
@@ -185,9 +489,28 @@
         "zh": "专家熔炉 017"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 20,
-      "xsb": "#########\n##   ####\n##.# ####\n#    .  #\n##$#*   #\n##@$  # #\n### #$ .#\n##  #  ##\n#########"
+      "boxes": 5,
+      "optimalPushes": 29,
+      "xsb": "#########\n#  ##  ##\n# $@$   #\n#. $ #$ #\n#  #  $ #\n#  #  . #\n#..######\n#  .#####\n#########",
+      "metrics": {
+        "score": 91.43119694284408,
+        "pushes": 29,
+        "moves": 81,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 7,
+        "box_switches": 13,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 12,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 7,
+        "box_revisits": 9,
+        "false_goal_lures": 1,
+        "deadlock_lures": 3,
+        "novelty": 26.913857677902623
+      }
     },
     {
       "id": "expert-018",
@@ -197,8 +520,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 22,
-      "xsb": "##########\n##########\n#     ####\n##  #$@###\n# .   $.##\n## ##   .#\n#    $   #\n#.. #$ $ #\n###    ###\n##########"
+      "optimalPushes": 25,
+      "xsb": "#########\n#    ####\n## $ # ##\n#  ##. ##\n# $  . ##\n#  #  ..#\n# $#$$  #\n#   +####\n#########",
+      "metrics": {
+        "score": 91.43119694284408,
+        "pushes": 25,
+        "moves": 87,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 28,
+        "reopened_goals": 2,
+        "tunnel_commitments": 3,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 7,
+        "novelty": 20.06741573033708
+      }
     },
     {
       "id": "expert-019",
@@ -209,7 +551,26 @@
       "difficulty": "expert",
       "boxes": 5,
       "optimalPushes": 25,
-      "xsb": "##########\n##### ####\n####.  # #\n####  ## #\n#  # #.  #\n#  $   #.#\n# $@$    #\n## $ $   #\n##    . .#\n##########"
+      "xsb": "#########\n##### ###\n### # # #\n###  .. #\n###$  # #\n###  $$ #\n#@$ # $##\n##. .  .#\n#########",
+      "metrics": {
+        "score": 91.2672176634755,
+        "pushes": 25,
+        "moves": 97,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 3,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 12,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 5,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 20.622659176029963
+      }
     },
     {
       "id": "expert-020",
@@ -218,9 +579,28 @@
         "zh": "专家熔炉 020"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 20,
-      "xsb": "#########\n###   ###\n## $$  ##\n#     .##\n#  $ #  #\n#.$ # . #\n##@##.  #\n###### ##\n#########"
+      "boxes": 5,
+      "optimalPushes": 24,
+      "xsb": "#########\n###  ####\n# . $@$ #\n#$ # $  #\n#   $   #\n#.. #  ##\n## .##.##\n#########\n#########",
+      "metrics": {
+        "score": 91.16187877193312,
+        "pushes": 24,
+        "moves": 78,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 13,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 12,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 9,
+        "false_goal_lures": 3,
+        "deadlock_lures": 3,
+        "novelty": 23.10182584269663
+      }
     },
     {
       "id": "expert-021",
@@ -229,9 +609,28 @@
         "zh": "专家熔炉 021"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 25,
-      "xsb": "##########\n####### ##\n######  ##\n#@$     ##\n##$$ ## .#\n##  #.#. #\n## #     #\n#   .$   #\n#        #\n##########"
+      "boxes": 5,
+      "optimalPushes": 24,
+      "xsb": "#########\n#########\n## #@  ##\n# $ $$  #\n#.   ## #\n# . $ * #\n#      ##\n#.##. ###\n#########",
+      "metrics": {
+        "score": 90.9662134662615,
+        "pushes": 24,
+        "moves": 62,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 6,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 40,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 6,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 12,
+        "novelty": 27.810159176029963
+      }
     },
     {
       "id": "expert-022",
@@ -241,8 +640,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 23,
-      "xsb": "##########\n#### # ###\n####     #\n###@$# ###\n## $   ###\n##  #..*##\n#  $     #\n## ## $###\n#. .    ##\n##########"
+      "optimalPushes": 32,
+      "xsb": "##########\n##### ####\n### #... #\n#    #  ##\n##  ##   #\n# .  $ . #\n###$$$#  #\n###@$   ##\n######   #\n##########",
+      "metrics": {
+        "score": 90.47497296316324,
+        "pushes": 32,
+        "moves": 84,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 7,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 12,
+        "reopened_goals": 3,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 22.5980504587156
+      }
     },
     {
       "id": "expert-023",
@@ -251,9 +669,28 @@
         "zh": "专家熔炉 023"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 23,
-      "xsb": "##########\n##. ######\n#   ######\n#       ##\n##  #$@ .#\n# ## .$  #\n# $ $ #  #\n#  #   ###\n#     .###\n##########"
+      "boxes": 5,
+      "optimalPushes": 28,
+      "xsb": "##########\n###+#  ###\n###*# $ ##\n##  #  # #\n#   #   .#\n##   ##  #\n## .   $ #\n## $ $  ##\n######. ##\n##########",
+      "metrics": {
+        "score": 90.4043251909217,
+        "pushes": 28,
+        "moves": 79,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 7,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 16,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 17.586773700305812
+      }
     },
     {
       "id": "expert-024",
@@ -263,8 +700,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 21,
-      "xsb": "#########\n### #####\n##  #####\n# #  .  #\n#@$   $ #\n## ##$  #\n#  .  $ #\n# . .## #\n#########"
+      "optimalPushes": 23,
+      "xsb": "##########\n### # ####\n##      .#\n#.*# ##  #\n# $   ## #\n#@$ $ #  #\n####    ##\n####    ##\n###### .##\n##########",
+      "metrics": {
+        "score": 90.14028353652012,
+        "pushes": 23,
+        "moves": 70,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 7,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 16,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 1,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 17.637614678899084
+      }
     },
     {
       "id": "expert-025",
@@ -274,8 +730,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 22,
-      "xsb": "#########\n####@   #\n####$$$ #\n##..    #\n#  # #$ #\n#      ##\n##.     #\n## ##. ##\n#########"
+      "optimalPushes": 24,
+      "xsb": "##########\n####### .#\n#####. # #\n##### ## #\n## #  $  #\n##  #  $.#\n#@$     ##\n##   $.# #\n#### #   #\n##########",
+      "metrics": {
+        "score": 90,
+        "pushes": 24,
+        "moves": 65,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 7,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 40,
+        "reopened_goals": 0,
+        "tunnel_commitments": 3,
+        "role_swaps": 0,
+        "box_revisits": 8,
+        "false_goal_lures": 6,
+        "deadlock_lures": 18,
+        "novelty": 21.86467889908257
+      }
     },
     {
       "id": "expert-026",
@@ -285,8 +760,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 22,
-      "xsb": "##########\n## . . .##\n###   $  #\n#        #\n## # #  .#\n###    $ #\n####$  ###\n####@$   #\n#####   ##\n##########"
+      "optimalPushes": 26,
+      "xsb": "##########\n#.     ###\n## ##. $ #\n###      #\n#.  # #.##\n##$  $   #\n## $ ##  #\n###@###  #\n####### ##\n##########",
+      "metrics": {
+        "score": 89.86664263392288,
+        "pushes": 26,
+        "moves": 78,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 7,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 12,
+        "reopened_goals": 2,
+        "tunnel_commitments": 4,
+        "role_swaps": 1,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 17.85053516819572
+      }
     },
     {
       "id": "expert-027",
@@ -295,9 +789,28 @@
         "zh": "专家熔炉 027"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 23,
-      "xsb": "##########\n##### # ##\n## #    .#\n# $  #   #\n#@$  #   #\n###   $  #\n#### #   #\n####.$   #\n#### . .##\n##########"
+      "boxes": 5,
+      "optimalPushes": 28,
+      "xsb": "##########\n##  . #  #\n#  #    .#\n##$#  #$ #\n## #  # .#\n# $   #$ #\n#   #$   #\n#####+#. #\n##########\n##########",
+      "metrics": {
+        "score": 89.72207974939963,
+        "pushes": 28,
+        "moves": 97,
+        "dependency": 100,
+        "trap": 83.31269532070422,
+        "away_pushes": 5,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 15,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 4,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 23.424311926605505
+      }
     },
     {
       "id": "expert-028",
@@ -307,8 +820,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "#########\n##     ##\n#.$# $  #\n# @$  # #\n# $ #.# #\n# #  . .#\n#### # ##\n#########\n#########"
+      "optimalPushes": 24,
+      "xsb": "##########\n###.    ##\n#####$   #\n####   ###\n#### #$# #\n###@$    #\n## $  #  #\n###.     #\n##.  # .##\n##########",
+      "metrics": {
+        "score": 89.6748287667005,
+        "pushes": 24,
+        "moves": 81,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 12,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 1,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 17.656345565749238
+      }
     },
     {
       "id": "expert-029",
@@ -317,9 +849,28 @@
         "zh": "专家熔炉 029"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "#########\n#########\n##    ###\n#.  $..##\n#@$ ## ##\n# #. $ ##\n# $  ####\n###   ###\n#########"
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n###..#@###\n###   $. #\n##  $# ###\n##      ##\n##.$#$$ ##\n##  . ####\n## #   ###\n###### ###\n##########",
+      "metrics": {
+        "score": 89.59793412119494,
+        "pushes": 21,
+        "moves": 79,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 28,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 3,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 7,
+        "novelty": 21.905963302752298
+      }
     },
     {
       "id": "expert-030",
@@ -328,9 +879,28 @@
         "zh": "专家熔炉 030"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 22,
-      "xsb": "#########\n### @####\n# $$$  ##\n#     ###\n#  $ ####\n# #   ###\n#..  .###\n#   #.###\n#########"
+      "boxes": 5,
+      "optimalPushes": 26,
+      "xsb": "##########\n##  #  ###\n##  #.  ##\n## $   $@#\n# $$ #$ ##\n#. #.   .#\n#     ####\n#   #.####\n##########\n##########",
+      "metrics": {
+        "score": 89.25831230468252,
+        "pushes": 26,
+        "moves": 76,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 12,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 21.977637614678905
+      }
     },
     {
       "id": "expert-031",
@@ -341,7 +911,26 @@
       "difficulty": "expert",
       "boxes": 4,
       "optimalPushes": 26,
-      "xsb": "##########\n#####   ##\n##  .  . #\n#. .     #\n#  #     #\n##  ##   #\n#    $ $ #\n## $  $@##\n###   ####\n##########"
+      "xsb": "##########\n#####    #\n####  ## #\n###@$.  ##\n### $ $  #\n#####    #\n### $ ## #\n### #  ###\n##. .  .##\n##########",
+      "metrics": {
+        "score": 89.1709255283711,
+        "pushes": 26,
+        "moves": 69,
+        "dependency": 97,
+        "trap": 100,
+        "away_pushes": 9,
+        "box_switches": 4,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 20,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 1,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 20.991781345565748
+      }
     },
     {
       "id": "expert-032",
@@ -351,8 +940,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 20,
-      "xsb": "#########\n###### ##\n###    ##\n###.# $@#\n#     $ #\n##$ . ###\n## . $###\n##.    ##\n#########"
+      "optimalPushes": 24,
+      "xsb": "##########\n###  #####\n## ..#  ##\n###.     #\n##  .##$##\n## $  $@##\n####   $ #\n####     #\n#### ## ##\n##########",
+      "metrics": {
+        "score": 88.77061164703551,
+        "pushes": 24,
+        "moves": 83,
+        "dependency": 100,
+        "trap": 89.72781894628659,
+        "away_pushes": 5,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 8,
+        "reopened_goals": 3,
+        "tunnel_commitments": 0,
+        "role_swaps": 5,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 20.762614678899084
+      }
     },
     {
       "id": "expert-033",
@@ -362,8 +970,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 22,
-      "xsb": "##########\n###### ###\n## ###..##\n#      .##\n#     $  #\n# .  $#. #\n#        #\n# $$ #$ ##\n###@     #\n##########"
+      "optimalPushes": 20,
+      "xsb": "#########\n#########\n###+### #\n#  $    #\n#.    $ #\n#.## $  #\n####$#$ #\n#### . .#\n#########",
+      "metrics": {
+        "score": 88.72325683774177,
+        "pushes": 20,
+        "moves": 53,
+        "dependency": 100,
+        "trap": 95.99108352007613,
+        "away_pushes": 3,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 12,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 5,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 19.386938202247194
+      }
     },
     {
       "id": "expert-034",
@@ -373,8 +1000,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 22,
-      "xsb": "##########\n##########\n###  ..  #\n##  #  ###\n##.   $@##\n##  . #$ #\n###    $ #\n## $ .$  #\n##   #   #\n##########"
+      "optimalPushes": 29,
+      "xsb": "##########\n####   ###\n####$  ###\n#.#    $@#\n#   ## $ #\n# $ . .$ #\n# #  #  ##\n#.  . ####\n## ##  ###\n##########",
+      "metrics": {
+        "score": 88.65179564013384,
+        "pushes": 29,
+        "moves": 96,
+        "dependency": 100,
+        "trap": 90.89010010927252,
+        "away_pushes": 8,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 4,
+        "reopened_goals": 5,
+        "tunnel_commitments": 4,
+        "role_swaps": 5,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 23.183868501529055
+      }
     },
     {
       "id": "expert-035",
@@ -383,9 +1029,28 @@
         "zh": "专家熔炉 035"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 22,
-      "xsb": "##########\n##..######\n#   ######\n#.$     ##\n#  #  .  #\n#      # #\n#   $$$ ##\n###$   ###\n## +######\n##########"
+      "boxes": 4,
+      "optimalPushes": 25,
+      "xsb": "##########\n### ######\n#. $    .#\n##$   .  #\n#   #.  ##\n##    # ##\n#  @$ ####\n#  $   ###\n###   ####\n##########",
+      "metrics": {
+        "score": 88.48909642493635,
+        "pushes": 25,
+        "moves": 49,
+        "dependency": 94.5,
+        "trap": 100,
+        "away_pushes": 6,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 16,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 3,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 19.030963302752298
+      }
     },
     {
       "id": "expert-036",
@@ -395,8 +1060,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 22,
-      "xsb": "##########\n##########\n##### ####\n## # .  ##\n##    #$##\n# $ #$. ##\n#@$ #    #\n###   .. #\n###     ##\n##########"
+      "optimalPushes": 21,
+      "xsb": "##########\n####@#####\n##  $#####\n##$#   ###\n#  $ # ###\n# #    .##\n#.    .$##\n#####   .#\n######   #\n##########",
+      "metrics": {
+        "score": 88.35351654086267,
+        "pushes": 21,
+        "moves": 69,
+        "dependency": 91.5,
+        "trap": 100,
+        "away_pushes": 1,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 13,
+        "delayed_lures": 18,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 6,
+        "false_goal_lures": 1,
+        "deadlock_lures": 4,
+        "novelty": 18.653860856269116
+      }
     },
     {
       "id": "expert-037",
@@ -405,9 +1089,28 @@
         "zh": "专家熔炉 037"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 25,
-      "xsb": "##########\n##########\n### @ # ##\n####$$ $ #\n# #      #\n# .#  #$##\n#    #  ##\n## .   .##\n## .  ####\n##########"
+      "boxes": 5,
+      "optimalPushes": 22,
+      "xsb": "##########\n##### # ##\n###.   $ #\n## #$.$  #\n##    #  #\n##@*  $ ##\n##.  #  ##\n####.#####\n##########\n##########",
+      "metrics": {
+        "score": 88.14563036811943,
+        "pushes": 22,
+        "moves": 48,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 6,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 16,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 5,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 18.195527522935784
+      }
     },
     {
       "id": "expert-038",
@@ -416,9 +1119,28 @@
         "zh": "专家熔炉 038"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 21,
-      "xsb": "##########\n##.  #   #\n#  .$@#$ #\n# $  $ $ #\n#.       #\n# ## # ###\n# #  .  ##\n##### . ##\n##########\n##########"
+      "boxes": 4,
+      "optimalPushes": 24,
+      "xsb": "##########\n###    ..#\n### $  # #\n### ##  .#\n# $  $   #\n#@$  # .##\n####   ###\n#####  # #\n######   #\n##########",
+      "metrics": {
+        "score": 88.12687431942163,
+        "pushes": 24,
+        "moves": 67,
+        "dependency": 100,
+        "trap": 81.64157562607733,
+        "away_pushes": 2,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 14,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 3,
+        "role_swaps": 1,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 18.711773700305812
+      }
     },
     {
       "id": "expert-039",
@@ -429,7 +1151,26 @@
       "difficulty": "expert",
       "boxes": 4,
       "optimalPushes": 20,
-      "xsb": "##########\n###  #  .#\n### .#$# #\n###$   . #\n## $  #  #\n##@$     #\n##### .  #\n#####   ##\n##########\n##########"
+      "xsb": "##########\n##########\n#### @# ##\n###.$$ $ #\n####   # #\n##### $  #\n##     .##\n######   #\n#####  ..#\n##########",
+      "metrics": {
+        "score": 88.09995530945017,
+        "pushes": 20,
+        "moves": 65,
+        "dependency": 100,
+        "trap": 98.20779464903495,
+        "away_pushes": 4,
+        "box_switches": 13,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 16,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 1,
+        "box_revisits": 10,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 17.644686544342512
+      }
     },
     {
       "id": "expert-040",
@@ -438,9 +1179,28 @@
         "zh": "专家熔炉 040"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 21,
-      "xsb": "##########\n# # ##   #\n# # #    #\n#   *  .##\n##. $#$ ##\n#     $  #\n###.    ##\n### .  $ #\n#######@##\n##########"
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "##########\n###    ..#\n#.   #$ ##\n#    $ ###\n# .#    ##\n###  # ###\n#### $ ###\n####$  ###\n### @#####\n##########",
+      "metrics": {
+        "score": 87.86421008069047,
+        "pushes": 22,
+        "moves": 73,
+        "dependency": 87,
+        "trap": 100,
+        "away_pushes": 2,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 14,
+        "delayed_lures": 16,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 22.338876146788994
+      }
     },
     {
       "id": "expert-041",
@@ -449,9 +1209,28 @@
         "zh": "专家熔炉 041"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 22,
-      "xsb": "##########\n##########\n#    @####\n## $$$  ##\n##       #\n###    * #\n## $  #  #\n### ..   #\n### ..## #\n##########"
+      "boxes": 4,
+      "optimalPushes": 26,
+      "xsb": "##########\n####   ###\n####$   ##\n#### $  ##\n#### # *+#\n#.   #  ##\n###    # #\n###   $  #\n#####. ###\n##########",
+      "metrics": {
+        "score": 87.51501253677021,
+        "pushes": 26,
+        "moves": 90,
+        "dependency": 100,
+        "trap": 84.33526237570454,
+        "away_pushes": 5,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 3,
+        "role_swaps": 5,
+        "box_revisits": 9,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 16.040519877675845
+      }
     },
     {
       "id": "expert-042",
@@ -460,9 +1239,28 @@
         "zh": "专家熔炉 042"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 20,
-      "xsb": "#########\n### . $ #\n###. #$ #\n###     #\n##.    ##\n#  #$.  #\n####  $##\n######@##\n#########"
+      "boxes": 5,
+      "optimalPushes": 26,
+      "xsb": "#########\n#########\n##  .#  #\n##  # $ #\n#   $   #\n###*@$ ##\n#.. $  ##\n## . #  #\n#########",
+      "metrics": {
+        "score": 87.44139379883293,
+        "pushes": 26,
+        "moves": 64,
+        "dependency": 100,
+        "trap": 85.90072133028578,
+        "away_pushes": 8,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 8,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 21.99789325842697
+      }
     },
     {
       "id": "expert-043",
@@ -471,9 +1269,28 @@
         "zh": "专家熔炉 043"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 20,
-      "xsb": "##########\n####.##@##\n###  ##* #\n####    .#\n### $ $  #\n## $.# # #\n#    #$# #\n#   #   .#\n# #  #  ##\n##########"
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "##########\n##########\n#.#   ####\n#   ##.###\n#  .     #\n# .$#    #\n###     ##\n# $ $  $##\n#   ###@##\n##########",
+      "metrics": {
+        "score": 87.42595114553015,
+        "pushes": 22,
+        "moves": 73,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 32,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 8,
+        "novelty": 20.871368501529055
+      }
     },
     {
       "id": "expert-044",
@@ -483,8 +1300,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 23,
-      "xsb": "##########\n####  ####\n## $  .###\n##   $   #\n##$      #\n# $    . #\n#@$   .  #\n# #   .###\n# ##.# ###\n##########"
+      "optimalPushes": 18,
+      "xsb": "#########\n#### @###\n####$*###\n###   $ #\n###     #\n##### $ #\n##..$.  #\n#### ##.#\n#########",
+      "metrics": {
+        "score": 87.25,
+        "pushes": 18,
+        "moves": 50,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 16,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 6,
+        "box_revisits": 3,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 20.92860486891386
+      }
     },
     {
       "id": "expert-045",
@@ -493,9 +1329,28 @@
         "zh": "专家熔炉 045"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "##########\n###### #.#\n#### # . #\n####@$   #\n### $   ##\n####  . ##\n### $.   #\n###  $ ###\n####   ###\n##########"
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "#########\n#####@###\n#####$###\n# ##  .##\n# $    .#\n#  $# .##\n## $.$  #\n#.  #   #\n#########",
+      "metrics": {
+        "score": 87.17870025342852,
+        "pushes": 20,
+        "moves": 60,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 20,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 7,
+        "false_goal_lures": 3,
+        "deadlock_lures": 5,
+        "novelty": 20.05360486891386
+      }
     },
     {
       "id": "expert-046",
@@ -505,8 +1360,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 21,
-      "xsb": "##########\n##### .# #\n#####  # #\n##### .# #\n###@$  $.#\n#. $#   ##\n#    $  ##\n## $  #  #\n#  ##  .##\n##########"
+      "optimalPushes": 26,
+      "xsb": "##########\n##########\n###@#### #\n## $   #.#\n##  $## .#\n## #  $$.#\n###      #\n###  $  ##\n##  .  .##\n##########",
+      "metrics": {
+        "score": 87.11539258319436,
+        "pushes": 26,
+        "moves": 69,
+        "dependency": 100,
+        "trap": 75.96157033277743,
+        "away_pushes": 3,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 13,
+        "delayed_lures": 8,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 16.424694189602448
+      }
     },
     {
       "id": "expert-047",
@@ -515,9 +1389,28 @@
         "zh": "专家熔炉 047"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 23,
-      "xsb": "##########\n##   #####\n### . ####\n###    $@#\n###    $ #\n#      $ #\n##. . #$ #\n## .   $ #\n#    .  ##\n##########"
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "##########\n######.# #\n### ##   #\n##      ##\n#@$ ##. .#\n##   $ . #\n###   #  #\n### $ $ ##\n#### #  ##\n##########",
+      "metrics": {
+        "score": 87.09150744973905,
+        "pushes": 21,
+        "moves": 68,
+        "dependency": 99.5,
+        "trap": 100,
+        "away_pushes": 3,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 16,
+        "reopened_goals": 2,
+        "tunnel_commitments": 2,
+        "role_swaps": 1,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 18.945527522935784
+      }
     },
     {
       "id": "expert-048",
@@ -526,9 +1419,28 @@
         "zh": "专家熔炉 048"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 22,
-      "xsb": "##########\n#######@##\n#######$##\n######  ##\n#### $$ ##\n###. $  ##\n#  .#    #\n# #    . #\n# #.     #\n##########"
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "#########\n#####@ ##\n#   .$$##\n###$$   #\n### .#  #\n## .  $ #\n###   # #\n## .. ###\n#########",
+      "metrics": {
+        "score": 86.65543448221908,
+        "pushes": 20,
+        "moves": 47,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 12,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 17.609082397003746
+      }
     },
     {
       "id": "expert-049",
@@ -538,8 +1450,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 21,
-      "xsb": "##########\n##########\n#######@##\n####   $ #\n### $   ##\n# .  #   #\n##. $    #\n#   $ #$ #\n# .#..   #\n##########"
+      "optimalPushes": 19,
+      "xsb": "#########\n####@ ###\n##.#$$###\n#      ##\n#    $###\n# #.$  ##\n#   .  ##\n#.#*##  #\n#########",
+      "metrics": {
+        "score": 86.65543448221908,
+        "pushes": 19,
+        "moves": 42,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 20,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 5,
+        "novelty": 15.741338951310862
+      }
     },
     {
       "id": "expert-050",
@@ -549,8 +1480,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 22,
-      "xsb": "##########\n###     .#\n##@$ $$  #\n###   $  #\n####  ## #\n#     . .#\n###   $  #\n###.  #  #\n###  #.  #\n##########"
+      "optimalPushes": 25,
+      "xsb": "##########\n#  # #####\n#  $  ####\n# $@$    #\n## $# .###\n# #  . ###\n#. $   ###\n###.    ##\n###.# ####\n##########",
+      "metrics": {
+        "score": 86.37378420095115,
+        "pushes": 25,
+        "moves": 69,
+        "dependency": 100,
+        "trap": 81.16192363419017,
+        "away_pushes": 2,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 5,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 20.549694189602448
+      }
     },
     {
       "id": "expert-051",
@@ -559,9 +1509,28 @@
         "zh": "专家熔炉 051"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 23,
-      "xsb": "##########\n###  #   #\n##.     ##\n##.   $###\n#  #$ $ ##\n# $     ##\n####.    #\n##@*    ##\n####.#  ##\n##########"
+      "boxes": 4,
+      "optimalPushes": 24,
+      "xsb": "##########\n##########\n# ########\n#.  ######\n# # #  ###\n#   #$   #\n#.   @$  #\n# $ $ ## #\n####  ..##\n##########",
+      "metrics": {
+        "score": 86.33575754320626,
+        "pushes": 24,
+        "moves": 64,
+        "dependency": 100,
+        "trap": 79.23138177947034,
+        "away_pushes": 3,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 1,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 17.37844036697248
+      }
     },
     {
       "id": "expert-052",
@@ -571,8 +1540,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 20,
-      "xsb": "##########\n######   #\n##@$     #\n###  # $ #\n###  $   #\n### ..  ##\n####$    #\n#### $  ##\n###.. .###\n##########"
+      "optimalPushes": 23,
+      "xsb": "#########\n### ##.##\n##     .#\n### $# ##\n#@$ $ . #\n# $    ##\n## $# ###\n#.  #.###\n#########",
+      "metrics": {
+        "score": 86.23762485761678,
+        "pushes": 23,
+        "moves": 64,
+        "dependency": 91.5,
+        "trap": 90.90378365685251,
+        "away_pushes": 3,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 10,
+        "reopened_goals": 1,
+        "tunnel_commitments": 3,
+        "role_swaps": 3,
+        "box_revisits": 3,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 20.37289325842697
+      }
     },
     {
       "id": "expert-053",
@@ -581,9 +1569,28 @@
         "zh": "专家熔炉 053"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n######@###\n######*###\n#  ##  ###\n# .  $ # #\n#  #   $ #\n#        #\n#  .#$ . #\n##       #\n##########"
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n######+ ##\n###   $###\n###### ###\n### ..  ##\n###  # # #\n##       #\n##  $$$$ #\n##.##  . #\n##########",
+      "metrics": {
+        "score": 86.05941886127297,
+        "pushes": 21,
+        "moves": 66,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 13,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 12,
+        "reopened_goals": 0,
+        "tunnel_commitments": 3,
+        "role_swaps": 2,
+        "box_revisits": 9,
+        "false_goal_lures": 1,
+        "deadlock_lures": 3,
+        "novelty": 18.908448012232416
+      }
     },
     {
       "id": "expert-054",
@@ -593,8 +1600,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 21,
-      "xsb": "##########\n# ########\n#  .######\n# $ # ####\n## .  $@##\n# ## $#$ #\n#        #\n# .   ## #\n#.  ######\n##########"
+      "optimalPushes": 19,
+      "xsb": "##########\n##########\n### .#####\n####. ####\n##    $@##\n##$#  .$##\n#       ##\n# $  #  .#\n##   # ###\n##########",
+      "metrics": {
+        "score": 85.98956049169334,
+        "pushes": 19,
+        "moves": 51,
+        "dependency": 94.5,
+        "trap": 100,
+        "away_pushes": 3,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 12,
+        "delayed_lures": 16,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 16.97343272171254
+      }
     },
     {
       "id": "expert-055",
@@ -604,8 +1630,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 19,
-      "xsb": "##########\n####### ##\n#####  .##\n### #$#  #\n# $     .#\n#   . $  #\n### $  . #\n####+$# ##\n#####    #\n##########"
+      "optimalPushes": 22,
+      "xsb": "###########\n###     ###\n####*    ##\n## ### $###\n##@$    $ #\n###*#     #\n### #     #\n####. .   #\n#### .#####\n###   #####\n###########",
+      "metrics": {
+        "score": 85.83223755530038,
+        "pushes": 22,
+        "moves": 52,
+        "dependency": 100,
+        "trap": 96.69418549854083,
+        "away_pushes": 5,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 12,
+        "delayed_lures": 12,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 4,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 37.48361959287532
+      }
     },
     {
       "id": "expert-056",
@@ -614,9 +1659,28 @@
         "zh": "专家熔炉 056"
       },
       "difficulty": "expert",
-      "boxes": 5,
+      "boxes": 4,
       "optimalPushes": 20,
-      "xsb": "##########\n##    .###\n###.$  . #\n####    ##\n####  $  #\n##@*  # ##\n##### $  #\n#### $   #\n###    .##\n##########"
+      "xsb": "##########\n###  # ###\n###   .###\n#### .  ##\n##  . # ##\n## $ $@$##\n## # #$  #\n####    ##\n#### #  .#\n##########",
+      "metrics": {
+        "score": 85.4255531702266,
+        "pushes": 20,
+        "moves": 82,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 16,
+        "reopened_goals": 3,
+        "tunnel_commitments": 0,
+        "role_swaps": 1,
+        "box_revisits": 9,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 16.559250764526
+      }
     },
     {
       "id": "expert-057",
@@ -626,8 +1690,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 23,
-      "xsb": "##########\n###   ..##\n##    #  #\n###    ###\n####$  $@#\n##    #$ #\n##*#   $ #\n#.   . ###\n###    ###\n##########"
+      "optimalPushes": 18,
+      "xsb": "#########\n# ###  ##\n# #@$ $##\n#  $    #\n###   $ #\n#.* .# .#\n#    .###\n#########\n#########",
+      "metrics": {
+        "score": 85.30839471701826,
+        "pushes": 18,
+        "moves": 55,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 2,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 24,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 7,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 21.324438202247194
+      }
     },
     {
       "id": "expert-058",
@@ -636,9 +1719,28 @@
         "zh": "专家熔炉 058"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 21,
-      "xsb": "##########\n###   .  #\n## $#    #\n## $  $ .#\n## #$#  .#\n#@$ .    #\n#### # . #\n######## #\n##########\n##########"
+      "boxes": 4,
+      "optimalPushes": 19,
+      "xsb": "##########\n###@###  #\n###$  #  #\n###  ##  #\n### $  . #\n##   . . #\n## $ # .##\n####  $ ##\n#####  ###\n##########",
+      "metrics": {
+        "score": 85,
+        "pushes": 19,
+        "moves": 60,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 2,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 26,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 6,
+        "novelty": 19.762614678899084
+      }
     },
     {
       "id": "expert-059",
@@ -648,8 +1750,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 22,
-      "xsb": "##########\n##########\n### . #@##\n#  .  #$##\n#    $   #\n# # $    #\n#  ##  $ #\n#.   ##  #\n#   ###. #\n##########"
+      "optimalPushes": 23,
+      "xsb": "##########\n######   #\n#####  # #\n####  $$ #\n###    ###\n##. $@$###\n### .#  ##\n####   ###\n#.    . ##\n##########",
+      "metrics": {
+        "score": 84.60782257421126,
+        "pushes": 23,
+        "moves": 68,
+        "dependency": 76.5,
+        "trap": 100,
+        "away_pushes": 3,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 24,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 0,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 5,
+        "novelty": 18.058868501529055
+      }
     },
     {
       "id": "expert-060",
@@ -658,9 +1779,28 @@
         "zh": "专家熔炉 060"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "#########\n# #  ####\n#   #####\n##.$   .#\n#    $  #\n#   # ..#\n## $$  ##\n###@ ####\n#########"
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "##########\n##########\n###  ## ##\n#  *##  .#\n#       ##\n#.  $$. ##\n#.###   ##\n##   $$###\n##### @###\n##########",
+      "metrics": {
+        "score": 84.58350593708278,
+        "pushes": 19,
+        "moves": 40,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 18,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 19.480122324159023
+      }
     },
     {
       "id": "expert-061",
@@ -670,8 +1810,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 22,
-      "xsb": "##########\n###.##  ##\n###      #\n###  #$  #\n####.   ##\n##.#   $##\n##@$ .  ##\n## $#  ###\n#   #  ###\n##########"
+      "optimalPushes": 19,
+      "xsb": "##########\n######@###\n##### $###\n###.   ###\n# .     ##\n#    $ . #\n## ###   #\n#### #$$ #\n####.   ##\n##########",
+      "metrics": {
+        "score": 84.58350593708278,
+        "pushes": 19,
+        "moves": 56,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 20,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 1,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 5,
+        "novelty": 16.494266055045873
+      }
     },
     {
       "id": "expert-062",
@@ -681,8 +1840,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 22,
-      "xsb": "##########\n##########\n####   ..#\n#    $  ##\n# .#@$  ##\n##.  $# ##\n##  # $ ##\n###.  $ ##\n#### #  ##\n##########"
+      "optimalPushes": 26,
+      "xsb": "##########\n#.   #####\n##   ##  #\n###   #$ #\n## $  #  #\n##@$  $ ##\n###$#.  ##\n###. #   #\n####.   .#\n##########",
+      "metrics": {
+        "score": 84.52165470588812,
+        "pushes": 26,
+        "moves": 66,
+        "dependency": 82,
+        "trap": 98.34124461741595,
+        "away_pushes": 5,
+        "box_switches": 5,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 12,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 4,
+        "box_revisits": 1,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 20.33218654434251
+      }
     },
     {
       "id": "expert-063",
@@ -691,9 +1869,28 @@
         "zh": "专家熔炉 063"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 22,
-      "xsb": "##########\n#######  #\n###   #  #\n##@$  #  #\n### $   .#\n##  $$  .#\n###  # # #\n# . $#.  #\n###  . ###\n##########"
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "##########\n##### .###\n####.    #\n####   $ #\n###   # .#\n##    ## #\n#+$    $ #\n###   #$##\n#       ##\n##########",
+      "metrics": {
+        "score": 84.51464406441293,
+        "pushes": 21,
+        "moves": 72,
+        "dependency": 100,
+        "trap": 86.87261627122265,
+        "away_pushes": 3,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 14,
+        "delayed_lures": 8,
+        "reopened_goals": 0,
+        "tunnel_commitments": 2,
+        "role_swaps": 5,
+        "box_revisits": 7,
+        "false_goal_lures": 2,
+        "deadlock_lures": 2,
+        "novelty": 14.811353211009177
+      }
     },
     {
       "id": "expert-064",
@@ -703,8 +1900,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 20,
-      "xsb": "##########\n##   # ###\n#  #   ###\n#. $ #$@##\n#     $ ##\n##  * ####\n##. $ ####\n## #  ####\n##.##. ###\n##########"
+      "optimalPushes": 21,
+      "xsb": "#########\n#.  # ###\n##. $   #\n#  #.## #\n##*#  $ #\n##+$  $ #\n#####   #\n#########\n#########",
+      "metrics": {
+        "score": 84.50967516310371,
+        "pushes": 21,
+        "moves": 69,
+        "dependency": 100,
+        "trap": 79.13675682152385,
+        "away_pushes": 5,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 8,
+        "reopened_goals": 4,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 19.907537453183522
+      }
     },
     {
       "id": "expert-065",
@@ -714,8 +1930,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "#########\n#####.###\n#####   #\n####@$  #\n##  $   #\n#  $$#  #\n#    .#.#\n#. #   ##\n#########"
+      "optimalPushes": 24,
+      "xsb": "##########\n###. #   #\n##  #  $##\n# $ # #  #\n#.# $    #\n#      ###\n# .   ####\n##.# $####\n#####@####\n##########",
+      "metrics": {
+        "score": 84.42773888842926,
+        "pushes": 24,
+        "moves": 86,
+        "dependency": 95,
+        "trap": 70.4117125851464,
+        "away_pushes": 2,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 15,
+        "delayed_lures": 8,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 19.7855504587156
+      }
     },
     {
       "id": "expert-066",
@@ -725,8 +1960,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 21,
-      "xsb": "##########\n## #   ###\n#    $ ###\n# # # $@##\n#   $  ###\n#  #   ###\n##.  # ###\n#  $ .. ##\n### .## ##\n##########"
+      "optimalPushes": 20,
+      "xsb": "##########\n###@  ####\n#. $#$####\n# $ #  ###\n##   $ ###\n# .#   .##\n# .  #  ##\n#  ###  ##\n##    ####\n##########",
+      "metrics": {
+        "score": 84.36739993216521,
+        "pushes": 20,
+        "moves": 70,
+        "dependency": 100,
+        "trap": 96.63634405922325,
+        "away_pushes": 3,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 12,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 9,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 19.399273700305812
+      }
     },
     {
       "id": "expert-067",
@@ -736,8 +1990,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 21,
-      "xsb": "##########\n##########\n#####   ##\n###@$.   #\n## $$    #\n# #   #. #\n#       .#\n# $ #  .##\n#  #    ##\n##########"
+      "optimalPushes": 27,
+      "xsb": "##########\n###   ####\n#@$   ####\n# $   ## #\n# $#  ## #\n##      .#\n####   .##\n## #*    #\n##.   # ##\n##########",
+      "metrics": {
+        "score": 84.32529187517987,
+        "pushes": 27,
+        "moves": 53,
+        "dependency": 100,
+        "trap": 59.819464647454005,
+        "away_pushes": 4,
+        "box_switches": 13,
+        "unique_optimal": null,
+        "pdb": 16,
+        "delayed_lures": 4,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 10,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 20.582186544342512
+      }
     },
     {
       "id": "expert-068",
@@ -746,9 +2019,28 @@
         "zh": "专家熔炉 068"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 21,
-      "xsb": "##########\n### ..#  #\n##       #\n##.. #   #\n##  $   ##\n### @ $  #\n## $   $ #\n##      ##\n##   #####\n##########"
+      "boxes": 5,
+      "optimalPushes": 23,
+      "xsb": "##########\n##########\n##########\n##.. #####\n# $   # ##\n# # # .. #\n#@$     .#\n##$$ $ # #\n##   #   #\n##########",
+      "metrics": {
+        "score": 84.23359918586132,
+        "pushes": 23,
+        "moves": 74,
+        "dependency": 100,
+        "trap": 74.9484819490545,
+        "away_pushes": 0,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 8,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 3,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 16.843845565749238
+      }
     },
     {
       "id": "expert-069",
@@ -759,7 +2051,26 @@
       "difficulty": "expert",
       "boxes": 5,
       "optimalPushes": 21,
-      "xsb": "##########\n#  #### ##\n#   # @ ##\n#  .#$$###\n#. #   .##\n## $  $  #\n#  $  . .#\n# #     ##\n#####  ###\n##########"
+      "xsb": "##########\n#####  ###\n### $   ##\n### ##$ ##\n#       ##\n###.##  ##\n## $ # $@#\n### .* .##\n###. #####\n##########",
+      "metrics": {
+        "score": 84.2105664703367,
+        "pushes": 21,
+        "moves": 67,
+        "dependency": 100,
+        "trap": 73.22819971789613,
+        "away_pushes": 4,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 13,
+        "delayed_lures": 8,
+        "reopened_goals": 0,
+        "tunnel_commitments": 2,
+        "role_swaps": 5,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 19.246368501529055
+      }
     },
     {
       "id": "expert-070",
@@ -768,9 +2079,28 @@
         "zh": "专家熔炉 070"
       },
       "difficulty": "expert",
-      "boxes": 4,
+      "boxes": 5,
       "optimalPushes": 18,
-      "xsb": "#########\n#    # ##\n# $  $  #\n#  #  . #\n# $    ##\n###. ..##\n### #$ ##\n#####@###\n#########"
+      "xsb": "#########\n###  ####\n## $. ###\n##. $ #.#\n####    #\n##   .  #\n## $$$#.#\n####@   #\n#########",
+      "metrics": {
+        "score": 84.14008746590268,
+        "pushes": 18,
+        "moves": 62,
+        "dependency": 99,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 18,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 2,
+        "false_goal_lures": 1,
+        "deadlock_lures": 3,
+        "novelty": 16.86610486891386
+      }
     },
     {
       "id": "expert-071",
@@ -780,8 +2110,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 21,
-      "xsb": "##########\n######  ##\n### $  .##\n## . #   #\n## $     #\n### # #..#\n## $$    #\n#+$      #\n###### ###\n##########"
+      "optimalPushes": 25,
+      "xsb": "#########\n### .####\n###   $@#\n### $$ ##\n##  . ###\n#.  #$# #\n##. $  .#\n#   #####\n#########",
+      "metrics": {
+        "score": 84.10840491072635,
+        "pushes": 25,
+        "moves": 70,
+        "dependency": 100,
+        "trap": 79.72103920697072,
+        "away_pushes": 6,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 3,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 18.62312734082397
+      }
     },
     {
       "id": "expert-072",
@@ -790,9 +2139,28 @@
         "zh": "专家熔炉 072"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 19,
-      "xsb": "##########\n### .   ##\n###     ##\n#  # .$ ##\n#  . # .##\n##      ##\n## *$  ###\n## # $$###\n#####@ ###\n##########"
+      "boxes": 4,
+      "optimalPushes": 22,
+      "xsb": "##########\n##########\n###.##.@##\n##.  #$$##\n###      #\n###   # ##\n##   $   #\n##.   $  #\n#### ## ##\n##########",
+      "metrics": {
+        "score": 84.07158318564244,
+        "pushes": 22,
+        "moves": 67,
+        "dependency": 79,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 36,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 1,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 9,
+        "novelty": 20.005542813455662
+      }
     },
     {
       "id": "expert-073",
@@ -801,9 +2169,28 @@
         "zh": "专家熔炉 073"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 21,
-      "xsb": "##########\n####     #\n## .. .  #\n#####   ##\n##   $ $ #\n##   $#  #\n### # .  #\n###$  ## #\n###@##   #\n##########"
+      "boxes": 5,
+      "optimalPushes": 31,
+      "xsb": "###########\n###      ##\n### # # $ #\n###### $  #\n#.  #     #\n#..   $$  #\n#   #     #\n#. $@ ###.#\n# ## #### #\n# #########\n###########",
+      "metrics": {
+        "score": 84.06436215066208,
+        "pushes": 31,
+        "moves": 68,
+        "dependency": 100,
+        "trap": 68.68028413637299,
+        "away_pushes": 3,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 13,
+        "delayed_lures": 4,
+        "reopened_goals": 1,
+        "tunnel_commitments": 3,
+        "role_swaps": 4,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 21.471851145038173
+      }
     },
     {
       "id": "expert-074",
@@ -813,8 +2200,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 19,
-      "xsb": "##########\n##########\n#######.##\n###+### ##\n#. $  .  #\n#    $ . #\n# $ $ $ ##\n# #   # ##\n####    ##\n##########"
+      "optimalPushes": 22,
+      "xsb": "##########\n#####  ###\n## # #.  #\n##   # $ #\n##  ##$# #\n###  $@$.#\n##  . $  #\n##    #  #\n##.# ##.##\n##########",
+      "metrics": {
+        "score": 84.03109943684585,
+        "pushes": 22,
+        "moves": 63,
+        "dependency": 100,
+        "trap": 98.43020470064435,
+        "away_pushes": 4,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 5,
+        "delayed_lures": 8,
+        "reopened_goals": 2,
+        "tunnel_commitments": 1,
+        "role_swaps": 3,
+        "box_revisits": 3,
+        "false_goal_lures": 2,
+        "deadlock_lures": 2,
+        "novelty": 18.862194189602448
+      }
     },
     {
       "id": "expert-075",
@@ -824,8 +2230,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 20,
-      "xsb": "##########\n######@###\n######$# #\n######   #\n##      .#\n####$    #\n## $  #$.#\n# .  $  .#\n# #    . #\n##########"
+      "optimalPushes": 22,
+      "xsb": "#########\n### .   #\n#### #$##\n####.#  #\n#. . .$ #\n#       #\n####$$$ #\n###  @###\n#########",
+      "metrics": {
+        "score": 83.83183785909316,
+        "pushes": 22,
+        "moves": 56,
+        "dependency": 100,
+        "trap": 77.92929538588979,
+        "away_pushes": 5,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 4,
+        "reopened_goals": 4,
+        "tunnel_commitments": 1,
+        "role_swaps": 4,
+        "box_revisits": 2,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 23.629681647940078
+      }
     },
     {
       "id": "expert-076",
@@ -835,8 +2260,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 20,
-      "xsb": "##########\n#        #\n##   . .##\n## $$  $ #\n## $   # #\n##     . #\n####. # .#\n#### $   #\n#####@####\n##########"
+      "optimalPushes": 18,
+      "xsb": "#########\n#    ####\n# # $####\n#    $.##\n#. #  $+#\n#  #$####\n##.$ .###\n##   ####\n#########",
+      "metrics": {
+        "score": 83.71351578196787,
+        "pushes": 18,
+        "moves": 79,
+        "dependency": 100,
+        "trap": 97.8660000763288,
+        "away_pushes": 4,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 12,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 1,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 20.629681647940078
+      }
     },
     {
       "id": "expert-077",
@@ -846,8 +2290,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 20,
-      "xsb": "#########\n##   #  #\n# $ $   #\n#    $ .#\n### # ###\n###     #\n##  ..$ #\n######+##\n#########"
+      "optimalPushes": 18,
+      "xsb": "##########\n##    ####\n#.$#@ ####\n#   $#####\n# $# # ###\n#   $   .#\n##    . ##\n###  ## ##\n### .#####\n##########",
+      "metrics": {
+        "score": 83.47699074108226,
+        "pushes": 18,
+        "moves": 65,
+        "dependency": 100,
+        "trap": 99.8121385759793,
+        "away_pushes": 2,
+        "box_switches": 13,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 14,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 3,
+        "box_revisits": 10,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 18.933868501529055
+      }
     },
     {
       "id": "expert-078",
@@ -856,9 +2319,28 @@
         "zh": "专家熔炉 078"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n###   ####\n###   $ ##\n### # *.##\n##  # ..##\n##     ###\n###$   ###\n###@$  # #\n#####    #\n##########"
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "###########\n# ##.######\n#  #  #####\n# # $# ####\n# @$    ###\n# $ $   ###\n# #  .   ##\n#  $.  . ##\n######  .##\n######  ###\n###########",
+      "metrics": {
+        "score": 83.26668855416534,
+        "pushes": 21,
+        "moves": 56,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 3,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 12,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 24.500477099236644
+      }
     },
     {
       "id": "expert-079",
@@ -868,8 +2350,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 18,
-      "xsb": "##########\n###   .###\n###$ $ ###\n#  .# $@##\n#    . ###\n#  #  ####\n##$. $ ###\n#     ####\n#  .# ####\n##########"
+      "optimalPushes": 20,
+      "xsb": "##########\n###   # ##\n###$    ##\n###@$ #  #\n###$ $#.##\n#   .   ##\n##  *  . #\n##.##  ###\n##  #  ###\n##########",
+      "metrics": {
+        "score": 83.22258710814661,
+        "pushes": 20,
+        "moves": 60,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 3,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 24,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 6,
+        "novelty": 18.903860856269116
+      }
     },
     {
       "id": "expert-080",
@@ -879,8 +2380,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 21,
-      "xsb": "##########\n#####   .#\n#####    #\n###  #$  #\n###..    #\n## .     #\n##   $   #\n### ##$$ #\n######@ ##\n##########"
+      "optimalPushes": 18,
+      "xsb": "##########\n###   ####\n## $  ####\n#   $ ####\n## # ## ##\n#  $    .#\n# # . ####\n# #.$+  ##\n###### ###\n##########",
+      "metrics": {
+        "score": 83.08350593708278,
+        "pushes": 18,
+        "moves": 47,
+        "dependency": 95,
+        "trap": 100,
+        "away_pushes": 3,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 12,
+        "reopened_goals": 1,
+        "tunnel_commitments": 3,
+        "role_swaps": 3,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 17.341360856269116
+      }
     },
     {
       "id": "expert-081",
@@ -889,9 +2409,28 @@
         "zh": "专家熔炉 081"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 20,
-      "xsb": "##########\n## # # ###\n#  $@ .###\n# $$ #####\n#     #.##\n#.$     ##\n#  $#.  ##\n##      ##\n##.  #####\n##########"
+      "boxes": 4,
+      "optimalPushes": 17,
+      "xsb": "##########\n#   ######\n##. ######\n## ##@####\n#.  $$####\n# $   ####\n#. #     #\n## #$  .##\n#    #   #\n##########",
+      "metrics": {
+        "score": 83.02059991327963,
+        "pushes": 17,
+        "moves": 39,
+        "dependency": 100,
+        "trap": 99.5823996531185,
+        "away_pushes": 1,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 12,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 3,
+        "box_revisits": 7,
+        "false_goal_lures": 1,
+        "deadlock_lures": 3,
+        "novelty": 17.92928134556575
+      }
     },
     {
       "id": "expert-082",
@@ -901,8 +2440,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "#########\n#. ######\n#$ #  ###\n# .    ##\n# ## . ##\n#      ##\n##$$$#.##\n#  @ ####\n#########"
+      "optimalPushes": 19,
+      "xsb": "##########\n### ######\n### ######\n### #  ###\n##@$.  .##\n# $ #$$ ##\n# # #   ##\n#    ##  #\n# #.    .#\n##########",
+      "metrics": {
+        "score": 82.89009040604105,
+        "pushes": 19,
+        "moves": 79,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 24,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 6,
+        "novelty": 17.267201834862387
+      }
     },
     {
       "id": "expert-083",
@@ -912,8 +2470,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "#########\n#.  #####\n## $#####\n##  #####\n## $    #\n## @$   #\n### $ .##\n###  .. #\n#########"
+      "optimalPushes": 27,
+      "xsb": "##########\n#####   ##\n###@#. $ #\n## $##  ##\n#     .  #\n##.# $ $ #\n#   #   ##\n#  .##  ##\n##   #####\n##########",
+      "metrics": {
+        "score": 82.87658461801318,
+        "pushes": 27,
+        "moves": 73,
+        "dependency": 100,
+        "trap": 74.90438075616875,
+        "away_pushes": 6,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 4,
+        "reopened_goals": 3,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 6,
+        "false_goal_lures": 1,
+        "deadlock_lures": 1,
+        "novelty": 20.90844801223242
+      }
     },
     {
       "id": "expert-084",
@@ -922,9 +2499,28 @@
         "zh": "专家熔炉 084"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 22,
-      "xsb": "##########\n#####   ##\n####@$ ..#\n#   $ ####\n# $     ##\n###  #$  #\n##       #\n## # ##  #\n#### . . #\n##########"
+      "boxes": 5,
+      "optimalPushes": 17,
+      "xsb": "#########\n###   .##\n#   *  .#\n# $ # ###\n###  $###\n##..  ###\n#@$ $ ###\n##  #####\n#########",
+      "metrics": {
+        "score": 82.85430072655778,
+        "pushes": 17,
+        "moves": 61,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 2,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 24,
+        "reopened_goals": 2,
+        "tunnel_commitments": 1,
+        "role_swaps": 4,
+        "box_revisits": 4,
+        "false_goal_lures": 1,
+        "deadlock_lures": 6,
+        "novelty": 21.810159176029963
+      }
     },
     {
       "id": "expert-085",
@@ -933,9 +2529,28 @@
         "zh": "专家熔炉 085"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 20,
-      "xsb": "##########\n##  # ..##\n##$  #  ##\n#   $   ##\n#     $ ##\n###   .$ #\n#####  $@#\n#####. ###\n######. ##\n##########"
+      "boxes": 4,
+      "optimalPushes": 28,
+      "xsb": "##########\n###### .##\n####@$  ##\n####$    #\n#### # $ #\n#  #  # ##\n## $    ##\n##..  #  #\n#.  #    #\n##########",
+      "metrics": {
+        "score": 82.61964410016459,
+        "pushes": 28,
+        "moves": 89,
+        "dependency": 100,
+        "trap": 61.65550871574271,
+        "away_pushes": 7,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 12,
+        "delayed_lures": 4,
+        "reopened_goals": 1,
+        "tunnel_commitments": 3,
+        "role_swaps": 0,
+        "box_revisits": 9,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 16.498853211009177
+      }
     },
     {
       "id": "expert-086",
@@ -945,8 +2560,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 18,
-      "xsb": "##########\n###  #####\n##+$  #*##\n###  $   #\n### . ## #\n#  . $####\n#        #\n# $   # ##\n###   . ##\n##########"
+      "optimalPushes": 20,
+      "xsb": "#########\n# .    ##\n#   $   #\n##$ #$. #\n##@$# # #\n###  $  #\n#### ...#\n#########\n#########",
+      "metrics": {
+        "score": 82.52895436481948,
+        "pushes": 20,
+        "moves": 58,
+        "dependency": 84,
+        "trap": 100,
+        "away_pushes": 3,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 14,
+        "reopened_goals": 0,
+        "tunnel_commitments": 2,
+        "role_swaps": 2,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 22.143726591760306
+      }
     },
     {
       "id": "expert-087",
@@ -955,9 +2589,28 @@
         "zh": "专家熔炉 087"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 19,
-      "xsb": "##########\n###.#  # #\n#   #  $ #\n# $ $ $  #\n# #     .#\n###  .   #\n####.  . #\n#####  $@#\n#######  #\n##########"
+      "boxes": 4,
+      "optimalPushes": 21,
+      "xsb": "##########\n##########\n#### @.###\n## $$$####\n## $    ##\n#    .   #\n#    #   #\n# # ###..#\n##########\n##########",
+      "metrics": {
+        "score": 82.31562565785687,
+        "pushes": 21,
+        "moves": 60,
+        "dependency": 100,
+        "trap": 79.3316315883994,
+        "away_pushes": 4,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 8,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 1,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 17.89468654434251
+      }
     },
     {
       "id": "expert-088",
@@ -966,9 +2619,28 @@
         "zh": "专家熔炉 088"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 21,
-      "xsb": "##########\n##########\n### @  ###\n###$$  $ #\n#     $  #\n#..  .#  #\n#.       #\n##### $  #\n#####.   #\n##########"
+      "boxes": 4,
+      "optimalPushes": 24,
+      "xsb": "##########\n###  #   #\n### ##$  #\n###  $   #\n###.   $ #\n#  $ ##  #\n###+.## ##\n###   .###\n##########\n##########",
+      "metrics": {
+        "score": 82.26964126274228,
+        "pushes": 24,
+        "moves": 80,
+        "dependency": 86,
+        "trap": 80.15377727959279,
+        "away_pushes": 4,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 3,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 18.637614678899084
+      }
     },
     {
       "id": "expert-089",
@@ -978,8 +2650,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 20,
-      "xsb": "##########\n##########\n#.#@######\n#  $   ###\n#. .   ###\n#  #  #  #\n# # $  . #\n### #$ $ #\n###    ###\n##########"
+      "optimalPushes": 18,
+      "xsb": "##########\n####   ###\n#### $$ .#\n####  #  #\n##### #$ #\n### @$   #\n### #. ###\n###.    ##\n#### .####\n##########",
+      "metrics": {
+        "score": 82.21185607745824,
+        "pushes": 18,
+        "moves": 68,
+        "dependency": 100,
+        "trap": 93.0020045025631,
+        "away_pushes": 3,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 12,
+        "reopened_goals": 2,
+        "tunnel_commitments": 1,
+        "role_swaps": 3,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 18.711773700305812
+      }
     },
     {
       "id": "expert-090",
@@ -988,9 +2679,28 @@
         "zh": "专家熔炉 090"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "#########\n#  ..####\n#  ######\n#   $+###\n##  $ ###\n## #$ ###\n#.  $ ###\n#  ######\n#########"
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "#########\n#######.#\n######  #\n##@$ .# #\n# $.#   #\n##  $ . #\n# $ $# ##\n#    .  #\n#########",
+      "metrics": {
+        "score": 82.19430513216169,
+        "pushes": 21,
+        "moves": 56,
+        "dependency": 100,
+        "trap": 84.14965034451771,
+        "away_pushes": 4,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 5,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 4,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 18.380149812734086
+      }
     },
     {
       "id": "expert-091",
@@ -999,9 +2709,28 @@
         "zh": "专家熔炉 091"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 22,
-      "xsb": "##########\n##########\n###   ####\n#   .  #.#\n#      #.#\n#.    $  #\n###$ ##  #\n###@$ $  #\n#####   ##\n##########"
+      "boxes": 5,
+      "optimalPushes": 35,
+      "xsb": "###########\n#####  ####\n###  $  ###\n#    #    #\n###  #  $ #\n##  $   #.#\n#@$ # .   #\n### $ ## ##\n###    . .#\n######   .#\n###########",
+      "metrics": {
+        "score": 82.14486591241814,
+        "pushes": 35,
+        "moves": 98,
+        "dependency": 100,
+        "trap": 57.07316175904236,
+        "away_pushes": 7,
+        "box_switches": 14,
+        "unique_optimal": null,
+        "pdb": 15,
+        "delayed_lures": 0,
+        "reopened_goals": 4,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 10,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 32.154421119592875
+      }
     },
     {
       "id": "expert-092",
@@ -1011,8 +2740,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 20,
-      "xsb": "##########\n###### . #\n######$ ##\n##@$     #\n###$#.   #\n###  $ $ #\n##.    #.#\n####     #\n#####   .#\n##########"
+      "optimalPushes": 18,
+      "xsb": "##########\n####.    #\n#### $#  #\n###   #  #\n##@$ $# ##\n##### $  #\n### #   ##\n###.. *. #\n###     ##\n##########",
+      "metrics": {
+        "score": 81.78319514505654,
+        "pushes": 18,
+        "moves": 71,
+        "dependency": 96,
+        "trap": 100,
+        "away_pushes": 2,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 20,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 17.494266055045873
+      }
     },
     {
       "id": "expert-093",
@@ -1021,9 +2769,28 @@
         "zh": "专家熔炉 093"
       },
       "difficulty": "expert",
-      "boxes": 4,
+      "boxes": 5,
       "optimalPushes": 18,
-      "xsb": "#########\n### .####\n#..$  ###\n# $   ###\n# #     #\n#.$ #  ##\n##   $###\n## ##@###\n#########"
+      "xsb": "##########\n#####  ###\n##### $+##\n####   ###\n#### $ ###\n# .. # .##\n# # * $ ##\n### $#   #\n###    # #\n##########",
+      "metrics": {
+        "score": 81.76443960318855,
+        "pushes": 18,
+        "moves": 80,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 5,
+        "delayed_lures": 12,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 1,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 17.61467889908257
+      }
     },
     {
       "id": "expert-094",
@@ -1033,8 +2800,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "#########\n### # #.#\n#       #\n#    $$ #\n##  # . #\n### $ .##\n##   #$##\n######+##\n#########"
+      "optimalPushes": 20,
+      "xsb": "##########\n####.    #\n###  #   #\n#  $## $##\n##  #    #\n###  #  ##\n###.   $##\n#####.$@##\n##### .###\n##########",
+      "metrics": {
+        "score": 81.66101593441213,
+        "pushes": 20,
+        "moves": 50,
+        "dependency": 79,
+        "trap": 100,
+        "away_pushes": 3,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 12,
+        "delayed_lures": 16,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 3,
+        "box_revisits": 3,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 16.966360856269116
+      }
     },
     {
       "id": "expert-095",
@@ -1043,9 +2829,28 @@
         "zh": "专家熔炉 095"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 16,
-      "xsb": "##########\n##   #####\n#   . ####\n# * .# ###\n##@$    ##\n### #$$ ##\n## $ .  ##\n##  .  ###\n####  ####\n##########"
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n##########\n#   .#####\n#.   #####\n#   ##@###\n##  $.$ ##\n#  *     #\n###  # $ #\n###    ###\n##########",
+      "metrics": {
+        "score": 81.62235902394828,
+        "pushes": 18,
+        "moves": 51,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 16,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 16.61678134556575
+      }
     },
     {
       "id": "expert-096",
@@ -1055,8 +2860,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n######. ##\n###  # ###\n###     ##\n##  #$  .#\n## #     #\n####.  #.#\n#### $$$ #\n#####@  ##\n##########"
+      "optimalPushes": 18,
+      "xsb": "##########\n####### ##\n####   *##\n###@$    #\n## $## ###\n##       #\n#### $ .##\n###   #  #\n####.#.  #\n##########",
+      "metrics": {
+        "score": 81.58350593708278,
+        "pushes": 18,
+        "moves": 64,
+        "dependency": 90,
+        "trap": 100,
+        "away_pushes": 2,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 24,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 5,
+        "novelty": 15.612194189602448
+      }
     },
     {
       "id": "expert-097",
@@ -1066,8 +2890,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "#########\n#####@###\n## .#$###\n# .   $ #\n# $     #\n## #  $ #\n### .   #\n###.  ###\n#########"
+      "optimalPushes": 22,
+      "xsb": "##########\n##########\n# @#######\n##$ ## . #\n##  #   ##\n#   $ # .#\n#  $#    #\n#.   $   #\n# .####  #\n##########",
+      "metrics": {
+        "score": 81.53775573501778,
+        "pushes": 22,
+        "moves": 59,
+        "dependency": 86,
+        "trap": 91.55167182415349,
+        "away_pushes": 1,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 12,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 5,
+        "box_revisits": 3,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 19.704701834862387
+      }
     },
     {
       "id": "expert-098",
@@ -1077,8 +2920,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "#########\n#      ##\n##     ##\n##.#$ $ #\n# .. $$ #\n#.  #@  #\n##   ####\n#### ####\n#########"
+      "optimalPushes": 20,
+      "xsb": "##########\n#######.##\n######  ##\n###@$  .##\n##### $ ##\n####     #\n####  . .#\n## $$ #  #\n##    # ##\n##########",
+      "metrics": {
+        "score": 81.51915306776402,
+        "pushes": 20,
+        "moves": 57,
+        "dependency": 100,
+        "trap": 70.84244036912888,
+        "away_pushes": 4,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 8,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 1,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 17.86678134556575
+      }
     },
     {
       "id": "expert-099",
@@ -1087,9 +2949,28 @@
         "zh": "专家熔炉 099"
       },
       "difficulty": "expert",
-      "boxes": 5,
+      "boxes": 4,
       "optimalPushes": 22,
-      "xsb": "##########\n####   .##\n####   ###\n#@  #$####\n#$$$  $ ##\n# #      #\n#.    ####\n#..  . ###\n#   ## ###\n##########"
+      "xsb": "##########\n###.  .  #\n#+$   #  #\n##   #   #\n###  $ $ #\n##    ## #\n####$   ##\n###    .##\n### ## ###\n##########",
+      "metrics": {
+        "score": 81.48063871739765,
+        "pushes": 22,
+        "moves": 69,
+        "dependency": 100,
+        "trap": 72.39398845483245,
+        "away_pushes": 2,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 13,
+        "delayed_lures": 8,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 16.200114678899084
+      }
     },
     {
       "id": "expert-100",
@@ -1098,9 +2979,28 @@
         "zh": "专家熔炉 100"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 19,
-      "xsb": "##########\n######.###\n#### . ###\n###.    .#\n####$ $$##\n####     #\n## #   $ #\n##.   $###\n## ###@###\n##########"
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "##########\n##########\n### #    #\n###    $ #\n### *   ##\n####@    #\n#### $$###\n## # #   #\n# ...  ###\n##########",
+      "metrics": {
+        "score": 81.37135108136596,
+        "pushes": 20,
+        "moves": 80,
+        "dependency": 100,
+        "trap": 78.71226611618637,
+        "away_pushes": 3,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 3,
+        "role_swaps": 1,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 16.17717889908257
+      }
     },
     {
       "id": "expert-101",
@@ -1110,8 +3010,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "##########\n###   ####\n#     ####\n# $ $ . ##\n## . # ###\n#@$  $ ###\n#### # ..#\n#####   ##\n###     ##\n##########"
+      "optimalPushes": 24,
+      "xsb": "##########\n####@#   #\n### $# ###\n##      .#\n## $ # # #\n####.$$  #\n### ##   #\n###    . #\n###   ##.#\n##########",
+      "metrics": {
+        "score": 81.25816810821978,
+        "pushes": 24,
+        "moves": 62,
+        "dependency": 76,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 16,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 0,
+        "box_revisits": 3,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 18.012614678899084
+      }
     },
     {
       "id": "expert-102",
@@ -1121,8 +3040,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 20,
-      "xsb": "##########\n##########\n##  .#####\n##. $#####\n#  ..   ##\n#   $@$  #\n#        #\n#  # #$$ #\n##.     ##\n##########"
+      "optimalPushes": 19,
+      "xsb": "###########\n###### @###\n## .  $$###\n## $$#   ##\n###    #  #\n#   #   .##\n##  .###. #\n#####.$   #\n######    #\n###########\n###########",
+      "metrics": {
+        "score": 81.17562553286682,
+        "pushes": 19,
+        "moves": 80,
+        "dependency": 95.5,
+        "trap": 100,
+        "away_pushes": 3,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 16,
+        "reopened_goals": 0,
+        "tunnel_commitments": 2,
+        "role_swaps": 5,
+        "box_revisits": 3,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 22.442907124681938
+      }
     },
     {
       "id": "expert-103",
@@ -1132,8 +3070,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "#########\n###  ####\n#@$   ###\n# $  $  #\n# # .. ##\n###$  .##\n##  .####\n###  ####\n#########"
+      "optimalPushes": 16,
+      "xsb": "##########\n# ########\n#  #  #.##\n##.      #\n##. $ #  #\n#####$  ##\n#####@$  #\n######$ .#\n#####    #\n##########",
+      "metrics": {
+        "score": 81.16443960318854,
+        "pushes": 16,
+        "moves": 32,
+        "dependency": 98,
+        "trap": 100,
+        "away_pushes": 2,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 24,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 18.278860856269116
+      }
     },
     {
       "id": "expert-104",
@@ -1143,8 +3100,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 20,
-      "xsb": "##########\n##########\n####@#####\n#. #$  .##\n#    #   #\n# $   .. #\n#  . $# ##\n#  $  $  #\n#####    #\n##########"
+      "optimalPushes": 18,
+      "xsb": "##########\n##### # ##\n####    ##\n# ###   ##\n#   .$  ##\n##..$@$###\n# .#$$ ###\n##.   ####\n#      ###\n##########",
+      "metrics": {
+        "score": 80.89284050059378,
+        "pushes": 18,
+        "moves": 54,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 2,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 14,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 5,
+        "false_goal_lures": 2,
+        "deadlock_lures": 2,
+        "novelty": 19.325114678899084
+      }
     },
     {
       "id": "expert-105",
@@ -1154,8 +3130,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "#########\n#########\n#   #.###\n##$..$###\n#  #   ##\n#.     ##\n# $  $ ##\n# @# # ##\n#########"
+      "optimalPushes": 16,
+      "xsb": "##########\n####  ####\n#    $####\n#  .  ####\n# #$  $@##\n# #.#  $.#\n## .  #  #\n#   # ####\n# ##  ####\n##########",
+      "metrics": {
+        "score": 80.89284050059376,
+        "pushes": 16,
+        "moves": 44,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 2,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 20,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 6,
+        "false_goal_lures": 1,
+        "deadlock_lures": 1,
+        "novelty": 19.480122324159023
+      }
     },
     {
       "id": "expert-106",
@@ -1165,8 +3160,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "#########\n#### @###\n### $$###\n#  .   ##\n# $  #.##\n##   # ##\n#   $ .##\n# #.   ##\n#########"
+      "optimalPushes": 18,
+      "xsb": "##########\n######## #\n#### #   #\n##  $@$  #\n### .$   #\n##     $ #\n## #.  ###\n### .. # #\n### #    #\n##########",
+      "metrics": {
+        "score": 80.8206648010703,
+        "pushes": 18,
+        "moves": 49,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 12,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 18.436353211009177
+      }
     },
     {
       "id": "expert-107",
@@ -1176,8 +3190,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 17,
-      "xsb": "##########\n##########\n##### # ##\n###  . $.#\n#   $. $@#\n##     $ #\n##.  # $ #\n#   .  ###\n####  ####\n##########"
+      "optimalPushes": 22,
+      "xsb": "#########\n###@## ##\n# #* .  #\n#    .$##\n#  ##*. #\n# $ $ ###\n##    ###\n###   ###\n#########",
+      "metrics": {
+        "score": 80.5996365394041,
+        "pushes": 22,
+        "moves": 72,
+        "dependency": 100,
+        "trap": 65.0004901071336,
+        "away_pushes": 5,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 6,
+        "reopened_goals": 3,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 21.199438202247194
+      }
     },
     {
       "id": "expert-108",
@@ -1187,8 +3220,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 19,
-      "xsb": "##########\n##      ##\n##    . .#\n#  .    .#\n# $ . $ ##\n##   ##$##\n####$ $@##\n###    ###\n##########\n##########"
+      "optimalPushes": 24,
+      "xsb": "##########\n####@#####\n### $   ##\n###$  $ ##\n#   # #.##\n##  #$   #\n###..   .#\n##  #$ #.#\n####   # #\n##########",
+      "metrics": {
+        "score": 80.58469447722076,
+        "pushes": 24,
+        "moves": 67,
+        "dependency": 100,
+        "trap": 64.24362857238293,
+        "away_pushes": 3,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 4,
+        "reopened_goals": 2,
+        "tunnel_commitments": 1,
+        "role_swaps": 6,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 18.700114678899084
+      }
     },
     {
       "id": "expert-109",
@@ -1197,9 +3249,28 @@
         "zh": "专家熔炉 109"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n####.# ###\n### .  # #\n### $. # #\n## #  #  #\n## .     #\n##       #\n#####$$$##\n#####@  ##\n##########"
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "#########\n##.  .###\n#.#   ###\n#  $$####\n# #  $@##\n# $   ###\n# #$  .##\n###.## ##\n#########",
+      "metrics": {
+        "score": 80.53973079921356,
+        "pushes": 18,
+        "moves": 53,
+        "dependency": 83,
+        "trap": 100,
+        "away_pushes": 2,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 28,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 0,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 7,
+        "novelty": 20.72027153558053
+      }
     },
     {
       "id": "expert-110",
@@ -1210,7 +3281,26 @@
       "difficulty": "expert",
       "boxes": 4,
       "optimalPushes": 20,
-      "xsb": "##########\n##### ..##\n# .#  $# #\n# .    $@#\n## #   ###\n#    $ ###\n#  #  ####\n##  #$  ##\n###   ####\n##########"
+      "xsb": "##########\n##########\n#### @ ###\n### $$####\n####    ##\n###   #$ #\n###.     #\n##  *### #\n## .   . #\n##########",
+      "metrics": {
+        "score": 80.34264461227836,
+        "pushes": 20,
+        "moves": 49,
+        "dependency": 85,
+        "trap": 86.7880569766358,
+        "away_pushes": 4,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 8,
+        "reopened_goals": 2,
+        "tunnel_commitments": 3,
+        "role_swaps": 1,
+        "box_revisits": 3,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 13.610091743119268
+      }
     },
     {
       "id": "expert-111",
@@ -1219,9 +3309,28 @@
         "zh": "专家熔炉 111"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 20,
-      "xsb": "##########\n##########\n###   ####\n###$   $@#\n##    #$##\n##    #  #\n## ##.  .#\n#  # .$# #\n##  #.  ##\n##########"
+      "boxes": 5,
+      "optimalPushes": 30,
+      "xsb": "###########\n### ##@  ##\n##   $$$###\n##    .   #\n#     ##$ #\n#### #    #\n###  $   .#\n####.# #  #\n###.   # .#\n###   #####\n###########",
+      "metrics": {
+        "score": 80.32680539155244,
+        "pushes": 30,
+        "moves": 77,
+        "dependency": 100,
+        "trap": 60.09401813061331,
+        "away_pushes": 10,
+        "box_switches": 14,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 0,
+        "reopened_goals": 4,
+        "tunnel_commitments": 2,
+        "role_swaps": 3,
+        "box_revisits": 10,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 21.69608778625954
+      }
     },
     {
       "id": "expert-112",
@@ -1231,8 +3340,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 17,
-      "xsb": "##########\n###. #####\n###    ###\n### $    #\n###. #$. #\n###  $@$ #\n###.  $ ##\n### #  ###\n###  .   #\n##########"
+      "optimalPushes": 31,
+      "xsb": "###########\n#######  ##\n####@$    #\n##  $     #\n##. # # .##\n##   $#$# #\n##.   # # #\n#    .  # #\n#     $   #\n#### #. # #\n###########",
+      "metrics": {
+        "score": 80.26798296257171,
+        "pushes": 31,
+        "moves": 79,
+        "dependency": 100,
+        "trap": 60.659517327093695,
+        "away_pushes": 9,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 0,
+        "reopened_goals": 3,
+        "tunnel_commitments": 2,
+        "role_swaps": 3,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 25.30661577608143
+      }
     },
     {
       "id": "expert-113",
@@ -1241,9 +3369,28 @@
         "zh": "专家熔炉 113"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "#########\n##### .##\n#. #  .##\n#   $ $@#\n#  $#  ##\n##$   ###\n##    ###\n#####.###\n#########"
+      "boxes": 5,
+      "optimalPushes": 16,
+      "xsb": "#########\n#####  .#\n### $ $.#\n### #  .#\n###   $.#\n##  $$###\n#### @ .#\n#########\n#########",
+      "metrics": {
+        "score": 80.05,
+        "pushes": 16,
+        "moves": 44,
+        "dependency": 86,
+        "trap": 100,
+        "away_pushes": 0,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 22,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 3,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 18.630149812734086
+      }
     },
     {
       "id": "expert-114",
@@ -1253,8 +3400,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 21,
-      "xsb": "##########\n######@###\n######$###\n#       ##\n#  $ $ ###\n# $      #\n#  $ #. ##\n# . . #  #\n##.    .##\n##########"
+      "optimalPushes": 18,
+      "xsb": "##########\n####  ####\n###   ####\n###$$  ..#\n##  @$##.#\n##   $   #\n### .#$. #\n####     #\n###   #  #\n##########",
+      "metrics": {
+        "score": 79.77621234262219,
+        "pushes": 18,
+        "moves": 57,
+        "dependency": 98,
+        "trap": 94.4387114241855,
+        "away_pushes": 1,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 12,
+        "reopened_goals": 0,
+        "tunnel_commitments": 2,
+        "role_swaps": 4,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 18.827599388379205
+      }
     },
     {
       "id": "expert-115",
@@ -1263,9 +3429,28 @@
         "zh": "专家熔炉 115"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n####   ###\n#### # .##\n###@$  .##\n###$    ##\n#   #    #\n#  .  #  #\n# #$ $  ##\n#  .# # ##\n##########"
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "#########\n## #+####\n## #$####\n# $   # #\n# $  . .#\n# # #   #\n#..  $$ #\n##    ###\n#########",
+      "metrics": {
+        "score": 79.70274096376599,
+        "pushes": 18,
+        "moves": 45,
+        "dependency": 94,
+        "trap": 93.73087576363883,
+        "away_pushes": 2,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 12,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 3,
+        "box_revisits": 4,
+        "false_goal_lures": 1,
+        "deadlock_lures": 1,
+        "novelty": 19.206460674157306
+      }
     },
     {
       "id": "expert-116",
@@ -1274,9 +3459,28 @@
         "zh": "专家熔炉 116"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 18,
-      "xsb": "##########\n####     #\n####  . ##\n## $    ##\n##  . .  #\n## $     #\n#+$ #$.  #\n## $    ##\n### #   ##\n##########"
+      "boxes": 4,
+      "optimalPushes": 32,
+      "xsb": "##########\n######  ##\n######.  #\n####     #\n## $ ## ##\n##@$     #\n## $# #$ #\n### .    #\n####.  #.#\n##########",
+      "metrics": {
+        "score": 79.67479599579791,
+        "pushes": 32,
+        "moves": 94,
+        "dependency": 100,
+        "trap": 33.699183983191645,
+        "away_pushes": 7,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 18,
+        "delayed_lures": 0,
+        "reopened_goals": 0,
+        "tunnel_commitments": 4,
+        "role_swaps": 3,
+        "box_revisits": 9,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 19.1263379204893
+      }
     },
     {
       "id": "expert-117",
@@ -1285,9 +3489,28 @@
         "zh": "专家熔炉 117"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "#########\n###..   #\n### #.  #\n###   $ #\n####.   #\n#### $$ #\n### $ ###\n####@####\n#########"
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n##########\n####   ###\n# $@$ . ##\n#. ### .##\n# $ .#   #\n#  #    ##\n# ## $$  #\n###.  #  #\n##########",
+      "metrics": {
+        "score": 79.65349729846989,
+        "pushes": 21,
+        "moves": 90,
+        "dependency": 100,
+        "trap": 67.21463807796187,
+        "away_pushes": 4,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 12,
+        "delayed_lures": 6,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 1,
+        "box_revisits": 7,
+        "false_goal_lures": 1,
+        "deadlock_lures": 1,
+        "novelty": 18.42928134556575
+      }
     },
     {
       "id": "expert-118",
@@ -1297,8 +3520,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 18,
-      "xsb": "##########\n###. .####\n##  $ ####\n#     ####\n##    ####\n# . $.   #\n#.  @# $ #\n# $#  $  #\n#     ## #\n##########"
+      "optimalPushes": 19,
+      "xsb": "#########\n###  ####\n#@$   ###\n###$ . .#\n#.  $ .##\n# # # ###\n# $$ .###\n#     ###\n#########",
+      "metrics": {
+        "score": 79.6427579060498,
+        "pushes": 19,
+        "moves": 73,
+        "dependency": 100,
+        "trap": 77.33745275612613,
+        "away_pushes": 2,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 3,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 17.68562734082397
+      }
     },
     {
       "id": "expert-119",
@@ -1307,9 +3549,28 @@
         "zh": "专家熔炉 119"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 20,
-      "xsb": "##########\n##.   ####\n####..####\n## #$   ##\n##       #\n#@$    $ #\n#### # $ #\n####. #  #\n#####  # #\n##########"
+      "boxes": 5,
+      "optimalPushes": 26,
+      "xsb": "##########\n##########\n#####@  ##\n## # $#$ #\n#  $  #  #\n##  # #  #\n###  *   #\n###  $.###\n##..   .##\n##########",
+      "metrics": {
+        "score": 79.62199625322748,
+        "pushes": 26,
+        "moves": 79,
+        "dependency": 100,
+        "trap": 50.987985012909895,
+        "away_pushes": 6,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 0,
+        "reopened_goals": 3,
+        "tunnel_commitments": 2,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 19.795107033639148
+      }
     },
     {
       "id": "expert-120",
@@ -1319,8 +3580,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "#########\n#########\n# .     #\n##  $  ##\n##$# ..##\n##@$ #  #\n####$ .##\n####   ##\n#########"
+      "optimalPushes": 22,
+      "xsb": "##########\n##########\n##########\n### #    #\n## $ $## #\n#.  # $@ #\n## .   $##\n# .   #  #\n## # #.  #\n##########",
+      "metrics": {
+        "score": 79.5625990123463,
+        "pushes": 22,
+        "moves": 79,
+        "dependency": 100,
+        "trap": 61.335406783365556,
+        "away_pushes": 4,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 4,
+        "reopened_goals": 2,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 17.37844036697248
+      }
     },
     {
       "id": "expert-121",
@@ -1331,7 +3611,26 @@
       "difficulty": "expert",
       "boxes": 4,
       "optimalPushes": 21,
-      "xsb": "##########\n## ## .  #\n##  . .$ #\n#      ###\n#  $  .###\n###### ###\n###     ##\n#@$   $###\n####   ###\n##########"
+      "xsb": "##########\n#####   ##\n### @*  ##\n### $ # ##\n####$ # ##\n###  $#  #\n####  # ##\n###    .##\n#### . . #\n##########",
+      "metrics": {
+        "score": 79.4747944551374,
+        "pushes": 21,
+        "moves": 54,
+        "dependency": 100,
+        "trap": 69.9521006931117,
+        "away_pushes": 5,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 4,
+        "reopened_goals": 1,
+        "tunnel_commitments": 3,
+        "role_swaps": 4,
+        "box_revisits": 3,
+        "false_goal_lures": 1,
+        "deadlock_lures": 1,
+        "novelty": 18.329701834862387
+      }
     },
     {
       "id": "expert-122",
@@ -1341,8 +3640,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 19,
-      "xsb": "##########\n##  . ####\n##. # ####\n##  #  ###\n#      ###\n#. $ $  ##\n# $@$ $ .#\n#  ##  . #\n####  ####\n##########"
+      "optimalPushes": 18,
+      "xsb": "#########\n#########\n## . . ##\n# @* # ##\n# $   $##\n#   # $ #\n##  $   #\n# .##.###\n#########",
+      "metrics": {
+        "score": 79.47084427905972,
+        "pushes": 18,
+        "moves": 60,
+        "dependency": 100,
+        "trap": 76.64979824816587,
+        "away_pushes": 1,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 16.900983146067418
+      }
     },
     {
       "id": "expert-123",
@@ -1351,9 +3669,28 @@
         "zh": "专家熔炉 123"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 19,
-      "xsb": "##########\n###      #\n##     $ #\n##.. $#  #\n##. $@$  #\n##.   $ ##\n##     ###\n##### . ##\n#####  ###\n##########"
+      "boxes": 4,
+      "optimalPushes": 16,
+      "xsb": "##########\n##########\n#.### #  #\n#  #  .$@#\n#  $ # ###\n# $ *  ###\n#     ####\n#####   ##\n####.   ##\n##########",
+      "metrics": {
+        "score": 79.43854838280751,
+        "pushes": 16,
+        "moves": 37,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 22,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 20.730122324159026
+      }
     },
     {
       "id": "expert-124",
@@ -1362,9 +3699,28 @@
         "zh": "专家熔炉 124"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "##########\n#####@####\n#####$####\n###.   ###\n#     #.##\n# $#$   ##\n## . #$ ##\n# #     .#\n#    ### #\n##########"
+      "boxes": 5,
+      "optimalPushes": 26,
+      "xsb": "###########\n####  #####\n#    $@# ##\n#   #  . ##\n####.  # ##\n# .   .# ##\n# ##$   ###\n#.    $# ##\n# ## $ $ ##\n##       ##\n###########",
+      "metrics": {
+        "score": 79.22191747163029,
+        "pushes": 26,
+        "moves": 60,
+        "dependency": 75,
+        "trap": 100,
+        "away_pushes": 3,
+        "box_switches": 5,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 16,
+        "reopened_goals": 1,
+        "tunnel_commitments": 3,
+        "role_swaps": 3,
+        "box_revisits": 1,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 22.737754452926204
+      }
     },
     {
       "id": "expert-125",
@@ -1375,7 +3731,26 @@
       "difficulty": "expert",
       "boxes": 4,
       "optimalPushes": 17,
-      "xsb": "##########\n##########\n#   ## ###\n##.      #\n###$$ #. #\n###@$$  ##\n###   #  #\n####     #\n## .  # .#\n##########"
+      "xsb": "##########\n####    ##\n#### $# ##\n## .$@#  #\n## # $ ###\n## ##. ###\n##      ##\n##    $  #\n#.. ###  #\n##########",
+      "metrics": {
+        "score": 79.21653448657582,
+        "pushes": 17,
+        "moves": 47,
+        "dependency": 91.5,
+        "trap": 100,
+        "away_pushes": 4,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 16,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 17.570527522935784
+      }
     },
     {
       "id": "expert-126",
@@ -1385,8 +3760,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 20,
-      "xsb": "##########\n##########\n## #######\n#      . #\n## $ $  .#\n#####  $##\n###  $ $@#\n###     ##\n## ... ###\n##########"
+      "optimalPushes": 33,
+      "xsb": "###########\n#######   #\n#######  .#\n####@$    #\n####$ # $ #\n###  .   ##\n#  .#  $  #\n#  .    $##\n#  # .#  ##\n# #   # ###\n###########",
+      "metrics": {
+        "score": 79.05960285360244,
+        "pushes": 33,
+        "moves": 86,
+        "dependency": 100,
+        "trap": 55.02520797881336,
+        "away_pushes": 4,
+        "box_switches": 16,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 0,
+        "reopened_goals": 2,
+        "tunnel_commitments": 1,
+        "role_swaps": 3,
+        "box_revisits": 12,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 24.550254452926207
+      }
     },
     {
       "id": "expert-127",
@@ -1396,8 +3790,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 16,
-      "xsb": "#########\n##### ###\n#### . .#\n###  .  #\n## $  $ #\n#@$  ## #\n# *  ####\n# #     #\n#########"
+      "optimalPushes": 26,
+      "xsb": "##########\n####@#####\n####$#####\n### .  $ #\n# ## # # #\n#      $ #\n# # #  $ #\n# #..    #\n#.    ## #\n##########",
+      "metrics": {
+        "score": 78.94136075354488,
+        "pushes": 26,
+        "moves": 85,
+        "dependency": 100,
+        "trap": 46.94237532926388,
+        "away_pushes": 5,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 12,
+        "delayed_lures": 0,
+        "reopened_goals": 2,
+        "tunnel_commitments": 3,
+        "role_swaps": 3,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 17.91551987767584
+      }
     },
     {
       "id": "expert-128",
@@ -1407,8 +3820,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 17,
-      "xsb": "##########\n##  ######\n#@$   ####\n##   $  ##\n# .     ##\n###.# $. #\n###  *## #\n##  $  ###\n## . # ###\n##########"
+      "optimalPushes": 29,
+      "xsb": "###########\n####@######\n### $ # ###\n##      ###\n## $  $  ##\n###       #\n#. ## #   #\n#    $  $ #\n#  ## #.#.#\n##   .#. ##\n###########",
+      "metrics": {
+        "score": 78.90036722262279,
+        "pushes": 29,
+        "moves": 61,
+        "dependency": 100,
+        "trap": 41.99474687381895,
+        "away_pushes": 2,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 16,
+        "delayed_lures": 0,
+        "reopened_goals": 0,
+        "tunnel_commitments": 4,
+        "role_swaps": 5,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 24.15267175572519
+      }
     },
     {
       "id": "expert-129",
@@ -1419,7 +3851,26 @@
       "difficulty": "expert",
       "boxes": 5,
       "optimalPushes": 19,
-      "xsb": "##########\n##########\n####@## ##\n### $#  ##\n##.$   $ #\n## #   # #\n##   .   #\n#. .$*  ##\n# #  # ###\n##########"
+      "xsb": "##########\n####  ####\n####    .#\n####   ###\n######.###\n##  $  ###\n#  $@$ #*#\n##  $  . #\n## # .####\n##########",
+      "metrics": {
+        "score": 78.78447826484235,
+        "pushes": 19,
+        "moves": 43,
+        "dependency": 100,
+        "trap": 77.63549528927338,
+        "away_pushes": 3,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 3,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 16.061353211009177
+      }
     },
     {
       "id": "expert-130",
@@ -1428,9 +3879,28 @@
         "zh": "专家熔炉 130"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n###.  ####\n##  # ####\n### # ####\n## $   $@#\n##    #.*#\n###      #\n###$  .  #\n#        #\n##########"
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n#### # ###\n##*# # ###\n##@$  .  #\n# ###  # #\n#   $$ ###\n# .    ###\n#.# $ ####\n#.  # ####\n##########",
+      "metrics": {
+        "score": 78.7,
+        "pushes": 20,
+        "moves": 66,
+        "dependency": 79,
+        "trap": 100,
+        "away_pushes": 2,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 16,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 0,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 4,
+        "novelty": 18.47553516819572
+      }
     },
     {
       "id": "expert-131",
@@ -1439,9 +3909,28 @@
         "zh": "专家熔炉 131"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "#########\n### #.###\n###   .##\n#@$    ##\n# $# #  #\n##   $.##\n###  $.##\n###  ####\n#########"
+      "boxes": 5,
+      "optimalPushes": 29,
+      "xsb": "###########\n##     ####\n###$ #$@###\n##   # $###\n## # $$ ###\n##   #    #\n### .  #  #\n###   .  .#\n### .    ##\n####   .  #\n###########",
+      "metrics": {
+        "score": 78.6782391377009,
+        "pushes": 29,
+        "moves": 74,
+        "dependency": 100,
+        "trap": 51.60833516434144,
+        "away_pushes": 3,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 0,
+        "reopened_goals": 3,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 23.326017811704837
+      }
     },
     {
       "id": "expert-132",
@@ -1450,9 +3939,28 @@
         "zh": "专家熔炉 132"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "##########\n##########\n####   # #\n##  #$ $.#\n##     . #\n##.    # #\n##.#   # #\n## $    $#\n###  ###@#\n##########"
+      "boxes": 5,
+      "optimalPushes": 30,
+      "xsb": "###########\n# . ##  ###\n##.# $  ###\n##$  #   ##\n##    $# ##\n###    # ##\n#@*.   #  #\n#### $   .#\n####   #  #\n###  #   ##\n###########",
+      "metrics": {
+        "score": 78.60663465838982,
+        "pushes": 30,
+        "moves": 88,
+        "dependency": 100,
+        "trap": 40.81981661688709,
+        "away_pushes": 5,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 16,
+        "delayed_lures": 0,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 4,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 20.356393129770993
+      }
     },
     {
       "id": "expert-133",
@@ -1462,8 +3970,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 21,
-      "xsb": "##########\n#### @   #\n#   $$$ ##\n# ##   ###\n#    # ###\n#  #  ####\n# # .. ###\n# .  $ .##\n# # #  ###\n##########"
+      "optimalPushes": 19,
+      "xsb": "##########\n##########\n###  .####\n###.  $@##\n#### .#$ #\n##.#  #  #\n##    $  #\n##   $ # #\n##    ## #\n##########",
+      "metrics": {
+        "score": 78.59141160226315,
+        "pushes": 19,
+        "moves": 38,
+        "dependency": 100,
+        "trap": 70.12797096396064,
+        "away_pushes": 4,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 8,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 16.56594036697248
+      }
     },
     {
       "id": "expert-134",
@@ -1473,8 +4000,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 20,
-      "xsb": "##########\n## ##    #\n##@$ $ $ #\n##      .#\n###  $  .#\n###  # # #\n## ..    #\n### . $  #\n#### ## ##\n##########"
+      "optimalPushes": 17,
+      "xsb": "#########\n##.######\n##$### .#\n##  .   #\n###$#   #\n###@$ *##\n## $   ##\n#   .#  #\n#########",
+      "metrics": {
+        "score": 78.5486077018156,
+        "pushes": 17,
+        "moves": 50,
+        "dependency": 100,
+        "trap": 88.34808804634287,
+        "away_pushes": 5,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 4,
+        "delayed_lures": 10,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 17.04681647940075
+      }
     },
     {
       "id": "expert-135",
@@ -1484,8 +4030,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 18,
-      "xsb": "##########\n# .#######\n##  ######\n##  ###+##\n# $ $  $ #\n#   $##  #\n#.#$ ..  #\n##      ##\n#####  ###\n##########"
+      "optimalPushes": 25,
+      "xsb": "##########\n##########\n#####. ###\n### $.. ##\n### $   ##\n##    #$.#\n# $#     #\n#@$    . #\n## # ##  #\n##########",
+      "metrics": {
+        "score": 78.48366316451043,
+        "pushes": 25,
+        "moves": 55,
+        "dependency": 99.5,
+        "trap": 42.47685013349709,
+        "away_pushes": 3,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 13,
+        "delayed_lures": 0,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 4,
+        "box_revisits": 3,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 16.830084097859327
+      }
     },
     {
       "id": "expert-136",
@@ -1494,9 +4059,28 @@
         "zh": "专家熔炉 136"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 20,
-      "xsb": "##########\n###   # ##\n####   . #\n####  .. #\n##   #   #\n##    $ .#\n###$$$ # #\n### @#   #\n###### ###\n##########"
+      "boxes": 5,
+      "optimalPushes": 30,
+      "xsb": "###########\n###########\n# #    # ##\n#  #   $ ##\n#. .#   $@#\n#  # $  ###\n#  .    ###\n#.  $  ####\n#    $ ####\n### # .####\n###########",
+      "metrics": {
+        "score": 78.39349387006718,
+        "pushes": 30,
+        "moves": 75,
+        "dependency": 100,
+        "trap": 43.57397548026868,
+        "away_pushes": 5,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 14,
+        "delayed_lures": 0,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 22.83062977099237
+      }
     },
     {
       "id": "expert-137",
@@ -1505,9 +4089,28 @@
         "zh": "专家熔炉 137"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 17,
-      "xsb": "##########\n#####  ###\n##### @###\n###  .$  #\n### #$ $##\n### $    #\n#### #.* #\n##.  .   #\n######   #\n##########"
+      "boxes": 4,
+      "optimalPushes": 16,
+      "xsb": "##########\n####### ##\n#######  #\n######  ##\n####    ##\n###@$.$###\n## $    .#\n##  $   .#\n####   .##\n##########",
+      "metrics": {
+        "score": 78.37988042295041,
+        "pushes": 16,
+        "moves": 41,
+        "dependency": 95,
+        "trap": 94.4504200061383,
+        "away_pushes": 3,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 14,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 16.635512232415902
+      }
     },
     {
       "id": "expert-138",
@@ -1516,9 +4119,28 @@
         "zh": "专家熔炉 138"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n####   .##\n#@$ .#  ##\n###    ###\n##  $  ###\n# $    ###\n#.     ###\n#.  # $ ##\n#   #   ##\n##########"
+      "boxes": 5,
+      "optimalPushes": 16,
+      "xsb": "##########\n####   ..#\n##### $###\n#### $ $ #\n#### . . #\n##  $   ##\n#@$   #  #\n##   #####\n##.#######\n##########",
+      "metrics": {
+        "score": 78.27941483304251,
+        "pushes": 16,
+        "moves": 48,
+        "dependency": 99,
+        "trap": 99.1359445780777,
+        "away_pushes": 3,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 5,
+        "delayed_lures": 12,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 18.52178899082569
+      }
     },
     {
       "id": "expert-139",
@@ -1527,9 +4149,28 @@
         "zh": "专家熔炉 139"
       },
       "difficulty": "expert",
-      "boxes": 5,
+      "boxes": 4,
       "optimalPushes": 18,
-      "xsb": "##########\n##########\n###..#####\n### .  ###\n##@$   . #\n### $ .# #\n### $    #\n###  $ $ #\n### #    #\n##########"
+      "xsb": "##########\n#####  ###\n##### ####\n####  ####\n##. $ ####\n#     #.##\n###$# #.##\n###@$ $  #\n####    .#\n##########",
+      "metrics": {
+        "score": 78.09575502357833,
+        "pushes": 18,
+        "moves": 42,
+        "dependency": 99,
+        "trap": 65.45323675214755,
+        "away_pushes": 2,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 8,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 4,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 16.924694189602448
+      }
     },
     {
       "id": "expert-140",
@@ -1539,8 +4180,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 17,
-      "xsb": "##########\n### #  ###\n### ..$###\n### #  # #\n##       #\n### # $  #\n##   $@$##\n##  .#$ ##\n###   ..##\n##########"
+      "optimalPushes": 25,
+      "xsb": "##########\n###.######\n###.######\n# #   ####\n#. . #@###\n#    $$###\n#  $ $ ###\n###.$   ##\n##       #\n##########",
+      "metrics": {
+        "score": 78.07842168181276,
+        "pushes": 25,
+        "moves": 60,
+        "dependency": 100,
+        "trap": 49.49452184958106,
+        "away_pushes": 4,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 0,
+        "reopened_goals": 3,
+        "tunnel_commitments": 0,
+        "role_swaps": 6,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 19.033448012232416
+      }
     },
     {
       "id": "expert-141",
@@ -1549,9 +4209,28 @@
         "zh": "专家熔炉 141"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 18,
-      "xsb": "##########\n##### ####\n####  ####\n####  .###\n# $  #  ##\n#      $@#\n# $#$#  ##\n#..#  . ##\n#.$    ###\n##########"
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "##########\n##########\n## .  ##.#\n##.#   $ #\n#  # #$$ #\n#       ##\n##.     ##\n####$# ###\n####@#####\n##########",
+      "metrics": {
+        "score": 78.06062379226653,
+        "pushes": 20,
+        "moves": 48,
+        "dependency": 100,
+        "trap": 66.90658288096364,
+        "away_pushes": 3,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 8,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 17.621368501529055
+      }
     },
     {
       "id": "expert-142",
@@ -1561,8 +4240,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n##########\n##    ####\n## ##$   #\n#.       #\n# ..#   .#\n###    $ #\n###  $$@##\n####   ###\n##########"
+      "optimalPushes": 29,
+      "xsb": "##########\n##  # ..##\n### #  ###\n## $   ###\n##  ##  ##\n#      $ #\n#. $  #$@#\n## #  . ##\n##   #####\n##########",
+      "metrics": {
+        "score": 77.97387602163933,
+        "pushes": 29,
+        "moves": 78,
+        "dependency": 100,
+        "trap": 31.576463919410436,
+        "away_pushes": 8,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 17,
+        "delayed_lures": 0,
+        "reopened_goals": 0,
+        "tunnel_commitments": 2,
+        "role_swaps": 4,
+        "box_revisits": 9,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 19.0980504587156
+      }
     },
     {
       "id": "expert-143",
@@ -1571,9 +4269,28 @@
         "zh": "专家熔炉 143"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "##########\n## #######\n##  ###. #\n#   ##   #\n# $      #\n#.   $#. #\n####     #\n### $$   #\n#### @# .#\n##########"
+      "boxes": 5,
+      "optimalPushes": 29,
+      "xsb": "###########\n#  # #   .#\n#  $    # #\n#  #..$ $ #\n##  #   . #\n## ##     #\n# $$    .##\n#  @###  ##\n###########\n###########\n###########",
+      "metrics": {
+        "score": 77.74545567552775,
+        "pushes": 29,
+        "moves": 65,
+        "dependency": 100,
+        "trap": 45.26753698782528,
+        "away_pushes": 6,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 12,
+        "delayed_lures": 0,
+        "reopened_goals": 0,
+        "tunnel_commitments": 4,
+        "role_swaps": 4,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 22.800254452926204
+      }
     },
     {
       "id": "expert-144",
@@ -1582,9 +4299,28 @@
         "zh": "专家熔炉 144"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "#########\n###     #\n#### # ##\n##@$    #\n##$##$..#\n#   .. ##\n# $   ###\n# #  ####\n#########"
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n#####.   #\n## #  $ ##\n#.     #.#\n##   #$  #\n####     #\n#### . # #\n###. $$$ #\n##### @###\n##########",
+      "metrics": {
+        "score": 77.6598988435161,
+        "pushes": 21,
+        "moves": 55,
+        "dependency": 97.5,
+        "trap": 73.5434800202491,
+        "away_pushes": 4,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 8,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 17.968463302752298
+      }
     },
     {
       "id": "expert-145",
@@ -1593,9 +4329,28 @@
         "zh": "专家熔炉 145"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 18,
-      "xsb": "##########\n#     . ##\n##.#$ # ##\n# .     ##\n## #$$ # #\n## $@$   #\n## ##.   #\n#  ##.#  #\n##########\n##########"
+      "boxes": 4,
+      "optimalPushes": 26,
+      "xsb": "##########\n######@###\n##### $###\n#####$ ###\n####     #\n#    $  ##\n# #    # #\n# .    $ #\n#.#.   . #\n##########",
+      "metrics": {
+        "score": 77.57754727508848,
+        "pushes": 26,
+        "moves": 59,
+        "dependency": 100,
+        "trap": 36.24369066289374,
+        "away_pushes": 3,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 14,
+        "delayed_lures": 0,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 15.137996941896027
+      }
     },
     {
       "id": "expert-146",
@@ -1605,8 +4360,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 19,
-      "xsb": "##########\n#### #####\n####    ##\n####  @ ##\n# ## .*###\n#. # $   #\n# $  # #.#\n# $ $    #\n#  ## .  #\n##########"
+      "optimalPushes": 33,
+      "xsb": "###########\n###########\n###  ######\n###  *@####\n#   $ $   #\n# . #  ####\n#. #    $ #\n#  $ #    #\n##       ##\n## .  . ###\n###########",
+      "metrics": {
+        "score": 77.47375176120612,
+        "pushes": 33,
+        "moves": 84,
+        "dependency": 100,
+        "trap": 52.7521499019673,
+        "away_pushes": 8,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 0,
+        "reopened_goals": 3,
+        "tunnel_commitments": 0,
+        "role_swaps": 5,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 18.80836513994911
+      }
     },
     {
       "id": "expert-147",
@@ -1616,8 +4390,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 21,
-      "xsb": "##########\n####. ####\n###   $@##\n####   $##\n####  $ ##\n### $   ##\n##      ##\n#  # $  .#\n#  .   ..#\n##########"
+      "optimalPushes": 32,
+      "xsb": "###########\n###########\n####### ###\n##### . ###\n##   # $###\n#       $@#\n##  $$ #$ #\n#  .#    ##\n#   #  . ##\n#  ..# # ##\n###########",
+      "metrics": {
+        "score": 77.45063843129681,
+        "pushes": 32,
+        "moves": 84,
+        "dependency": 100,
+        "trap": 45.205805972689554,
+        "away_pushes": 8,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 0,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 8,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 22.657601781170484
+      }
     },
     {
       "id": "expert-148",
@@ -1627,8 +4420,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 17,
-      "xsb": "##########\n###   ## #\n#    .#  #\n#   #    #\n## #.  $ #\n##$   . ##\n#   #$$  #\n## ##@* ##\n######.###\n##########"
+      "optimalPushes": 21,
+      "xsb": "##########\n##    #.##\n#  ##  $##\n# #.. . ##\n#  $#. ###\n#   #   ##\n# $$   ###\n###@$  ###\n#####  ###\n##########",
+      "metrics": {
+        "score": 77.37402883845382,
+        "pushes": 21,
+        "moves": 90,
+        "dependency": 74.5,
+        "trap": 100,
+        "away_pushes": 3,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 32,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 2,
+        "false_goal_lures": 0,
+        "deadlock_lures": 8,
+        "novelty": 20.24178134556575
+      }
     },
     {
       "id": "expert-149",
@@ -1637,9 +4449,28 @@
         "zh": "专家熔炉 149"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 20,
-      "xsb": "##########\n##########\n####  ####\n# ##$   .#\n#  $@$   #\n#   $  .##\n#       ##\n#####.# ##\n###### . #\n##########"
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "###########\n###     ###\n##@$#    ##\n##$.   $ ##\n#      #  #\n##.## .   #\n# .  ## $ #\n#   .   ###\n#  $ ######\n##  #######\n###########",
+      "metrics": {
+        "score": 77.36135166032956,
+        "pushes": 18,
+        "moves": 80,
+        "dependency": 100,
+        "trap": 100,
+        "away_pushes": 2,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 12,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 21.31965648854962
+      }
     },
     {
       "id": "expert-150",
@@ -1649,8 +4480,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "##########\n####  ####\n####$. ###\n##.   .###\n##  $ ####\n##     ###\n#    #$  #\n# . $    #\n# ##@#####\n##########"
+      "optimalPushes": 24,
+      "xsb": "##########\n##### #@##\n###    $##\n###.  # ##\n##  $##  #\n####   $ #\n## $.# # #\n##    .  #\n###    .##\n##########",
+      "metrics": {
+        "score": 77.31830110854231,
+        "pushes": 24,
+        "moves": 70,
+        "dependency": 100,
+        "trap": 40.84060409952153,
+        "away_pushes": 4,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 13,
+        "delayed_lures": 0,
+        "reopened_goals": 2,
+        "tunnel_commitments": 3,
+        "role_swaps": 5,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 15.804663608562693
+      }
     },
     {
       "id": "expert-151",
@@ -1660,8 +4510,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n####   ###\n###  #.###\n### # .###\n### # $+##\n## .   ###\n##  $    #\n## ##$$ ##\n###     ##\n##########"
+      "optimalPushes": 20,
+      "xsb": "##########\n####  # ##\n###.  ..##\n####$    #\n###    # #\n#@$    # #\n####  $  #\n### $ # ##\n#### .# ##\n##########",
+      "metrics": {
+        "score": 77.31274546896167,
+        "pushes": 20,
+        "moves": 45,
+        "dependency": 99,
+        "trap": 69.61772620640906,
+        "away_pushes": 3,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 8,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 15.892201834862387
+      }
     },
     {
       "id": "expert-152",
@@ -1671,8 +4540,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n##  #   ##\n### $   ##\n### $ ## #\n###  $@  #\n###   .  #\n## . # $ #\n##  .  # #\n###    . #\n##########"
+      "optimalPushes": 20,
+      "xsb": "##########\n#####   ##\n#@*   . ##\n####  #$##\n###  $ $ #\n##. .    #\n### # #  #\n##### # ##\n####### ##\n##########",
+      "metrics": {
+        "score": 77.26283303021793,
+        "pushes": 20,
+        "moves": 47,
+        "dependency": 100,
+        "trap": 58.49309015409835,
+        "away_pushes": 5,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 4,
+        "reopened_goals": 2,
+        "tunnel_commitments": 2,
+        "role_swaps": 4,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 17.517201834862387
+      }
     },
     {
       "id": "expert-153",
@@ -1682,8 +4570,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 18,
-      "xsb": "##########\n###+######\n#  $######\n# $   ####\n## #$    #\n#. #  $# #\n#  .$    #\n#  . .   #\n#   ###  #\n##########"
+      "optimalPushes": 20,
+      "xsb": "#########\n#########\n####@####\n#.  *   #\n#.  .$###\n#  $   ##\n###$ $ ##\n#.     ##\n#########",
+      "metrics": {
+        "score": 77.20927197101679,
+        "pushes": 20,
+        "moves": 43,
+        "dependency": 100,
+        "trap": 60.70730454190135,
+        "away_pushes": 3,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 4,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 6,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 17.887172284644194
+      }
     },
     {
       "id": "expert-154",
@@ -1693,8 +4600,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 18,
-      "xsb": "##########\n#### #   #\n###. # $ #\n###.## ###\n#@*    # #\n##  $. $ #\n## $#    #\n##   .# ##\n##   #####\n##########"
+      "optimalPushes": 25,
+      "xsb": "##########\n####### .#\n#####. $ #\n###@#    #\n#  $# $ ##\n# $      #\n### .    #\n##   #$.##\n###  . ###\n##########",
+      "metrics": {
+        "score": 77.17043105908822,
+        "pushes": 25,
+        "moves": 72,
+        "dependency": 100,
+        "trap": 44.00752128364954,
+        "away_pushes": 6,
+        "box_switches": 14,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 0,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 10,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 19.399273700305812
+      }
     },
     {
       "id": "expert-155",
@@ -1703,9 +4629,28 @@
         "zh": "专家熔炉 155"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 18,
-      "xsb": "##########\n##########\n####. .  #\n####  . ##\n##### $ ##\n####@$   #\n##  $  # #\n## $  $  #\n##  . # .#\n##########"
+      "boxes": 4,
+      "optimalPushes": 20,
+      "xsb": "##########\n##########\n# ###.   #\n#.$     ##\n# $  $#.##\n#@$   #  #\n#####  . #\n##### ## #\n######## #\n##########",
+      "metrics": {
+        "score": 77.05820245694427,
+        "pushes": 20,
+        "moves": 56,
+        "dependency": 100,
+        "trap": 55.65028835529946,
+        "away_pushes": 5,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 6,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 18.885129969418966
+      }
     },
     {
       "id": "expert-156",
@@ -1714,9 +4659,28 @@
         "zh": "专家熔炉 156"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n## .##  ##\n#      $##\n# $ .$   #\n#. #     #\n# #  # ###\n#### # $@#\n#####  .##\n#####   ##\n##########"
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "##########\n##@##  ###\n##$##  ###\n# . #  .##\n#      ###\n#   .#  ##\n# $ $  .##\n# #$$## ##\n##    . ##\n##########",
+      "metrics": {
+        "score": 77.05349341338066,
+        "pushes": 20,
+        "moves": 50,
+        "dependency": 100,
+        "trap": 78.11147152205538,
+        "away_pushes": 4,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 2,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 16.420107033639148
+      }
     },
     {
       "id": "expert-157",
@@ -1726,8 +4690,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 18,
-      "xsb": "##########\n##########\n######.###\n##     ###\n# $.$ $ ##\n#@$   # ##\n# $  #   #\n## ..    #\n#     #. #\n##########"
+      "optimalPushes": 26,
+      "xsb": "###########\n#      ####\n## #  #####\n#   $ #####\n#.      $@#\n#.# #$ #$ #\n###.     ##\n#### $ .###\n##### . ###\n###########\n###########",
+      "metrics": {
+        "score": 76.80702288235399,
+        "pushes": 26,
+        "moves": 57,
+        "dependency": 78,
+        "trap": 58.90983778794531,
+        "away_pushes": 3,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 15,
+        "delayed_lures": 4,
+        "reopened_goals": 0,
+        "tunnel_commitments": 3,
+        "role_swaps": 2,
+        "box_revisits": 3,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 21.987754452926207
+      }
     },
     {
       "id": "expert-158",
@@ -1737,8 +4720,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 17,
-      "xsb": "##########\n#  #  .###\n## $ # ###\n##   ..  #\n##   #$  #\n###  $@$##\n### .#$ ##\n###  .  ##\n### ## ###\n##########"
+      "optimalPushes": 18,
+      "xsb": "##########\n####  ## #\n####$  # #\n###  . # #\n### $$   #\n####  .$ #\n####  #.##\n####   *+#\n#### # ###\n##########",
+      "metrics": {
+        "score": 76.76530775814719,
+        "pushes": 18,
+        "moves": 64,
+        "dependency": 100,
+        "trap": 80.00347261983455,
+        "away_pushes": 4,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 5,
+        "delayed_lures": 8,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 16.869266055045873
+      }
     },
     {
       "id": "expert-159",
@@ -1747,9 +4749,28 @@
         "zh": "专家熔炉 159"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "#########\n##.#@####\n##.#$####\n#  #  ###\n##$  #.##\n#  $    #\n##   *  #\n##    ###\n#########"
+      "boxes": 5,
+      "optimalPushes": 26,
+      "xsb": "##########\n##########\n#######..#\n###      #\n##@$   . #\n##$      #\n#.   $.  #\n# $ $   ##\n##     ###\n##########",
+      "metrics": {
+        "score": 76.73078808484571,
+        "pushes": 26,
+        "moves": 59,
+        "dependency": 100,
+        "trap": 50.72130059336319,
+        "away_pushes": 5,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 0,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 5,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 15.290519877675843
+      }
     },
     {
       "id": "expert-160",
@@ -1758,9 +4779,28 @@
         "zh": "专家熔炉 160"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n#######  #\n#######  #\n###    . #\n##@.   . #\n##$ # $$ #\n##       #\n# $   #  #\n#   ##  .#\n##########"
+      "boxes": 5,
+      "optimalPushes": 16,
+      "xsb": "##########\n### # ####\n###  .# ##\n##@$ # $.#\n## $ # .##\n###  $   #\n####.$  ##\n####    .#\n##########\n##########",
+      "metrics": {
+        "score": 76.59067907977075,
+        "pushes": 16,
+        "moves": 35,
+        "dependency": 88,
+        "trap": 100,
+        "away_pushes": 1,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 20,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 5,
+        "novelty": 15.91093272171254
+      }
     },
     {
       "id": "expert-161",
@@ -1769,9 +4809,28 @@
         "zh": "专家熔炉 161"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "#########\n####  ###\n###.  ###\n##  #$  #\n##  $@$##\n##   $  #\n#  #   .#\n# ..    #\n#########"
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "###########\n#  . . ####\n#    * # ##\n####     ##\n#@$    # ##\n## $ # # ##\n##. # .$ ##\n##  $  ####\n####    ###\n####### ###\n###########",
+      "metrics": {
+        "score": 76.58799617672724,
+        "pushes": 20,
+        "moves": 90,
+        "dependency": 100,
+        "trap": 77.98214693305958,
+        "away_pushes": 4,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 20.94608778625954
+      }
     },
     {
       "id": "expert-162",
@@ -1781,8 +4840,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 17,
-      "xsb": "##########\n##########\n#####@####\n###..$   #\n#        #\n#   $ .  #\n##  #$#$##\n# $ .    #\n##    .# #\n##########"
+      "optimalPushes": 26,
+      "xsb": "##########\n####### ##\n###  #  ##\n## $ #$ .#\n#@$  #   #\n## $   . #\n####$   ##\n##..  .###\n##   #  ##\n##########",
+      "metrics": {
+        "score": 76.49727480537636,
+        "pushes": 26,
+        "moves": 62,
+        "dependency": 100,
+        "trap": 37.16603153658983,
+        "away_pushes": 3,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 12,
+        "delayed_lures": 0,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 7,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 17.383027522935784
+      }
     },
     {
       "id": "expert-163",
@@ -1792,8 +4870,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 21,
-      "xsb": "##########\n#####  .##\n#####.   #\n# #    $ #\n#    ##$ #\n#    #  .#\n###$    .#\n###@$    #\n####   ###\n##########"
+      "optimalPushes": 20,
+      "xsb": "##########\n####   ###\n### $ $###\n#    # @##\n## #  $$ #\n##. .   ##\n###  .   #\n##  #.   #\n## #   ###\n##########",
+      "metrics": {
+        "score": 76.47004563217442,
+        "pushes": 20,
+        "moves": 43,
+        "dependency": 94,
+        "trap": 78.29246754057223,
+        "away_pushes": 2,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 17.87595565749236
+      }
     },
     {
       "id": "expert-164",
@@ -1802,9 +4899,28 @@
         "zh": "专家熔炉 164"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 19,
-      "xsb": "##########\n###### ###\n###+##.  #\n###$.    #\n###   #  #\n# .  $ $##\n##   $$  #\n#####    #\n###   #. #\n##########"
+      "boxes": 4,
+      "optimalPushes": 23,
+      "xsb": "##########\n#####   .#\n####### .#\n###  $   #\n### $   .#\n## @$   ##\n## ###   #\n#      $ #\n#.    # ##\n##########",
+      "metrics": {
+        "score": 76.45374677629137,
+        "pushes": 23,
+        "moves": 58,
+        "dependency": 64.5,
+        "trap": 96.48562288757694,
+        "away_pushes": 2,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 12,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 0,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 17.121368501529055
+      }
     },
     {
       "id": "expert-165",
@@ -1814,8 +4930,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 18,
-      "xsb": "##########\n##### ####\n##      ##\n#     . ##\n#.#$    ##\n#  $$    #\n#.     $ #\n#     $@##\n##. #. ###\n##########"
+      "optimalPushes": 22,
+      "xsb": "#########\n#@*   . #\n####.  ##\n##   $.##\n## $#  .#\n##   $ ##\n##### $ #\n#####   #\n#########",
+      "metrics": {
+        "score": 76.30552473612946,
+        "pushes": 22,
+        "moves": 54,
+        "dependency": 100,
+        "trap": 47.82404289403502,
+        "away_pushes": 2,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 0,
+        "reopened_goals": 2,
+        "tunnel_commitments": 3,
+        "role_swaps": 3,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 21.706460674157306
+      }
     },
     {
       "id": "expert-166",
@@ -1825,8 +4960,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 16,
-      "xsb": "#########\n###    ##\n###. $ ##\n### .  ##\n##  #$$##\n#.### .##\n#  $@   #\n#   #####\n#########"
+      "optimalPushes": 18,
+      "xsb": "##########\n# @  #####\n##$$* ####\n#  .  ####\n#  #  ####\n#  #    .#\n#  #$   .#\n# #   # ##\n##     ###\n##########",
+      "metrics": {
+        "score": 76.29736749745545,
+        "pushes": 18,
+        "moves": 58,
+        "dependency": 89,
+        "trap": 100,
+        "away_pushes": 5,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 22,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 1,
+        "box_revisits": 4,
+        "false_goal_lures": 7,
+        "deadlock_lures": 2,
+        "novelty": 16.73967889908257
+      }
     },
     {
       "id": "expert-167",
@@ -1836,8 +4990,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 18,
-      "xsb": "##########\n######  ##\n##   #$ ##\n##.     .#\n##. # $  #\n##       #\n# $      #\n##@$ .#$##\n###   . ##\n##########"
+      "optimalPushes": 19,
+      "xsb": "###########\n#       .##\n### # # # #\n###  $. . #\n###  #    #\n### $#   ##\n##@$  $#  #\n##*##.   ##\n#    ######\n###########\n###########",
+      "metrics": {
+        "score": 76.26916415576709,
+        "pushes": 19,
+        "moves": 66,
+        "dependency": 100,
+        "trap": 81.13007753386583,
+        "away_pushes": 4,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 8,
+        "reopened_goals": 2,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 20.734573791348602
+      }
     },
     {
       "id": "expert-168",
@@ -1847,8 +5020,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "##########\n#####  ###\n######   #\n###@#    #\n##.$  #$ #\n#    $  ##\n# #. ##  #\n####$ .  #\n###  .   #\n##########"
+      "optimalPushes": 19,
+      "xsb": "##########\n#####   ##\n###@$  ###\n####   $ #\n##    #. #\n####$    #\n##.  $. .#\n####    ##\n##########\n##########",
+      "metrics": {
+        "score": 76.09191156705027,
+        "pushes": 19,
+        "moves": 54,
+        "dependency": 99.5,
+        "trap": 53.77122863418188,
+        "away_pushes": 3,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 13,
+        "delayed_lures": 6,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 1,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 16.274273700305812
+      }
     },
     {
       "id": "expert-169",
@@ -1857,9 +5049,28 @@
         "zh": "专家熔炉 169"
       },
       "difficulty": "expert",
-      "boxes": 5,
-      "optimalPushes": 19,
-      "xsb": "##########\n##########\n#    #  ##\n#  $ $$ ##\n####   . #\n#### #  .#\n###..   ##\n## #  $$##\n##  . #@##\n##########"
+      "boxes": 4,
+      "optimalPushes": 18,
+      "xsb": "##########\n#  ##  # #\n##    .  #\n#### #  .#\n#        #\n## $ #. ##\n###. $  ##\n###$  #$##\n##   ##@##\n##########",
+      "metrics": {
+        "score": 75.84217184413731,
+        "pushes": 18,
+        "moves": 59,
+        "dependency": 97,
+        "trap": 87.443026651,
+        "away_pushes": 5,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 8,
+        "reopened_goals": 0,
+        "tunnel_commitments": 2,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 2,
+        "deadlock_lures": 2,
+        "novelty": 17.737194189602448
+      }
     },
     {
       "id": "expert-170",
@@ -1868,9 +5079,28 @@
         "zh": "专家熔炉 170"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "##########\n###..  ###\n##      ##\n#    $#$##\n# $#.   ##\n##@$     #\n#### # . #\n#### #   #\n##########\n##########"
+      "boxes": 5,
+      "optimalPushes": 19,
+      "xsb": "#########\n###   .##\n#  $.#  #\n#  $ # ##\n##$@$. ##\n#  $#  .#\n##  .####\n#########\n#########",
+      "metrics": {
+        "score": 75.71724749665172,
+        "pushes": 19,
+        "moves": 66,
+        "dependency": 100,
+        "trap": 60.310066789752604,
+        "away_pushes": 3,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 6,
+        "reopened_goals": 2,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 20.546582397003746
+      }
     },
     {
       "id": "expert-171",
@@ -1881,7 +5111,26 @@
       "difficulty": "expert",
       "boxes": 5,
       "optimalPushes": 18,
-      "xsb": "##########\n####@#####\n##  $#####\n## #  $ ##\n##   #   #\n#  # . ###\n#..   .* #\n# $ $    #\n#      # #\n##########"
+      "xsb": "##########\n##########\n######.  #\n####..#  #\n## $  #. #\n## #$   ##\n##   #$  #\n#.   $@$ #\n##### #  #\n##########",
+      "metrics": {
+        "score": 75.68541879524417,
+        "pushes": 18,
+        "moves": 43,
+        "dependency": 79,
+        "trap": 96.38131355681247,
+        "away_pushes": 1,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 12,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 2,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 17.887614678899084
+      }
     },
     {
       "id": "expert-172",
@@ -1890,9 +5139,28 @@
         "zh": "专家熔炉 172"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "#########\n###  # ##\n##  $@$ #\n##   $ .#\n####  .##\n##. $   #\n##     .#\n## ###  #\n#########"
+      "boxes": 5,
+      "optimalPushes": 30,
+      "xsb": "##########\n###      #\n##@$     #\n####### ##\n#### ..$ #\n##      ##\n#   # $ ##\n# $.##$  #\n###.    .#\n##########",
+      "metrics": {
+        "score": 75.63021486312635,
+        "pushes": 30,
+        "moves": 91,
+        "dependency": 100,
+        "trap": 39.6460739026147,
+        "away_pushes": 8,
+        "box_switches": 14,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 0,
+        "reopened_goals": 0,
+        "tunnel_commitments": 3,
+        "role_swaps": 9,
+        "box_revisits": 10,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 21.234709480122326
+      }
     },
     {
       "id": "expert-173",
@@ -1901,9 +5169,28 @@
         "zh": "专家熔炉 173"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "##########\n##########\n##   #####\n# $  #####\n#@$ # .  #\n# $ .    #\n### #.#  #\n##.$     #\n##  #  ###\n##########"
+      "boxes": 5,
+      "optimalPushes": 23,
+      "xsb": "##########\n#   ######\n#.# $@####\n# .$ $####\n#      ###\n###  # ###\n### $$..##\n####    .#\n#### #  ##\n##########",
+      "metrics": {
+        "score": 75.60327295139186,
+        "pushes": 23,
+        "moves": 77,
+        "dependency": 100,
+        "trap": 40.92675906299762,
+        "away_pushes": 4,
+        "box_switches": 14,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 0,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 1,
+        "box_revisits": 10,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 19.60053516819572
+      }
     },
     {
       "id": "expert-174",
@@ -1912,9 +5199,28 @@
         "zh": "专家熔炉 174"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n###@  ####\n###$$$####\n### #  ###\n#.     ###\n##   . ###\n#.     ###\n##. #$ ###\n###   ####\n##########"
+      "boxes": 5,
+      "optimalPushes": 21,
+      "xsb": "##########\n##########\n##. . . ##\n###.$   ##\n###.$  ###\n##  #   ##\n##### $$ #\n#####$@  #\n#####  ###\n##########",
+      "metrics": {
+        "score": 75.59720753739838,
+        "pushes": 21,
+        "moves": 48,
+        "dependency": 100,
+        "trap": 39.9809651982503,
+        "away_pushes": 2,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 0,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 3,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 16.89468654434251
+      }
     },
     {
       "id": "expert-175",
@@ -1923,9 +5229,28 @@
         "zh": "专家熔炉 175"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n##### ####\n#     .###\n# $ $  $@#\n# $    ###\n# #  .  ##\n####. # ##\n###    ###\n###.  ####\n##########"
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "#########\n###     #\n#### $ ##\n#    ####\n#  $   .#\n#    $ ##\n##.$##$ #\n# ..##+##\n#########",
+      "metrics": {
+        "score": 75.5820976710626,
+        "pushes": 20,
+        "moves": 42,
+        "dependency": 100,
+        "trap": 54.38131355681248,
+        "away_pushes": 2,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 6,
+        "reopened_goals": 0,
+        "tunnel_commitments": 0,
+        "role_swaps": 5,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 17.776217228464418
+      }
     },
     {
       "id": "expert-176",
@@ -1935,8 +5260,27 @@
       },
       "difficulty": "expert",
       "boxes": 5,
-      "optimalPushes": 17,
-      "xsb": "##########\n##########\n##  # .# #\n##  #  $ #\n## . $   #\n##  . #.##\n## #$ $  #\n###  $@###\n### . ####\n##########"
+      "optimalPushes": 23,
+      "xsb": "##########\n#     .###\n### $ $.##\n#    * ###\n# $  # ###\n#   #  # #\n#   # .. #\n###$   ###\n###@######\n##########",
+      "metrics": {
+        "score": 75.53515295060892,
+        "pushes": 23,
+        "moves": 50,
+        "dependency": 100,
+        "trap": 42.2098253399849,
+        "away_pushes": 5,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 13,
+        "delayed_lures": 0,
+        "reopened_goals": 2,
+        "tunnel_commitments": 2,
+        "role_swaps": 2,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 19.262614678899084
+      }
     },
     {
       "id": "expert-177",
@@ -1945,9 +5289,28 @@
         "zh": "专家熔炉 177"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "##########\n##@##   ##\n#.$ #$$ ##\n##    #  #\n#  .   # #\n#   #.   #\n# #$     #\n#.#  # ###\n##########\n##########"
+      "boxes": 5,
+      "optimalPushes": 27,
+      "xsb": "###########\n# .## .####\n#  $@# # ##\n#   $     #\n###      ##\n##   #$  ##\n###  #  ###\n#### .# $ #\n###  $#   #\n### . . ###\n###########",
+      "metrics": {
+        "score": 75.5120410320253,
+        "pushes": 27,
+        "moves": 64,
+        "dependency": 95.5,
+        "trap": 40.41875530516019,
+        "away_pushes": 4,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 16,
+        "delayed_lures": 0,
+        "reopened_goals": 1,
+        "tunnel_commitments": 1,
+        "role_swaps": 4,
+        "box_revisits": 2,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 20.07108778625954
+      }
     },
     {
       "id": "expert-178",
@@ -1958,7 +5321,26 @@
       "difficulty": "expert",
       "boxes": 4,
       "optimalPushes": 20,
-      "xsb": "##########\n######## #\n#     #  #\n#@$ $    #\n#  $    ##\n#    $ . #\n###.  ## #\n###    .##\n####  .###\n##########"
+      "xsb": "##########\n###.  ##.#\n###.     #\n## # $   #\n## # # # #\n#   .#$###\n# ## $@###\n# # $ ####\n###   ####\n##########",
+      "metrics": {
+        "score": 75.48276605328775,
+        "pushes": 20,
+        "moves": 60,
+        "dependency": 100,
+        "trap": 59.431064213151,
+        "away_pushes": 5,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 6,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 3,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 16.945527522935784
+      }
     },
     {
       "id": "expert-179",
@@ -1969,7 +5351,26 @@
       "difficulty": "expert",
       "boxes": 4,
       "optimalPushes": 17,
-      "xsb": "##########\n#### .@###\n## ##$$###\n#   #  ###\n# .    ###\n#    $  ##\n#   $## ##\n# #.   . #\n#  #######\n##########"
+      "xsb": "##########\n####.#####\n####. #  #\n####  ## #\n##  .#   #\n#@$    .##\n# $  $$  #\n###      #\n##########\n##########",
+      "metrics": {
+        "score": 75.25437468960952,
+        "pushes": 17,
+        "moves": 39,
+        "dependency": 91.5,
+        "trap": 82.1925998984594,
+        "away_pushes": 2,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 10,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 17.482607033639148
+      }
     },
     {
       "id": "expert-180",
@@ -1979,8 +5380,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "#########\n#    # ##\n#     $ #\n##$$# # #\n#   ..  #\n# #. ####\n### $####\n####+####\n#########"
+      "optimalPushes": 21,
+      "xsb": "##########\n##### ####\n#####  ###\n##### . ##\n#   $  $##\n###.$#   #\n#        #\n# .  $ ###\n#.  #@####\n##########",
+      "metrics": {
+        "score": 75.24080781055805,
+        "pushes": 21,
+        "moves": 49,
+        "dependency": 100,
+        "trap": 50.96323124223221,
+        "away_pushes": 4,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 4,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 1,
+        "box_revisits": 9,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 15.924694189602448
+      }
     },
     {
       "id": "expert-181",
@@ -1989,9 +5409,28 @@
         "zh": "专家熔炉 181"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "#########\n## # #.##\n# $     #\n# . $  .#\n##. # $ #\n###    ##\n###   $##\n#### #@##\n#########"
+      "boxes": 5,
+      "optimalPushes": 25,
+      "xsb": "##########\n#.##@#####\n#   $.####\n# *  .## #\n##$      #\n# $ ##  ##\n#.  #  ###\n# #    $ #\n#####    #\n##########",
+      "metrics": {
+        "score": 75.20373665756405,
+        "pushes": 25,
+        "moves": 67,
+        "dependency": 100,
+        "trap": 37.91595450218168,
+        "away_pushes": 5,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 0,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 5,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 17.74178134556575
+      }
     },
     {
       "id": "expert-182",
@@ -2000,9 +5439,28 @@
         "zh": "专家熔炉 182"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "#########\n###    .#\n###$### #\n# $  .. #\n#.      #\n#   $$  #\n####@ ###\n#########\n#########"
+      "boxes": 5,
+      "optimalPushes": 23,
+      "xsb": "##########\n###  #####\n## .  $@##\n## .  #$##\n##.  ##  #\n###  . $ #\n#### $#  #\n####.  $ #\n#####    #\n##########",
+      "metrics": {
+        "score": 75.18884864450801,
+        "pushes": 23,
+        "moves": 124,
+        "dependency": 100,
+        "trap": 45.12623005111233,
+        "away_pushes": 5,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 0,
+        "reopened_goals": 3,
+        "tunnel_commitments": 2,
+        "role_swaps": 0,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 17.228019877675845
+      }
     },
     {
       "id": "expert-183",
@@ -2011,9 +5469,28 @@
         "zh": "专家熔炉 183"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "##########\n#####  ###\n###.# . ##\n###  #   #\n###   .  #\n### $#  ##\n### $@$  #\n### $ # ##\n####  #.##\n##########"
+      "boxes": 5,
+      "optimalPushes": 25,
+      "xsb": "##########\n###    ###\n###$   * #\n##..     #\n#.  $#$  #\n#    #  ##\n#   ###$##\n##.  ##@##\n##########\n##########",
+      "metrics": {
+        "score": 75.16628556037202,
+        "pushes": 25,
+        "moves": 60,
+        "dependency": 100,
+        "trap": 41.198571705796525,
+        "away_pushes": 5,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 0,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 7,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 19.197629969418966
+      }
     },
     {
       "id": "expert-184",
@@ -2022,9 +5499,28 @@
         "zh": "专家熔炉 184"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "##########\n##########\n######@###\n##### $ ##\n###.    ##\n# # # $ ##\n#. .  .$##\n# $#     #\n#  #     #\n##########"
+      "boxes": 5,
+      "optimalPushes": 31,
+      "xsb": "##########\n##.   ####\n####  ####\n#      ###\n# $# $#  #\n#  .#    #\n#   $  $ #\n#  ## $+##\n#  ..# ###\n##########",
+      "metrics": {
+        "score": 75.16117555825048,
+        "pushes": 31,
+        "moves": 88,
+        "dependency": 100,
+        "trap": 40.057395238100284,
+        "away_pushes": 8,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 0,
+        "reopened_goals": 0,
+        "tunnel_commitments": 4,
+        "role_swaps": 4,
+        "box_revisits": 3,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 20.605122324159026
+      }
     },
     {
       "id": "expert-185",
@@ -2033,9 +5529,28 @@
         "zh": "专家熔炉 185"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "#########\n### .   #\n###     #\n###  #. #\n####$  .#\n####@$  #\n####$ $##\n#### .  #\n#########"
+      "boxes": 5,
+      "optimalPushes": 23,
+      "xsb": "#########\n###     #\n###$ $  #\n## $  * #\n##      #\n##. #.# #\n###$#  .#\n###@## .#\n#########",
+      "metrics": {
+        "score": 75.05022113271842,
+        "pushes": 23,
+        "moves": 48,
+        "dependency": 100,
+        "trap": 39.31156581618998,
+        "away_pushes": 5,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 8,
+        "delayed_lures": 0,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 6,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 20.414559925093638
+      }
     },
     {
       "id": "expert-186",
@@ -2045,8 +5560,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "#########\n##  @####\n##$$$## #\n#    # .#\n#. $    #\n#.  # . #\n# ##    #\n#########\n#########"
+      "optimalPushes": 24,
+      "xsb": "##########\n###@  ####\n###$$$ ###\n#     ####\n#     ####\n# #$   ###\n#    .   #\n###.    .#\n######.###\n##########",
+      "metrics": {
+        "score": 74.9991080045211,
+        "pushes": 24,
+        "moves": 53,
+        "dependency": 100,
+        "trap": 36.969313062423595,
+        "away_pushes": 1,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 0,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 17.450114678899084
+      }
     },
     {
       "id": "expert-187",
@@ -2056,8 +5590,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n######  ##\n#### ## ##\n##@$   . #\n##$$  #. #\n#   # $ ##\n# # #.   #\n#       .#\n# ####  ##\n##########"
+      "optimalPushes": 16,
+      "xsb": "##########\n######@ ##\n######$$ #\n###      #\n# $  # ###\n# #.#  ###\n#   .   ##\n##  *   ##\n### #.####\n##########",
+      "metrics": {
+        "score": 74.931277460169,
+        "pushes": 16,
+        "moves": 56,
+        "dependency": 71,
+        "trap": 97.89382268814074,
+        "away_pushes": 0,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 14,
+        "delayed_lures": 16,
+        "reopened_goals": 0,
+        "tunnel_commitments": 2,
+        "role_swaps": 3,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 18.961773700305812
+      }
     },
     {
       "id": "expert-188",
@@ -2067,8 +5620,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "##########\n###@######\n## $  ####\n##    ####\n#.#  $  ##\n# # #   ##\n#  $  .  #\n#   $    #\n# .# # .##\n##########"
+      "optimalPushes": 20,
+      "xsb": "##########\n#### # ###\n###    ###\n#@$     ##\n### $   ##\n###  .   #\n######$ .#\n####   *.#\n####   ###\n##########",
+      "metrics": {
+        "score": 74.87002487817396,
+        "pushes": 20,
+        "moves": 43,
+        "dependency": 91,
+        "trap": 60.97149853923281,
+        "away_pushes": 5,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 4,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 0,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 15.214258409785934
+      }
     },
     {
       "id": "expert-189",
@@ -2077,9 +5649,28 @@
         "zh": "专家熔炉 189"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "#########\n#########\n##..    #\n# .# $  #\n#   $@$##\n#    $  #\n##.#  ###\n##    ###\n#########"
+      "boxes": 5,
+      "optimalPushes": 24,
+      "xsb": "##########\n##@#######\n##$ ######\n##  # ## #\n## * $   #\n#   $ .* #\n#    #   #\n##      .#\n### ####.#\n##########",
+      "metrics": {
+        "score": 74.85669376763383,
+        "pushes": 24,
+        "moves": 47,
+        "dependency": 100,
+        "trap": 45.59410263765621,
+        "away_pushes": 8,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 0,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 5,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 19.510512232415902
+      }
     },
     {
       "id": "expert-190",
@@ -2089,8 +5680,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "##########\n####    ##\n###  $ $@#\n##     ###\n#### # ###\n##.. #   #\n###$.   .#\n#  $    ##\n##     ###\n##########"
+      "optimalPushes": 20,
+      "xsb": "##########\n#### #@###\n###. #$###\n##   # ###\n#      ###\n### $#  ##\n### $  $ #\n## .  #  #\n#####.  .#\n##########",
+      "metrics": {
+        "score": 74.79941980961463,
+        "pushes": 20,
+        "moves": 60,
+        "dependency": 100,
+        "trap": 49.88907826499548,
+        "away_pushes": 3,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 4,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 17.81345565749236
+      }
     },
     {
       "id": "expert-191",
@@ -2099,9 +5709,28 @@
         "zh": "专家熔炉 191"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 16,
-      "xsb": "#########\n### .####\n## .  ###\n#    $@##\n## #  $ #\n### $ $ #\n### .## #\n###  ##.#\n#########"
+      "boxes": 5,
+      "optimalPushes": 20,
+      "xsb": "#########\n#########\n#########\n###@##  #\n###$$ $ #\n#.  *   #\n##.  $ ##\n##. # .##\n#########",
+      "metrics": {
+        "score": 74.78979240828613,
+        "pushes": 20,
+        "moves": 43,
+        "dependency": 100,
+        "trap": 40.787996562270706,
+        "away_pushes": 4,
+        "box_switches": 12,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 2,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 4,
+        "box_revisits": 8,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 15.213483146067418
+      }
     },
     {
       "id": "expert-192",
@@ -2110,9 +5739,28 @@
         "zh": "专家熔炉 192"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 18,
-      "xsb": "##########\n##########\n####+#####\n##  $## ##\n##$#  . ##\n# $   .###\n#      . #\n#### $ ###\n###     ##\n##########"
+      "boxes": 5,
+      "optimalPushes": 23,
+      "xsb": "###########\n### #  ####\n###  $  ###\n###  #$  ##\n#     $  ##\n###.  # ###\n##  .##. ##\n## $    $+#\n#### # . ##\n###########\n###########",
+      "metrics": {
+        "score": 74.67506592968144,
+        "pushes": 23,
+        "moves": 60,
+        "dependency": 59.5,
+        "trap": 100,
+        "away_pushes": 1,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 12,
+        "reopened_goals": 0,
+        "tunnel_commitments": 2,
+        "role_swaps": 2,
+        "box_revisits": 2,
+        "false_goal_lures": 0,
+        "deadlock_lures": 3,
+        "novelty": 18.281170483460564
+      }
     },
     {
       "id": "expert-193",
@@ -2121,9 +5769,28 @@
         "zh": "专家熔炉 193"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n#### ... #\n####  #  #\n####     #\n## .     #\n# @$  $$ #\n#  #  $  #\n###    ###\n##### ####\n##########"
+      "boxes": 5,
+      "optimalPushes": 18,
+      "xsb": "##########\n###    ###\n#    $####\n##.   ####\n# ..$$  ##\n## #  $  #\n## #  #.##\n## # *@###\n##   #####\n##########",
+      "metrics": {
+        "score": 74.47090125432163,
+        "pushes": 18,
+        "moves": 47,
+        "dependency": 100,
+        "trap": 71.84625820533111,
+        "away_pushes": 3,
+        "box_switches": 11,
+        "unique_optimal": null,
+        "pdb": 7,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 5,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 17.683868501529055
+      }
     },
     {
       "id": "expert-194",
@@ -2133,8 +5800,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 20,
-      "xsb": "##########\n####   ###\n####   ###\n###@$  $ #\n####  #  #\n####  $  #\n###.. # ##\n##   $   #\n##### .. #\n##########"
+      "optimalPushes": 17,
+      "xsb": "##########\n##########\n##### ####\n## #  .###\n#@$ .  # #\n## # * . #\n#  $   # #\n# $  # # #\n####     #\n##########",
+      "metrics": {
+        "score": 74.40652183343522,
+        "pushes": 17,
+        "moves": 48,
+        "dependency": 100,
+        "trap": 67.62608733374088,
+        "away_pushes": 3,
+        "box_switches": 8,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 4,
+        "reopened_goals": 3,
+        "tunnel_commitments": 1,
+        "role_swaps": 3,
+        "box_revisits": 5,
+        "false_goal_lures": 0,
+        "deadlock_lures": 1,
+        "novelty": 18.61678134556575
+      }
     },
     {
       "id": "expert-195",
@@ -2144,8 +5830,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 16,
-      "xsb": "##########\n###   ####\n##    . ##\n###.# #  #\n# ## $ $ #\n#   # $  #\n## $     #\n## + . # #\n## # #####\n##########"
+      "optimalPushes": 19,
+      "xsb": "##########\n#### ## ##\n###   # ##\n##   $.  #\n### .#  .#\n#### #  ##\n##@$     #\n######$$ #\n######  .#\n##########",
+      "metrics": {
+        "score": 74.00767827000821,
+        "pushes": 19,
+        "moves": 59,
+        "dependency": 100,
+        "trap": 49.9792530002889,
+        "away_pushes": 3,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 11,
+        "delayed_lures": 4,
+        "reopened_goals": 2,
+        "tunnel_commitments": 1,
+        "role_swaps": 2,
+        "box_revisits": 7,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 17.642201834862387
+      }
     },
     {
       "id": "expert-196",
@@ -2155,8 +5860,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "#########\n##   ####\n## $ ##.#\n##   #  #\n# $  .. #\n#@$  #  #\n# $  .  #\n# ##  ###\n#########"
+      "optimalPushes": 17,
+      "xsb": "##########\n##########\n##########\n# ####@###\n#    *$# #\n#  #     #\n#    $# ##\n#.  .  $ #\n#  .##   #\n##########",
+      "metrics": {
+        "score": 73.74582400594022,
+        "pushes": 17,
+        "moves": 49,
+        "dependency": 100,
+        "trap": 74.98329602376086,
+        "away_pushes": 5,
+        "box_switches": 9,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 8,
+        "reopened_goals": 2,
+        "tunnel_commitments": 0,
+        "role_swaps": 0,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 18.276376146788994
+      }
     },
     {
       "id": "expert-197",
@@ -2165,9 +5889,28 @@
         "zh": "专家熔炉 197"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 20,
-      "xsb": "##########\n#####  #.#\n####   # #\n##   $   #\n#@$    $ #\n## #     #\n###    $ #\n### # .  #\n####  . .#\n##########"
+      "boxes": 5,
+      "optimalPushes": 16,
+      "xsb": "#########\n#     .##\n# $ $  ##\n##     ##\n#. .$ $##\n##  #$ ##\n##.##+###\n#########\n#########",
+      "metrics": {
+        "score": 73.70691687476211,
+        "pushes": 16,
+        "moves": 31,
+        "dependency": 96,
+        "trap": 73.78132473812889,
+        "away_pushes": 2,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 8,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 6,
+        "box_revisits": 2,
+        "false_goal_lures": 0,
+        "deadlock_lures": 2,
+        "novelty": 18.053838951310862
+      }
     },
     {
       "id": "expert-198",
@@ -2177,8 +5920,27 @@
       },
       "difficulty": "expert",
       "boxes": 4,
-      "optimalPushes": 17,
-      "xsb": "#########\n####   .#\n#### $ .#\n##   # ##\n##$ $   #\n#.      #\n# $ ## .#\n##@######\n#########"
+      "optimalPushes": 21,
+      "xsb": "##########\n#.###   ##\n#  #  $# #\n#  .  $  #\n#   #  # #\n##  # . .#\n## $#  # #\n##$ #  ###\n##@#######\n##########",
+      "metrics": {
+        "score": 73.69805459386546,
+        "pushes": 21,
+        "moves": 61,
+        "dependency": 100,
+        "trap": 51.46338962889506,
+        "away_pushes": 3,
+        "box_switches": 7,
+        "unique_optimal": null,
+        "pdb": 10,
+        "delayed_lures": 4,
+        "reopened_goals": 1,
+        "tunnel_commitments": 2,
+        "role_swaps": 6,
+        "box_revisits": 4,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 18.968463302752298
+      }
     },
     {
       "id": "expert-199",
@@ -2187,9 +5949,28 @@
         "zh": "专家熔炉 199"
       },
       "difficulty": "expert",
-      "boxes": 4,
+      "boxes": 5,
       "optimalPushes": 17,
-      "xsb": "##########\n#### #####\n##     . #\n###  $   #\n###. # . #\n##@$   $ #\n###.   # #\n###   $###\n###    ###\n##########"
+      "xsb": "#########\n###  .  #\n#   ##..#\n# $ $ $ #\n###  .. #\n####$  ##\n####@$  #\n#####  ##\n#########",
+      "metrics": {
+        "score": 73.31135495181745,
+        "pushes": 17,
+        "moves": 54,
+        "dependency": 64.5,
+        "trap": 100,
+        "away_pushes": 1,
+        "box_switches": 6,
+        "unique_optimal": null,
+        "pdb": 9,
+        "delayed_lures": 22,
+        "reopened_goals": 1,
+        "tunnel_commitments": 0,
+        "role_swaps": 2,
+        "box_revisits": 2,
+        "false_goal_lures": 0,
+        "deadlock_lures": 5,
+        "novelty": 20.12991573033708
+      }
     },
     {
       "id": "expert-200",
@@ -2198,9 +5979,28 @@
         "zh": "专家熔炉 200"
       },
       "difficulty": "expert",
-      "boxes": 4,
-      "optimalPushes": 19,
-      "xsb": "##########\n#####  ###\n###    ###\n###.#  $@#\n###    $ #\n#     $ ##\n#   $   ##\n##.   . ##\n#  . ## ##\n##########"
+      "boxes": 5,
+      "optimalPushes": 17,
+      "xsb": "#########\n##    ###\n##$$#.  #\n#.  ..  #\n# $  $ ##\n##@$# ###\n###  .###\n#########\n#########",
+      "metrics": {
+        "score": 73.03862969951761,
+        "pushes": 17,
+        "moves": 79,
+        "dependency": 95.5,
+        "trap": 64.16517689530228,
+        "away_pushes": 0,
+        "box_switches": 10,
+        "unique_optimal": null,
+        "pdb": 6,
+        "delayed_lures": 10,
+        "reopened_goals": 0,
+        "tunnel_commitments": 1,
+        "role_swaps": 3,
+        "box_revisits": 6,
+        "false_goal_lures": 0,
+        "deadlock_lures": 0,
+        "novelty": 20.012172284644194
+      }
     }
   ]
 }

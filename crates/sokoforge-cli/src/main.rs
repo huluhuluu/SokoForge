@@ -50,6 +50,8 @@ enum Command {
         finalist_node_limit: usize,
         #[arg(long, default_value_t = 0)]
         evolution_rounds: usize,
+        #[arg(long, value_enum, default_value_t = TierArg::Hard)]
+        tier: TierArg,
     },
 }
 
@@ -59,6 +61,37 @@ enum ModeArg {
     DeepTrap,
     Dependency,
     Composite,
+}
+
+#[derive(Clone, Copy, Debug, ValueEnum)]
+enum TierArg {
+    Simple,
+    Medium,
+    Hard,
+}
+
+fn tier_accepts(tier: TierArg, metrics: &sokoforge_core::DifficultyMetrics, strict: bool) -> bool {
+    match tier {
+        TierArg::Simple => metrics.pushes <= 10,
+        TierArg::Medium => (8..=18).contains(&metrics.pushes),
+        TierArg::Hard => {
+            let deep_trap = metrics.delayed_lures >= 2
+                || metrics.reopened_goals > 0
+                || metrics.tunnel_commitments >= 2
+                || metrics.false_goal_lures > 0
+                || metrics.deadlock_lures > 0;
+            let ordering_trap =
+                metrics.away_pushes >= 2 || metrics.box_revisits >= 2 || metrics.role_swaps > 0;
+            if strict {
+                metrics.pushes >= 16 && deep_trap && ordering_trap
+            } else {
+                metrics.pushes >= 14
+                    && (metrics.away_pushes >= 2
+                        || metrics.box_switches >= 4
+                        || metrics.dependency >= 35.0)
+            }
+        }
+    }
 }
 impl From<ModeArg> for DifficultyMode {
     fn from(m: ModeArg) -> Self {
@@ -87,6 +120,72 @@ struct Level {
     xsb: String,
     difficulty: sokoforge_core::DifficultyMetrics,
     solution: String,
+}
+
+fn novelty_distance(first: &Level, second: &Level) -> f64 {
+    let max_length = first.xsb.len().max(second.xsb.len()).max(1);
+    let changed = first
+        .xsb
+        .bytes()
+        .zip(second.xsb.bytes())
+        .filter(|(left, right)| left != right)
+        .count()
+        + first.xsb.len().abs_diff(second.xsb.len());
+    let structure = changed as f64 / max_length as f64 * 100.0;
+    let metrics = [
+        first.difficulty.pushes.abs_diff(second.difficulty.pushes) as f64 / 40.0,
+        first
+            .difficulty
+            .away_pushes
+            .abs_diff(second.difficulty.away_pushes) as f64
+            / 12.0,
+        first
+            .difficulty
+            .box_switches
+            .abs_diff(second.difficulty.box_switches) as f64
+            / 18.0,
+        (first.difficulty.pdb - second.difficulty.pdb).abs() / 30.0,
+        first
+            .difficulty
+            .reopened_goals
+            .abs_diff(second.difficulty.reopened_goals) as f64
+            / 5.0,
+        first
+            .difficulty
+            .role_swaps
+            .abs_diff(second.difficulty.role_swaps) as f64
+            / 6.0,
+    ];
+    let behavior = metrics.into_iter().sum::<f64>() / metrics.len() as f64 * 100.0;
+    (structure * 0.55 + behavior.min(100.0) * 0.45).min(100.0)
+}
+
+fn select_with_novelty(mut remaining: Vec<Level>, limit: usize) -> Vec<Level> {
+    let mut selected = Vec::with_capacity(limit.min(remaining.len()));
+    while !remaining.is_empty() && selected.len() < limit {
+        let (best_index, novelty) = remaining
+            .iter()
+            .enumerate()
+            .map(|(index, candidate)| {
+                let novelty = if selected.is_empty() {
+                    100.0
+                } else {
+                    selected
+                        .iter()
+                        .map(|other| novelty_distance(candidate, other))
+                        .fold(100.0, f64::min)
+                };
+                let value = candidate.difficulty.score * 0.75 + novelty * 0.25;
+                (index, novelty, value)
+            })
+            .max_by(|left, right| left.2.total_cmp(&right.2))
+            .map(|(index, novelty, _)| (index, novelty))
+            .unwrap_or((0, 0.0));
+        let mut candidate = remaining.swap_remove(best_index);
+        candidate.difficulty.novelty = novelty;
+        selected.push(candidate);
+    }
+    selected
 }
 
 fn main() -> Result<()> {
@@ -119,6 +218,7 @@ fn main() -> Result<()> {
             finalist_time_limit_ms,
             finalist_node_limit,
             evolution_rounds,
+            tier,
         } => {
             let mode_core: DifficultyMode = mode.into();
             let candidates: Vec<Level> = (0..count)
@@ -138,6 +238,9 @@ fn main() -> Result<()> {
                         return None;
                     }
                     let difficulty = score_result(&result, &board, mode_core);
+                    if !tier_accepts(tier, &difficulty, false) {
+                        return None;
+                    }
                     Some(Level {
                         id: format!("generated-{i:05}"),
                         name: format!("Generated {i}"),
@@ -147,10 +250,8 @@ fn main() -> Result<()> {
                     })
                 })
                 .collect();
-            let mut sorted = candidates;
-            sorted.sort_by(|a, b| b.difficulty.score.total_cmp(&a.difficulty.score));
-            sorted.truncate(top.saturating_mul(6).max(top));
-            let mut sorted: Vec<Level> = sorted
+            let finalists = select_with_novelty(candidates, top.saturating_mul(6).max(top));
+            let sorted: Vec<Level> = finalists
                 .into_par_iter()
                 .enumerate()
                 .filter_map(|(finalist_index, candidate)| {
@@ -199,17 +300,21 @@ fn main() -> Result<()> {
                     if result.status != sokoforge_core::SolveStatus::Solved || !result.optimal {
                         return None;
                     }
+                    let difficulty = score_result(&result, &board, mode_core);
+                    if !tier_accepts(tier, &difficulty, true) {
+                        return None;
+                    }
                     Some(Level {
                         id: candidate.id,
                         name: candidate.name,
                         xsb: board.to_xsb(),
-                        difficulty: score_result(&result, &board, mode_core),
+                        difficulty,
                         solution: result.moves,
                     })
                 })
                 .collect();
+            let mut sorted = select_with_novelty(sorted, top);
             sorted.sort_by(|a, b| b.difficulty.score.total_cmp(&a.difficulty.score));
-            sorted.truncate(top);
             let pack = Pack {
                 schema_version: 1,
                 kind: "sokoforge-level-pack",
@@ -222,4 +327,36 @@ fn main() -> Result<()> {
         }
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn hard_tier_requires_multiple_trap_families_after_certification() {
+        let mut metrics = sokoforge_core::DifficultyMetrics {
+            pushes: 20,
+            away_pushes: 3,
+            ..Default::default()
+        };
+        assert!(!tier_accepts(TierArg::Hard, &metrics, true));
+        metrics.box_revisits = 2;
+        assert!(!tier_accepts(TierArg::Hard, &metrics, true));
+        metrics.deadlock_lures = 1;
+        assert!(tier_accepts(TierArg::Hard, &metrics, true));
+    }
+
+    #[test]
+    fn simple_and_medium_tiers_use_bounded_solution_lengths() {
+        let mut metrics = sokoforge_core::DifficultyMetrics {
+            pushes: 7,
+            ..Default::default()
+        };
+        assert!(tier_accepts(TierArg::Simple, &metrics, true));
+        assert!(!tier_accepts(TierArg::Medium, &metrics, true));
+        metrics.pushes = 12;
+        assert!(tier_accepts(TierArg::Medium, &metrics, true));
+        assert!(!tier_accepts(TierArg::Simple, &metrics, true));
+    }
 }

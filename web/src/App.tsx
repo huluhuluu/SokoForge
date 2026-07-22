@@ -9,7 +9,7 @@ import { copy, getInitialLanguage } from './i18n'
 import { loadRememberedDirectory, rememberDirectory, requestDirectory, scanDirectory, supportsLevelDirectory, writePack, type LevelDirectoryHandle } from './levelDirectory'
 import { applyTool, boardStatus, move, parseLevel, resizeLevel, SAMPLE, toXsb, type ParsedLevel } from './level'
 import { createLevelPack, downloadLevelPack, isPackLevel, mergeLevelLists, packFileName, parseImportedFile } from './packFiles'
-import type { DifficultyMode, Language, PackLevel, PublishedLevel, PublishedLevelBundle, PublishedLevelIndex, SolveMode, SolveResult, Tool } from './types'
+import type { GenerationTier, Language, PackLevel, PublishedLevel, PublishedLevelBundle, PublishedLevelIndex, SolveMode, SolveResult, Tool } from './types'
 
 const toolIcons = { wall: Square, floor: Grid3X3, goal: Target, box: Box, player: UserRound, eraser: Eraser }
 const directionByKey: Record<string, string> = {
@@ -18,6 +18,12 @@ const directionByKey: Record<string, string> = {
 }
 type PlayStats = { moves: number; pushes: number }
 type PlaySnapshot = { level: ParsedLevel; stats: PlayStats }
+
+function matchesGenerationTier(tier: GenerationTier, result: SolveResult): boolean {
+  if (tier === 'simple') return result.pushes <= 10
+  if (tier === 'medium') return result.pushes >= 8 && result.pushes <= 18
+  return result.pushes >= 16
+}
 
 function loadStoredLibrary(): PackLevel[] {
   try {
@@ -50,8 +56,10 @@ export default function App() {
   const [playbackIndex, setPlaybackIndex] = useState(0)
   const [playbackSpeed, setPlaybackSpeed] = useState(1)
   const [batchCount, setBatchCount] = useState(100)
-  const [boxCount, setBoxCount] = useState(3)
-  const [difficultyMode, setDifficultyMode] = useState<DifficultyMode>('composite')
+  const [boxCount, setBoxCount] = useState(4)
+  const [generationWidth, setGenerationWidth] = useState(10)
+  const [generationHeight, setGenerationHeight] = useState(10)
+  const [generationTier, setGenerationTier] = useState<GenerationTier>('hard')
   const [results, setResults] = useState<PackLevel[]>([])
   const [generationProgress, setGenerationProgress] = useState(0)
   const [library, setLibrary] = useState<PackLevel[]>(loadStoredLibrary)
@@ -186,7 +194,7 @@ export default function App() {
       }
       const id = ++requestId.current
       pending.current.set(id, (reply) => { pending.current.delete(id); resolve(reply.xsb ?? '') })
-      worker.current.postMessage({ id, type: 'generate', width: level.width, height: level.height, boxes: Math.max(1, Math.min(8, boxCount)), seed })
+      worker.current.postMessage({ id, type: 'generate', width: generationWidth, height: generationHeight, boxes: Math.max(1, Math.min(8, boxCount)), seed })
     })
   }
 
@@ -385,7 +393,7 @@ export default function App() {
   }
 
   function exportGeneratedPack() {
-    if (results.length) downloadLevelPack(createLevelPack(results))
+    if (results.length) downloadLevelPack(createLevelPack(results, generationTier))
   }
 
   async function saveGeneratedPackToDirectory() {
@@ -406,7 +414,7 @@ export default function App() {
       return
     }
     if (!await requestDirectory(handle, 'readwrite')) return
-    await writePack(handle, packFileName(), createLevelPack(results))
+    await writePack(handle, packFileName(), createLevelPack(results, generationTier))
     window.alert(t.packSaved)
   }
 
@@ -426,11 +434,11 @@ export default function App() {
       const candidate = await generateCandidate(Date.now() + i)
       if (!candidate) continue
       const result = await solve(candidate, 'quick')
-      if (result.status === 'solved') {
-        const density = result.pushes / Math.sqrt(level.width * level.height)
+      if (result.status === 'solved' && matchesGenerationTier(generationTier, result)) {
+        const density = result.pushes / Math.sqrt(generationWidth * generationHeight)
         const trap = Math.min(100, Math.log10(Math.max(1, result.explored_nodes)) * 12)
         const dependency = Math.min(100, result.pushes * 4 + (result.moves.length - result.pushes) * 0.5)
-        const score = difficultyMode === 'long_solution' ? density * 20 : difficultyMode === 'deep_trap' ? trap : difficultyMode === 'dependency' ? dependency : density * 8 + trap * 0.3 + dependency * 0.3
+        const score = density * 8 + trap * 0.3 + dependency * 0.3
         collected.push({ id: `browser-${Date.now()}-${i}`, name: `${t.generated} ${i + 1}`, xsb: candidate, solution: result.moves, difficulty: { score, pushes: result.pushes, moves: result.moves.length, dependency, trap, away_pushes: 0, box_switches: 0 } })
       }
       if (i % 5 === 0 || i + 1 === total) {
@@ -513,7 +521,7 @@ export default function App() {
       <aside className="control-panel">
         <nav className="tabs"><button className={activeTab === 'solve' ? 'active' : ''} onClick={() => setActiveTab('solve')}><BrainCircuit size={16} />{t.solve}</button><button className={activeTab === 'forge' ? 'active' : ''} onClick={() => setActiveTab('forge')}><WandSparkles size={16} />{t.forge}</button><button className={activeTab === 'library' ? 'active' : ''} onClick={() => setActiveTab('library')}><FileDown size={16} />{t.library}</button></nav>
         {activeTab === 'solve' && <SolvePanel t={t} state={state} mode={solveMode} result={solveResult} isSolving={isSolving} isPlaying={isPlaying} playbackIndex={playbackIndex} playbackSpeed={playbackSpeed} onMode={setSolveMode} onSolve={onSolve} onTogglePlayback={toggleSolutionPlayback} onStep={stepSolution} onSpeed={setPlaybackSpeed} onSave={saveLevel} />}
-        {activeTab === 'forge' && <div className="panel-body"><div className="panel-title"><span>{t.forge}</span><b>{generationProgress}%</b></div><div className="form-grid"><label>{t.candidateCount}<input type="number" min="10" max="1000" step="10" value={batchCount} onChange={(event) => setBatchCount(Number(event.target.value))} /></label><label>{t.boxes}<input type="number" min="1" max="8" value={boxCount} onChange={(event) => setBoxCount(Number(event.target.value))} /></label></div><label>{t.difficulty}<select value={difficultyMode} onChange={(event) => setDifficultyMode(event.target.value as DifficultyMode)}>{(['composite','long_solution','deep_trap','dependency'] as DifficultyMode[]).map((mode) => <option key={mode} value={mode}>{t[mode]}</option>)}</select></label><button className="primary-action" onClick={generate}><WandSparkles size={18} />{t.generate}</button><div className="pack-actions"><button className="secondary-action" disabled={!results.length} onClick={exportGeneratedPack}><Download size={16} />{t.exportPack}</button><button className="secondary-action" disabled={!results.length} onClick={saveGeneratedPackToDirectory}><FolderOpen size={16} />{t.saveToFolder}</button></div><div className="progress"><span style={{ width: `${generationProgress}%` }} /></div><ResultList title={t.topResults} items={results} empty={t.noResults} onLoad={load} pushLabel={t.pushes} /></div>}
+        {activeTab === 'forge' && <div className="panel-body"><div className="panel-title"><span>{t.forge}</span><b>{generationProgress}%</b></div><div className="form-grid"><label>{t.candidateCount}<input type="number" min="10" max="1000" step="10" value={batchCount} onChange={(event) => setBatchCount(Number(event.target.value))} /></label><label>{t.boxes}<input type="number" min="1" max="8" value={boxCount} onChange={(event) => setBoxCount(Number(event.target.value))} /></label><label>{t.width}<input type="number" min="5" max="12" value={generationWidth} onChange={(event) => setGenerationWidth(Math.max(5, Math.min(12, Number(event.target.value) || 5)))} /></label><label>{t.height}<input type="number" min="5" max="12" value={generationHeight} onChange={(event) => setGenerationHeight(Math.max(5, Math.min(12, Number(event.target.value) || 5)))} /></label></div><label>{t.difficulty}<select value={generationTier} onChange={(event) => { const tier = event.target.value as GenerationTier; setGenerationTier(tier); if (tier === 'hard') { setBoxCount((value) => Math.max(4, value)); setGenerationWidth((value) => Math.max(9, value)); setGenerationHeight((value) => Math.max(9, value)); } }}>{(['simple','medium','hard'] as GenerationTier[]).map((tier) => <option key={tier} value={tier}>{t[tier]}</option>)}</select></label><button className="primary-action" onClick={generate}><WandSparkles size={18} />{t.generate}</button><div className="pack-actions"><button className="secondary-action" disabled={!results.length} onClick={exportGeneratedPack}><Download size={16} />{t.exportPack}</button><button className="secondary-action" disabled={!results.length} onClick={saveGeneratedPackToDirectory}><FolderOpen size={16} />{t.saveToFolder}</button></div><div className="progress"><span style={{ width: `${generationProgress}%` }} /></div><ResultList title={t.topResults} items={results} empty={t.noResults} onLoad={load} pushLabel={t.pushes} /></div>}
         {activeTab === 'library' && <div className="panel-body"><div className="panel-title"><span>{t.library}</span><b>{publishedItems.length + library.length}</b></div><button className="import-row" onClick={() => fileInput.current?.click()}><FileUp size={17} />{t.importPack}</button><button className="import-row" disabled={directoryBusy} onClick={chooseLevelDirectory}><FolderOpen size={17} />{t.chooseFolder}</button>{directory && <button className="directory-row" disabled={directoryBusy} onClick={refreshDirectory}><FolderSync size={16} /><span>{directory.name}</span></button>}<ResultList title={t.myLevels} items={library} empty={t.emptyLibrary} onLoad={load} pushLabel={t.pushes} /><ResultList title={t.published} items={publishedItems} empty={t.noResults} onLoad={load} pushLabel={t.pushes} /></div>}
       </aside>
     </section>

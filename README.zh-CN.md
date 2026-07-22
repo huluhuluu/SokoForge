@@ -14,7 +14,7 @@ SokoForge 使用 React 构建静态网页界面，使用 Rust 实现规则、求
 - XSB 导入导出、本地保存、移动回退、重新开始以及键盘/触屏操作。
 - 解法可前后单步、暂停，并支持 `0.5×–4×` 倍速播放。
 - 快速解与较慢但保证最少推动数的最短解模式。
-- 长解、深层陷阱、箱子依赖、综合难度四种筛选方式。
+- 简单、中等、困难三档生成模式，并由求解器指标执行分档。
 - 浏览器小批量探索；原生 Rust CLI 高效处理 `1000–5000+` 候选。
 - 可下载完整生成包、批量导入 JSON/XSB，并在 Chromium 中记住本地关卡目录。
 - 除入门关卡外，内置 200 个紧凑且已证明最少推动数的专家关卡。
@@ -42,7 +42,7 @@ npm run build
 ```bash
 cargo run -p sokoforge-cli -- generate \
   --count 5000 --width 10 --height 10 --boxes 4 \
-  --mode composite --seed 42 --top 50 --evolution-rounds 100 \
+  --mode composite --tier hard --seed 42 --top 50 --evolution-rounds 100 \
   --finalist-time-limit-ms 60000 --output pack.json
 ```
 
@@ -74,16 +74,17 @@ cargo run -p sokoforge-cli -- solve web/public/levels/my-level.xsb --time-limit-
 
 ## 求解与生成思路
 
-求解器以“推动一次箱子”为搜索边，而不是逐格枚举玩家走路。每个状态保存箱子位置和玩家可达区域；通过 flood fill 找到所有可推动位置后，A* 直接扩展推动动作。最优模式使用箱子到目标的最小匹配下界，完成时能证明最少推动数。
+求解器以“推动一次箱子”为搜索边，而不是逐格枚举玩家走路。每个状态保存箱子位置和玩家可达区域；通过 flood fill 找到所有可推动位置后，A* 直接扩展推动动作。反向推动表会标记静态死方格并计算考虑墙体的箱子-目标距离；最优启发式取最小匹配与二箱模式数据库的最大值，两者都是可采纳下界，因此完成时能证明最少推动数。
 
 推箱子的搜索空间会指数增长。超时不等于无解：它可能是尚未找到解，也可能找到可行解但未证明最优。网页会明确标记状态，不会将可行解伪称为最优解。
 
-生成器先雕刻连通仓库，再从“所有箱子都在目标上”的完成状态出发，执行合法的反向拉箱。CLI 会筛选候选，对决赛地图增删非关键墙体进行几何进化，并只保留已由最优求解器证明最少推动数的结果。
+生成器先雕刻连通仓库，再从“所有箱子都在目标上”的完成状态出发，执行合法的反向拉箱。拉箱选择会主动偏好暂时远离目标、回访箱子、重开目标、狭窄转向格和改变箱子顺序。CLI 对决赛地图进行墙体进化，并用 Novelty 同时保持墙形和解法行为多样性，最后只保留已由最优求解器证明最少推动数的结果。
 
-- **长解**：按可行走面积归一化的最少推动数。
-- **深层陷阱**：以求解器搜索量近似评估具有迷惑性的分支。
-- **箱子依赖**：箱子切换、暂时远离目标和相互让路。
-- **综合难度**：长解 45%、依赖 35%、陷阱 20%。
+- **简单**：最少推动不超过 10。
+- **中等**：最少推动为 8–18。
+- **困难**：至少 16 次推动，并同时具有深层诱饵和顺序/依赖陷阱。
+
+对已证明最优的候选，生成器会反事实分析前四次关键推动。错误推动会产生延迟代价、假目标和可证明死锁指标；其他指标包括远离目标、重开已完成目标、箱子回访、角色交换和通道承诺。新内置 200 关全部唯一，尺寸为 `9×9–11×11`、包含 4–5 个箱子、最少推动为 16–35，并已通过最终 WebAssembly 求解器逐关复算。
 
 这些是机器难度指标，不等同于所有玩家的体感难度。后续可通过真实玩家完成率、撤销次数和提示使用位置校准模型。
 
@@ -91,6 +92,7 @@ cargo run -p sokoforge-cli -- solve web/public/levels/my-level.xsb --time-limit-
 
 - Richard E. Korf，*Depth-first Iterative-Deepening: An Optimal Admissible Tree Search*。
 - Junghanns 与 Schaeffer，*Sokoban: Enhancing General Single-Agent Search Methods Using Domain Knowledge*，Artificial Intelligence，2001。
+- Bento、Pereira 与 Lelis，[*Procedural Generation of Initial States of Sokoban*](https://www.ijcai.org/proceedings/2019/646)，IJCAI 2019。
 - [Sokoban Wiki：Solver](http://www.sokobano.de/wiki/index.php?title=Solver)。
 - [Festival solver 概览](http://www.sokobano.de/wiki/index.php?title=Solver:Festival)。
 

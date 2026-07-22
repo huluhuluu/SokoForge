@@ -132,6 +132,24 @@ pub struct DifficultyMetrics {
     pub away_pushes: usize,
     pub box_switches: usize,
     pub unique_optimal: Option<bool>,
+    #[serde(default)]
+    pub pdb: f64,
+    #[serde(default)]
+    pub delayed_lures: usize,
+    #[serde(default)]
+    pub reopened_goals: usize,
+    #[serde(default)]
+    pub tunnel_commitments: usize,
+    #[serde(default)]
+    pub role_swaps: usize,
+    #[serde(default)]
+    pub box_revisits: usize,
+    #[serde(default)]
+    pub false_goal_lures: usize,
+    #[serde(default)]
+    pub deadlock_lures: usize,
+    #[serde(default)]
+    pub novelty: f64,
 }
 
 impl Board {
@@ -307,6 +325,139 @@ struct StateKey {
     region: usize,
 }
 
+const UNREACHABLE: usize = usize::MAX / 4;
+
+struct StaticAnalysis {
+    goals: Vec<usize>,
+    push_distances: Vec<Vec<usize>>,
+    dead_squares: Vec<bool>,
+    pair_pdb: Option<Vec<usize>>,
+}
+
+impl StaticAnalysis {
+    fn new(board: &Board) -> Self {
+        let goals = board.goals();
+        let push_distances = goals
+            .iter()
+            .map(|goal| {
+                let mut distances = vec![UNREACHABLE; board.tiles.len()];
+                distances[*goal] = 0;
+                let mut queue = VecDeque::from([*goal]);
+                while let Some(current) = queue.pop_front() {
+                    for direction in Direction::ALL {
+                        let Some(previous) = board.step(current, direction.opposite()) else {
+                            continue;
+                        };
+                        let Some(player_stand) = board.step(previous, direction.opposite()) else {
+                            continue;
+                        };
+                        if board.is_free_floor(previous)
+                            && board.is_free_floor(player_stand)
+                            && distances[previous] == UNREACHABLE
+                        {
+                            distances[previous] = distances[current] + 1;
+                            queue.push_back(previous);
+                        }
+                    }
+                }
+                distances
+            })
+            .collect::<Vec<_>>();
+        let dead_squares = (0..board.tiles.len())
+            .map(|position| {
+                board.is_free_floor(position)
+                    && !goals.contains(&position)
+                    && push_distances
+                        .iter()
+                        .all(|distances| distances[position] == UNREACHABLE)
+            })
+            .collect();
+        let pair_pdb = build_pair_pdb(board, &goals);
+        Self {
+            goals,
+            push_distances,
+            dead_squares,
+            pair_pdb,
+        }
+    }
+}
+
+fn build_pair_pdb(board: &Board, goals: &[usize]) -> Option<Vec<usize>> {
+    if goals.len() < 2 || board.tiles.len() > 144 {
+        return None;
+    }
+    let width = board.tiles.len();
+    let mut distances = vec![UNREACHABLE; width * width];
+    let mut queue = VecDeque::new();
+    for &first in goals {
+        for &second in goals {
+            if first == second {
+                continue;
+            }
+            let index = first * width + second;
+            distances[index] = 0;
+            queue.push_back((first, second));
+        }
+    }
+    while let Some((first, second)) = queue.pop_front() {
+        let current_distance = distances[first * width + second];
+        for moving_first in [true, false] {
+            let (moving, other) = if moving_first {
+                (first, second)
+            } else {
+                (second, first)
+            };
+            for direction in Direction::ALL {
+                let Some(previous) = board.step(moving, direction.opposite()) else {
+                    continue;
+                };
+                let Some(player_stand) = board.step(previous, direction.opposite()) else {
+                    continue;
+                };
+                if !board.is_free_floor(previous)
+                    || !board.is_free_floor(player_stand)
+                    || previous == other
+                    || player_stand == other
+                {
+                    continue;
+                }
+                let next = if moving_first {
+                    (previous, second)
+                } else {
+                    (first, previous)
+                };
+                let index = next.0 * width + next.1;
+                if distances[index] == UNREACHABLE {
+                    distances[index] = current_distance + 1;
+                    queue.push_back(next);
+                }
+            }
+        }
+    }
+    Some(distances)
+}
+
+fn pair_pattern_distance(board: &Board, analysis: &StaticAnalysis) -> usize {
+    let Some(distances) = &analysis.pair_pdb else {
+        return 0;
+    };
+    let width = board.tiles.len();
+    board
+        .boxes
+        .iter()
+        .enumerate()
+        .flat_map(|(first_index, first)| {
+            board
+                .boxes
+                .iter()
+                .skip(first_index + 1)
+                .map(move |second| distances[*first * width + *second])
+        })
+        .filter(|distance| *distance != UNREACHABLE)
+        .max()
+        .unwrap_or(0)
+}
+
 #[derive(Clone)]
 struct SearchNode {
     board: Board,
@@ -384,48 +535,30 @@ fn canonical_key(board: &Board) -> StateKey {
     StateKey { boxes, region }
 }
 
-fn manhattan_matching(board: &Board) -> usize {
-    let goals = board.goals();
-    if board.boxes.len() > 12 {
-        return board
-            .boxes
-            .iter()
-            .map(|b| {
-                let (bx, by) = board.xy(*b);
-                goals
-                    .iter()
-                    .map(|g| {
-                        let (gx, gy) = board.xy(*g);
-                        (bx - gx).unsigned_abs() + (by - gy).unsigned_abs()
-                    })
-                    .min()
-                    .unwrap_or(0)
-            })
-            .sum();
+fn wall_aware_matching(board: &Board, analysis: &StaticAnalysis) -> usize {
+    if board.boxes.len() > 12 || analysis.goals.len() != board.boxes.len() {
+        return UNREACHABLE;
     }
     let distances: Vec<Vec<usize>> = board
         .boxes
         .iter()
-        .map(|b| {
-            let (bx, by) = board.xy(*b);
-            goals
+        .map(|position| {
+            analysis
+                .push_distances
                 .iter()
-                .map(|g| {
-                    let (gx, gy) = board.xy(*g);
-                    (bx - gx).unsigned_abs() + (by - gy).unsigned_abs()
-                })
+                .map(|goal_distances| goal_distances[*position])
                 .collect()
         })
         .collect();
-    let mut dp = vec![usize::MAX; 1usize << goals.len()];
+    let mut dp = vec![UNREACHABLE; 1usize << analysis.goals.len()];
     dp[0] = 0;
     for mask in 0..dp.len() {
         let box_index = mask.count_ones() as usize;
-        if box_index >= board.boxes.len() || dp[mask] == usize::MAX {
+        if box_index >= board.boxes.len() || dp[mask] == UNREACHABLE {
             continue;
         }
         for (goal_index, distance) in distances[box_index].iter().enumerate() {
-            if mask & (1 << goal_index) == 0 {
+            if mask & (1 << goal_index) == 0 && *distance != UNREACHABLE {
                 let next = mask | (1 << goal_index);
                 dp[next] = dp[next].min(dp[mask].saturating_add(*distance));
             }
@@ -461,9 +594,36 @@ pub fn solve(board: &Board, options: &SolveOptions) -> SolveResult {
         };
     }
     let started = now_ms();
+    let analysis = StaticAnalysis::new(board);
+    if board
+        .boxes
+        .iter()
+        .any(|position| analysis.dead_squares[*position])
+    {
+        return SolveResult {
+            status: SolveStatus::Unsolved,
+            moves: String::new(),
+            pushes: 0,
+            explored_nodes: 0,
+            elapsed_ms: (now_ms() - started) as u64,
+            optimal: false,
+            message: "A box starts on a static dead square.".into(),
+        };
+    }
     let start_key = canonical_key(board);
     let mut open = BinaryHeap::new();
-    let h = manhattan_matching(board);
+    let h = wall_aware_matching(board, &analysis).max(pair_pattern_distance(board, &analysis));
+    if h == UNREACHABLE {
+        return SolveResult {
+            status: SolveStatus::Unsolved,
+            moves: String::new(),
+            pushes: 0,
+            explored_nodes: 0,
+            elapsed_ms: (now_ms() - started) as u64,
+            optimal: false,
+            message: "No wall-aware box-goal assignment exists.".into(),
+        };
+    }
     let weight = if options.mode == SolveMode::Quick {
         2
     } else {
@@ -525,6 +685,9 @@ pub fn solve(board: &Board, options: &SolveOptions) -> SolveResult {
                 {
                     continue;
                 }
+                if analysis.dead_squares[destination] {
+                    continue;
+                }
                 let mut next = node.board.clone();
                 next.boxes[box_index] = destination;
                 next.boxes.sort_unstable();
@@ -539,7 +702,11 @@ pub fn solve(board: &Board, options: &SolveOptions) -> SolveResult {
                     continue;
                 }
                 visited.insert(next_key, (next_pushes, next_moves));
-                let heuristic = manhattan_matching(&next);
+                let heuristic = wall_aware_matching(&next, &analysis)
+                    .max(pair_pattern_distance(&next, &analysis));
+                if heuristic == UNREACHABLE {
+                    continue;
+                }
                 let priority = (next_pushes + heuristic * weight) * 1_000_000 + next_moves;
                 open.push(SearchNode {
                     board: next,
@@ -562,6 +729,131 @@ pub fn solve(board: &Board, options: &SolveOptions) -> SolveResult {
     }
 }
 
+fn floor_degree(board: &Board, position: usize) -> usize {
+    Direction::ALL
+        .iter()
+        .filter(|direction| {
+            board
+                .step(position, **direction)
+                .is_some_and(|next| board.is_free_floor(next))
+        })
+        .count()
+}
+
+fn is_turning_square(board: &Board, position: usize) -> bool {
+    let open = Direction::ALL
+        .iter()
+        .copied()
+        .filter(|direction| {
+            board
+                .step(position, *direction)
+                .is_some_and(|next| board.is_free_floor(next))
+        })
+        .collect::<Vec<_>>();
+    open.len() == 2 && open[0].opposite() != open[1]
+}
+
+fn legal_push_states(board: &Board, analysis: &StaticAnalysis) -> Vec<Board> {
+    let reachable = reachable_cells(board);
+    let mut states = Vec::new();
+    for (box_index, box_position) in board.boxes.iter().copied().enumerate() {
+        for direction in Direction::ALL {
+            let Some(stand) = board.step(box_position, direction.opposite()) else {
+                continue;
+            };
+            let Some(destination) = board.step(box_position, direction) else {
+                continue;
+            };
+            if !reachable.contains(&stand)
+                || !board.is_free_floor(destination)
+                || board.boxes.contains(&destination)
+                || analysis.dead_squares[destination]
+            {
+                continue;
+            }
+            let mut next = board.clone();
+            next.boxes[box_index] = destination;
+            next.boxes.sort_unstable();
+            next.player = box_position;
+            states.push(next);
+        }
+    }
+    states
+}
+
+#[derive(Default)]
+struct RouteAnalysis {
+    delayed_lures: usize,
+    false_goal_lures: usize,
+    deadlock_lures: usize,
+}
+
+fn analyze_wrong_routes(result: &SolveResult, board: &Board) -> RouteAnalysis {
+    if !result.optimal || result.pushes < 2 {
+        return RouteAnalysis::default();
+    };
+    let static_analysis = StaticAnalysis::new(board);
+    let mut analysis = RouteAnalysis::default();
+    let mut current = board.clone();
+    let mut pushes_seen = 0;
+    for character in result.moves.chars() {
+        let Some(direction) = Direction::ALL
+            .iter()
+            .copied()
+            .find(|direction| direction.as_char() == character)
+        else {
+            break;
+        };
+        let Some((next, pushed)) = current.apply_move(direction) else {
+            break;
+        };
+        if pushed && pushes_seen < 4 {
+            let remaining_pushes = result.pushes.saturating_sub(pushes_seen);
+            for alternative in legal_push_states(&current, &static_analysis)
+                .into_iter()
+                .filter(|alternative| alternative.boxes != next.boxes)
+                .take(6)
+            {
+                let moved_to_goal = alternative
+                    .boxes
+                    .iter()
+                    .find(|position| !current.boxes.contains(position))
+                    .is_some_and(|position| board.tiles[*position] == Tile::Goal);
+                let alternative_result = solve(
+                    &alternative,
+                    &SolveOptions {
+                        mode: SolveMode::Optimal,
+                        time_limit_ms: 60,
+                        node_limit: 20_000,
+                    },
+                );
+                match alternative_result.status {
+                    SolveStatus::Solved => {
+                        let regret = (alternative_result.pushes + 1)
+                            .saturating_sub(remaining_pushes)
+                            .min(10);
+                        analysis.delayed_lures += regret;
+                        analysis.false_goal_lures += usize::from(moved_to_goal && regret > 0);
+                    }
+                    SolveStatus::Unsolved => {
+                        analysis.delayed_lures += 4;
+                        analysis.deadlock_lures += 1;
+                        analysis.false_goal_lures += usize::from(moved_to_goal);
+                    }
+                    SolveStatus::Timeout | SolveStatus::Invalid => {}
+                }
+            }
+            pushes_seen += 1;
+        }
+        current = next;
+        if pushes_seen >= 4 {
+            break;
+        }
+    }
+    analysis.delayed_lures = analysis.delayed_lures.min(40);
+    analysis
+}
+
 pub fn score_result(
     result: &SolveResult,
     board: &Board,
@@ -572,7 +864,11 @@ pub fn score_result(
     }
     let mut box_switches = 0;
     let mut away_pushes = 0;
+    let mut reopened_goals = 0;
+    let mut tunnel_commitments = 0;
+    let mut box_revisits = 0;
     let mut last_box = None;
+    let mut moved_identities = HashSet::new();
     let mut pushed = 0;
     let mut current = board.clone();
     let goals = board.goals();
@@ -598,9 +894,24 @@ pub fn score_result(
                 if last_box.is_some() && identity != last_box {
                     box_switches += 1;
                 }
+                if identity != last_box && identity.is_some_and(|id| moved_identities.contains(&id))
+                {
+                    box_revisits += 1;
+                }
                 last_box = identity;
                 if let (Some(id), Some(after_position)) = (identity, moved) {
+                    moved_identities.insert(id);
                     identities.insert(after_position, id);
+                    if board.tiles[old_position] == Tile::Goal
+                        && board.tiles[after_position] != Tile::Goal
+                    {
+                        reopened_goals += 1;
+                    }
+                    if floor_degree(board, after_position) <= 2
+                        && board.tiles[after_position] != Tile::Goal
+                    {
+                        tunnel_commitments += 1;
+                    }
                     let before = board.xy(old_position);
                     let nearest_before = goals
                         .iter()
@@ -633,15 +944,43 @@ pub fn score_result(
         .filter(|tile| **tile != Tile::Wall)
         .count()
         .max(1);
-    let dependency =
-        (box_switches as f64 * 4.0 + away_pushes as f64 * 5.0 + pushed as f64 * 0.8).min(100.0);
+    let mut final_positions = vec![0; board.boxes.len()];
+    for (position, identity) in &identities {
+        final_positions[*identity] = *position;
+    }
+    let role_swaps = (0..board.boxes.len())
+        .flat_map(|first| (first + 1..board.boxes.len()).map(move |second| (first, second)))
+        .filter(|(first, second)| {
+            board.boxes[*first].cmp(&board.boxes[*second])
+                != final_positions[*first].cmp(&final_positions[*second])
+        })
+        .count();
+    let analysis = StaticAnalysis::new(board);
+    let pdb = pair_pattern_distance(board, &analysis) as f64;
+    let route_analysis = analyze_wrong_routes(result, board);
+    let dependency = (box_switches as f64 * 3.0
+        + away_pushes as f64 * 4.0
+        + reopened_goals as f64 * 8.0
+        + box_revisits as f64 * 6.0
+        + role_swaps as f64 * 7.0
+        + pushed as f64 * 0.5)
+        .min(100.0);
     let length = (result.pushes as f64 / (walkable as f64).sqrt() * 25.0).min(100.0);
-    let trap = ((result.explored_nodes.max(1) as f64).log10() * 15.0).min(100.0);
+    let trap = ((result.explored_nodes.max(1) as f64).log10() * 8.0
+        + route_analysis.delayed_lures as f64 * 4.0
+        + route_analysis.false_goal_lures as f64 * 8.0
+        + route_analysis.deadlock_lures as f64 * 6.0
+        + reopened_goals as f64 * 6.0
+        + tunnel_commitments as f64 * 1.5)
+        .min(100.0);
+    let pdb_score = (pdb / (walkable as f64).sqrt() * 25.0).min(100.0);
     let score = match mode {
         DifficultyMode::LongSolution => length,
         DifficultyMode::Dependency => dependency,
         DifficultyMode::DeepTrap => trap,
-        DifficultyMode::Composite => (length * 0.45 + dependency * 0.35 + trap * 0.2).min(100.0),
+        DifficultyMode::Composite => {
+            (length * 0.3 + dependency * 0.3 + trap * 0.25 + pdb_score * 0.15).min(100.0)
+        }
     };
     DifficultyMetrics {
         score,
@@ -652,6 +991,15 @@ pub fn score_result(
         away_pushes,
         box_switches,
         unique_optimal: None,
+        pdb,
+        delayed_lures: route_analysis.delayed_lures,
+        reopened_goals,
+        tunnel_commitments,
+        role_swaps,
+        box_revisits,
+        false_goal_lures: route_analysis.false_goal_lures,
+        deadlock_lures: route_analysis.deadlock_lures,
+        novelty: 0.0,
     }
 }
 
@@ -742,11 +1090,19 @@ pub fn generate_candidate<R: Rng>(
     let mut completed = 0;
     let mut visited = HashSet::new();
     visited.insert(board.boxes.clone());
-    let mut last_moved_position = None;
+    let mut identities: HashMap<usize, usize> = board
+        .boxes
+        .iter()
+        .enumerate()
+        .map(|(identity, position)| (*position, identity))
+        .collect();
+    let mut moved_identities = HashSet::new();
+    let mut last_identity = None;
     for _ in 0..pulls {
         let reachable = reachable_cells(&board);
         let mut actions = Vec::new();
         for &box_position in &board.boxes {
+            let identity = *identities.get(&box_position)?;
             for direction in Direction::ALL {
                 let stand = board.step(box_position, direction.opposite());
                 let destination = stand.and_then(|p| board.step(p, direction.opposite()));
@@ -792,30 +1148,48 @@ pub fn generate_candidate<R: Rng>(
                         .count();
                     let weight = 1
                         + usize::from(after_distance > before_distance) * 6
-                        + usize::from(last_moved_position != Some(box_position)) * 3
-                        + usize::from(open_neighbors <= 2) * 2;
-                    actions.push((box_position, stand, destination, next_boxes, weight));
+                        + usize::from(last_identity != Some(identity)) * 3
+                        + usize::from(
+                            last_identity != Some(identity) && moved_identities.contains(&identity),
+                        ) * 6
+                        + usize::from(
+                            board.tiles[stand] == Tile::Goal
+                                && board.tiles[box_position] != Tile::Goal,
+                        ) * 8
+                        + usize::from(open_neighbors <= 2) * 3
+                        + usize::from(is_turning_square(&board, stand)) * 5;
+                    actions.push((
+                        box_position,
+                        stand,
+                        destination,
+                        next_boxes,
+                        identity,
+                        weight,
+                    ));
                 }
             }
         }
-        let total_weight: usize = actions.iter().map(|action| action.4).sum();
+        let total_weight: usize = actions.iter().map(|action| action.5).sum();
         if total_weight == 0 {
             break;
         }
         let mut roll = rng.random_range(0..total_weight);
         let selected = actions.into_iter().find(|action| {
-            if roll < action.4 {
+            if roll < action.5 {
                 true
             } else {
-                roll -= action.4;
+                roll -= action.5;
                 false
             }
         })?;
-        let (_box_position, stand, destination, next_boxes, _) = selected;
+        let (box_position, stand, destination, next_boxes, identity, _) = selected;
         board.boxes = next_boxes.clone();
         board.player = destination;
         visited.insert(next_boxes.clone());
-        last_moved_position = Some(stand);
+        identities.remove(&box_position);
+        identities.insert(stand, identity);
+        moved_identities.insert(identity);
+        last_identity = Some(identity);
         completed += 1;
     }
     (completed >= boxes * 6 && !board.is_solved()).then_some(board)
@@ -888,6 +1262,48 @@ mod tests {
         );
         assert_eq!(r.status, SolveStatus::Solved);
         assert!(r.pushes > 0);
+    }
+    #[test]
+    fn reverse_push_table_respects_wall_detours() {
+        let board = Board::parse_xsb(
+            "########\n#@     #\n# $ # .#\n#   #  #\n#      #\n#      #\n########",
+        )
+        .unwrap();
+        let analysis = StaticAnalysis::new(&board);
+        assert_eq!(analysis.push_distances[0][board.boxes[0]], 8);
+    }
+    #[test]
+    fn static_dead_square_is_pruned_before_search() {
+        let board = Board::parse_xsb("#####\n#$@ #\n#   #\n# . #\n#####").unwrap();
+        let analysis = StaticAnalysis::new(&board);
+        assert!(analysis.dead_squares[board.boxes[0]]);
+        let result = solve(
+            &board,
+            &SolveOptions {
+                mode: SolveMode::Optimal,
+                time_limit_ms: 1_000,
+                node_limit: 100_000,
+            },
+        );
+        assert_eq!(result.status, SolveStatus::Unsolved);
+        assert_eq!(result.explored_nodes, 0);
+    }
+    #[test]
+    fn pair_pattern_database_is_admissible() {
+        let board = Board::parse_xsb("#######\n#@    #\n# $$  #\n# ..  #\n#######").unwrap();
+        let analysis = StaticAnalysis::new(&board);
+        let pattern = pair_pattern_distance(&board, &analysis);
+        let result = solve(
+            &board,
+            &SolveOptions {
+                mode: SolveMode::Optimal,
+                time_limit_ms: 1_000,
+                node_limit: 100_000,
+            },
+        );
+        assert_eq!(result.status, SolveStatus::Solved);
+        assert!(pattern > 0);
+        assert!(pattern <= result.pushes);
     }
     #[test]
     fn rejects_bad_counts() {
