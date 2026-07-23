@@ -20,6 +20,10 @@ type PlayStats = { moves: number; pushes: number }
 type PlaySnapshot = { level: ParsedLevel; stats: PlayStats }
 type CompletionRecord = PlayStats & { completedAt: number }
 
+function isTextEntryTarget(target: EventTarget | null): boolean {
+  return target instanceof HTMLElement && (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName))
+}
+
 function matchesGenerationTier(tier: GenerationTier, result: SolveResult): boolean {
   if (tier === 'simple') return result.pushes <= 10
   if (tier === 'medium') return result.pushes >= 8 && result.pushes <= 18
@@ -166,10 +170,15 @@ export default function App() {
 
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
-      if (workMode !== 'play' || event.metaKey || event.ctrlKey) return
+      if (workMode !== 'play' || event.metaKey || event.ctrlKey || isTextEntryTarget(event.target)) return
       if ((event.key === 'z' || event.key === 'Z' || event.key === 'Backspace') && (playHistory.length || playbackIndex > 0) && !isPlaying) {
         event.preventDefault()
         undoCurrentMove()
+        return
+      }
+      if (event.key === 'r' || event.key === 'R') {
+        event.preventDefault()
+        restartLevel()
         return
       }
       const direction = directionByKey[event.key]
