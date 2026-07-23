@@ -112,4 +112,4 @@ GitHub Actions runs formatting, Clippy, Rust tests, TypeScript checks, browser-u
 
 ## Deployment
 
-Import the GitHub repository into Vercel. `vercel.json` installs dependencies, builds the frontend, and serves `web/dist` as a static single-page application. A reviewed WASM artifact is tracked for hosts without Rust; GitHub CI still rebuilds it from source before every production check.
+Import the GitHub repository into Vercel and set **Root Directory** to `web`. Vercel then detects Vite from `web/package.json`, runs `npm run build`, and serves `dist`; no build override or environment variables are required. `web/vercel.json` supplies the single-page-app fallback. A reviewed WASM artifact is tracked under `web/public/wasm`, so Vercel does not need Rust or wasm-pack.

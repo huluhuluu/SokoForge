@@ -107,4 +107,4 @@ npm --workspace web run test
 npm run build
 ```
 
-将 GitHub 仓库导入 Vercel 即可部署。`vercel.json` 会构建 `web/dist` 并按静态单页应用托管。仓库包含经过验证的 WASM 产物，因此 Vercel 不需要预装 Rust；GitHub CI 仍会从 Rust 源码重新构建并验证产物链路。
+将 GitHub 仓库导入 Vercel 后，把 **Root Directory** 设置为 `web`。Vercel 会从 `web/package.json` 自动识别 Vite，执行 `npm run build` 并托管 `dist`；不需要覆盖构建命令，也不需要环境变量。`web/vercel.json` 只保留单页应用路由回退。已验证的 WASM 产物位于 `web/public/wasm`，因此 Vercel 不需要预装 Rust 或 wasm-pack。
