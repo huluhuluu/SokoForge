@@ -1,115 +1,205 @@
-# SokoForge
+<h1 align="center">SokoForge</h1>
 
-> A bilingual Sokoban workbench for creating, solving, and forging compact high-difficulty levels.
+<p align="center">
+  Design Sokoban levels, prove shortest-push solutions, and forge compact puzzles built around delayed traps.
+</p>
 
-[中文文档](README.zh-CN.md) · [MIT License](LICENSE)
+<p align="center">
+  <a href="https://soko-forge-web.vercel.app"><strong>Open the workbench</strong></a>
+  · <a href="README.zh-CN.md">中文</a>
+  · <a href="#solver-and-generator">Algorithms</a>
+  · <a href="#native-cli">CLI</a>
+  · <a href="#deployment">Deploy</a>
+</p>
 
-SokoForge is a static React workbench backed by a Rust solver compiled to WebAssembly. Build levels in the browser, prove the fewest pushes for small and medium boards, explore generated candidates, or use the native Rust CLI to generate thousands of candidates offline and import the best pack.
+<p align="center">
+  <a href="https://github.com/huluhuluu/SokoForge/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/huluhuluu/SokoForge/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-167b5b.svg"></a>
+  <img alt="Rust and WebAssembly" src="https://img.shields.io/badge/core-Rust%20%2B%20WebAssembly-b7410e.svg">
+  <img alt="React" src="https://img.shields.io/badge/UI-React-087ea4.svg">
+</p>
 
-## Features
+<p align="center">
+  <a href="https://soko-forge-web.vercel.app">
+    <img src=".github/assets/sokoforge-workbench.png" alt="SokoForge workbench showing the board, published levels, solver, and replay controls">
+  </a>
+</p>
 
-- English and Chinese UI with browser-language detection and manual switching.
-- Visual editor for walls, floor, goals, boxes, and player positions.
-- Standard XSB import/export, local level library, manual-move undo, restart, and keyboard/touch play.
-- Steppable solution replay with pause and 0.5x-4x playback speed.
-- Fast solution search and a slower shortest-push mode with transparent timeout status.
-- Simple, medium, and hard generation tiers backed by solver-certified difficulty gates.
-- Browser batch exploration plus a native parallel Rust CLI for 1,000–5,000+ candidates.
-- Generated-pack download, JSON/XSB multi-file import, and remembered local level folders on Chromium.
-- 200 bundled compact expert levels in addition to the introductory published set.
-- Static Vite output suitable for Vercel. No account, database, or API key is required.
+SokoForge is a bilingual, local-first Sokoban workbench. It combines a visual editor and playable level library with a Rust solver that runs in a browser Worker through WebAssembly. For larger searches, the same core is available through a parallel native CLI.
+
+The project focuses on a specific problem: generating small boards that remain difficult because the correct idea is hidden, not because the map is enormous.
+
+## Why SokoForge
+
+| Design | Solve | Forge |
+| --- | --- | --- |
+| Edit boards from `5x5` to `20x20`, play immediately, and import or export standard XSB. | Find a quick solution or prove the minimum number of pushes, then inspect it step by step. | Generate batches, certify each finalist with the optimal solver, and rank delayed traps and ordering constraints. |
+
+- **Ready to play:** 16 introductory levels and 200 compact expert levels are bundled with the static site.
+- **Transparent results:** solved, unsolved, timed-out, feasible, and optimal results are reported separately.
+- **Local by default:** levels and completion records stay in the browser; no account, database, API key, or server is required.
+- **One algorithmic core:** the web app, WASM interface, and CLI share the same Rust rules, difficulty metrics, and certification gates.
+- **Practical controls:** undo, restart, keyboard and touch input, plus pause, step, and `0.5x`-`4x` solution replay.
 
 ## Quick Start
 
-Prerequisites: Node.js 24+, Rust stable, and the `wasm32-unknown-unknown` target.
+Requirements: [Node.js 24+](https://nodejs.org/) and npm. Rust stable is only required when rebuilding the solver or using the CLI.
 
 ```bash
-npm install
-rustup target add wasm32-unknown-unknown
-npm run wasm:build
+git clone https://github.com/huluhuluu/SokoForge.git
+cd SokoForge
+npm ci
 npm run dev
 ```
 
-Open the local URL printed by Vite. A production build is created with:
+Vite prints the local URL. The repository includes a reviewed browser WASM build, so frontend development can start without compiling Rust.
+
+To rebuild everything from source:
 
 ```bash
+rustup target add wasm32-unknown-unknown
 npm run build
 ```
 
-## Offline Generator
+## How It Fits Together
 
-Use the native CLI when a browser batch would be too expensive:
-
-```bash
-cargo run -p sokoforge-cli -- generate \
-  --count 5000 --width 10 --height 10 --boxes 4 \
-  --mode composite --tier hard --seed 42 --top 50 --evolution-rounds 100 \
-  --finalist-time-limit-ms 60000 --output pack.json
+```mermaid
+flowchart LR
+    UI[React workbench] --> Worker[Web Worker]
+    Worker --> WASM[Rust / WebAssembly]
+    CLI[Native CLI] --> Core[Sokoban core]
+    WASM --> Core
+    Core --> Rules[Rules and deadlocks]
+    Core --> Solver[Push-state solver]
+    Core --> Generator[Generator and scoring]
 ```
 
-Import `pack.json` from the Library tab. The pack uses a versioned `sokoforge-level-pack` JSON format containing XSB, score metrics, generator metadata, and an optional solution replay.
+| Layer | Responsibility |
+| --- | --- |
+| `web/` | React UI, editor, gameplay, replay, local packs, and static published levels |
+| `sokoforge-core` | XSB parsing, movement rules, deadlock detection, search, generation, and scoring |
+| `sokoforge-wasm` | Small JSON boundary used by the browser Worker |
+| `sokoforge-cli` | Parallel offline generation and command-line solving |
 
-## Saving And Reopening Packs
+CPU-heavy browser work stays off the UI thread. Starting a new solve, loading a level, or leaving Forge cancels stale Worker work instead of allowing old results to overwrite the current board.
 
-After a browser batch finishes, use **Download pack** to save every ranked result in one JSON file. The Library accepts multiple `.json` packs and standalone `.xsb` files at once.
+## Solver and Generator
 
-Chromium browsers also expose **Choose level folder**. The first selection is always a user action required by the browser security model. SokoForge stores that directory handle in IndexedDB and scans it automatically on later visits while permission remains granted. **Save to folder** writes generated packs there. Firefox and Safari fall back to normal downloads and multi-file import because they do not currently expose the same directory API.
+### Solver
 
-To solve an XSB file from the command line:
+The solver searches **push states** rather than every player step:
+
+1. Flood fill computes the player's reachable region.
+2. A* expands only legal box pushes.
+3. Reverse-push tables reject static dead squares and provide wall-aware box-to-goal distances.
+4. Minimum box-goal matching and a two-box pattern database provide admissible lower bounds.
+5. In shortest-solution mode, finishing the search proves the minimum push count.
+
+Sokoban search still grows exponentially. A timeout is not reported as proof that a board is unsolvable, and a feasible result is never presented as optimal without completing the proof.
+
+### Generator
+
+Generation starts from a solved board and performs legal reverse pulls, which guarantees a forward solution before certification. Candidate selection favors behaviors that are often difficult for a human to plan:
+
+- temporarily moving a box away from its goal;
+- reopening a box that was already on a goal;
+- false goals and shared turning squares;
+- box-order dependencies, role swaps, and tunnel commitments;
+- wrong pushes whose consequence appears several pushes later.
+
+The native pipeline also evolves wall geometry and uses novelty selection to avoid batches of near-identical boards. Finalists are solved again in optimal mode, then ranked using push count, dependency, trap, delayed-regret, and diversity signals.
+
+| Tier | Certification gate |
+| --- | --- |
+| Simple | At most 10 optimal pushes |
+| Medium | 8-18 optimal pushes |
+| Hard | At least 16 optimal pushes, plus both a deep-lure and an ordering/dependency signal |
+
+The 200 expert levels are unique `9x9`-`11x11` boards with 4-5 boxes and 16-35 proven optimal pushes. These metrics are useful filters, not a claim that every player experiences difficulty identically.
+
+## Native CLI
+
+Solve an XSB file:
 
 ```bash
 cargo run -p sokoforge-cli -- solve level.xsb --time-limit-ms 30000
 ```
 
-## Publishing Static Levels
+Generate and retain the best 50 maps from 5,000 candidates:
 
-Published levels are intentionally serverless. Small additions can use an XSB file under `web/public/levels/` plus one metadata entry in `web/public/levels/index.json`. Large collections use a `sokoforge-published-pack` JSON file referenced by the index's `packs` array, avoiding hundreds of startup requests. Both forms include stable IDs, bilingual titles, difficulty, box count, and verified optimal push counts.
+```bash
+cargo run -p sokoforge-cli --release -- generate \
+  --count 5000 --width 10 --height 10 --boxes 4 \
+  --mode composite --tier hard --seed 42 --top 50 \
+  --evolution-rounds 100 --finalist-time-limit-ms 60000 \
+  --output pack.json
+```
 
-Before opening a pull request, verify the level:
+Import `pack.json` from the web app's Library tab. Use the native CLI for large batches; browser generation is intentionally sized for interactive exploration.
+
+## Level Files
+
+| Format | Purpose |
+| --- | --- |
+| `.xsb` | One standard Sokoban board |
+| `sokoforge-level-pack` JSON | Portable user/generated levels, metrics, metadata, and optional solutions |
+| `sokoforge-published-pack` JSON | Bundled static collections loaded from the published-level index |
+
+The Library imports multiple JSON/XSB files at once. Chromium can also remember a user-selected level folder through the File System Access API. Firefox and Safari use normal download and multi-file import because they do not expose the same directory API.
+
+<details>
+<summary><strong>Publish levels with the static site</strong></summary>
+
+Small collections can add XSB files under `web/public/levels/` and metadata to `web/public/levels/index.json`. Large collections should use a `sokoforge-published-pack` file referenced by the index's `packs` array to avoid hundreds of startup requests.
+
+Verify every submitted level first:
 
 ```bash
 cargo run -p sokoforge-cli -- solve web/public/levels/my-level.xsb --time-limit-ms 30000
 ```
 
-This model works with GitHub review and Vercel caching without accounts or a database. User-created private levels remain in browser storage or can be exported as XSB/JSON packs.
+Static packs are reviewed in Git and cached by Vercel; no publishing backend is necessary.
+</details>
 
-## Solver and Generator
-
-The solver searches **push states**, not ordinary walking states. Each state stores box positions and the player's reachable region. A flood fill finds every legal pushing position, then A* expands pushes directly. Reverse-push tables mark static dead squares and provide wall-aware box-goal distances. The optimal heuristic takes the maximum of minimum box-goal matching and a two-box pattern database, both admissible lower bounds, so a completed result proves the smallest number of pushes within its search limits.
-
-Sokoban search grows exponentially. A timeout means the tool either found no result yet or found a feasible result without proving optimality; it never labels that result as optimal.
-
-Generation carves a connected warehouse, starts with every box on a goal, and makes legal **reverse pulls**. Reversing those pulls produces a valid forward solution. Pull selection favors temporary movement away from goals, box revisits, goal reopening, narrow turning squares, and box-order changes. The native generator evolves finalist geometry, applies novelty selection to avoid near-duplicate structures and behaviors, then keeps only levels whose minimum push count is proven by the optimal solver.
-
-- **Simple**: at most 10 optimal pushes.
-- **Medium**: 8-18 optimal pushes.
-- **Hard**: at least 16 optimal pushes plus both a deep-lure signal and an ordering/dependency signal.
-
-For optimally certified finalists, the first four critical pushes are counterfactually analyzed. Alternative pushes contribute delayed-regret, false-goal, and proven-deadlock signals. Other metrics include boxes moved away from goals, reopened goals, box revisits, role swaps, and tunnel commitments. The bundled 200-level replacement contains unique 9x9-11x11 maps with 4-5 boxes and 16-35 optimal pushes; all 200 were independently re-solved through the production WebAssembly build.
-
-These are algorithmic signals, not a claim that every player will perceive identical difficulty. Player telemetry can calibrate them in a future hosted edition.
-
-## Algorithms and References
-
-- A* and IDA* foundations: Richard E. Korf, *Depth-first Iterative-Deepening: An Optimal Admissible Tree Search*.
-- Sokoban domain search: Junghanns and Schaeffer, *Sokoban: Enhancing General Single-Agent Search Methods Using Domain Knowledge* (Artificial Intelligence, 2001).
-- Hard-state generation: Bento, Pereira, and Lelis, [*Procedural Generation of Initial States of Sokoban*](https://www.ijcai.org/proceedings/2019/646) (IJCAI 2019).
-- Solver concepts and deadlock terminology: [Sokoban Wiki](http://www.sokobano.de/wiki/index.php?title=Solver).
-- Production solver inspiration: [Festival solver overview](http://www.sokobano.de/wiki/index.php?title=Solver:Festival).
-
-SokoForge is a clean-room implementation. Do not copy level packs, art, or code from other Sokoban projects unless their licenses permit it.
-
-## Development Checks
+## Development
 
 ```bash
-cargo test --workspace
-npm --workspace web run typecheck
-npm --workspace web run test
-npm run build
+npm run lint                 # rustfmt, Clippy, and TypeScript
+npm test                     # Rust and frontend unit tests
+npm run build                # release WASM and Vite production build
+npm --workspace web run test:e2e
 ```
 
-GitHub Actions runs formatting, Clippy, Rust tests, TypeScript checks, browser-unit tests, and a Vercel-compatible production build.
+GitHub Actions runs all four stages and rejects commits when the tracked WASM artifact differs from the Rust source.
 
 ## Deployment
 
-Import the GitHub repository into Vercel and set **Root Directory** to `web`. Vercel detects Vite from `web/package.json`, runs `npm run build`, and serves `dist`; no build override, environment variables, or `vercel.json` are required. A reviewed WASM artifact is tracked under `web/public/wasm`, so Vercel does not need Rust or wasm-pack. CI rebuilds that artifact and rejects source/artifact drift.
+Import this repository into Vercel with these settings:
+
+| Setting | Value |
+| --- | --- |
+| Framework preset | Vite (auto-detected) |
+| Root Directory | `web` |
+| Build and Output Settings | Defaults |
+| Environment Variables | None |
+
+Vercel builds only the static frontend and serves `web/dist`. Rust and `wasm-pack` are not needed on the Vercel build machine because the reviewed WASM artifact is committed under `web/public/wasm`.
+
+## Contributing
+
+Issues and pull requests are welcome. For a focused contribution:
+
+1. Keep the web and native paths behaviorally consistent when changing core rules or difficulty gates.
+2. Add a regression test for parser, solver, persistence, or Worker lifecycle changes.
+3. Run the development checks above before opening the pull request.
+4. Do not copy proprietary Sokoban levels, art, or code without a compatible license.
+
+## References
+
+- Richard E. Korf, *Depth-first Iterative-Deepening: An Optimal Admissible Tree Search*.
+- Junghanns and Schaeffer, *Sokoban: Enhancing General Single-Agent Search Methods Using Domain Knowledge*, Artificial Intelligence, 2001.
+- Bento, Pereira, and Lelis, [*Procedural Generation of Initial States of Sokoban*](https://www.ijcai.org/proceedings/2019/646), IJCAI 2019.
+- [Sokoban Wiki: Solver](http://www.sokobano.de/wiki/index.php?title=Solver).
+- [Festival solver overview](http://www.sokobano.de/wiki/index.php?title=Solver:Festival).
+
+SokoForge is a clean-room implementation released under the [MIT License](LICENSE).
