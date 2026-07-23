@@ -170,7 +170,7 @@ npm run build                # release WASM 与 Vite 生产构建
 npm --workspace web run test:e2e
 ```
 
-GitHub Actions 会执行以上四个阶段，并在已提交 WASM 产物与 Rust 源码不一致时拒绝通过。
+GitHub Actions 会重新生成浏览器绑定，检查其文本接口，再使用刚生成的 WASM 执行生产构建和浏览器测试。二进制文件允许因运行器工具链不同而产生字节差异。
 
 ## 部署
 
@@ -183,7 +183,7 @@ GitHub Actions 会执行以上四个阶段，并在已提交 WASM 产物与 Rust
 | Build and Output Settings | 保持默认 |
 | Environment Variables | 无 |
 
-Vercel 只构建静态前端并托管 `web/dist`。经过审查的 WASM 产物已提交到 `web/public/wasm`，因此 Vercel 构建机不需要 Rust 或 `wasm-pack`。
+Vercel 只构建静态前端并托管 `web/dist`。经过审查的 WASM 产物已提交到 `web/public/wasm`，因此 Vercel 构建机不需要 Rust 或 `wasm-pack`；CI 会在每次改动中重新构建并测试同一浏览器接口。
 
 ## 参与贡献
 

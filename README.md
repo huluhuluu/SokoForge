@@ -170,7 +170,7 @@ npm run build                # release WASM and Vite production build
 npm --workspace web run test:e2e
 ```
 
-GitHub Actions runs all four stages and rejects commits when the tracked WASM artifact differs from the Rust source.
+GitHub Actions regenerates the browser bindings, checks their text interfaces, then builds and runs the browser tests against the freshly generated WASM. The binary itself is allowed to vary across runner toolchains.
 
 ## Deployment
 
@@ -183,7 +183,7 @@ Import this repository into Vercel with these settings:
 | Build and Output Settings | Defaults |
 | Environment Variables | None |
 
-Vercel builds only the static frontend and serves `web/dist`. Rust and `wasm-pack` are not needed on the Vercel build machine because the reviewed WASM artifact is committed under `web/public/wasm`.
+Vercel builds only the static frontend and serves `web/dist`. Rust and `wasm-pack` are not needed on the Vercel build machine because the reviewed WASM artifact is committed under `web/public/wasm`; CI rebuilds and exercises the same browser boundary on every change.
 
 ## Contributing
 

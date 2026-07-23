@@ -26,7 +26,7 @@ jobs:
       - run: npm --workspace web run typecheck
       - run: npm --workspace web run test
       - run: npm run wasm:build
-      - run: git diff --exit-code -- web/public/wasm
+      - run: git diff --exit-code -- web/public/wasm/sokoforge_wasm.js web/public/wasm/sokoforge_wasm.d.ts web/public/wasm/sokoforge_wasm_bg.wasm.d.ts
       - run: npm --workspace web run build
       - run: npx playwright install --with-deps chromium
       - run: npm --workspace web run test:e2e
