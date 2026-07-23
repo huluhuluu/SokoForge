@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm --workspace web run build",
+  "buildCommand": "npm --prefix web run build",
   "outputDirectory": "web/dist",
   "installCommand": "npm install",
   "framework": "vite",
