@@ -143,13 +143,14 @@ export default function App() {
       }))
       const loaded = [...direct, ...bundles.flat()]
       setPublished(loaded)
-      if (loaded[0]) {
-        const first = parseLevel(loaded[0].xsb)
+      const nextLevel = loaded.find((item) => !Object.prototype.hasOwnProperty.call(completions, item.id)) ?? loaded[0]
+      if (nextLevel) {
+        const first = parseLevel(nextLevel.xsb)
         setLevel(first)
         setInitialLevel(first)
         setSolutionStart(first)
-        setCurrentLevelId(loaded[0].id)
-        setCurrentProgressId(loaded[0].id)
+        setCurrentLevelId(nextLevel.id)
+        setCurrentProgressId(nextLevel.id)
       }
     }).catch(() => setPublished([]))
   }, [])
@@ -626,7 +627,7 @@ function SolvePanel({ t, state, mode, result, isSolving, isPlaying, playbackInde
       <div className="metrics"><span><b>{result.pushes}</b>{t.pushes}</span><span><b>{result.moves.length}</b>{t.moves}</span><span><b>{result.explored_nodes.toLocaleString()}</b>{t.nodes}</span></div>
       {result.status === 'solved' && result.moves && <div className="playback"><div className="playback-heading"><span>{t.solutionStep}</span><b>{playbackIndex} / {totalSteps}</b></div><div className="solution-progress"><span style={{ width: `${progress}%` }} /></div><div className="playback-controls"><button title={t.previousStep} aria-label={t.previousStep} disabled={playbackIndex === 0} onClick={() => onStep(-1)}><ChevronLeft size={18} /></button><button className="playback-toggle" title={isPlaying ? t.pause : t.play} aria-label={isPlaying ? t.pause : t.play} onClick={onTogglePlayback}>{isPlaying ? <Pause size={18} /> : <Play size={18} />}</button><button title={t.nextStep} aria-label={t.nextStep} disabled={playbackIndex >= totalSteps} onClick={() => onStep(1)}><ChevronRight size={18} /></button><label>{t.speed}<select aria-label={t.speed} value={playbackSpeed} onChange={(event) => onSpeed(Number(event.target.value))}>{[0.5, 1, 2, 4].map((speed) => <option key={speed} value={speed}>{speed}×</option>)}</select></label></div></div>}
     </div> : <div className="solver-idle"><BrainCircuit size={30} strokeWidth={1.4} /><span>{t.ready}</span></div>}
-    <details className="game-help"><summary><CircleHelp size={16} />{t.howToPlay}</summary><div><p>{t.movementHelp}</p><p>{t.goalHelp}</p><p>{t.recoveryHelp}</p><p>{t.replayHelp}</p></div></details>
+    <details className="game-help" open><summary><CircleHelp size={16} />{t.howToPlay}</summary><div><p>{t.movementHelp}</p><p>{t.goalHelp}</p><p>{t.recoveryHelp}</p><p>{t.replayHelp}</p></div></details>
     <div className="panel-foot"><button className="secondary-action" onClick={onSave}><Save size={16} />{t.save}</button></div>
   </div>
 }
