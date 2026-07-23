@@ -28,6 +28,19 @@ test('loads published levels from the static index', async ({ page }) => {
   await expect(published.locator('.result-row')).toHaveCount(216)
 })
 
+test('restores completed-level markers from local storage', async ({ page }, testInfo) => {
+  await page.addInitScript(() => localStorage.setItem('sokoforge-completions', JSON.stringify({ 'first-push': { moves: 3, pushes: 1, completedAt: 1 } })))
+  await page.goto('/')
+  await expect.poll(() => page.locator('.level-list button').count()).toBe(216)
+  if (testInfo.project.name === 'desktop') {
+    const firstLevel = page.locator('.level-list button').first()
+    await expect(firstLevel).toHaveClass(/completed/)
+    await expect(firstLevel.getByLabel(/Level complete|关卡完成/)).toBeVisible()
+  }
+  await page.getByRole('button', { name: /Library|关卡库/ }).click()
+  await expect(page.locator('.result-row.completed').first()).toBeVisible()
+})
+
 test('imports and downloads a generated level pack', async ({ page }) => {
   const pack = {
     schemaVersion: 1,
@@ -100,7 +113,7 @@ test('undoes a manual move and restarts the level', async ({ page }) => {
   await expect(page.locator('.solution-result')).toBeVisible({ timeout: 10_000 })
 })
 
-test('steps, pauses, and speeds up solution replay', async ({ page }) => {
+test('steps, pauses, and speeds up solution replay', async ({ page }, testInfo) => {
   await page.goto('/')
   await expect.poll(() => page.locator('.level-list button').count()).toBe(216)
   await expect(page.getByText(/Move player|移动玩家/)).toBeVisible()
@@ -123,6 +136,10 @@ test('steps, pauses, and speeds up solution replay', async ({ page }) => {
   await page.getByRole('combobox', { name: /Speed|倍速/ }).selectOption('4')
   await page.getByRole('button', { name: /Play solution|播放解法/ }).click()
   await expect(page.locator('.board-status')).toHaveClass(/solved/)
+  await expect(page.locator('.completion-banner')).toBeVisible()
+  await expect(page.locator('.level-list button').first()).toHaveClass(/completed/)
+  await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem('sokoforge-completions') ?? '{}')['first-push']?.pushes)).toBe(1)
+  await page.screenshot({ path: testInfo.outputPath('completion.png'), fullPage: true })
 })
 
 test('ignores malformed local library data', async ({ page }) => {

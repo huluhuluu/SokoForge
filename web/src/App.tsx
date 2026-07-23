@@ -3,7 +3,7 @@ import {
   ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Box, BrainCircuit, Check,
   ChevronLeft, ChevronRight, Download, Eraser, FileDown, FileUp, Gamepad2,
   CircleHelp, FolderOpen, FolderSync, Grid3X3, Languages, Pause, Pencil, Play, Redo2, RotateCcw, Save, Sparkles,
-  PanelLeftClose, PanelLeftOpen, Square, Target, Undo2, UserRound, WandSparkles,
+  PanelLeftClose, PanelLeftOpen, Square, Target, Trophy, Undo2, UserRound, WandSparkles,
 } from 'lucide-react'
 import { copy, getInitialLanguage } from './i18n'
 import { loadRememberedDirectory, rememberDirectory, requestDirectory, scanDirectory, supportsLevelDirectory, writePack, type LevelDirectoryHandle } from './levelDirectory'
@@ -18,6 +18,7 @@ const directionByKey: Record<string, string> = {
 }
 type PlayStats = { moves: number; pushes: number }
 type PlaySnapshot = { level: ParsedLevel; stats: PlayStats }
+type CompletionRecord = PlayStats & { completedAt: number }
 
 function matchesGenerationTier(tier: GenerationTier, result: SolveResult): boolean {
   if (tier === 'simple') return result.pushes <= 10
@@ -34,6 +35,22 @@ function loadStoredLibrary(): PackLevel[] {
   }
 }
 
+function loadCompletionRecords(): Record<string, CompletionRecord> {
+  try {
+    const stored = JSON.parse(localStorage.getItem('sokoforge-completions') ?? '{}')
+    if (!stored || typeof stored !== 'object' || Array.isArray(stored)) return {}
+    return Object.fromEntries(Object.entries(stored).filter((entry): entry is [string, CompletionRecord] => {
+      const [, value] = entry
+      return !!value && typeof value === 'object'
+        && typeof (value as CompletionRecord).moves === 'number'
+        && typeof (value as CompletionRecord).pushes === 'number'
+        && typeof (value as CompletionRecord).completedAt === 'number'
+    }))
+  } catch {
+    return {}
+  }
+}
+
 export default function App() {
   const [language, setLanguage] = useState<Language>(getInitialLanguage)
   const t = copy[language]
@@ -41,6 +58,8 @@ export default function App() {
   const [initialLevel, setInitialLevel] = useState<ParsedLevel>(() => parseLevel(SAMPLE))
   const [workMode, setWorkMode] = useState<'play' | 'edit'>('play')
   const [currentLevelId, setCurrentLevelId] = useState<string | null>(null)
+  const [currentProgressId, setCurrentProgressId] = useState<string | null>(null)
+  const [completions, setCompletions] = useState<Record<string, CompletionRecord>>(loadCompletionRecords)
   const [playStats, setPlayStats] = useState({ moves: 0, pushes: 0 })
   const [playHistory, setPlayHistory] = useState<PlaySnapshot[]>([])
   const [history, setHistory] = useState<ParsedLevel[]>([])
@@ -83,6 +102,7 @@ export default function App() {
   const currentPublishedIndex = published.findIndex((item) => item.id === currentLevelId)
   const currentPublished = currentPublishedIndex >= 0 ? published[currentPublishedIndex] : null
   const currentTitle = currentPublished?.title[language] ?? t.untitled
+  const completedIds = useMemo(() => new Set(Object.keys(completions)), [completions])
 
   useEffect(() => {
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'
@@ -92,6 +112,19 @@ export default function App() {
   useEffect(() => {
     try { localStorage.setItem('sokoforge-library', JSON.stringify(library)) } catch { /* Storage may be full or unavailable. */ }
   }, [library])
+
+  useEffect(() => {
+    try { localStorage.setItem('sokoforge-completions', JSON.stringify(completions)) } catch { /* Storage may be full or unavailable. */ }
+  }, [completions])
+
+  useEffect(() => {
+    if (workMode !== 'play' || state !== 'solved' || !currentProgressId) return
+    setCompletions((items) => {
+      const previous = items[currentProgressId]
+      if (previous?.moves === playStats.moves && previous.pushes === playStats.pushes) return items
+      return { ...items, [currentProgressId]: { ...playStats, completedAt: Date.now() } }
+    })
+  }, [currentProgressId, playStats.moves, playStats.pushes, state, workMode])
 
   useEffect(() => {
     fetch('/levels/index.json').then((response) => response.json()).then(async (index: PublishedLevelIndex) => {
@@ -112,6 +145,7 @@ export default function App() {
         setInitialLevel(first)
         setSolutionStart(first)
         setCurrentLevelId(loaded[0].id)
+        setCurrentProgressId(loaded[0].id)
       }
     }).catch(() => setPublished([]))
   }, [])
@@ -308,7 +342,10 @@ export default function App() {
     solveRun.current += 1
     setIsSolving(false)
     if (mode === 'play') setInitialLevel(level)
-    else setCurrentLevelId(null)
+    else {
+      setCurrentLevelId(null)
+      setCurrentProgressId(null)
+    }
     setWorkMode(mode)
     setSolveResult(null)
     setPlayStats({ moves: 0, pushes: 0 })
@@ -457,6 +494,7 @@ export default function App() {
     setInitialLevel(loaded)
     setSolutionStart(loaded)
     setCurrentLevelId(published.some((item) => item.id === entry.id) ? entry.id : null)
+    setCurrentProgressId(entry.id)
     setPlayStats({ moves: 0, pushes: 0 })
     setPlayHistory([])
     setPlaybackIndex(0)
@@ -482,7 +520,7 @@ export default function App() {
         <button className={workMode === 'edit' ? 'active' : ''} onClick={() => switchWorkMode('edit')}><Pencil size={16} />{t.editMode}</button>
       </nav>
       <div className="top-actions">
-        <button className="icon-button" title={t.newLevel} onClick={() => { solveRun.current += 1; const fresh = parseLevel(SAMPLE); setLevel(fresh); setInitialLevel(fresh); setSolutionStart(null); setCurrentLevelId(null); setPlayStats({ moves: 0, pushes: 0 }); setPlayHistory([]); setPlaybackIndex(0); setIsPlaying(false); setIsSolving(false); setSolveResult(null); setHistory([]); setWorkMode('edit') }}><Sparkles size={18} /></button>
+        <button className="icon-button" title={t.newLevel} onClick={() => { solveRun.current += 1; const fresh = parseLevel(SAMPLE); setLevel(fresh); setInitialLevel(fresh); setSolutionStart(null); setCurrentLevelId(null); setCurrentProgressId(null); setPlayStats({ moves: 0, pushes: 0 }); setPlayHistory([]); setPlaybackIndex(0); setIsPlaying(false); setIsSolving(false); setSolveResult(null); setHistory([]); setWorkMode('edit') }}><Sparkles size={18} /></button>
         <button className="icon-button" title={t.import} onClick={() => fileInput.current?.click()}><FileUp size={18} /></button>
         <button className="icon-button" title={t.export} onClick={exportLevel}><Download size={18} /></button>
         <button className="language-button" title={t.language} onClick={() => setLanguage(language === 'en' ? 'zh' : 'en')}><Languages size={16} /><span>{language === 'en' ? '中文' : 'EN'}</span></button>
@@ -492,7 +530,7 @@ export default function App() {
 
     <section className={`workspace ${workMode === 'play' && isLevelSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
       <aside className={`context-sidebar ${workMode} ${workMode === 'play' && isLevelSidebarCollapsed ? 'collapsed' : ''}`}>
-        {workMode === 'play' ? <PlaySidebar published={published} publishedItems={publishedItems} currentLevelId={currentLevelId} language={language} t={t} collapsed={isLevelSidebarCollapsed} onToggleCollapsed={() => setIsLevelSidebarCollapsed((value) => !value)} onLoad={load} onImport={() => fileInput.current?.click()} /> : <EditSidebar level={level} tool={tool} history={history} future={future} t={t} onTool={setTool} onResize={resize} onUndo={undo} onRedo={redo} onReset={() => commit(parseLevel(SAMPLE))} />}
+        {workMode === 'play' ? <PlaySidebar published={published} publishedItems={publishedItems} currentLevelId={currentLevelId} completedIds={completedIds} language={language} t={t} collapsed={isLevelSidebarCollapsed} onToggleCollapsed={() => setIsLevelSidebarCollapsed((value) => !value)} onLoad={load} onImport={() => fileInput.current?.click()} /> : <EditSidebar level={level} tool={tool} history={history} future={future} t={t} onTool={setTool} onResize={resize} onUndo={undo} onRedo={redo} onReset={() => commit(parseLevel(SAMPLE))} />}
       </aside>
 
       <section className="board-area">
@@ -506,7 +544,7 @@ export default function App() {
           <div className="board" style={{ gridTemplateColumns: `repeat(${level.width}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${level.height}, minmax(0, 1fr))`, aspectRatio: `${level.width} / ${level.height}` }}>
             {level.cells.map((cell, index) => <BoardCell key={index} index={index} cell={cell} level={level} workMode={workMode} onPaint={paint} />)}
           </div>
-          {state === 'solved' && <div className="completion-badge"><Check size={17} />{t.completed}</div>}
+          {state === 'solved' && <div className="completion-banner" role="status"><Trophy size={24} /><div><strong>{t.completed}</strong><span>{playStats.moves} {t.playedMoves} · {playStats.pushes} {t.playedPushes}</span></div></div>}
         </div>
 
         <footer className="game-dock">
@@ -521,8 +559,8 @@ export default function App() {
       <aside className="control-panel">
         <nav className="tabs"><button className={activeTab === 'solve' ? 'active' : ''} onClick={() => setActiveTab('solve')}><BrainCircuit size={16} />{t.solve}</button><button className={activeTab === 'forge' ? 'active' : ''} onClick={() => setActiveTab('forge')}><WandSparkles size={16} />{t.forge}</button><button className={activeTab === 'library' ? 'active' : ''} onClick={() => setActiveTab('library')}><FileDown size={16} />{t.library}</button></nav>
         {activeTab === 'solve' && <SolvePanel t={t} state={state} mode={solveMode} result={solveResult} isSolving={isSolving} isPlaying={isPlaying} playbackIndex={playbackIndex} playbackSpeed={playbackSpeed} onMode={setSolveMode} onSolve={onSolve} onTogglePlayback={toggleSolutionPlayback} onStep={stepSolution} onSpeed={setPlaybackSpeed} onSave={saveLevel} />}
-        {activeTab === 'forge' && <div className="panel-body"><div className="panel-title"><span>{t.forge}</span><b>{generationProgress}%</b></div><div className="form-grid"><label>{t.candidateCount}<input type="number" min="10" max="1000" step="10" value={batchCount} onChange={(event) => setBatchCount(Number(event.target.value))} /></label><label>{t.boxes}<input type="number" min="1" max="8" value={boxCount} onChange={(event) => setBoxCount(Number(event.target.value))} /></label><label>{t.width}<input type="number" min="5" max="12" value={generationWidth} onChange={(event) => setGenerationWidth(Math.max(5, Math.min(12, Number(event.target.value) || 5)))} /></label><label>{t.height}<input type="number" min="5" max="12" value={generationHeight} onChange={(event) => setGenerationHeight(Math.max(5, Math.min(12, Number(event.target.value) || 5)))} /></label></div><label>{t.difficulty}<select value={generationTier} onChange={(event) => { const tier = event.target.value as GenerationTier; setGenerationTier(tier); if (tier === 'hard') { setBoxCount((value) => Math.max(4, value)); setGenerationWidth((value) => Math.max(9, value)); setGenerationHeight((value) => Math.max(9, value)); } }}>{(['simple','medium','hard'] as GenerationTier[]).map((tier) => <option key={tier} value={tier}>{t[tier]}</option>)}</select></label><button className="primary-action" onClick={generate}><WandSparkles size={18} />{t.generate}</button><div className="pack-actions"><button className="secondary-action" disabled={!results.length} onClick={exportGeneratedPack}><Download size={16} />{t.exportPack}</button><button className="secondary-action" disabled={!results.length} onClick={saveGeneratedPackToDirectory}><FolderOpen size={16} />{t.saveToFolder}</button></div><div className="progress"><span style={{ width: `${generationProgress}%` }} /></div><ResultList title={t.topResults} items={results} empty={t.noResults} onLoad={load} pushLabel={t.pushes} /></div>}
-        {activeTab === 'library' && <div className="panel-body"><div className="panel-title"><span>{t.library}</span><b>{publishedItems.length + library.length}</b></div><button className="import-row" onClick={() => fileInput.current?.click()}><FileUp size={17} />{t.importPack}</button><button className="import-row" disabled={directoryBusy} onClick={chooseLevelDirectory}><FolderOpen size={17} />{t.chooseFolder}</button>{directory && <button className="directory-row" disabled={directoryBusy} onClick={refreshDirectory}><FolderSync size={16} /><span>{directory.name}</span></button>}<ResultList title={t.myLevels} items={library} empty={t.emptyLibrary} onLoad={load} pushLabel={t.pushes} /><ResultList title={t.published} items={publishedItems} empty={t.noResults} onLoad={load} pushLabel={t.pushes} /></div>}
+        {activeTab === 'forge' && <div className="panel-body"><div className="panel-title"><span>{t.forge}</span><b>{generationProgress}%</b></div><div className="form-grid"><label>{t.candidateCount}<input type="number" min="10" max="1000" step="10" value={batchCount} onChange={(event) => setBatchCount(Number(event.target.value))} /></label><label>{t.boxes}<input type="number" min="1" max="8" value={boxCount} onChange={(event) => setBoxCount(Number(event.target.value))} /></label><label>{t.width}<input type="number" min="5" max="12" value={generationWidth} onChange={(event) => setGenerationWidth(Math.max(5, Math.min(12, Number(event.target.value) || 5)))} /></label><label>{t.height}<input type="number" min="5" max="12" value={generationHeight} onChange={(event) => setGenerationHeight(Math.max(5, Math.min(12, Number(event.target.value) || 5)))} /></label></div><label>{t.difficulty}<select value={generationTier} onChange={(event) => { const tier = event.target.value as GenerationTier; setGenerationTier(tier); if (tier === 'hard') { setBoxCount((value) => Math.max(4, value)); setGenerationWidth((value) => Math.max(9, value)); setGenerationHeight((value) => Math.max(9, value)); } }}>{(['simple','medium','hard'] as GenerationTier[]).map((tier) => <option key={tier} value={tier}>{t[tier]}</option>)}</select></label><button className="primary-action" onClick={generate}><WandSparkles size={18} />{t.generate}</button><div className="pack-actions"><button className="secondary-action" disabled={!results.length} onClick={exportGeneratedPack}><Download size={16} />{t.exportPack}</button><button className="secondary-action" disabled={!results.length} onClick={saveGeneratedPackToDirectory}><FolderOpen size={16} />{t.saveToFolder}</button></div><div className="progress"><span style={{ width: `${generationProgress}%` }} /></div><ResultList title={t.topResults} items={results} empty={t.noResults} completedIds={completedIds} t={t} onLoad={load} pushLabel={t.pushes} /></div>}
+        {activeTab === 'library' && <div className="panel-body"><div className="panel-title"><span>{t.library}</span><b>{publishedItems.length + library.length}</b></div><button className="import-row" onClick={() => fileInput.current?.click()}><FileUp size={17} />{t.importPack}</button><button className="import-row" disabled={directoryBusy} onClick={chooseLevelDirectory}><FolderOpen size={17} />{t.chooseFolder}</button>{directory && <button className="directory-row" disabled={directoryBusy} onClick={refreshDirectory}><FolderSync size={16} /><span>{directory.name}</span></button>}<ResultList title={t.myLevels} items={library} empty={t.emptyLibrary} completedIds={completedIds} t={t} onLoad={load} pushLabel={t.pushes} /><ResultList title={t.published} items={publishedItems} empty={t.noResults} completedIds={completedIds} t={t} onLoad={load} pushLabel={t.pushes} /></div>}
       </aside>
     </section>
   </main>
@@ -530,8 +568,9 @@ export default function App() {
 
 type Translations = typeof copy.en | typeof copy.zh
 
-function PlaySidebar({ published, publishedItems, currentLevelId, language, t, collapsed, onToggleCollapsed, onLoad, onImport }: { published: PublishedLevel[]; publishedItems: PackLevel[]; currentLevelId: string | null; language: Language; t: Translations; collapsed: boolean; onToggleCollapsed: () => void; onLoad: (entry: PackLevel) => void; onImport: () => void }) {
+function PlaySidebar({ published, publishedItems, currentLevelId, completedIds, language, t, collapsed, onToggleCollapsed, onLoad, onImport }: { published: PublishedLevel[]; publishedItems: PackLevel[]; currentLevelId: string | null; completedIds: Set<string>; language: Language; t: Translations; collapsed: boolean; onToggleCollapsed: () => void; onLoad: (entry: PackLevel) => void; onImport: () => void }) {
   const currentIndex = published.findIndex((item) => item.id === currentLevelId)
+  const completedPublished = published.filter((item) => completedIds.has(item.id)).length
   const [jumpValue, setJumpValue] = useState(currentIndex >= 0 ? String(currentIndex + 1) : '1')
 
   useEffect(() => {
@@ -546,7 +585,7 @@ function PlaySidebar({ published, publishedItems, currentLevelId, language, t, c
   }
 
   if (collapsed) return <button className="sidebar-collapse-toggle" title={t.expandLevels} aria-label={t.expandLevels} onClick={onToggleCollapsed}><PanelLeftOpen size={18} /></button>
-  return <><div className="sidebar-heading"><span>{t.published}</span><div className="sidebar-heading-actions"><b>{published.length}</b><button className="sidebar-collapse-toggle" title={t.collapseLevels} aria-label={t.collapseLevels} onClick={onToggleCollapsed}><PanelLeftClose size={16} /></button></div></div><form className="level-jump" onSubmit={jumpToLevel}><label>{t.levelNumber}<input aria-label={t.levelNumber} type="number" min="1" max={Math.max(1, publishedItems.length)} value={jumpValue} disabled={!publishedItems.length} onChange={(event) => setJumpValue(event.target.value)} /></label><button type="submit" title={t.goToLevel} aria-label={t.goToLevel} disabled={!publishedItems.length}><ArrowRight size={16} /></button></form><div className="level-list">{published.map((item, index) => <button key={item.id} className={currentLevelId === item.id ? 'active' : ''} onClick={() => onLoad(publishedItems[index])}><span className="level-number">{String(index + 1).padStart(2, '0')}</span><span className="level-copy"><b>{item.title[language]}</b><small>{t[item.difficulty]} · {item.optimalPushes} {t.pushes}</small></span>{currentLevelId === item.id && <Check size={15} />}</button>)}</div><button className="sidebar-import" onClick={onImport}><FileUp size={16} />{t.import}</button></>
+  return <><div className="sidebar-heading"><span>{t.published}</span><div className="sidebar-heading-actions"><b>{completedPublished}/{published.length}</b><button className="sidebar-collapse-toggle" title={t.collapseLevels} aria-label={t.collapseLevels} onClick={onToggleCollapsed}><PanelLeftClose size={16} /></button></div></div><form className="level-jump" onSubmit={jumpToLevel}><label>{t.levelNumber}<input aria-label={t.levelNumber} type="number" min="1" max={Math.max(1, publishedItems.length)} value={jumpValue} disabled={!publishedItems.length} onChange={(event) => setJumpValue(event.target.value)} /></label><button type="submit" title={t.goToLevel} aria-label={t.goToLevel} disabled={!publishedItems.length}><ArrowRight size={16} /></button></form><div className="level-list">{published.map((item, index) => <button key={item.id} className={`${currentLevelId === item.id ? 'active' : ''} ${completedIds.has(item.id) ? 'completed' : ''}`} onClick={() => onLoad(publishedItems[index])}><span className="level-number">{String(index + 1).padStart(2, '0')}</span><span className="level-copy"><b>{item.title[language]}</b><small>{t[item.difficulty]} · {item.optimalPushes} {t.pushes}</small></span>{completedIds.has(item.id) && <Check className="level-complete" size={16} aria-label={t.completed} />}</button>)}</div><button className="sidebar-import" onClick={onImport}><FileUp size={16} />{t.import}</button></>
 }
 
 function EditSidebar({ level, tool, history, future, t, onTool, onResize, onUndo, onRedo, onReset }: { level: ParsedLevel; tool: Tool; history: ParsedLevel[]; future: ParsedLevel[]; t: Translations; onTool: (tool: Tool) => void; onResize: (axis: 'width' | 'height', value: number) => void; onUndo: () => void; onRedo: () => void; onReset: () => void }) {
@@ -583,6 +622,6 @@ function SolvePanel({ t, state, mode, result, isSolving, isPlaying, playbackInde
   </div>
 }
 
-function ResultList({ title, items, empty, onLoad, pushLabel }: { title: string; items: PackLevel[]; empty: string; onLoad: (entry: PackLevel) => void; pushLabel: string }) {
-  return <section className="result-list"><div className="list-header"><h3>{title}</h3><span>{items.length}</span></div>{items.length === 0 ? <p className="empty-state">{empty}</p> : items.map((item, index) => <button key={item.id} className="result-row" onClick={() => onLoad(item)}><span className="rank">{String(index + 1).padStart(2, '0')}</span><span className="mini-map"><b>{item.name}</b><small>{item.xsb.split('\n').map((row) => row.replace(/ /g, '·')).join(' / ')}</small></span><span className="result-score"><b>{item.difficulty.score.toFixed(1)}</b><small>{item.difficulty.pushes} {pushLabel}</small></span></button>)}</section>
+function ResultList({ title, items, empty, completedIds, t, onLoad, pushLabel }: { title: string; items: PackLevel[]; empty: string; completedIds: Set<string>; t: Translations; onLoad: (entry: PackLevel) => void; pushLabel: string }) {
+  return <section className="result-list"><div className="list-header"><h3>{title}</h3><span>{items.length}</span></div>{items.length === 0 ? <p className="empty-state">{empty}</p> : items.map((item, index) => <button key={item.id} className={`result-row ${completedIds.has(item.id) ? 'completed' : ''}`} onClick={() => onLoad(item)}><span className="rank">{String(index + 1).padStart(2, '0')}</span><span className="mini-map"><b>{item.name}</b><small>{item.xsb.split('\n').map((row) => row.replace(/ /g, '·')).join(' / ')}</small></span><span className="result-score"><b>{item.difficulty.score.toFixed(1)}</b><small>{item.difficulty.pushes} {pushLabel}</small>{completedIds.has(item.id) && <Check className="result-complete" size={15} aria-label={t.completed} />}</span></button>)}</section>
 }
