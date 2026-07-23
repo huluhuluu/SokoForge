@@ -1,6 +1,30 @@
 /* @ts-self-types="./sokoforge_wasm.d.ts" */
 
 /**
+ * @param {string} xsb
+ * @param {string} tier
+ * @param {bigint} time_limit_ms
+ * @param {number} node_limit
+ * @returns {string}
+ */
+export function analyze_xsb(xsb, tier, time_limit_ms, node_limit) {
+    let deferred3_0;
+    let deferred3_1;
+    try {
+        const ptr0 = passStringToWasm0(xsb, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ptr1 = passStringToWasm0(tier, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        const ret = wasm.analyze_xsb(ptr0, len0, ptr1, len1, time_limit_ms, node_limit);
+        deferred3_0 = ret[0];
+        deferred3_1 = ret[1];
+        return getStringFromWasm0(ret[0], ret[1]);
+    } finally {
+        wasm.__wbindgen_free(deferred3_0, deferred3_1, 1);
+    }
+}
+
+/**
  * @param {number} width
  * @param {number} height
  * @param {number} boxes

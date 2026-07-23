@@ -1,6 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
+export function analyze_xsb(xsb: string, tier: string, time_limit_ms: bigint, node_limit: number): string;
+
 export function generate_xsb(width: number, height: number, boxes: number, seed: bigint): string;
 
 export function solve_xsb(xsb: string, mode: string, time_limit_ms: bigint, node_limit: number): string;
@@ -9,12 +11,13 @@ export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembl
 
 export interface InitOutput {
     readonly memory: WebAssembly.Memory;
+    readonly analyze_xsb: (a: number, b: number, c: number, d: number, e: bigint, f: number) => [number, number];
     readonly generate_xsb: (a: number, b: number, c: number, d: bigint) => [number, number];
     readonly solve_xsb: (a: number, b: number, c: number, d: number, e: bigint, f: number) => [number, number];
     readonly __wbindgen_externrefs: WebAssembly.Table;
-    readonly __wbindgen_free: (a: number, b: number, c: number) => void;
     readonly __wbindgen_malloc: (a: number, b: number) => number;
     readonly __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
+    readonly __wbindgen_free: (a: number, b: number, c: number) => void;
     readonly __wbindgen_start: () => void;
 }
 

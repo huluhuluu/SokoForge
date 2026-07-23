@@ -66,6 +66,56 @@ test('imports and downloads a generated level pack', async ({ page }) => {
   expect((await download).suggestedFilename()).toMatch(/^sokoforge-pack-.*\.json$/)
 })
 
+test('isolates custom progress when an imported ID matches a published level', async ({ page }, testInfo) => {
+  const pack = {
+    schemaVersion: 1,
+    kind: 'sokoforge-level-pack',
+    levels: [{
+      id: 'first-push',
+      name: 'Collision Test',
+      xsb: '#####\n#@$.#\n#####',
+      difficulty: { score: 1, pushes: 1, moves: 1, dependency: 0, trap: 0, away_pushes: 0, box_switches: 0 },
+    }],
+  }
+  await page.goto('/')
+  await page.locator('input[type="file"]').setInputFiles({ name: 'collision.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(pack)) })
+  await page.getByRole('button', { name: /Collision Test/ }).click()
+  await expect(page.getByRole('heading', { name: 'Collision Test' })).toBeVisible()
+  await page.getByRole('button', { name: /Move right|向右移动/ }).click()
+  await expect(page.locator('.completion-banner')).toBeVisible()
+  await expect.poll(() => page.evaluate(() => Object.keys(JSON.parse(localStorage.getItem('sokoforge-completions') ?? '{}')))).toEqual([expect.stringMatching(/^custom:first-push:/)])
+  if (testInfo.project.name === 'desktop') await expect(page.locator('.level-list button').first()).not.toHaveClass(/completed/)
+})
+
+test('shows unsolved results separately from invalid levels', async ({ page }) => {
+  const pack = {
+    schemaVersion: 1,
+    kind: 'sokoforge-level-pack',
+    levels: [{
+      id: 'dead-square',
+      name: 'Dead Square',
+      xsb: '#####\n#$@ #\n#   #\n# . #\n#####',
+      difficulty: { score: 0, pushes: 0, moves: 0, dependency: 0, trap: 0, away_pushes: 0, box_switches: 0 },
+    }],
+  }
+  await page.goto('/')
+  await page.locator('input[type="file"]').setInputFiles({ name: 'dead-square.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(pack)) })
+  await page.getByRole('button', { name: /Dead Square/ }).click()
+  await page.locator('.primary-action').first().click()
+  await expect(page.getByText(/No solution|无解/)).toBeVisible()
+})
+
+test('deduplicates repeated local saves', async ({ page }) => {
+  await page.goto('/')
+  await expect.poll(() => page.locator('.level-list button').count()).toBe(216)
+  const save = page.getByRole('button', { name: /Save locally|保存到本地/ })
+  await save.click()
+  await save.click()
+  await page.getByRole('button', { name: /Library|关卡库/ }).click()
+  const localLevels = page.getByRole('heading', { name: /My levels|我的关卡/ }).locator('../..')
+  await expect(localLevels.locator('.result-row')).toHaveCount(1)
+})
+
 test('offers simple, medium, and hard generation tiers', async ({ page }, testInfo) => {
   await page.goto('/')
   await page.getByRole('button', { name: /^(Forge|生成)$/ }).click()
@@ -83,11 +133,14 @@ test('offers simple, medium, and hard generation tiers', async ({ page }, testIn
   await page.screenshot({ path: testInfo.outputPath('generation-tiers.png'), fullPage: true })
 })
 
-test('generates hard candidates with the default forge geometry', async ({ page }) => {
+test('runs one certified generation task at a time', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: /^(Forge|生成)$/ }).click()
-  await page.locator('.primary-action').click()
-  await expect.poll(() => page.locator('.result-row').count(), { timeout: 30_000 }).toBeGreaterThan(0)
+  const generate = page.locator('.primary-action')
+  await generate.click()
+  await expect(generate).toBeDisabled()
+  await expect.poll(async () => Number((await page.locator('.panel-title b').textContent())?.replace('%', '')), { timeout: 30_000 }).toBeGreaterThan(0)
+  await page.locator('.workspace-switch button').nth(1).click()
 })
 
 test('supports undo and restart shortcuts', async ({ page }) => {

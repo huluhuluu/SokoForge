@@ -4,8 +4,8 @@ use rand::SeedableRng;
 use rayon::prelude::*;
 use serde::Serialize;
 use sokoforge_core::{
-    Board, DifficultyMode, SolveMode, SolveOptions, generate_candidate, mutate_geometry,
-    score_result,
+    Board, DifficultyMode, GenerationTier, SolveMode, SolveOptions, generate_candidate,
+    mutate_geometry, score_result, tier_accepts,
 };
 use std::fs;
 
@@ -70,26 +70,12 @@ enum TierArg {
     Hard,
 }
 
-fn tier_accepts(tier: TierArg, metrics: &sokoforge_core::DifficultyMetrics, strict: bool) -> bool {
-    match tier {
-        TierArg::Simple => metrics.pushes <= 10,
-        TierArg::Medium => (8..=18).contains(&metrics.pushes),
-        TierArg::Hard => {
-            let deep_trap = metrics.delayed_lures >= 2
-                || metrics.reopened_goals > 0
-                || metrics.tunnel_commitments >= 2
-                || metrics.false_goal_lures > 0
-                || metrics.deadlock_lures > 0;
-            let ordering_trap =
-                metrics.away_pushes >= 2 || metrics.box_revisits >= 2 || metrics.role_swaps > 0;
-            if strict {
-                metrics.pushes >= 16 && deep_trap && ordering_trap
-            } else {
-                metrics.pushes >= 14
-                    && (metrics.away_pushes >= 2
-                        || metrics.box_switches >= 4
-                        || metrics.dependency >= 35.0)
-            }
+impl From<TierArg> for GenerationTier {
+    fn from(tier: TierArg) -> Self {
+        match tier {
+            TierArg::Simple => Self::Simple,
+            TierArg::Medium => Self::Medium,
+            TierArg::Hard => Self::Hard,
         }
     }
 }
@@ -238,7 +224,7 @@ fn main() -> Result<()> {
                         return None;
                     }
                     let difficulty = score_result(&result, &board, mode_core);
-                    if !tier_accepts(tier, &difficulty, false) {
+                    if !tier_accepts(tier.into(), &difficulty, false) {
                         return None;
                     }
                     Some(Level {
@@ -301,7 +287,7 @@ fn main() -> Result<()> {
                         return None;
                     }
                     let difficulty = score_result(&result, &board, mode_core);
-                    if !tier_accepts(tier, &difficulty, true) {
+                    if !tier_accepts(tier.into(), &difficulty, true) {
                         return None;
                     }
                     Some(Level {
@@ -340,11 +326,11 @@ mod tests {
             away_pushes: 3,
             ..Default::default()
         };
-        assert!(!tier_accepts(TierArg::Hard, &metrics, true));
+        assert!(!tier_accepts(TierArg::Hard.into(), &metrics, true));
         metrics.box_revisits = 2;
-        assert!(!tier_accepts(TierArg::Hard, &metrics, true));
+        assert!(!tier_accepts(TierArg::Hard.into(), &metrics, true));
         metrics.deadlock_lures = 1;
-        assert!(tier_accepts(TierArg::Hard, &metrics, true));
+        assert!(tier_accepts(TierArg::Hard.into(), &metrics, true));
     }
 
     #[test]
@@ -353,10 +339,10 @@ mod tests {
             pushes: 7,
             ..Default::default()
         };
-        assert!(tier_accepts(TierArg::Simple, &metrics, true));
-        assert!(!tier_accepts(TierArg::Medium, &metrics, true));
+        assert!(tier_accepts(TierArg::Simple.into(), &metrics, true));
+        assert!(!tier_accepts(TierArg::Medium.into(), &metrics, true));
         metrics.pushes = 12;
-        assert!(tier_accepts(TierArg::Medium, &metrics, true));
-        assert!(!tier_accepts(TierArg::Simple, &metrics, true));
+        assert!(tier_accepts(TierArg::Medium.into(), &metrics, true));
+        assert!(!tier_accepts(TierArg::Simple.into(), &metrics, true));
     }
 }

@@ -122,6 +122,13 @@ pub enum DifficultyMode {
     Composite,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum GenerationTier {
+    Simple,
+    Medium,
+    Hard,
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct DifficultyMetrics {
     pub score: f64,
@@ -150,6 +157,30 @@ pub struct DifficultyMetrics {
     pub deadlock_lures: usize,
     #[serde(default)]
     pub novelty: f64,
+}
+
+pub fn tier_accepts(tier: GenerationTier, metrics: &DifficultyMetrics, strict: bool) -> bool {
+    match tier {
+        GenerationTier::Simple => metrics.pushes <= 10,
+        GenerationTier::Medium => (8..=18).contains(&metrics.pushes),
+        GenerationTier::Hard => {
+            let deep_trap = metrics.delayed_lures >= 2
+                || metrics.reopened_goals > 0
+                || metrics.tunnel_commitments >= 2
+                || metrics.false_goal_lures > 0
+                || metrics.deadlock_lures > 0;
+            let ordering_trap =
+                metrics.away_pushes >= 2 || metrics.box_revisits >= 2 || metrics.role_swaps > 0;
+            if strict {
+                metrics.pushes >= 16 && deep_trap && ordering_trap
+            } else {
+                metrics.pushes >= 14
+                    && (metrics.away_pushes >= 2
+                        || metrics.box_switches >= 4
+                        || metrics.dependency >= 35.0)
+            }
+        }
+    }
 }
 
 impl Board {
@@ -197,7 +228,9 @@ impl Board {
                     '+' => {
                         tiles[i] = Tile::Goal;
                         goals += 1;
-                        player = Some(i);
+                        if player.replace(i).is_some() {
+                            return Err(LevelError::MultiplePlayers);
+                        }
                     }
                     _ => return Err(LevelError::InvalidCharacter(*c)),
                 }
@@ -1310,6 +1343,13 @@ mod tests {
         assert!(matches!(
             Board::parse_xsb("###\n#@#\n###"),
             Err(LevelError::NoGoals)
+        ));
+    }
+    #[test]
+    fn rejects_multiple_players_on_goals() {
+        assert!(matches!(
+            Board::parse_xsb("#####\n#+ +#\n# $$#\n# ..#\n#####"),
+            Err(LevelError::MultiplePlayers)
         ));
     }
     #[test]

@@ -29,4 +29,10 @@ describe('level pack files', () => {
     const merged = mergeLevelLists([level, other], [])
     expect(new Set(merged.map((item) => item.id)).size).toBe(2)
   })
+
+  it('rejects incomplete difficulty data and invalid embedded solutions', () => {
+    const incomplete = { schemaVersion: 1, kind: 'sokoforge-level-pack', levels: [{ ...level, difficulty: { pushes: 1 } }] }
+    expect(() => parseLevelPack(JSON.stringify(incomplete))).toThrow()
+    expect(() => parseLevelPack(JSON.stringify(createLevelPack([{ ...level, solution: 'L' }])))).toThrow()
+  })
 })

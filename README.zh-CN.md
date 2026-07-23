@@ -107,4 +107,4 @@ npm --workspace web run test
 npm run build
 ```
 
-将 GitHub 仓库导入 Vercel 后，把 **Root Directory** 设置为 `web`。Vercel 会从 `web/package.json` 自动识别 Vite，执行 `npm run build` 并托管 `dist`；不需要覆盖构建命令，也不需要环境变量。`web/vercel.json` 只保留单页应用路由回退。已验证的 WASM 产物位于 `web/public/wasm`，因此 Vercel 不需要预装 Rust 或 wasm-pack。
+将 GitHub 仓库导入 Vercel 后，把 **Root Directory** 设置为 `web`。Vercel 会从 `web/package.json` 自动识别 Vite，执行 `npm run build` 并托管 `dist`；不需要覆盖构建命令、环境变量或 `vercel.json`。已验证的 WASM 产物位于 `web/public/wasm`，因此 Vercel 不需要预装 Rust 或 wasm-pack；CI 会重新构建并拒绝源码与产物不一致的提交。

@@ -34,6 +34,12 @@ export interface DifficultyMetrics {
   novelty?: number
 }
 
+export interface CandidateAnalysis {
+  result: SolveResult
+  difficulty: DifficultyMetrics
+  accepted: boolean
+}
+
 export interface PackLevel {
   id: string
   name: string

@@ -112,4 +112,4 @@ GitHub Actions runs formatting, Clippy, Rust tests, TypeScript checks, browser-u
 
 ## Deployment
 
-Import the GitHub repository into Vercel and set **Root Directory** to `web`. Vercel then detects Vite from `web/package.json`, runs `npm run build`, and serves `dist`; no build override or environment variables are required. `web/vercel.json` supplies the single-page-app fallback. A reviewed WASM artifact is tracked under `web/public/wasm`, so Vercel does not need Rust or wasm-pack.
+Import the GitHub repository into Vercel and set **Root Directory** to `web`. Vercel detects Vite from `web/package.json`, runs `npm run build`, and serves `dist`; no build override, environment variables, or `vercel.json` are required. A reviewed WASM artifact is tracked under `web/public/wasm`, so Vercel does not need Rust or wasm-pack. CI rebuilds that artifact and rejects source/artifact drift.
